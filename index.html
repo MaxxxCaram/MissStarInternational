@@ -4,25 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Miss Star International - Language Selection</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/language-effects.css">
     <style>
         body {
+            background: #000;
             margin: 0;
-            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background-color: #000;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .language-container {
+            text-align: center;
+        }
+
+        .logo {
+            width: 200px;
+            height: auto;
+            margin-bottom: 40px;
         }
 
         #language-selector {
-            text-align: center;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            opacity: 1;
             transition: opacity 0.5s ease-out;
         }
 
+        #language-selector.hidden {
+            opacity: 0;
+        }
+
         .flag-link {
-            display: inline-block;
-            margin: 10px;
+            cursor: pointer;
             transition: transform 0.3s ease;
         }
 
@@ -31,42 +49,46 @@
         }
 
         .flag-link img {
-            width: 100px;
+            width: 80px;
             height: auto;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(255,255,255,0.3);
-        }
-
-        #language-selector.hidden {
-            opacity: 0;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
         }
     </style>
 </head>
 <body>
-    <div id="language-selector">
-        <a href="en/" class="flag-link">
-            <img src="assets/images/flags/us.svg" alt="English">
-        </a>
-        <a href="es/" class="flag-link">
-            <img src="assets/images/flags/es.svg" alt="Español">
-        </a>
-        <a href="fr/" class="flag-link">
-            <img src="assets/images/flags/fr.svg" alt="Français">
-        </a>
-        <a href="pt/" class="flag-link">
-            <img src="assets/images/flags/pt.svg" alt="Português">
-        </a>
+    <div class="language-container">
+        <img src="assets/images/logo/logo-main.png" alt="Miss Star International" class="logo">
+        
+        <div id="language-selector">
+            <a href="en/" class="flag-link">
+                <img src="assets/images/flags/us.svg" alt="English">
+            </a>
+            <a href="es/" class="flag-link">
+                <img src="assets/images/flags/es.svg" alt="Español">
+            </a>
+            <a href="fr/" class="flag-link">
+                <img src="assets/images/flags/fr.svg" alt="Français">
+            </a>
+            <a href="pt/" class="flag-link">
+                <img src="assets/images/flags/pt.svg" alt="Português">
+            </a>
+        </div>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const languageSelector = document.getElementById('language-selector');
             
+            // Detectar el idioma del navegador
+            const userLang = navigator.language || navigator.userLanguage;
+            
+            // Añadir evento click a todos los enlaces de banderas
             document.querySelectorAll('.flag-link').forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     
-                    // Añadir clase para ocultar con fade
+                    // Ocultar el selector con fade out
                     languageSelector.classList.add('hidden');
                     
                     // Redirigir después de la animación
