@@ -1132,33 +1132,26 @@ footer {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
-    background: rgba(0,0,0,0.3);
-    backdrop-filter: blur(10px);
+    z-index: 1000;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(5px);
 }
 
-.nav-logo {
-    height: 60px;
+.nav .logo-3d {
+    position: absolute;
+    bottom: -30px;
+    left: 20px;
+    transform: scale(0.8);
+    z-index: 1001;
+}
+
+.nav .logo-3d img {
+    width: 180px;
+    height: auto;
 }
 
 .nav-links {
-    display: flex;
-    gap: 2rem;
-}
-
-.nav-links a {
-    color: var(--white);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: var(--gold);
+    margin-left: 200px;
 }
 
 /* Hero Section */
