@@ -1185,7 +1185,38 @@ footer {
 }
 
 .hero-credentials {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: rgba(0,0,0,0.5);
+    border: 1px solid var(--gold);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-credentials p {
+    margin: 1rem 0;
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    text-align: center;
+    letter-spacing: 3px;
+}
+
+.hero-credentials p:first-child {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.hero-credentials p:nth-child(2) {
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+
+.hero-credentials p:last-child {
     font-size: 0.9rem;
+    margin-top: 1.5rem;
     opacity: 0.8;
 }
 
