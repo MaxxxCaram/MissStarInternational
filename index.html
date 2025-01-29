@@ -3,56 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Miss Star International - Loading...</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/language-effects.css">
+    <title>Miss Star International - Language Selection</title>
     <style>
         body {
-            background: #000;
             margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            font-family: 'Inter', sans-serif;
+            background-color: #000;
         }
-        .loader {
+
+        #language-selector {
             text-align: center;
-            color: #D4AF37;
+            transition: opacity 0.5s ease-out;
         }
-        .loader img {
-            width: 200px;
+
+        .flag-link {
+            display: inline-block;
+            margin: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .flag-link:hover {
+            transform: scale(1.1);
+        }
+
+        .flag-link img {
+            width: 100px;
             height: auto;
-            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255,255,255,0.3);
+        }
+
+        #language-selector.hidden {
+            opacity: 0;
         }
     </style>
 </head>
 <body>
-    <div class="loader">
-        <img src="assets/images/logo/logo-main.png" alt="Miss Star International">
-        <div id="languageDetection">Detecting your language...</div>
+    <div id="language-selector">
+        <a href="en/" class="flag-link">
+            <img src="assets/images/flags/us.svg" alt="English">
+        </a>
+        <a href="es/" class="flag-link">
+            <img src="assets/images/flags/es.svg" alt="Español">
+        </a>
+        <a href="fr/" class="flag-link">
+            <img src="assets/images/flags/fr.svg" alt="Français">
+        </a>
+        <a href="pt/" class="flag-link">
+            <img src="assets/images/flags/pt.svg" alt="Português">
+        </a>
     </div>
 
-    <script src="assets/js/language-selector.js"></script>
     <script>
-        // Detectar el idioma del navegador
-        const userLang = navigator.language || navigator.userLanguage;
-        
-        // Función para redirigir según el idioma
-        function redirectToLanguage() {
-            if (userLang.startsWith('es')) {
-                window.location.href = '/es/';
-            } else if (userLang.startsWith('pt')) {
-                window.location.href = '/pt/';
-            } else if (userLang.startsWith('fr')) {
-                window.location.href = '/fr/';
-            } else {
-                window.location.href = '/en/';
-            }
-        }
-
-        // Redirigir después de un breve delay para mostrar la animación
-        setTimeout(redirectToLanguage, 1500);
+        document.addEventListener('DOMContentLoaded', function() {
+            const languageSelector = document.getElementById('language-selector');
+            
+            document.querySelectorAll('.flag-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Añadir clase para ocultar con fade
+                    languageSelector.classList.add('hidden');
+                    
+                    // Redirigir después de la animación
+                    setTimeout(() => {
+                        window.location.href = this.href;
+                    }, 500);
+                });
+            });
+        });
     </script>
 </body>
 </html> 
