@@ -1139,21 +1139,23 @@ footer {
 
 .nav .logo-3d {
     position: absolute;
-    bottom: -80px;
-    left: 50px;
+    top: 10px;
+    right: 20px;
+    left: auto;
     transform: scale(1.2);
     z-index: 1001;
 }
 
 .nav .logo-3d img {
-    width: 220px;
+    width: 200px;
     height: auto;
-    filter: drop-shadow(0 0 20px rgba(0,0,0,0.5));
+    filter: drop-shadow(0 0 20px rgba(0,0,0,0.8));
 }
 
 .nav-links {
-    margin-left: 300px;
-    padding-top: 20px;
+    margin-right: 220px;
+    margin-left: 50px;
+    padding-top: 10px;
 }
 
 /* Hero Section */
