@@ -3,100 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Miss Star International - Belleza con Propósito</title>
-    <link rel="alternate" hreflang="en" href="/en/index.html">
-    <link rel="alternate" hreflang="pt" href="/pt/index.html">
-    <link rel="alternate" hreflang="es" href="/es/index.html">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Miss Star International - Una Nueva Dinastía</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/logo-effects.css">
 </head>
 <body>
-    <header>
-        <div class="language-selector">
-            <select id="languageSelect" onchange="changeLanguage()">
-                <option value="es" selected>Español</option>
-                <option value="en">English</option>
-                <option value="pt">Português</option>
-            </select>
+    <div class="video-container">
+        <video autoplay muted loop playsinline id="bgVideo">
+            <source src="../assets/videos/hero-video.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <nav class="nav">
+        <div class="logo-3d nav-logo">
+            <img src="../assets/images/logo/logo-main.png" alt="Miss Star International Dynasty Logo">
         </div>
-        <nav class="nav-main">
-            <div class="nav-brand">
-                <a href="/es/">
-                   <img src="../assets/images/logo.png" alt="Logo Miss Star International">
-                </a>
+        <div class="nav-links">
+            <a href="#competencia">La Competencia</a>
+            <a href="#candidatas">Candidatas</a>
+            <a href="#noticias">Noticias</a>
+            <a href="#historia">Historia</a>
+            <a href="#contacto">Contacto</a>
+            <div class="language-selector">
+                <button class="current-lang">
+                    <img src="../assets/images/flags/es.svg" alt="Español">
+                    ES
+                </button>
+                <div class="lang-dropdown">
+                    <a href="../en" class="lang-option">
+                        <img src="../assets/images/flags/us.svg" alt="English">
+                        EN
+                    </a>
+                    <a href="../pt" class="lang-option">
+                        <img src="../assets/images/flags/pt.svg" alt="Português">
+                        PT
+                    </a>
+                    <a href="../fr" class="lang-option">
+                        <img src="../assets/images/flags/fr.svg" alt="Français">
+                        FR
+                    </a>
+                </div>
             </div>
-            <ul class="nav-links">
-                <li><a href="/es/competencia">La Competencia</a></li>
-                <li><a href="/es/candidatas">Candidatas</a></li>
-                <li><a href="/es/noticias">Noticias</a></li>
-                <li><a href="/es/historia">Historia</a></li>
-                <li><a href="/es/contacto">Contacto</a></li>
-            </ul>
-            <button class="nav-toggle">
-                <span class="hamburger"></span>
-            </button>
-        </nav>
-    </header>
-    <!-- Resto del contenido en español -->
-    <section>
-        <h2>B. ELEMENTOS VISUALES</h2>
-        <h3>1. Diseño Principal</h3>
-        <p>Estética:
-        - Dorado sobre negro
-        - Animaciones sutiles
-        - Tipografía real
-        Elementos:
-        * Corona signature
-        * Patrones dinásticos
-        * Efectos parallax</p>
-        <h3>2. Multimedia</h3>
-        <p>Contenido:
-        - Videos cinematográficos
-        - Fotografía editorial
-        - Behind-the-scenes
-        Calidad:
-        * 4K/8K ready
-        * Mobile optimized
-        * AR ready</p>
-        <h3>3. Interactividad</h3>
-        <p>Features:
-        - 3D crown explorer
-        - Virtual try-on
-        - Dynasty portal
-        Tecnología:
-        * WebGL
-        * AR filters
-        * Live interaction</p>
-    </section>
-    <section>
-        <h2>C. ESTRATEGIA DE CONTENIDO</h2>
-        <h3>1. Dynasty Stories</h3>
-        <p>Secciones:
-        - Queen's Journey
-        - Transformation Stories
-        - Legacy Building
-        Formato:
-        * Video documentales
-        * Photo essays
-        * Personal blogs</p>
-        <h3>2. Dynasty Experience</h3>
-        <p>Elementos:
-        - The Palace (venue)
-        - Royal Training
-        - Global Stages
-        Features:
-        * Virtual tours
-        * Live streams
-        * Interactive maps</p>
-        <h3>3. Dynasty Benefits</h3>
-        <p>Oportunidades:
-        - International exposure
-        - Career development
-        - Global platform
-        Destacar:
-        * Prize package
-        * Contracts
-        * Partnerships</p>
-    </section>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Miss Star International</h1>
+                <p class="hero-tagline">Una Nueva Dinastía Comienza</p>
+                <div class="hero-credentials">
+                    <p>Operado por Miss Star International LLC</p>
+                    <p>Marca Internacional № 4.238.776</p>
+                    <p>Todos los Derechos Reservados © 2024</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secciones con el mismo diseño que la versión en inglés -->
+        <section id="competencia" class="section competition-section">
+            <!-- Mismo diseño que "Competition" -->
+        </section>
+
+        <section id="candidatas" class="section candidates-section">
+            <!-- Mismo diseño que "Candidates" -->
+        </section>
+
+        <section id="noticias" class="section news-section">
+            <!-- Mismo diseño que "News" -->
+        </section>
+
+        <section id="historia" class="section history-section">
+            <!-- Mismo diseño que "History" -->
+        </section>
+
+        <section id="contacto" class="section contact-section">
+            <!-- Mismo diseño que "Contact" -->
+        </section>
+    </main>
+
+    <footer class="footer">
+        <!-- Footer con el mismo diseño -->
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/logo-effects.js"></script>
 </body>
 </html> 
