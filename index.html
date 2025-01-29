@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Miss Star International - Language Selection</title>
     <style>
-        body {
+        body, html {
             margin: 0;
             padding: 0;
+            width: 100%;
+            height: 100%;
             background: #000;
             font-family: Arial, sans-serif;
+            overflow: hidden; /* Prevenir scroll */
         }
 
         .main-content {
@@ -21,6 +25,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            z-index: 1;
         }
 
         .logo {
@@ -28,24 +33,26 @@
             height: auto;
         }
 
-        .language-selection {
+        #languageOverlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.95);
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 2rem;
-            z-index: 1000;
-            transition: opacity 0.5s ease;
+            z-index: 2;
+            opacity: 1;
+            visibility: visible;
+            transition: all 0.5s ease;
         }
 
-        .language-selection.hidden {
+        #languageOverlay.fade-out {
             opacity: 0;
-            pointer-events: none;
+            visibility: hidden;
         }
 
         .language-link img {
@@ -62,48 +69,34 @@
     </style>
 </head>
 <body>
-    <!-- Contenido principal -->
     <div class="main-content">
         <img src="assets/images/logo/logo-main.png" alt="Miss Star International" class="logo">
     </div>
 
-    <!-- Selector de idioma -->
-    <div class="language-selection">
-        <a href="/en/" class="language-link">
+    <div id="languageOverlay">
+        <a href="/en/" class="language-link" onclick="handleLanguageSelect(event, '/en/')">
             <img src="assets/images/flags/en.png" alt="English">
         </a>
-        <a href="/es/" class="language-link">
+        <a href="/es/" class="language-link" onclick="handleLanguageSelect(event, '/es/')">
             <img src="assets/images/flags/es.png" alt="Español">
         </a>
-        <a href="/fr/" class="language-link">
+        <a href="/fr/" class="language-link" onclick="handleLanguageSelect(event, '/fr/')">
             <img src="assets/images/flags/fr.png" alt="Français">
         </a>
-        <a href="/pt/" class="language-link">
+        <a href="/pt/" class="language-link" onclick="handleLanguageSelect(event, '/pt/')">
             <img src="assets/images/flags/pt.png" alt="Português">
         </a>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const languageSelection = document.querySelector('.language-selection');
-            
-            if (languageSelection) {
-                document.querySelectorAll('.language-link').forEach(link => {
-                    link.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        const href = this.getAttribute('href');
-                        
-                        // Ocultar el selector de idioma
-                        languageSelection.classList.add('hidden');
-                        
-                        // Redirigir después de la animación
-                        setTimeout(() => {
-                            window.location.href = href;
-                        }, 500);
-                    });
-                });
-            }
-        });
+        function handleLanguageSelect(event, path) {
+            event.preventDefault();
+            const overlay = document.getElementById('languageOverlay');
+            overlay.classList.add('fade-out');
+            setTimeout(() => {
+                window.location.href = path;
+            }, 500);
+        }
     </script>
 </body>
 </html> 
