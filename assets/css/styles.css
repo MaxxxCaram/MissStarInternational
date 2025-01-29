@@ -1076,10 +1076,10 @@ footer {
     width: 100%;
     height: 100%;
     z-index: -1;
+    overflow: hidden;
 }
 
 #bgVideo {
-    position: absolute;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -1132,26 +1132,28 @@ footer {
     top: 0;
     left: 0;
     width: 100%;
+    padding: 1rem;
     z-index: 1000;
-    background: rgba(0,0,0,0.7);
-    backdrop-filter: blur(5px);
+    background: rgba(0,0,0,0.8);
 }
 
 .nav .logo-3d {
     position: absolute;
-    bottom: -30px;
-    left: 20px;
-    transform: scale(0.8);
+    bottom: -80px;
+    left: 50px;
+    transform: scale(1.2);
     z-index: 1001;
 }
 
 .nav .logo-3d img {
-    width: 180px;
+    width: 220px;
     height: auto;
+    filter: drop-shadow(0 0 20px rgba(0,0,0,0.5));
 }
 
 .nav-links {
-    margin-left: 200px;
+    margin-left: 300px;
+    padding-top: 20px;
 }
 
 /* Hero Section */
