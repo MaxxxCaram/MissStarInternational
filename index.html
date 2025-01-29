@@ -2,10 +2,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0;url=en/index.html">
-    <title>Redirecting...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miss Star International - Loading...</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/language-effects.css">
+    <style>
+        body {
+            background: #000;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+        }
+        .loader {
+            text-align: center;
+            color: #D4AF37;
+        }
+        .loader img {
+            width: 200px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
-    <p>Redirecting to your language...</p>
+    <div class="loader">
+        <img src="assets/images/logo/logo-main.png" alt="Miss Star International">
+        <div id="languageDetection">Detecting your language...</div>
+    </div>
+
+    <script src="assets/js/language-selector.js"></script>
+    <script>
+        // Detectar el idioma del navegador
+        const userLang = navigator.language || navigator.userLanguage;
+        
+        // Función para redirigir según el idioma
+        function redirectToLanguage() {
+            if (userLang.startsWith('es')) {
+                window.location.href = '/es/';
+            } else if (userLang.startsWith('pt')) {
+                window.location.href = '/pt/';
+            } else if (userLang.startsWith('fr')) {
+                window.location.href = '/fr/';
+            } else {
+                window.location.href = '/en/';
+            }
+        }
+
+        // Redirigir después de un breve delay para mostrar la animación
+        setTimeout(redirectToLanguage, 1500);
+    </script>
 </body>
 </html> 
