@@ -3,40 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Miss Star International - Beauty with Purpose</title>
-    <link rel="alternate" hreflang="en" href="/en/index.html">
-    <link rel="alternate" hreflang="pt" href="/pt/index.html">
-    <link rel="alternate" hreflang="es" href="/es/index.html">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Miss Star International - A New Dynasty</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/logo-effects.css">
 </head>
 <body>
-    <header>
-        <div class="language-selector">
-            <select id="languageSelect" onchange="changeLanguage()">
-                <option value="es">Español</option>
-                <option value="en" selected>English</option>
-                <option value="pt">Português</option>
-            </select>
+    <div class="video-container">
+        <video autoplay muted loop playsinline id="bgVideo">
+            <source src="../assets/videos/hero-video.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <nav class="nav">
+        <div class="logo-3d nav-logo">
+            <img src="../assets/images/logo/logo-main.png" alt="Miss Star International Dynasty Logo">
         </div>
-        <nav class="nav-main">
-            <div class="nav-brand">
-                <a href="/en/">
-                   <img src="../assets/images/logo.png" alt="Miss Star International Logo">
-                </a>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#vision">Vision</a>
+            <a href="#consortium">Consortium</a>
+            <a href="#reality">Reality Show</a>
+            <a href="#impact">Impact</a>
+            <a href="#contact">Contact</a>
+            <div class="language-selector">
+                <button class="current-lang">
+                    <img src="../assets/images/flags/us.svg" alt="English">
+                    EN
+                </button>
+                <div class="lang-dropdown">
+                    <a href="../es" class="lang-option">
+                        <img src="../assets/images/flags/es.svg" alt="Español">
+                        ES
+                    </a>
+                    <a href="../pt" class="lang-option">
+                        <img src="../assets/images/flags/pt.svg" alt="Português">
+                        PT
+                    </a>
+                    <a href="../fr" class="lang-option">
+                        <img src="../assets/images/flags/fr.svg" alt="Français">
+                        FR
+                    </a>
+                </div>
             </div>
-            <ul class="nav-links">
-                <li><a href="/en/competition">The Competition</a></li>
-                <li><a href="/en/contestants">Contestants</a></li>
-                <li><a href="/en/news">News</a></li>
-                <li><a href="/en/history">History</a></li>
-                <li><a href="/en/contact">Contact</a></li>
-            </ul>
-            <button class="nav-toggle">
-                <span class="hamburger"></span>
-            </button>
-        </nav>
-    </header>
-    <!-- Rest of content in English -->
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Miss Star International</h1>
+                <p class="hero-tagline">A New Dynasty Begins</p>
+                <div class="hero-credentials">
+                    <p>Operated by Miss Star International LLC</p>
+                    <p>International Trademark № 4.238.776</p>
+                    <p>All Rights Reserved © 2024</p>
+                </div>
+            </div>
+        </section>
+        <!-- ... rest of the content ... -->
+    </main>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/logo-effects.js"></script>
 </body>
 </html> 
