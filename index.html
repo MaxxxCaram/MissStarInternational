@@ -4,99 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Miss Star International - Language Selection</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/language-effects.css">
     <style>
         body {
-            background: #000;
             margin: 0;
+            padding: 0;
+            background: #000;
+            font-family: Arial, sans-serif;
+        }
+
+        .main-content {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .language-container {
-            text-align: center;
         }
 
         .logo {
-            width: 200px;
+            max-width: 200px;
             height: auto;
-            margin-bottom: 40px;
         }
 
-        #language-selector {
+        .language-selection {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
             display: flex;
-            gap: 20px;
             justify-content: center;
-            opacity: 1;
-            transition: opacity 0.5s ease-out;
+            align-items: center;
+            gap: 2rem;
+            z-index: 1000;
+            transition: opacity 0.5s ease;
         }
 
-        #language-selector.hidden {
+        .language-selection.hidden {
             opacity: 0;
+            pointer-events: none;
         }
 
-        .flag-link {
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .flag-link:hover {
-            transform: scale(1.1);
-        }
-
-        .flag-link img {
-            width: 80px;
+        .language-link img {
+            width: 100px;
             height: auto;
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+
+        .language-link:hover img {
+            transform: scale(1.1);
         }
     </style>
 </head>
 <body>
-    <div class="language-container">
+    <!-- Contenido principal -->
+    <div class="main-content">
         <img src="assets/images/logo/logo-main.png" alt="Miss Star International" class="logo">
-        
-        <div id="language-selector">
-            <a href="en/" class="flag-link">
-                <img src="assets/images/flags/us.svg" alt="English">
-            </a>
-            <a href="es/" class="flag-link">
-                <img src="assets/images/flags/es.svg" alt="Español">
-            </a>
-            <a href="fr/" class="flag-link">
-                <img src="assets/images/flags/fr.svg" alt="Français">
-            </a>
-            <a href="pt/" class="flag-link">
-                <img src="assets/images/flags/pt.svg" alt="Português">
-            </a>
-        </div>
+    </div>
+
+    <!-- Selector de idioma -->
+    <div class="language-selection">
+        <a href="/en/" class="language-link">
+            <img src="assets/images/flags/en.png" alt="English">
+        </a>
+        <a href="/es/" class="language-link">
+            <img src="assets/images/flags/es.png" alt="Español">
+        </a>
+        <a href="/fr/" class="language-link">
+            <img src="assets/images/flags/fr.png" alt="Français">
+        </a>
+        <a href="/pt/" class="language-link">
+            <img src="assets/images/flags/pt.png" alt="Português">
+        </a>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const languageSelector = document.getElementById('language-selector');
+            const languageSelection = document.querySelector('.language-selection');
             
-            // Detectar el idioma del navegador
-            const userLang = navigator.language || navigator.userLanguage;
-            
-            // Añadir evento click a todos los enlaces de banderas
-            document.querySelectorAll('.flag-link').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    // Ocultar el selector con fade out
-                    languageSelector.classList.add('hidden');
-                    
-                    // Redirigir después de la animación
-                    setTimeout(() => {
-                        window.location.href = this.href;
-                    }, 500);
+            if (languageSelection) {
+                document.querySelectorAll('.language-link').forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const href = this.getAttribute('href');
+                        
+                        // Ocultar el selector de idioma
+                        languageSelection.classList.add('hidden');
+                        
+                        // Redirigir después de la animación
+                        setTimeout(() => {
+                            window.location.href = href;
+                        }, 500);
+                    });
                 });
-            });
+            }
         });
     </script>
 </body>
