@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miss Star International - Belleza con Propósito</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="nav-main">
+            <div class="nav-brand">
+                <a href="/">
+                   <img src="assets/images/logo.png" alt="Logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/competencia">La Competencia</a></li>
+                <li><a href="/candidatas">Candidatas</a></li>
+                <li><a href="/noticias">Noticias</a></li>
+                <li><a href="/historia">Historia</a></li>
+                <li><a href="/contacto">Contacto</a></li>
+            </ul>
+            <button class="nav-toggle">
+                <span class="hamburger"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="video-background">
+                <video 
+                    autoplay 
+                    muted 
+                    loop 
+                    playsinline 
+                    id="heroVideo"
+                    poster="assets/images/hero-bg.jpg"
+                    preload="auto"
+                >
+                    <source src="assets/videos/hero-video.mp4" type="video/mp4">
+                    <div class="fallback-background"></div>
+                </video>
+                <div class="video-overlay"></div>
+            </div>
+            <div class="hero-content">
+                <h1>MISS STAR INTERNATIONAL CONSORTIUM</h1>
+                <p>Devolviendo el Poder • Compartiendo el Éxito • Empoderando Vidas</p>
+                <a href="/consortium" class="cta-button">Descubre la Transformación</a>
+            </div>
+        </section>
+
+        <section class="consortium">
+            <div id="particles-js"></div>
+            <div class="light-effects"></div>
+            <div class="aurora"></div>
+            <div class="energy-waves"></div>
+            <div class="hologram-scan"></div>
+            <h2>MISS STAR INTERNATIONAL CONSORTIUM</h2>
+            <div class="consortium-content">
+                <div class="consortium-pillars">
+                    <div class="pillar">
+                        <h3>Poder a los Directores</h3>
+                        <p>Participación directa en decisiones y ganancias</p>
+                    </div>
+                    <div class="pillar">
+                        <h3>Empoderamiento Real</h3>
+                        <p>Apoyo tangible a mujeres trans worldwide</p>
+                    </div>
+                    <div class="pillar">
+                        <h3>Reality Show</h3>
+                        <p>Nueva experiencia inmersiva de desarrollo</p>
+                    </div>
+                </div>
+                <a href="/consortium" class="cta-button">Sé Parte del Cambio</a>
+            </div>
+        </section>
+
+        <section class="news">
+            <h2>Últimas Noticias</h2>
+            <div class="news-grid">
+                <!-- News items will be dynamically added here -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="assets/images/logo-white.png" alt="Miss Star International">
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Organización</h4>
+                    <ul>
+                        <li><a href="/sobre-nosotros">Sobre Nosotros</a></li>
+                        <li><a href="/directorio">Directorio</a></li>
+                        <li><a href="/prensa">Sala de Prensa</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Redes Sociales</h4>
+                    <ul class="social-links">
+                        <li><a href="#" target="_blank">Instagram</a></li>
+                        <li><a href="#" target="_blank">Facebook</a></li>
+                        <li><a href="#" target="_blank">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Miss Star International. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Sonidos -->
+    <audio id="hover-sound" src="assets/sounds/hover.mp3" preload="auto"></audio>
+    <audio id="click-sound" src="assets/sounds/click.mp3" preload="auto"></audio>
+    <audio id="ambient-sound" src="assets/sounds/ambient.mp3" preload="auto" loop></audio>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/effects.js"></script>
+</body>
+</html>

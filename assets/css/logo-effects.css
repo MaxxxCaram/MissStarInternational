@@ -1,0 +1,115 @@
+/* Configuración base */
+:root {
+    --gold-primary: #D4AF37;
+    --gold-light: rgba(212, 175, 55, 0.3);
+    --gold-glow: rgba(212, 175, 55, 0.2);
+}
+
+.logo-3d {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    margin: 50px;
+}
+
+.logo-3d img {
+    width: 300px;
+    height: auto;
+    filter: drop-shadow(0 20px 30px rgba(212, 175, 55, 0.2));
+    transition: all 0.5s ease;
+}
+
+/* Efectos de brillo mejorados */
+.logo-3d::before,
+.logo-3d::after {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle at center,
+        var(--gold-glow),
+        transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.logo-3d::before {
+    filter: blur(15px);
+    animation: pulseGlow 3s infinite;
+}
+
+.logo-3d::after {
+    background: linear-gradient(
+        45deg,
+        transparent,
+        var(--gold-light),
+        transparent
+    );
+    animation: rotateGlow 8s linear infinite;
+}
+
+/* Animaciones */
+@keyframes pulseGlow {
+    0%, 100% {
+        opacity: 0.2;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes rotateGlow {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Efectos hover mejorados */
+.logo-3d:hover {
+    transform: 
+        perspective(1000px) 
+        rotateX(10deg) 
+        rotateY(10deg) 
+        scale(1.05);
+}
+
+.logo-3d:hover img {
+    filter: 
+        drop-shadow(0 30px 40px rgba(212, 175, 55, 0.3))
+        brightness(1.1);
+}
+
+.logo-3d:hover::before {
+    opacity: 1;
+}
+
+/* Efectos de movimiento con el mouse */
+.logo-3d.moving {
+    transition: transform 0.1s ease;
+}
+
+/* Media queries para responsive */
+@media (max-width: 768px) {
+    .logo-3d img {
+        width: 200px;
+    }
+    
+    .logo-3d::before,
+    .logo-3d::after {
+        inset: -10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-3d img {
+        width: 150px;
+    }
+} 
+} 

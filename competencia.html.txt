@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Competencia - Miss Star International</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/competencia.css">
+</head>
+<body>
+    <header>
+        <nav class="nav-main">
+            <div class="nav-brand">
+                <a href="/">
+                    <img src="assets/images/logo.png" alt="Miss Star International Logo" class="nav-logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/competencia">La Competencia</a></li>
+                <li><a href="/candidatas">Candidatas</a></li>
+                <li><a href="/noticias">Noticias</a></li>
+                <li><a href="/historia">Historia</a></li>
+                <li><a href="/contacto">Contacto</a></li>
+            </ul>
+            <button class="nav-toggle">
+                <span class="hamburger"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="competition-hero">
+            <div class="hero-content">
+                <h1>La Competencia</h1>
+                <p>Descubre el camino hacia la corona</p>
+            </div>
+        </section>
+
+        <section class="competition-phases">
+            <h2>Fases de la Competencia</h2>
+            <div class="phases-grid">
+                <div class="phase-card">
+                    <div class="phase-icon">
+                        <img src="assets/images/interview-icon.png" alt="Entrevista">
+                    </div>
+                    <h3>Entrevista Personal</h3>
+                    <p>Las candidatas demuestran su inteligencia, carisma y propósito ante el jurado calificador.</p>
+                </div>
+
+                <div class="phase-card">
+                    <div class="phase-icon">
+                        <img src="assets/images/swimsuit-icon.png" alt="Traje de Baño">
+                    </div>
+                    <h3>Traje de Baño</h3>
+                    <p>Evaluación de la confianza, presencia escénica y forma física de las participantes.</p>
+                </div>
+
+                <div class="phase-card">
+                    <div class="phase-icon">
+                        <img src="assets/images/gown-icon.png" alt="Traje de Gala">
+                    </div>
+                    <h3>Traje de Gala</h3>
+                    <p>Presentación de elegancia, porte y glamour en vestidos de noche.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="judging-criteria">
+            <h2>Criterios de Evaluación</h2>
+            <div class="criteria-container">
+                <div class="criteria-item">
+                    <h3>30%</h3>
+                    <h4>Belleza y Presencia</h4>
+                    <p>Evaluación de la belleza integral, carisma y presencia escénica</p>
+                </div>
+                <div class="criteria-item">
+                    <h3>30%</h3>
+                    <h4>Inteligencia y Comunicación</h4>
+                    <p>Capacidad de expresión, conocimientos generales y proyección</p>
+                </div>
+                <div class="criteria-item">
+                    <h3>20%</h3>
+                    <h4>Pasarela y Elegancia</h4>
+                    <p>Técnica de pasarela, porte y elegancia en el escenario</p>
+                </div>
+                <div class="criteria-item">
+                    <h3>20%</h3>
+                    <h4>Propósito Social</h4>
+                    <p>Compromiso con causas sociales y proyectos comunitarios</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="prizes">
+            <h2>Premios y Reconocimientos</h2>
+            <div class="prizes-grid">
+                <div class="prize-card main-prize">
+                    <h3>Gran Premio</h3>
+                    <ul>
+                        <li>Corona Miss Star International</li>
+                        <li>Contrato Internacional</li>
+                        <li>Premio en efectivo</li>
+                        <li>Viajes internacionales</li>
+                    </ul>
+                </div>
+                <div class="prize-card">
+                    <h3>Premios Especiales</h3>
+                    <ul>
+                        <li>Miss Fotogénica</li>
+                        <li>Mejor Traje Nacional</li>
+                        <li>Miss Talento</li>
+                        <li>Miss Popularidad</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="assets/images/logo-white.png" alt="Miss Star International">
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Organización</h4>
+                    <ul>
+                        <li><a href="/sobre-nosotros">Sobre Nosotros</a></li>
+                        <li><a href="/directorio">Directorio</a></li>
+                        <li><a href="/prensa">Sala de Prensa</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Redes Sociales</h4>
+                    <ul class="social-links">
+                        <li><a href="#" target="_blank">Instagram</a></li>
+                        <li><a href="#" target="_blank">Facebook</a></li>
+                        <li><a href="#" target="_blank">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Miss Star International. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
