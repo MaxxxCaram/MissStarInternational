@@ -1,9 +1,170 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>MSI Consortium - Modelo Basado en Patrocinadores</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSI Consortium - Modelo de Patrocinadores</title>
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --dark: #1A1A1A;
+            --light: #FFFFFF;
+        }
+
+        body {
+            background: var(--dark);
+            color: var(--light);
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .hero-section {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
+                        url('../assets/images/consortium-bg.jpg');
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        h1 {
+            color: var(--gold);
+            font-size: 3.5em;
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        .section {
+            padding: 4rem 2rem;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            background: rgba(212,175,55,0.1);
+        }
+
+        .cta-button {
+            background: var(--gold);
+            color: var(--dark);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+        }
+
+        .cta-button:hover {
+            background: #FFC107;
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 <body>
-    <!-- Rest of the file remains unchanged -->
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>CONSORTIUM MSI</h1>
+            <p class="highlight">Sin Inversión Inicial - 100% Basado en Patrocinadores</p>
+            <p>Una oportunidad única para directores talentosos</p>
+            <button class="cta-button">Solicitar Información</button>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="grid-container">
+            <div class="card">
+                <h2>Modelo Sin Inversión</h2>
+                <ul>
+                    <li>No requiere capital inicial</li>
+                    <li>Basado en conseguir patrocinadores</li>
+                    <li>Oportunidad para emprendedores</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Beneficios Directos</h2>
+                <ul>
+                    <li>70% para patrocinadores locales</li>
+                    <li>Bonos por patrocinadores internacionales</li>
+                    <li>Sistema de comisiones escalonado</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Niveles de Director</h2>
+                <ul>
+                    <li>Diamond: $100,000+ en patrocinios</li>
+                    <li>Gold: $50,000+ en patrocinios</li>
+                    <li>Silver: $25,000+ en patrocinios</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="grid-container">
+            <div class="card">
+                <h2>Apoyo Completo</h2>
+                <ul>
+                    <li>Material de marketing profesional</li>
+                    <li>Capacitación continua</li>
+                    <li>Herramientas de gestión</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Reality Show</h2>
+                <ul>
+                    <li>Oportunidades de product placement</li>
+                    <li>Exposición mediática internacional</li>
+                    <li>Contenido exclusivo</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Proceso de Selección</h2>
+                <ul>
+                    <li>Plan de negocios</li>
+                    <li>Cartera potencial de patrocinadores</li>
+                    <li>Experiencia en eventos/marketing</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('.cta-button').addEventListener('click', function() {
+            // Aquí podemos agregar la funcionalidad del formulario de contacto
+            alert('Gracias por tu interés. Pronto nos pondremos en contacto contigo.');
+        });
+    </script>
 </body>
 </html> 
