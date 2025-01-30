@@ -44,15 +44,14 @@
             justify-content: center;
             align-items: center;
             gap: 2rem;
-            z-index: 2;
-            opacity: 1;
-            visibility: visible;
+            z-index: 1000;
             transition: all 0.5s ease;
         }
 
-        #languageOverlay.fade-out {
+        #languageOverlay.hidden {
             opacity: 0;
             visibility: hidden;
+            pointer-events: none;
         }
 
         .language-link img {
@@ -61,6 +60,7 @@
             border-radius: 10px;
             transition: transform 0.3s ease;
             box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+            cursor: pointer;
         }
 
         .language-link:hover img {
@@ -74,29 +74,37 @@
     </div>
 
     <div id="languageOverlay">
-        <a href="/en/" class="language-link" onclick="handleLanguageSelect(event, '/en/')">
+        <a class="language-link" data-href="en/">
             <img src="assets/images/flags/en.png" alt="English">
         </a>
-        <a href="/es/" class="language-link" onclick="handleLanguageSelect(event, '/es/')">
+        <a class="language-link" data-href="es/">
             <img src="assets/images/flags/es.png" alt="Español">
         </a>
-        <a href="/fr/" class="language-link" onclick="handleLanguageSelect(event, '/fr/')">
+        <a class="language-link" data-href="fr/">
             <img src="assets/images/flags/fr.png" alt="Français">
         </a>
-        <a href="/pt/" class="language-link" onclick="handleLanguageSelect(event, '/pt/')">
+        <a class="language-link" data-href="pt/">
             <img src="assets/images/flags/pt.png" alt="Português">
         </a>
     </div>
 
     <script>
-        function handleLanguageSelect(event, path) {
-            event.preventDefault();
+        document.addEventListener('DOMContentLoaded', function() {
             const overlay = document.getElementById('languageOverlay');
-            overlay.classList.add('fade-out');
-            setTimeout(() => {
-                window.location.href = path;
-            }, 500);
-        }
+            const links = document.querySelectorAll('.language-link');
+
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const href = this.getAttribute('data-href');
+                    overlay.classList.add('hidden');
+                    
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 500);
+                });
+            });
+        });
     </script>
 </body>
 </html> 
