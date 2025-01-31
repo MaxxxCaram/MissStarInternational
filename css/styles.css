@@ -72,4 +72,27 @@ h1 {
     h1 {
         font-size: 2.5rem;
     }
-} tambien
+}
+
+.menu {
+    /* Estilos del menú */
+    display: none;
+}
+
+.menu.active {
+    display: block;
+}
+
+.animated {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.tilt {
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+}
+
+header {
+    transition: background 0.3s ease;
+}
