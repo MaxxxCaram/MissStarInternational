@@ -76,17 +76,4 @@ document.addEventListener('DOMContentLoaded', function() {
             navToggle.classList.toggle('active');
         });
     }
-
-    // Grid Animation
-    const grid = document.querySelector('.cyber-grid');
-    if (grid) {
-        document.addEventListener('mousemove', (e) => {
-            const mouseX = e.clientX / window.innerWidth;
-            const mouseY = e.clientY / window.innerHeight;
-            
-            requestAnimationFrame(() => {
-                grid.style.transform = `perspective(500px) rotateX(${60 + mouseY * 5}deg) rotateY(${mouseX * 5}deg)`;
-            });
-        });
-    }
 }); 
