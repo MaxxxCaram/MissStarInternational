@@ -482,3 +482,66 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const languageSelection = document.querySelector('.language-selection');
+    
+    if (languageSelection) {
+        document.querySelectorAll('.language-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                
+                // Ocultar el selector de idioma
+                languageSelection.classList.add('hidden');
+                
+                // Redirigir después de la animación
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 500);
+            });
+        });
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Función para manejar la galería de historia
+    function initHistoryGallery() {
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        galleryItems.forEach(item => {
+            // Verificar que la imagen carga correctamente
+            const img = item.querySelector('img');
+            img.onerror = function() {
+                console.log('Error loading image:', img.src);
+                item.style.display = 'none';
+            };
+            
+            // Efecto hover
+            item.addEventListener('mouseenter', () => {
+                item.querySelector('.gallery-info').style.opacity = '1';
+            });
+            
+            item.addEventListener('mouseleave', () => {
+                item.querySelector('.gallery-info').style.opacity = '0';
+            });
+        });
+    }
+
+    // Inicializar la galería si estamos en la página de historia
+    if (document.querySelector('.history-gallery')) {
+        initHistoryGallery();
+    }
+
+    // Navegación
+    const nav = document.querySelector('.nav');
+    if (nav) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    }
+});
