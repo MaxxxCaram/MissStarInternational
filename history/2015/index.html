@@ -4,53 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2015</title>
-    <link rel="stylesheet" href="../../assets/css/gallery.css">
-    <link rel="icon" href="data:,">
+    <style>
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            padding: 1rem;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+    </style>
 </head>
 <body>
     <div class="gallery-grid">
-        <div class="gallery-item">
-            <img src="austria.jpg" alt="2015">
-        </div>
-        <div class="gallery-item">
-            <img src="belgium.jpg" alt="2015">
-        </div>
-        <div class="gallery-item">
-            <img src="chile.jpg" alt="2015">
-        </div>
-        <div class="gallery-item">
-            <img src="ecuador.jpg" alt="2015">
-        </div>
-        <div class="gallery-item">
-            <img src="francia.jpg" alt="2015">
-        </div>
-        <div class="gallery-item">
-            <img src="greece.jpg" alt="2015">
-        </div>
-        <div class="gallery-item">
-            <img src="Jamaica.jpg" alt="2015">
-        </div>
-        <div class="gallery-item">
-            <img src="Netherlands.jpg" alt="2015">
-        </div>
-        <div class="gallery-item">
-            <img src="Paraguay.jpg" alt="2015">
-        </div>
-        <div class="gallery-item">
-            <img src="peru.jpg" alt="2015">
-        </div>
-        <div class="gallery-item">
-            <img src="puerto rico.jpg" alt="2015">
-        </div>
-        <div class="gallery-item">
-            <img src="sudafrica.jpg" alt="2015">
-        </div>
-        <div class="gallery-item">
-            <img src="switzerland.jpg" alt="2015">
-        </div>
-        <div class="gallery-item">
-            <img src="usa.jpg" alt="2015">
-        </div>
+        <img src="austria.jpg">
+        <img src="belgium.jpg">
+        <img src="chile.jpg">
+        <img src="ecuador.jpg">
+        <img src="francia.jpg">
+        <img src="greece.jpg">
+        <img src="Jamaica.jpg">
+        <img src="Netherlands.jpg">
+        <img src="Paraguay.jpg">
+        <img src="peru.jpg">
+        <img src="puerto rico.jpg">
+        <img src="sudafrica.jpg">
+        <img src="switzerland.jpg">
+        <img src="usa.jpg">
     </div>
 </body>
 </html> 
