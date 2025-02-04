@@ -547,15 +547,30 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Solo mantener la navegación básica
+    // Navegación básica
     const nav = document.querySelector('.nav');
     if (nav) {
-        window.addEventListener('scroll', () => {
+        window.addEventListener('scroll', function() {
             if (window.scrollY > 50) {
                 nav.classList.add('scrolled');
             } else {
                 nav.classList.remove('scrolled');
             }
         });
+    }
+
+    // Inicializar VanillaTilt solo si existe
+    if (typeof VanillaTilt !== 'undefined') {
+        // Seleccionar elementos que necesitan el efecto tilt
+        const tiltElements = document.querySelectorAll('.gallery-item');
+        
+        if (tiltElements.length > 0) {
+            VanillaTilt.init(tiltElements, {
+                max: 5,
+                speed: 400,
+                glare: false,
+                "max-glare": 0.5
+            });
+        }
     }
 });
