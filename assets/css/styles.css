@@ -127,7 +127,6 @@ body {
     transform: translateX(-50%) translateY(-50%);
     object-fit: cover;
     z-index: 1;
-    opacity: 1;
 }
 
 .video-background::before {
@@ -147,9 +146,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--overlay);
+    background: rgba(0, 0, 0, 0.4);
     z-index: 2;
-    pointer-events: none;
 }
 
 .hero-content {
@@ -1548,4 +1546,39 @@ C. REVENUE STREAMS
     100% {
         transform: translateX(100%) rotate(45deg);
     }
+}
+
+.language-selection {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    z-index: 1000;
+    transition: opacity 0.5s ease;
+}
+
+.language-selection.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.language-link {
+    transition: transform 0.3s ease;
+}
+
+.language-link:hover {
+    transform: scale(1.1);
+}
+
+.language-link img {
+    width: 100px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
 }

@@ -8,8 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 500);
     }, 1500);
  
-    });
-
     // Hover effects
     const links = document.querySelectorAll('a, button, .consortium-card');
     links.forEach(link => {
@@ -206,6 +204,35 @@ document.addEventListener('DOMContentLoaded', () => {
             img.dataset.src = img.src;
             img.src = '';
             imageObserver.observe(img);
+        });
+    }
+
+    // Navegación básica
+    const nav = document.querySelector('.nav');
+    if (nav) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    }
+
+    // Handle language selector
+    const languageSelector = document.querySelector('.language-select');
+    if (languageSelector) {
+        const selectedLang = localStorage.getItem('selectedLanguage');
+        if (selectedLang) {
+            languageSelector.style.display = 'none';
+            window.location.href = `${selectedLang}/`;
+        }
+
+        document.querySelectorAll('.language-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                localStorage.setItem('selectedLanguage', this.dataset.lang);
+                languageSelector.style.display = 'none';
+            });
         });
     }
 });
