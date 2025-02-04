@@ -286,7 +286,6 @@ document.addEventListener('DOMContentLoaded', () => {
     images.forEach(img => {
         img.addEventListener('error', function() {
             console.error('Error loading image:', this.src);
-            // Mostrar un placeholder o mensaje de error
             this.style.border = '1px solid red';
             this.style.padding = '10px';
             this.style.width = '80px';
