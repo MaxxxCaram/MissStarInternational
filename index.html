@@ -3,71 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Miss Star International - Language Selection</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Miss Star International 2025</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-    <!-- Navegación Simple -->
-    <nav class="nav">
-        <div class="nav-content">
-            <a href="index.html" class="nav-logo">Miss Star International</a>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="en/history.html">History</a>
-                <a href="competition.html">Competition</a>
-                <a href="news.html">News</a>
-                <a href="contact.html">Contact</a>
-            </div>
+    <!-- Navegación -->
+    <nav class="nav-main">
+        <div class="nav-brand">
+            <a href="/">
+                <img src="assets/images/logo.png" alt="Miss Star International Logo" class="nav-logo">
+            </a>
         </div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#contestants">Contestants</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
 
-    <div class="main-content">
-        <img src="assets/images/logo/logo-main.png" alt="Miss Star International" class="logo">
-    </div>
+    <!-- Hero Section con Video -->
+    <section class="hero">
+        <div class="video-background">
+            <video autoplay muted loop playsinline id="heroVideo">
+                <source src="assets/videos/20250204-0138-04.3734521.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Miss Star International 2025</h1>
+            <p>El Certamen de Belleza más Prestigioso para Mujeres Transgénero</p>
+            <div class="cta-buttons">
+                <a href="#participate" class="cta-button primary">Participa</a>
+                <a href="#watch" class="cta-button secondary">Ver en Vivo</a>
+            </div>
+        </div>
+    </section>
 
-    <div id="languageOverlay">
-        <a class="language-link" data-href="en/">
-            <img src="assets/images/flags/en.png" alt="English">
-        </a>
-        <a class="language-link" data-href="es/">
-            <img src="assets/images/flags/es.png" alt="Español">
-        </a>
-        <a class="language-link" data-href="fr/">
-            <img src="assets/images/flags/fr.png" alt="Français">
-        </a>
-        <a class="language-link" data-href="pt/">
-            <img src="assets/images/flags/pt.png" alt="Português">
-        </a>
-    </div>
-
-    <div class="video-background">
-        <video autoplay muted loop playsinline id="heroVideo">
-            <source src="assets/videos/hero-video.mp4" type="video/mp4">
-            Tu navegador no soporta el elemento video.
-        </video>
-        <div class="video-overlay"></div>
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const overlay = document.getElementById('languageOverlay');
-            const links = document.querySelectorAll('.language-link');
-
-            links.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const href = this.getAttribute('data-href');
-                    overlay.classList.add('hidden');
-                    
-                    setTimeout(() => {
-                        window.location.href = href;
-                    }, 500);
-                });
-            });
-        });
-    </script>
-    <!-- Antes del cierre del body -->
     <script src="assets/js/main.js"></script>
 </body>
 </html> 
