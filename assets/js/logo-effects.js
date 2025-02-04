@@ -31,4 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
         
         logo.style.setProperty('--scroll-glow', `${rate}px`);
     });
-}); 
+}); <head>
+<!-- ... otros enlaces ... -->
+<link rel="stylesheet" href="assets/css/logo-effects.css">
+</head>
+<body>
+<!-- ... -->
+<script src="assets/js/logo-effects.js"></script>
+</body>

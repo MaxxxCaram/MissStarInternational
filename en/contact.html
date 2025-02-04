@@ -1,1 +1,153 @@
- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Miss Star International</title>
+    <link rel="alternate" hreflang="en" href="/en/contact.html">
+    <link rel="alternate" hreflang="pt" href="/pt/contato.html">
+    <link rel="alternate" hreflang="es" href="/es/contacto.html">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="language-selector">
+            <select id="languageSelect" onchange="changeLanguage()">
+                <option value="es">Español</option>
+                <option value="en" selected>English</option>
+                <option value="pt">Português</option>
+            </select>
+        </div>
+        
+        <nav class="nav-main">
+            <div class="nav-brand">
+                <a href="/en/">
+                    <img src="../assets/images/logo.png" alt="Miss Star International Logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/en/competition">The Competition</a></li>
+                <li><a href="/en/contestants">Contestants</a></li>
+                <li><a href="/en/news">News</a></li>
+                <li><a href="/en/history">History</a></li>
+                <li><a href="/en/contact" class="active">Contact</a></li>
+            </ul>
+            <button class="nav-toggle">
+                <span class="hamburger"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-hero">
+            <div class="hero-content">
+                <h1>Contact</h1>
+                <p>We're here to help</p>
+            </div>
+        </section>
+
+        <section class="contact-options scroll-reveal">
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>General Information</h3>
+                    <p>For general inquiries about the pageant</p>
+                    <a href="mailto:info@missstarinternational.com" class="contact-link">info@missstarinternational.com</a>
+                </div>
+                <div class="contact-card">
+                    <h3>Press & Media</h3>
+                    <p>For press inquiries and interviews</p>
+                    <a href="mailto:press@missstarinternational.com" class="contact-link">press@missstarinternational.com</a>
+                </div>
+                <div class="contact-card">
+                    <h3>Franchises</h3>
+                    <p>For national franchise information</p>
+                    <a href="mailto:franchise@missstarinternational.com" class="contact-link">franchise@missstarinternational.com</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-form scroll-reveal">
+            <h2>Contact Form</h2>
+            <form id="contactForm" action="/submit-form" method="POST">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject *</label>
+                    <select id="subject" name="subject" required>
+                        <option value="">Select an option</option>
+                        <option value="general">General Inquiry</option>
+                        <option value="press">Press & Media</option>
+                        <option value="franchise">Franchises</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="checkbox-container">
+                        <input type="checkbox" required>
+                        <span class="checkmark"></span>
+                        I accept the privacy policy and the processing of my personal data
+                    </label>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </section>
+
+        <section class="contact-locations scroll-reveal">
+            <h2>Main Offices</h2>
+            <div class="locations-grid">
+                <div class="location-card">
+                    <h3>Mexico City</h3>
+                    <p>Headquarters</p>
+                    <address>
+                        Av. Reforma 123<br>
+                        Col. Juárez<br>
+                        Mexico City, Mexico
+                    </address>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="../assets/images/logo-white.png" alt="Miss Star International">
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Organization</h4>
+                    <ul>
+                        <li><a href="/en/about-us">About Us</a></li>
+                        <li><a href="/en/directory">Directory</a></li>
+                        <li><a href="/en/press">Press Room</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Social Media</h4>
+                    <ul class="social-links">
+                        <li><a href="#" target="_blank">Instagram</a></li>
+                        <li><a href="#" target="_blank">Facebook</a></li>
+                        <li><a href="#" target="_blank">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Miss Star International. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html> 
