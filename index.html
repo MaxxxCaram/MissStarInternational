@@ -3,42 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Miss Star International 2025</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Miss Star International</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <!-- Navegación -->
-    <nav class="nav-main">
-        <div class="nav-brand">
-            <a href="/">
-                <img src="assets/images/logo.png" alt="Miss Star International Logo" class="nav-logo">
-            </a>
-        </div>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#contestants">Contestants</a></li>
-            <li><a href="#news">News</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <div class="video-background">
+        <video autoplay muted loop playsinline id="heroVideo">
+            <source src="assets/videos/20250204-0138-04.3734521.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
 
-    <!-- Hero Section con Video -->
-    <section class="hero">
-        <div class="video-background">
-            <video autoplay muted loop playsinline id="heroVideo">
-                <source src="assets/videos/20250204-0138-04.3734521.mp4" type="video/mp4">
-            </video>
-            <div class="video-overlay"></div>
+    <div class="welcome-content">
+        <img src="assets/images/logo/logo-main.png" alt="Miss Star International" class="logo">
+        
+        <div class="welcome-messages">
+            <h1>Welcome</h1>
+            <h1>Bienvenidos</h1>
+            <h1>Bem-vindos</h1>
+            <h1>Bienvenue</h1>
         </div>
-        <div class="hero-content">
-            <h1>Miss Star International 2025</h1>
-            <p>El Certamen de Belleza más Prestigioso para Mujeres Transgénero</p>
-            <div class="cta-buttons">
-                <a href="#participate" class="cta-button primary">Participa</a>
-                <a href="#watch" class="cta-button secondary">Ver en Vivo</a>
+
+        <div class="language-selection">
+            <p>Select your language / Selecciona tu idioma / Selecione seu idioma / Choisissez votre langue</p>
+            
+            <div class="language-flags">
+                <a class="language-link" data-href="en/">
+                    <img src="assets/images/flags/en.png" alt="English">
+                    <span>English</span>
+                </a>
+                <a class="language-link" data-href="es/">
+                    <img src="assets/images/flags/es.png" alt="Español">
+                    <span>Español</span>
+                </a>
+                <a class="language-link" data-href="pt/">
+                    <img src="assets/images/flags/pt.png" alt="Português">
+                    <span>Português</span>
+                </a>
+                <a class="language-link" data-href="fr/">
+                    <img src="assets/images/flags/fr.png" alt="Français">
+                    <span>Français</span>
+                </a>
             </div>
         </div>
-    </section>
+    </div>
 
     <script src="assets/js/main.js"></script>
 </body>
