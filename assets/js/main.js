@@ -250,6 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const href = link.getAttribute('data-href');
+            console.log('Clicked language:', href); // Para debugging
             window.location.href = href;
         });
     });
@@ -270,6 +271,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const welcomeMessages = document.querySelectorAll('.welcome-messages h1');
     welcomeMessages.forEach((message, index) => {
         message.style.animationDelay = `${0.5 + (index * 0.5)}s`;
+    });
+
+    // Verificar si las imágenes de las banderas cargan correctamente
+    const flagImages = document.querySelectorAll('.language-flags img');
+    flagImages.forEach(img => {
+        img.onerror = function() {
+            console.error('Error loading flag:', img.src);
+        };
     });
 });
 
