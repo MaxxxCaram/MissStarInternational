@@ -250,7 +250,6 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const href = link.getAttribute('data-href');
-            console.log('Clicked language:', href);
             window.location.href = href;
         });
     });
