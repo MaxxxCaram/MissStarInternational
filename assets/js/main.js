@@ -32,14 +32,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Check image loading
-    const images = document.querySelectorAll('img');
+    const images = document.querySelectorAll('.gallery-item img');
     images.forEach(img => {
         img.addEventListener('error', function() {
             console.error('Error loading image:', this.src);
-            this.style.border = '1px solid red';
-            this.style.padding = '10px';
-            this.style.width = '80px';
-            this.style.height = '80px';
+            this.style.display = 'none'; // Hide broken images
         });
     });
 });
