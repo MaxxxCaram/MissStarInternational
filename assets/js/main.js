@@ -250,7 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const href = link.getAttribute('data-href');
-            console.log('Clicked language:', href); // Para debugging
+            console.log('Clicked language:', href);
             window.location.href = href;
         });
     });
@@ -279,6 +279,19 @@ document.addEventListener('DOMContentLoaded', () => {
         img.onerror = function() {
             console.error('Error loading flag:', img.src);
         };
+    });
+
+    // Verificar carga de imágenes
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+        img.addEventListener('error', function() {
+            console.error('Error loading image:', this.src);
+            // Mostrar un placeholder o mensaje de error
+            this.style.border = '1px solid red';
+            this.style.padding = '10px';
+            this.style.width = '80px';
+            this.style.height = '80px';
+        });
     });
 });
 
