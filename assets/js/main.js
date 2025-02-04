@@ -7,16 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
             loader.style.display = 'none';
         }, 500);
     }, 1500);
-
-    // Custom cursor
-    const cursor = document.querySelector('.cursor');
-    const cursorGlow = document.querySelector('.cursor-glow');
-    
-    document.addEventListener('mousemove', (e) => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-        cursorGlow.style.left = e.clientX + 'px';
-        cursorGlow.style.top = e.clientY + 'px';
+ 
     });
 
     // Hover effects
@@ -460,18 +451,9 @@ document.addEventListener('mousemove', (e) => {
 document.querySelectorAll('.glitch-text').forEach(element => {
     element.setAttribute('data-text', element.textContent);
 });
-
-// Hologram Cards
-document.querySelectorAll('.holo-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        card.style.setProperty('--mouse-x', `${x}px`);
-        card.style.setProperty('--mouse-y', `${y}px`);
+ 
     });
-});
+
 
 // Smooth Scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
