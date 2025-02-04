@@ -1,4 +1,4 @@
-/* Variables globales actualizadas */
+/* Updated global variables */
 :root {
     --primary-color: #d4af37;
     --primary-dark: #b4941f;
@@ -28,7 +28,7 @@
     --overlay: rgba(0, 0, 0, 0.7);
 }
 
-/* Estilos base modernizados */
+/* Modernized base styles */
 * {
     margin: 0;
     padding: 0;
@@ -41,13 +41,14 @@ body {
     color: var(--white);
     background: var(--black);
     overflow-x: hidden;
-    cursor: none; /* Para cursor personalizado */
+    cursor: none; /* For custom cursor */
 }
 
-/* Header y Navegación con efecto glass */
+/* Header and Navigation with glass effect */
 .nav-main {
     background: rgba(0, 0, 0, 0.9);
     padding: 1rem var(--spacing);
+    transform: translateY(0);
 }
 
 .nav-scrolled {
@@ -94,7 +95,7 @@ body {
     width: 100%;
 }
 
-/* Hero Section Mejorado */
+/* Enhanced Hero Section */
 .hero {
     position: relative;
     height: 100vh;
@@ -174,149 +175,7 @@ body {
     font-weight: 300;
 }
 
-/* Efectos de partículas */
-.particles {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
-}
-
-/* Featured Cards con efecto glass */
-.featured-card {
-    background: var(--glass-bg);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid var(--glass-border);
-    transform-style: preserve-3d;
-    perspective: 1000px;
-}
-
-.featured-card:hover {
-    transform: translateY(-10px) rotateX(5deg);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-}
-
-.featured-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.featured-card:hover img {
-    transform: scale(1.1);
-}
-
-.card-content {
-    padding: 1.5rem;
-    background: rgba(0,0,0,0.8);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    transform: translateZ(20px);
-}
-
-/* Footer */
-footer {
-    background: var(--secondary-color);
-    color: var(--white);
-    padding: var(--spacing);
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.footer-links ul {
-    list-style: none;
-}
-
-.footer-links a {
-    color: var(--white);
-    text-decoration: none;
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
-}
-
-.footer-links a:hover {
-    opacity: 1;
-}
-
-.footer-bottom {
-    text-align: center;
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-    
-    .nav-toggle {
-        display: block;
-    }
-    
-    .hero h1 {
-        font-size: 3rem;
-    }
-    
-    .hero p {
-        font-size: 1.2rem;
-    }
-    
-    .nav-logo {
-        height: 50px;
-    }
-    
-    .footer-logo img {
-        height: 60px;
-    }
-}
-
-/* Hamburger Menu */
-.nav-toggle {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
-}
-
-.hamburger {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background: var(--secondary-color);
-    position: relative;
-}
-
-.hamburger::before,
-.hamburger::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    background: var(--secondary-color);
-    left: 0;
-}
-
-.hamburger::before {
-    top: -8px;
-}
-
-.hamburger::after {
-    bottom: -8px;
-}
-
-/* Estilos del Consortium */
+/* Consortium styles */
 .consortium {
     padding: 5rem 2rem;
     position: relative;
@@ -365,7 +224,7 @@ footer {
     margin-bottom: 1rem;
 }
 
-/* Animaciones */
+/* Animations */
 @keyframes glow {
     0%, 100% {
         text-shadow: 0 0 20px var(--primary-glow);
@@ -391,7 +250,7 @@ footer {
     }
 }
 
-/* Efectos adicionales */
+/* Additional effects */
 .light-effects,
 .aurora,
 .energy-waves,
@@ -399,7 +258,7 @@ footer {
     pointer-events: none;
 }
 
-/* Ajustes responsive para el video */
+/* Responsive video adjustments */
 @media (max-aspect-ratio: 16/9) {
     .video-background video {
         width: 100%;
@@ -414,7 +273,7 @@ footer {
     }
 }
 
-/* Efectos de scroll */
+/* Scroll effects */
 .scroll-reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -426,7 +285,7 @@ footer {
     transform: translateY(0);
 }
 
-/* Cursor personalizado */
+/* Custom cursor */
 .custom-cursor {
     width: 20px;
     height: 20px;
@@ -445,608 +304,15 @@ footer {
     background: rgba(196, 167, 71, 0.1);
 }
 
-/* Efectos de hover mejorados */
-.hover-glow {
-    transition: all 0.3s ease;
-}
-
-.hover-glow:hover {
-    text-shadow: 0 0 10px var(--primary-glow);
-    color: var(--primary-color);
-}
-
-/* Loader inicial */
-.loader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--gradient-dark);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
-
-.loader-content {
-    border-width: 4px;
-    border-color: var(--primary-color);
-    width: 60px;
-    height: 60px;
-}
-
-/* Partículas */
-.particle {
-    position: absolute;
-    width: 3px;
-    height: 3px;
-    background: var(--primary-color);
-    border-radius: 50%;
-    pointer-events: none;
-    opacity: 0.3;
-    animation: particleFloat var(--duration) infinite linear;
-    transform: translate(var(--x), var(--y));
-}
-
-@keyframes particleFloat {
-    0% {
-        transform: translate(var(--x), var(--y)) translateY(0);
-        opacity: 0;
-    }
-    50% {
-        opacity: 0.5;
-    }
-    100% {
-        transform: translate(var(--x), var(--y)) translateY(-100vh);
-        opacity: 0;
-    }
-}
-
-/* Efectos de brillo y resplandor */
-.glow-effect {
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
-    pointer-events: none;
-    mix-blend-mode: screen;
-    animation: glowMove 10s infinite alternate;
-}
-
-@keyframes glowMove {
-    0% {
-        transform: translate(0, 0);
-    }
-    100% {
-        transform: translate(100vw, 50vh);
-    }
-}
-
-/* Mejoras en las tarjetas */
-.featured-card {
-    position: relative;
-    overflow: visible;
-}
-
-.featured-card::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    background: linear-gradient(45deg, var(--primary-color), transparent);
-    z-index: -1;
-    border-radius: 11px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.featured-card:hover::before {
-    opacity: 1;
-}
-
-/* Mejoras en la navegación */
-.nav-main {
-    transform: translateY(0);
-    transition: all 0.3s ease;
-}
-
-.nav-active {
-    display: flex !important;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.95);
-    padding: 1rem;
-    backdrop-filter: blur(10px);
-}
-
-/* Mejoras en el hero */
-.hero-content {
-    position: relative;
-}
-
-.hero-content::after {
-    content: '';
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    top: -50%;
-    left: -50%;
-    background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
-    opacity: 0.1;
-    animation: rotate 20s linear infinite;
-}
-
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-/* Efectos de hover en enlaces */
-.nav-links a,
-.footer-links a {
-    position: relative;
-    overflow: hidden;
-}
-
-.nav-links a::before,
-.footer-links a::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: -2px;
-    left: -100%;
-    background: var(--primary-color);
-    transition: left 0.3s ease;
-}
-
-.nav-links a:hover::before,
-.footer-links a:hover::before {
-    left: 0;
-}
-
-/* Mejoras en botones */
-.cta-button {
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    padding: 1.2rem 3rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    border-radius: 50px;
-    transition: all 0.3s ease;
-}
-
-.cta-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.5s ease;
-    z-index: -1;
-}
-
-.cta-button:hover::before {
-    left: 100%;
-}
-
-.cta-button.primary {
-    background: var(--gradient-gold);
-    border: none;
-}
-
-.cta-button.secondary {
-    border: 2px solid var(--primary-color);
-    background: transparent;
-    color: var(--primary-color);
-}
-
-.cta-button.secondary:hover {
-    background: var(--primary-color);
-    color: var(--white);
-}
-
-/* Scroll personalizado */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: #1a1a1a;
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
-    border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #a38a3a;
-}
-
-/* Estilos de la Misión */
-.mission {
-    background: var(--gradient-dark);
-    color: var(--white);
-    padding: 6rem var(--spacing);
-}
-
-.mission-content {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.mission-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.mission-card {
-    background: rgba(0, 0, 0, 0.5);
-    padding: 2rem;
-    border-radius: 15px;
-    border: 1px solid var(--primary-color);
-    backdrop-filter: blur(10px);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
-}
-
-.mission-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
-    border-color: var(--primary-light);
-}
-
-.mission-card h3 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-}
-
-/* Estilos del Formato del Certamen */
-.pageant-format {
-    background: var(--white);
-    padding: 6rem var(--spacing);
-}
-
-.format-content {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.format-features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 3rem;
-    margin-top: 3rem;
-}
-
-.feature {
-    text-align: center;
-    padding: 2rem;
-    transition: transform 0.3s ease;
-}
-
-.feature-icon {
-    width: 100px;
-    height: 100px;
-    margin: 0 auto 1.5rem;
-    background: var(--gradient-gold);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
-}
-
-.feature-icon i {
-    font-size: 2rem;
-    color: var(--white);
-}
-
-/* Estilos de Directores Nacionales */
-.directors {
-    background: var(--gradient-dark);
-    color: var(--white);
-    padding: 6rem var(--spacing);
-}
-
-.directors-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.section-intro {
-    font-size: 1.2rem;
-    margin-bottom: 3rem;
-    opacity: 0.9;
-}
-
-.directors-benefits {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin: 3rem 0;
-}
-
-.benefit-card {
-    background: rgba(0, 0, 0, 0.5);
-    padding: 2rem;
-    border-radius: 15px;
-    border: 1px solid var(--primary-color);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
-}
-
-.benefit-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
-    border-color: var(--primary-light);
-}
-
-.benefit-card h3 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-}
-
-/* Estilos del Contacto */
-.contact {
-    background: var(--white);
-    padding: 6rem var(--spacing);
-}
-
-.contact-content {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 4rem;
-    margin-top: 3rem;
-}
-
-.contact-info {
-    padding: 2rem;
-    background: var(--gradient-dark);
-    color: var(--white);
-    border-radius: 15px;
-}
-
-.contact-info h3 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-}
-
-.contact-details {
-    list-style: none;
-    margin-top: 2rem;
-}
-
-.contact-details li {
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.contact-form {
-    display: grid;
-    gap: 1.5rem;
-}
-
-.contact-form input,
-.contact-form select,
-.contact-form textarea {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--glass-border);
-    color: var(--white);
-    padding: 1.2rem;
-    border-radius: 8px;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.contact-form input:focus,
-.contact-form select:focus,
-.contact-form textarea:focus {
-    border-color: var(--primary-color);
-    outline: none;
-    box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
-}
-
-.submit-button {
-    background: var(--primary-color);
-    color: var(--white);
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
-}
-
-.submit-button:hover {
-    background: var(--primary-dark);
-}
-
-/* Mejoras en los CTA buttons */
-.cta-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    margin-top: 2rem;
-}
-
-.cta-button.primary {
-    background: var(--gradient-gold);
-}
-
-.cta-button.secondary {
-    background: transparent;
-    border: 2px solid var(--primary-color);
-    color: var(--primary-color);
-}
-
-.cta-button.secondary:hover {
-    background: var(--primary-color);
-    color: var(--white);
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .format-features,
-    .directors-benefits {
-        grid-template-columns: 1fr;
-    }
-    
-    .cta-buttons {
-        flex-direction: column;
-    }
-}
-
-/* Estilos para la nueva sección About */
-.about {
-    background: var(--gradient-dark);
-    color: var(--white);
-    padding: 6rem var(--spacing);
-}
-
-.about-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.about-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.about-card {
-    background: rgba(0, 0, 0, 0.3);
-    padding: 3rem 2rem;
-    border-radius: 15px;
-    border: 1px solid var(--primary-color);
-    transition: all 0.3s ease;
-}
-
-.about-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
-}
-
-.about-icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 1.5rem;
-    background: var(--gradient-gold);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.about-icon i {
-    font-size: 2rem;
-    color: var(--white);
-}
-
-/* Estilos para la sección de Candidatas */
-.contestants {
-    background: var(--white);
-    padding: 6rem var(--spacing);
-    text-align: center;
-}
-
-.contestants-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-/* Estilos para Watch Live */
-.watch-live {
-    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
-                url('../images/venue-bg.jpg') center/cover;
-    color: var(--white);
-    padding: 8rem var(--spacing);
-    text-align: center;
-}
-
-.watch-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.event-details {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    margin: 2rem 0;
-}
-
-.detail {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.detail i {
-    color: var(--primary-color);
-    font-size: 1.5rem;
-}
-
-/* Actualización de estilos para la sección watch-live */
-.announcement-note {
-    font-style: italic;
-    opacity: 0.8;
-    margin: 1.5rem 0;
-    font-size: 0.9rem;
-}
-
-.watch-live .detail span {
-    font-weight: 500;
-    letter-spacing: 1px;
-}
-
-/* Estilos del logo */
-.footer-logo img {
-    height: 80px;
-    width: auto;
-    margin-bottom: 2rem;
-}
-
-/* Ajuste del contenedor del logo */
-.nav-brand {
-    padding: 0.5rem 0;
-}
-
-/* Efectos Base */
+/* Base effects */
 .cyber-container {
     position: relative;
     z-index: 1;
+}
+
+/* Logo container adjustment */
+.nav-brand {
+    padding: 0.5rem 0;
 }
 
 /* Grid Cyberpunk */
@@ -1092,7 +358,7 @@ footer {
     background: var(--overlay);
 }
 
-/* Tarjetas Holográficas */
+/* Holographic Cards */
 .holo-card {
     background: var(--glass);
     backdrop-filter: blur(12px);
@@ -1477,45 +743,6 @@ footer {
         padding: 1rem;
     }
 }
-
-A. AUDIENCIA TOTAL
-1. Traditional Broadcast
-   - Weekly viewers: 5M+
-   - Peak viewers: 8M
-   - Rating share: 15%
-
-2. Digital Platforms
-   - Streaming views: 2M+
-   - VOD downloads: 1M
-   - Digital engagement: 25%
-
-B. SOCIAL MEDIA IMPACT
-1. Global Reach
-   - Total followers: 2M+
-   - Engagement rate: 20%
-   - Viral moments: 10+
-
-2. Market Penetration
-   - LATAM: 45%
-   - Europa: 30%
-   - Asia: 25%
-
-C. REVENUE STREAMS
-1. Primary
-   - Broadcast rights: 40%
-   - Digital platforms: 30%
-   - Advertising: 20%
-   - Sponsorships: 10%
-
-2. Secondary
-   - Merchandising: 5M+
-   - Live events: 2M+
-   - Digital content: 1M+
-
-[¿Continúo con:
-1. Plan de marketing detallado
-2. Estrategia de monetización específica
-3. Timeline de implementación?]
 
 .logo-main, .logo-minimal {
     position: relative;

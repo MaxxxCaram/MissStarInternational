@@ -1,12 +1,13 @@
-/* Variables globales */
+/* Global variables */
 :root {
   --primary-color: #000;
   --secondary-color: #fff;
   --nav-height: 60px;
   --transition: all 0.3s ease;
+  --animation-speed: 0.3s;
 }
 
-/* Reset y estilos base */
+/* Base styles */
 * {
   margin: 0;
   padding: 0;
@@ -146,7 +147,7 @@ body {
     visibility: hidden;
 }
 
-/* Video de fondo */
+/* Video background */
 .video-background {
     position: fixed;
     top: 0;
@@ -171,7 +172,7 @@ body {
     background: rgba(0, 0, 0, 0.7);
 }
 
-/* Contenido de bienvenida */
+/* Main content */
 .welcome-content {
     display: flex;
     flex-direction: column;
@@ -188,7 +189,7 @@ body {
     animation: fadeIn 2s ease;
 }
 
-/* Mensajes de bienvenida */
+/* Welcome messages */
 .welcome-messages {
     margin-bottom: 3rem;
 }
@@ -205,11 +206,9 @@ body {
 .welcome-messages h1:nth-child(3) { animation-delay: 1.5s; }
 .welcome-messages h1:nth-child(4) { animation-delay: 2s; }
 
-/* Selección de idioma */
+/* Language selection */
 .language-selection {
     margin-top: 2rem;
-    animation: fadeIn 1s ease 2.5s forwards;
-    opacity: 0;
 }
 
 .language-selection p {
@@ -231,7 +230,7 @@ body {
     align-items: center;
     text-decoration: none;
     color: #fff;
-    transition: transform 0.3s ease;
+    transition: transform var(--animation-speed) ease;
 }
 
 .language-link:hover {
@@ -251,7 +250,7 @@ body {
     opacity: 0.8;
 }
 
-/* Animaciones */
+/* Animations */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -268,7 +267,7 @@ body {
     }
 }
 
-/* Responsive */
+/* Responsive design */
 @media (max-width: 768px) {
     .logo {
         width: 200px;
@@ -286,4 +285,12 @@ body {
         width: 60px;
         height: 60px;
     }
+}
+
+/* Custom cursor */
+.custom-cursor {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--primary-color);
+    /* ... rest of the styles ... */
 } 
