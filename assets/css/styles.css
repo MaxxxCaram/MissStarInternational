@@ -809,3 +809,17 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
 }
+
+/* Mantener solo los estilos de galería si son necesarios */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}

@@ -22,21 +22,4 @@ document.addEventListener('DOMContentLoaded', () => {
     welcomeMessages.forEach((message, index) => {
         message.style.animationDelay = `${0.5 + (index * 0.5)}s`;
     });
-
-    // Check if flag images load correctly
-    const flagImages = document.querySelectorAll('.language-flags img');
-    flagImages.forEach(img => {
-        img.onerror = function() {
-            console.error('Error loading flag:', img.src);
-        };
-    });
-
-    // Check image loading
-    const images = document.querySelectorAll('.gallery-item img');
-    images.forEach(img => {
-        img.addEventListener('error', function() {
-            console.error('Error loading image:', this.src);
-            this.style.display = 'none'; // Hide broken images
-        });
-    });
 });
