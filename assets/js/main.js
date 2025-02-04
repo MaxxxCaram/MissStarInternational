@@ -174,6 +174,40 @@ document.addEventListener('DOMContentLoaded', () => {
     video.play().catch((e) => {
         console.error('Error playing video:', e);
     });
+
+    // Navegación
+    const nav = document.querySelector('.nav');
+    
+    if (nav) {
+        const handleScroll = () => {
+            const scrolled = window.scrollY > 50;
+            nav.classList.toggle('scrolled', scrolled);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Verificar estado inicial
+    }
+
+    // Lazy loading para imágenes
+    const images = document.querySelectorAll('.gallery-item img');
+    
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+
+        images.forEach(img => {
+            img.dataset.src = img.src;
+            img.src = '';
+            imageObserver.observe(img);
+        });
+    }
 });
 
 // Gestión de idiomas
@@ -529,7 +563,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Navegación básica
+    // Solo navegación básica
     const nav = document.querySelector('.nav');
     if (nav) {
         window.addEventListener('scroll', function() {
@@ -539,20 +573,5 @@ document.addEventListener('DOMContentLoaded', function() {
                 nav.classList.remove('scrolled');
             }
         });
-    }
-
-    // Inicializar VanillaTilt solo si existe
-    if (typeof VanillaTilt !== 'undefined') {
-        // Seleccionar elementos que necesitan el efecto tilt
-        const tiltElements = document.querySelectorAll('.gallery-item');
-        
-        if (tiltElements.length > 0) {
-            VanillaTilt.init(tiltElements, {
-                max: 5,
-                speed: 400,
-                glare: false,
-                "max-glare": 0.5
-            });
-        }
     }
 });

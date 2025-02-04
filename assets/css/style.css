@@ -1,69 +1,126 @@
-/* Estilos para la galería de historia */
+/* Variables globales */
+:root {
+  --primary-color: #000;
+  --secondary-color: #fff;
+  --nav-height: 60px;
+  --transition: all 0.3s ease;
+}
+
+/* Reset y estilos base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  line-height: 1.6;
+}
+
+/* Navegación mejorada */
+.nav {
+  background: var(--primary-color);
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: var(--transition);
+}
+
+.nav.scrolled {
+  background: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  margin-left: 2rem;
+  transition: var(--transition);
+}
+
+/* Galería optimizada */
 .history-gallery {
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.year-section {
-    margin-bottom: 4rem;
-}
-
-.year-section h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-    color: #fff;
-    font-size: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: calc(var(--nav-height) + 20px) auto 0;
 }
 
 .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1.5rem;
-    padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
 }
 
 .gallery-item {
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-    aspect-ratio: 3/4;
-    background: #000;
-    transition: transform 0.3s ease;
-}
-
-.gallery-item:hover {
-    transform: scale(1.02);
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--primary-color);
 }
 
 .gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: opacity 0.3s ease;
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: var(--transition);
 }
 
 .gallery-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 1rem;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+  background: rgba(0, 0, 0, 0.8);
+  color: var(--secondary-color);
+  padding: 0.8rem;
+  text-align: center;
+}
+
+.year-section {
+  margin-bottom: 4rem;
+}
+
+.year-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #fff;
+  font-size: 2rem;
+}
+
+.gallery-item:hover {
+  transform: scale(1.02);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
 }
 
 .gallery-info p {
-    margin: 0;
-    text-align: center;
-    font-size: 1rem;
+  margin: 0;
+  text-align: center;
+  font-size: 1rem;
 }
 
-/* Responsive */
+/* Media Queries */
 @media (max-width: 768px) {
-    .gallery-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    }
+  .nav-links {
+    display: none;
+  }
+  
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
 } 
