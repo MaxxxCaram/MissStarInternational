@@ -1,18 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Función segura para obtener elementos
+    // Safe function to get elements
     function safeQuerySelector(selector) {
         const element = document.querySelector(selector);
         return element || null;
     }
 
-    // Función segura para manejar estilos
+    // Safe function to handle styles
     function safeSetStyle(element, property, value) {
         if (element && element.style) {
             element.style[property] = value;
         }
     }
 
-    // Manejo seguro del menú
+    // Safe menu handling
     const menuBtn = safeQuerySelector('.menu-btn');
     const menu = safeQuerySelector('.menu');
     
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Manejo seguro del scroll
+    // Safe scroll handling
     window.addEventListener('scroll', function() {
         const header = safeQuerySelector('header');
         if (header) {
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Manejo seguro de enlaces suaves
+    // Safe smooth scroll handling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Manejo seguro de animaciones
+    // Safe animation handling
     const animatedElements = document.querySelectorAll('.animated');
     animatedElements.forEach(element => {
         if (element) {
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Manejo seguro del loader
+    // Safe loader handling
     const loader = safeQuerySelector('.loader');
     if (loader) {
         setTimeout(() => {
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 1000);
     }
 
-    // Manejo seguro de la navegación móvil
+    // Safe mobile navigation handling
     const navToggle = safeQuerySelector('.nav-toggle');
     const nav = safeQuerySelector('nav');
     

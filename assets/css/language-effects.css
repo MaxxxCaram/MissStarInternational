@@ -1,4 +1,4 @@
-/* Efectos para el selector de idiomas */
+/* Language selector effects */
 .welcome-message {
     position: fixed;
     top: 50%;
@@ -23,7 +23,7 @@
     transform: translate(-50%, -50%) scale(1);
 }
 
-/* Efectos del botón toggle */
+/* Toggle button effects */
 .toggle-icon {
     position: relative;
     z-index: 2;
@@ -48,7 +48,7 @@
     opacity: 0.2;
 }
 
-/* Animaciones para las opciones de idioma */
+/* Language option animations */
 .lang-option {
     position: relative;
     overflow: hidden;
@@ -82,7 +82,7 @@
     transform: scale(1.2);
 }
 
-/* Animación para el código de idioma */
+/* Language code animation */
 .lang-code {
     position: relative;
     display: inline-block;
@@ -104,7 +104,7 @@
     width: 100%;
 }
 
-/* Responsive */
+/* Responsive styles */
 @media (max-width: 768px) {
     .welcome-message {
         font-size: 1.2rem;
@@ -112,7 +112,7 @@
     }
 }
 
-/* Animaciones de transición de página */
+/* Page transition animations */
 .page-transition {
     position: fixed;
     top: 0;
@@ -127,4 +127,40 @@
 
 .page-transition.active {
     transform: translateY(0);
+}
+
+/* Language selection styles */
+.language-selection {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    z-index: 1000;
+}
+
+.language-link {
+    transition: transform 0.3s ease;
+}
+
+.language-link:hover {
+    transform: scale(1.1);
+}
+
+.language-flags img {
+    width: 100px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+/* Hide language selection after choice */
+.language-selection.hidden {
+    opacity: 0;
+    pointer-events: none;
 } 

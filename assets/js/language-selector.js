@@ -1,17 +1,17 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Crear los elementos de audio
+    // Create audio elements
     const hoverSound = new Audio('../assets/sounds/hover.mp3');
     const clickSound = new Audio('../assets/sounds/click.mp3');
     const switchSound = new Audio('../assets/sounds/switch.mp3');
     
-    // Ajustar volumen
+    // Adjust volume
     [hoverSound, clickSound, switchSound].forEach(sound => {
         sound.volume = 0.2;
     });
 
     const body = document.body;
     
-    // Crear botón toggle con efectos mejorados
+    // Create toggle button with enhanced effects
     const toggleButton = document.createElement('button');
     toggleButton.className = 'lang-toggle';
     toggleButton.innerHTML = `
@@ -21,10 +21,10 @@ document.addEventListener('DOMContentLoaded', function() {
     toggleButton.setAttribute('data-tooltip', 'Change Language');
     body.appendChild(toggleButton);
 
-    // Obtener el selector de idioma
+    // Get language selector
     const languageSelector = document.querySelector('.language-selector');
     
-    // Mapa de idiomas con información extendida
+    // Language map with extended information
     const langMap = {
         'en': { 
             flag: '🇺🇸', 
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    // Estado inicial con animación
+    // Initial state with animation
     const currentPath = window.location.pathname;
     const currentLang = currentPath.split('/')[1];
     
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
         showWelcomeMessage(currentLang);
     }
 
-    // Función para mostrar mensaje de bienvenida
+    // Function to show welcome message
     function showWelcomeMessage(lang) {
         const welcome = document.createElement('div');
         welcome.className = 'welcome-message';
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100);
     }
 
-    // Función para actualizar el idioma actual con animación
+    // Function to update current language with animation
     function updateCurrentLang(lang) {
         const currentLangDisplay = document.querySelector('.current-lang');
         if (currentLangDisplay && langMap[lang]) {
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Toggle con efectos de sonido y animación
+    // Toggle with sound effects and animation
     function toggleLanguageSelector() {
         clickSound.play();
         
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Event listeners con efectos
+    // Event listeners with effects
     toggleButton.addEventListener('click', toggleLanguageSelector);
     toggleButton.addEventListener('mouseover', function() {
         hoverSound.play();
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
         this.style.transform = 'rotate(0) scale(1)';
     });
 
-    // Manejar selección de idioma con efectos
+    // Handle language selection with effects
     const langOptions = document.querySelectorAll('.lang-option');
     langOptions.forEach(option => {
         option.addEventListener('mouseover', () => {
@@ -124,11 +124,25 @@ document.addEventListener('DOMContentLoaded', function() {
             const selectedLang = this.getAttribute('href').replace('/', '');
             localStorage.setItem('selectedLanguage', selectedLang);
             
-            // Efecto visual al seleccionar
+            // Visual effect on selection
             this.style.transform = 'scale(1.1)';
             setTimeout(() => {
                 languageSelector.style.animation = 'slideOut 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards';
             }, 200);
+        });
+    });
+
+    // Handle language links
+    const languageLinks = document.querySelectorAll('.language-link');
+    const languageSelection = document.querySelector('.language-selection');
+
+    languageLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const selectedLanguage = link.getAttribute('data-lang');
+            localStorage.setItem('selectedLanguage', selectedLanguage);
+            languageSelection.classList.add('hidden');
+            window.location.href = link.getAttribute('href');
         });
     });
 });
