@@ -31,6 +31,39 @@
             color: #000;
             transform: scale(1.05);
         }
+        
+        .winner-link {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px 25px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+        
+        .winner-link a {
+            color: #D4AF37;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        
+        .winner-link:hover {
+            background: #D4AF37;
+        }
+        
+        .winner-link:hover a {
+            color: #000;
+        }
+        
+        @media (max-width: 768px) {
+            .winner-link {
+                bottom: 10px;
+                right: 10px;
+                left: 10px;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -84,6 +117,12 @@
                 </a>
             </div>
         </div>
+    </div>
+
+    <div class="winner-link">
+        <a href="queens/2024/2024_Patrica_Payumo.pptx" target="_blank">
+            Miss Star International 2024 - Patrica Payumo
+        </a>
     </div>
 
     <script src="assets/js/main.js"></script>
