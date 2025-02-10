@@ -95,8 +95,9 @@ body {
 .year-section h2 {
   text-align: center;
   margin-bottom: 2rem;
-  color: #fff;
+  color: #D4AF37;
   font-size: 2rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 /* Gallery interactions */
@@ -115,6 +116,8 @@ body {
   margin: 0;
   text-align: center;
   font-size: 1rem;
+  color: #FFFFFF;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
 }
 
 /* Media Queries */
@@ -316,4 +319,40 @@ body {
   width: 20px;
   height: 20px;
   border: 2px solid var(--primary-color);
+}
+
+/* Text colors */
+.section h2 {
+    color: #D4AF37; /* Gold color for headings */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.section p, .section li {
+    color: #FFFFFF; /* White color for text */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+.consortium-card, .benefit-card {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid #D4AF37;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.consortium-card h3, .benefit-card h3 {
+    color: #D4AF37;
+    margin-bottom: 15px;
+}
+
+.benefits-list li {
+    color: #FFFFFF;
+    margin: 10px 0;
+}
+
+.queen-info h4, .queen-info h5 {
+    color: #D4AF37;
+}
+
+.queen-info p, .queen-info li {
+    color: #FFFFFF;
 } 
