@@ -1,62 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Patricia Payumo - Miss Star International 2024</title>
-<style>
-body {
-    margin: 0;
-    padding: 20px;
-    font-family: 'Inter', sans-serif;
-    background: #000;
-    color: #fff;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patricia Payumo - Miss Star International 2024</title>
+    <style>
+        body {
+            background: #000;
+            color: #D4AF37;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-.queen-profile {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-}
+        .header {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            width: 100%;
+            border-bottom: 2px solid #D4AF37;
+        }
 
-.queen-image {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    border-radius: 10px;
-    margin: 20px 0;
-}
+        h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
 
-.queen-info {
-    margin: 20px 0;
-}
+        h2 {
+            font-size: 1.8rem;
+            margin: 10px 0;
+            color: #fff;
+        }
 
-.queen-title {
-    color: #D4AF37;
-    font-size: 2rem;
-    margin: 10px 0;
-}
+        .video-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
 
-.achievements {
-    text-align: left;
-    padding: 20px;
-}
-</style>
+        video {
+            width: 100%;
+            height: auto;
+            border: 2px solid #D4AF37;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .back-btn {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.8);
+            color: #D4AF37;
+            padding: 15px 30px;
+            text-decoration: none;
+            border: 2px solid #D4AF37;
+            border-radius: 5px;
+            margin: 20px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #D4AF37;
+            color: #000;
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 <body>
-<div class="queen-profile">
-    <h1 class="queen-title">Patricia Payumo</h1>
-    <h2>Miss Star International 2024</h2>
-    <img src="Patricia_Payumo.jpg" alt="Patricia Payumo - Miss Star International 2024" class="queen-image">
-    <div class="queen-info">
-        <h3>Country: Philippines</h3>
-        <div class="achievements">
-            <h3>Achievements:</h3>
-            <ul>
-                <li>Miss Star International 2024 Winner</li>
-                <li>Advocacy for Education</li>
-                <li>Environmental Conservation Projects</li>
-            </ul>
-        </div>
+    <div class="header">
+        <h1>Patricia Payumo</h1>
+        <h2>Miss Star International 2024</h2>
     </div>
-</div>
+
+    <div class="video-container">
+        <video controls>
+            <source src="2024_Patrica_Payumo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <a href="../../" class="back-btn">← Back to Home</a>
 </body>
 </html> 
