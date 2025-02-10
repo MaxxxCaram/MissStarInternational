@@ -42,6 +42,46 @@
                 text-align: center;
             }
         }
+
+        /* Enhanced winner banner */
+        .current-winner {
+            background: linear-gradient(45deg, rgba(0,0,0,0.9), rgba(212,175,55,0.1), rgba(0,0,0,0.9));
+            animation: shimmer 3s infinite linear;
+            padding: 3rem 0;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .winner-banner h2 {
+            color: #D4AF37;
+            font-size: 2.5rem;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+            margin-bottom: 1.5rem;
+        }
+
+        .winner-banner .winner-link {
+            background: rgba(0,0,0,0.8);
+            color: #D4AF37;
+            border: 2px solid #D4AF37;
+            padding: 1.5rem 3rem;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .winner-banner .winner-link:hover {
+            background: #D4AF37;
+            color: #000;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
     </style>
 </head>
 <body>
@@ -65,22 +105,15 @@
             <h1>Bienvenue</h1>
         </div>
 
-        <!-- Add this right after welcome messages -->
-        <div class="winner-link" style="position: relative; margin-top: 20px; z-index: 100;">
-            <a href="queens/2024/2024_Patrica_Payumo.pptx" target="_blank" style="
-                display: inline-block;
-                background: rgba(0, 0, 0, 0.8);
-                color: #D4AF37;
-                padding: 15px 30px;
-                border: 2px solid #D4AF37;
-                border-radius: 5px;
-                text-decoration: none;
-                font-size: 18px;
-                transition: all 0.3s ease;
-            ">
-                Miss Star International 2024 - Patrica Payumo
-            </a>
-        </div>
+        <!-- Winner Banner -->
+        <section class="current-winner">
+            <div class="winner-banner">
+                <h2>Current Title Holder</h2>
+                <a href="queens/2024/2024_Patrica_Payumo.pptx" target="_blank" class="winner-link">
+                    Miss Star International 2024 - Patrica Payumo
+                </a>
+            </div>
+        </section>
 
         <!-- Language Selection -->
         <div class="language-selection">

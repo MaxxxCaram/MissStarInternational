@@ -355,4 +355,35 @@ body {
 
 .queen-info p, .queen-info li {
     color: #FFFFFF;
+}
+
+.current-winner {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 2rem 0;
+    text-align: center;
+    border-top: 1px solid #D4AF37;
+    border-bottom: 1px solid #D4AF37;
+}
+
+.winner-banner h2 {
+    color: #D4AF37;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.winner-banner .winner-link {
+    display: inline-block;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    border: 2px solid #D4AF37;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.winner-banner .winner-link:hover {
+    background: #D4AF37;
+    color: #000;
+    transform: scale(1.05);
 } 

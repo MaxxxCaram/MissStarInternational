@@ -1,6 +1,6 @@
 from datetime import datetime
 
-# Lista de URLs de tu sitio
+#urls list of my site
 urls = [
     'https://maxxxcaram.github.io/MissStarInternational/',
     'https://maxxxcaram.github.io/MissStarInternational/en/history.html',
@@ -9,7 +9,7 @@ urls = [
     'https://maxxxcaram.github.io/MissStarInternational/contact.html'
 ]
 
-# Crear el contenido del sitemap
+# Cre
 sitemap_content = '<?xml version="1.0" encoding="UTF-8"?>\n'
 sitemap_content += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
 
@@ -21,8 +21,8 @@ for url in urls:
 
 sitemap_content += '</urlset>'
 
-# Guardar el sitemap
+# save sitemap
 with open('sitemap.xml', 'w') as f:
     f.write(sitemap_content)
 
-print("Sitemap creado!") 
+print("Sitemap created!") 
