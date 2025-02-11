@@ -1,28 +1,29 @@
+import os
 from datetime import datetime
 
-#urls list of my site
-urls = [
-    'https://maxxxcaram.github.io/MissStarInternational/',
-    'https://maxxxcaram.github.io/MissStarInternational/en/history.html',
-    'https://maxxxcaram.github.io/MissStarInternational/competition.html',
-    'https://maxxxcaram.github.io/MissStarInternational/news.html',
-    'https://maxxxcaram.github.io/MissStarInternational/contact.html'
-]
+def generate_sitemap():
+    base_url = "https://missstarinternational.com"
+    
+    urls = [
+        "",  # homepage
+        "/en/",
+        "/en/history.html",
+        "/queens/2024-2025/",  # Updated path if needed
+    ]
+    
+    xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
+    xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    
+    for url in urls:
+        xml += '  <url>\n'
+        xml += f'    <loc>{base_url}{url}</loc>\n'
+        xml += f'    <lastmod>{datetime.now().strftime("%Y-%m-%d")}</lastmod>\n'
+        xml += '  </url>\n'
+    
+    xml += '</urlset>'
+    
+    with open('sitemap.xml', 'w') as f:
+        f.write(xml)
 
-# Cre
-sitemap_content = '<?xml version="1.0" encoding="UTF-8"?>\n'
-sitemap_content += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-
-for url in urls:
-    sitemap_content += '  <url>\n'
-    sitemap_content += f'    <loc>{url}</loc>\n'
-    sitemap_content += f'    <lastmod>{datetime.now().strftime("%Y-%m-%d")}</lastmod>\n'
-    sitemap_content += '  </url>\n'
-
-sitemap_content += '</urlset>'
-
-# save sitemap
-with open('sitemap.xml', 'w') as f:
-    f.write(sitemap_content)
-
-print("Sitemap created!") 
+if __name__ == "__main__":
+    generate_sitemap() 
