@@ -1,12 +1,78 @@
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener('DOMContentLoaded', () => {
     const localVideo = document.getElementById('localVideo');
     const muteAudioBtn = document.getElementById('muteAudio');
     const muteVideoBtn = document.getElementById('muteVideo');
     const captionsDiv = document.getElementById('captions');
+    const startButton = document.createElement('button');
     
     let isAudioMuted = false;
     let isVideoMuted = false;
     let recognition = null;
+
+    // Create start button
+    startButton.textContent = 'Start Conference';
+    startButton.className = 'start-button';
+    document.querySelector('.video-box').appendChild(startButton);
+
+    // Initialize conference on user click
+    startButton.addEventListener('click', async () => {
+        try {
+            startButton.style.display = 'none';
+            
+            // Request permissions first
+            const stream = await navigator.mediaDevices.getUserMedia({
+                video: { width: 1280, height: 720 },
+                audio: true
+            });
+            
+            localVideo.srcObject = stream;
+            
+            try {
+                await localVideo.play();
+            } catch (e) {
+                console.error('Error playing video:', e);
+            }
+
+            // Audio/Video controls
+            muteAudioBtn.style.display = 'block';
+            muteVideoBtn.style.display = 'block';
+
+            muteAudioBtn.addEventListener('click', () => {
+                const audioTracks = stream.getAudioTracks();
+                isAudioMuted = !isAudioMuted;
+                audioTracks.forEach(track => track.enabled = !isAudioMuted);
+                muteAudioBtn.textContent = isAudioMuted ? '🔇' : '🎤';
+            });
+
+            muteVideoBtn.addEventListener('click', () => {
+                const videoTracks = stream.getVideoTracks();
+                isVideoMuted = !isVideoMuted;
+                videoTracks.forEach(track => track.enabled = !isVideoMuted);
+                muteVideoBtn.textContent = isVideoMuted ? '🚫' : '📹';
+            });
+
+            // Initialize speech recognition
+            if (initSpeechRecognition()) {
+                try {
+                    recognition.start();
+                } catch (e) {
+                    console.error('Could not start recognition:', e);
+                    captionsDiv.textContent = 'Could not start speech recognition.';
+                }
+            }
+
+        } catch (err) {
+            console.error('Error:', err);
+            startButton.style.display = 'block';
+            if (err.name === 'NotAllowedError') {
+                alert('Please allow camera and microphone access to use this feature.');
+            } else if (err.name === 'NotFoundError') {
+                alert('No camera/microphone found. Please connect a device and try again.');
+            } else {
+                alert('Error accessing camera/microphone. Please check your settings.');
+            }
+        }
+    });
 
     // Check if browser supports getUserMedia
     if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
@@ -55,55 +121,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             return true;
         }
         return false;
-    }
-
-    try {
-        // Request permissions first
-        const stream = await navigator.mediaDevices.getUserMedia({
-            video: { width: 1280, height: 720 },
-            audio: true
-        });
-        
-        localVideo.srcObject = stream;
-        await localVideo.play();
-
-        // Audio/Video controls
-        muteAudioBtn.addEventListener('click', () => {
-            const audioTracks = stream.getAudioTracks();
-            isAudioMuted = !isAudioMuted;
-            audioTracks.forEach(track => track.enabled = !isAudioMuted);
-            muteAudioBtn.textContent = isAudioMuted ? '🔇' : '🎤';
-        });
-
-        muteVideoBtn.addEventListener('click', () => {
-            const videoTracks = stream.getVideoTracks();
-            isVideoMuted = !isVideoMuted;
-            videoTracks.forEach(track => track.enabled = !isVideoMuted);
-            muteVideoBtn.textContent = isVideoMuted ? '🚫' : '📹';
-        });
-
-        // Initialize speech recognition after media setup
-        if (initSpeechRecognition()) {
-            try {
-                recognition.start();
-            } catch (e) {
-                console.error('Could not start recognition:', e);
-                captionsDiv.textContent = 'Could not start speech recognition.';
-            }
-        } else {
-            console.warn('Speech recognition not supported');
-            captionsDiv.textContent = 'Speech recognition is not supported in this browser. Please use Chrome.';
-        }
-
-    } catch (err) {
-        console.error('Error:', err);
-        if (err.name === 'NotAllowedError') {
-            alert('Please allow camera and microphone access to use this feature.');
-        } else if (err.name === 'NotFoundError') {
-            alert('No camera/microphone found. Please connect a device and try again.');
-        } else {
-            alert('Error accessing camera/microphone. Please check your settings.');
-        }
     }
 });
 
