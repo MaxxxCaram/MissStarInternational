@@ -6,35 +6,66 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     let isAudioMuted = false;
     let isVideoMuted = false;
+    let recognition = null;
 
     // Check if browser supports getUserMedia
     if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-        alert('Your browser does not support video/audio features. Please use Chrome, Firefox or Edge.');
+        alert('Your browser does not support video/audio features. Please use Chrome.');
         return;
+    }
+
+    // Initialize speech recognition
+    function initSpeechRecognition() {
+        if ('webkitSpeechRecognition' in window) {
+            recognition = new webkitSpeechRecognition();
+            recognition.continuous = true;
+            recognition.interimResults = true;
+            recognition.lang = 'en-US';
+
+            recognition.onstart = () => {
+                console.log('Speech recognition started');
+                captionsDiv.textContent = 'Listening...';
+            };
+
+            recognition.onresult = (event) => {
+                const text = Array.from(event.results)
+                    .map(result => result[0].transcript)
+                    .join('');
+                console.log('Recognized text:', text);
+                translateAndDisplay(text);
+            };
+
+            recognition.onerror = (event) => {
+                console.error('Speech recognition error:', event.error);
+                captionsDiv.textContent = 'Speech recognition error. Please try again.';
+            };
+
+            recognition.onend = () => {
+                console.log('Speech recognition ended');
+                // Wait a bit before restarting
+                setTimeout(() => {
+                    try {
+                        recognition.start();
+                    } catch (e) {
+                        console.error('Could not restart recognition:', e);
+                    }
+                }, 1000);
+            };
+
+            return true;
+        }
+        return false;
     }
 
     try {
         // Request permissions first
         const stream = await navigator.mediaDevices.getUserMedia({
-            video: {
-                width: { ideal: 1280 },
-                height: { ideal: 720 }
-            },
-            audio: {
-                echoCancellation: true,
-                noiseSuppression: true
-            }
+            video: { width: 1280, height: 720 },
+            audio: true
         });
         
-        // Set video source
         localVideo.srcObject = stream;
-        
-        // Handle video loading
-        localVideo.onloadedmetadata = () => {
-            localVideo.play().catch(err => {
-                console.error('Error playing video:', err);
-            });
-        };
+        await localVideo.play();
 
         // Audio/Video controls
         muteAudioBtn.addEventListener('click', () => {
@@ -51,51 +82,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             muteVideoBtn.textContent = isVideoMuted ? '🚫' : '📹';
         });
 
-        // Voice recognition setup
-        if ('webkitSpeechRecognition' in window) {
-            const recognition = new webkitSpeechRecognition();
-            recognition.continuous = true;
-            recognition.interimResults = true;
-            recognition.lang = 'en-US';
-
-            recognition.onstart = () => {
-                console.log('Speech recognition started');
-                captionsDiv.textContent = 'Listening...';
-            };
-
-            recognition.onresult = (event) => {
-                const text = Array.from(event.results)
-                    .map(result => result[0].transcript)
-                    .join('');
-                
-                translateAndDisplay(text);
-            };
-
-            recognition.onerror = (event) => {
-                console.error('Speech recognition error:', event.error);
-                captionsDiv.textContent = 'Speech recognition error. Please try again.';
-                
-                // Attempt to restart recognition
-                setTimeout(() => {
-                    try {
-                        recognition.start();
-                    } catch (e) {
-                        console.error('Could not restart recognition:', e);
-                    }
-                }, 1000);
-            };
-
-            recognition.onend = () => {
-                console.log('Speech recognition ended');
-                // Attempt to restart
-                try {
-                    recognition.start();
-                } catch (e) {
-                    console.error('Could not restart recognition:', e);
-                }
-            };
-
-            // Initial start
+        // Initialize speech recognition after media setup
+        if (initSpeechRecognition()) {
             try {
                 recognition.start();
             } catch (e) {
