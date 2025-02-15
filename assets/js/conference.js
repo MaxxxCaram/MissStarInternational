@@ -52,11 +52,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
 
         // Voice recognition setup
-        if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
-            const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+        if ('webkitSpeechRecognition' in window) {
+            const recognition = new webkitSpeechRecognition();
             recognition.continuous = true;
             recognition.interimResults = true;
             recognition.lang = 'en-US';
+
+            recognition.onstart = () => {
+                console.log('Speech recognition started');
+                captionsDiv.textContent = 'Listening...';
+            };
 
             recognition.onresult = (event) => {
                 const text = Array.from(event.results)
@@ -69,11 +74,37 @@ document.addEventListener('DOMContentLoaded', async () => {
             recognition.onerror = (event) => {
                 console.error('Speech recognition error:', event.error);
                 captionsDiv.textContent = 'Speech recognition error. Please try again.';
+                
+                // Attempt to restart recognition
+                setTimeout(() => {
+                    try {
+                        recognition.start();
+                    } catch (e) {
+                        console.error('Could not restart recognition:', e);
+                    }
+                }, 1000);
             };
 
-            recognition.start();
+            recognition.onend = () => {
+                console.log('Speech recognition ended');
+                // Attempt to restart
+                try {
+                    recognition.start();
+                } catch (e) {
+                    console.error('Could not restart recognition:', e);
+                }
+            };
+
+            // Initial start
+            try {
+                recognition.start();
+            } catch (e) {
+                console.error('Could not start recognition:', e);
+                captionsDiv.textContent = 'Could not start speech recognition.';
+            }
         } else {
-            captionsDiv.textContent = 'Speech recognition is not supported in this browser.';
+            console.warn('Speech recognition not supported');
+            captionsDiv.textContent = 'Speech recognition is not supported in this browser. Please use Chrome.';
         }
 
     } catch (err) {
