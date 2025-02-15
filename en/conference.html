@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSI Conference - Miss Star International</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="index.html" class="nav-logo">Miss Star International</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="history.html">History</a>
+                <a href="competition.html">Competition</a>
+                <a href="consortium.html">Consortium</a>
+                <a href="conference.html" class="active">Conference</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="conference-container">
+        <div class="video-grid">
+            <!-- Local video -->
+            <div class="video-box main-video">
+                <video id="localVideo" autoplay muted playsinline></video>
+                <div class="video-controls">
+                    <button id="muteAudio">🎤</button>
+                    <button id="muteVideo">📹</button>
+                </div>
+            </div>
+            
+            <!-- Remote videos -->
+            <div id="remoteVideos" class="remote-videos"></div>
+        </div>
+
+        <!-- Translated captions -->
+        <div class="captions-container">
+            <select id="languageSelect">
+                <option value="en">English</option>
+                <option value="es">Spanish</option>
+                <option value="pt">Portuguese</option>
+                <option value="fr">French</option>
+            </select>
+            <div id="captions"></div>
+        </div>
+    </main>
+
+    <script src="../assets/js/conference.js"></script>
+</body>
+</html> 
