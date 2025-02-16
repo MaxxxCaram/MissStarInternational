@@ -11,26 +11,65 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let stream = null;
 
+    // Check if getUserMedia is supported
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        status.textContent = 'Error: Your browser does not support camera/microphone access';
+        startBtn.disabled = true;
+        return;
+    }
+
     startBtn.onclick = async () => {
+        status.textContent = 'Requesting camera and microphone access...';
+        
         try {
+            // First request only video to test camera
             stream = await navigator.mediaDevices.getUserMedia({
+                video: {
+                    width: { ideal: 1280 },
+                    height: { ideal: 720 }
+                }
+            });
+
+            status.textContent = 'Camera connected, requesting microphone...';
+
+            // Then add audio
+            const fullStream = await navigator.mediaDevices.getUserMedia({
                 video: true,
                 audio: true
             });
 
+            stream = fullStream;
             localVideo.srcObject = stream;
+
+            // Wait for video to be ready
+            await new Promise((resolve) => {
+                localVideo.onloadedmetadata = () => {
+                    resolve();
+                };
+            });
+
+            await localVideo.play();
             
             startBtn.style.display = 'none';
             muteAudioBtn.style.display = 'inline';
             muteVideoBtn.style.display = 'inline';
             
-            status.textContent = 'Connected!';
+            status.textContent = 'Connected! Camera and microphone are working.';
+
         } catch (err) {
-            status.textContent = 'Error: ' + err.message;
+            console.error('Error:', err);
+            if (err.name === 'NotAllowedError') {
+                status.textContent = 'Error: Please allow camera and microphone access in your browser';
+            } else if (err.name === 'NotFoundError') {
+                status.textContent = 'Error: No camera or microphone found';
+            } else {
+                status.textContent = 'Error: ' + err.message;
+            }
         }
     };
 
     muteAudioBtn.onclick = () => {
+        if (!stream) return;
         const tracks = stream.getAudioTracks();
         tracks.forEach(track => {
             track.enabled = !track.enabled;
@@ -39,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     muteVideoBtn.onclick = () => {
+        if (!stream) return;
         const tracks = stream.getVideoTracks();
         tracks.forEach(track => {
             track.enabled = !track.enabled;
