@@ -5,11 +5,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const muteAudioBtn = document.getElementById('muteAudio');
     const muteVideoBtn = document.getElementById('muteVideo');
     const captionsDiv = document.getElementById('captions');
+    const languageSelect = document.getElementById('languageSelect');
     
     // State
     let stream = null;
     let isAudioMuted = false;
     let isVideoMuted = false;
+    let recognition = null;
 
     // Initially hide mute buttons
     muteAudioBtn.style.display = 'none';
@@ -43,7 +45,29 @@ document.addEventListener('DOMContentLoaded', () => {
             muteAudioBtn.style.display = 'inline-block';
             muteVideoBtn.style.display = 'inline-block';
             
-            captionsDiv.textContent = 'Video started successfully';
+            // Start speech recognition
+            if ('webkitSpeechRecognition' in window) {
+                recognition = new webkitSpeechRecognition();
+                recognition.continuous = true;
+                recognition.interimResults = true;
+                recognition.lang = 'en-US';
+
+                recognition.onstart = () => {
+                    captionsDiv.textContent = 'Listening...';
+                };
+
+                recognition.onresult = (event) => {
+                    const text = Array.from(event.results)
+                        .map(result => result[0].transcript)
+                        .join('');
+                    
+                    translateAndDisplay(text);
+                };
+
+                recognition.start();
+            } else {
+                captionsDiv.textContent = 'Speech recognition not supported';
+            }
 
         } catch (err) {
             console.error('Error:', err);
@@ -72,6 +96,14 @@ document.addEventListener('DOMContentLoaded', () => {
             isVideoMuted = !isVideoMuted;
             videoTracks.forEach(track => track.enabled = !isVideoMuted);
             muteVideoBtn.textContent = isVideoMuted ? '🚫' : '📹';
+        }
+    });
+
+    // Language change
+    languageSelect.addEventListener('change', () => {
+        if (recognition) {
+            recognition.stop();
+            recognition.start();
         }
     });
 });
