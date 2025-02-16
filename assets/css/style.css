@@ -556,4 +556,26 @@ body {
 
 .video-controls button {
     display: none;
+}
+
+/* Reload button styles */
+.reload-button {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    padding: 0.5rem 1rem;
+    background: #D4AF37;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.reload-button:hover {
+    background: #fff;
+    color: #D4AF37;
+    transform: scale(1.1);
 } 

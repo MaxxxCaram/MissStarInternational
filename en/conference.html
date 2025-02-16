@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>MSI Conference - Miss Star International</title>
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
@@ -28,13 +29,11 @@
             <div class="video-box main-video">
                 <video id="localVideo" autoplay muted playsinline></video>
                 <div class="video-controls">
+                    <button id="startVideo">Start Video</button>
                     <button id="muteAudio">🎤</button>
                     <button id="muteVideo">📹</button>
                 </div>
             </div>
-            
-            <!-- Remote videos -->
-            <div id="remoteVideos" class="remote-videos"></div>
         </div>
 
         <!-- Translated captions -->
@@ -45,10 +44,12 @@
                 <option value="pt">Portuguese</option>
                 <option value="fr">French</option>
             </select>
-            <div id="captions"></div>
+            <div id="captions">Click "Start Video" to begin</div>
         </div>
     </main>
 
+    <!-- Scripts -->
     <script src="../assets/js/conference.js"></script>
+    <script src="../assets/js/reload.js"></script>
 </body>
 </html> 
