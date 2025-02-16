@@ -1,66 +1,50 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Elements
     const localVideo = document.getElementById('localVideo');
-    const startVideoBtn = document.getElementById('startVideo');
+    const startBtn = document.getElementById('startVideo');
     const muteAudioBtn = document.getElementById('muteAudio');
     const muteVideoBtn = document.getElementById('muteVideo');
-    const captionsDiv = document.getElementById('captions');
-    
-    // State
-    let stream = null;
-    let isAudioMuted = false;
-    let isVideoMuted = false;
+    const status = document.getElementById('status');
 
-    // Initially hide mute buttons
+    // Hide controls initially
     muteAudioBtn.style.display = 'none';
     muteVideoBtn.style.display = 'none';
 
-    // Start Video Button
-    startVideoBtn.addEventListener('click', async () => {
+    let stream = null;
+
+    startBtn.onclick = async () => {
         try {
-            // Request camera access
             stream = await navigator.mediaDevices.getUserMedia({
-                video: {
-                    width: 640,
-                    height: 480
-                },
+                video: true,
                 audio: true
             });
 
-            // Set video source
             localVideo.srcObject = stream;
-            await localVideo.play();
-
-            // Show controls
-            startVideoBtn.style.display = 'none';
-            muteAudioBtn.style.display = 'inline-block';
-            muteVideoBtn.style.display = 'inline-block';
-            captionsDiv.textContent = 'Video started';
-
+            
+            startBtn.style.display = 'none';
+            muteAudioBtn.style.display = 'inline';
+            muteVideoBtn.style.display = 'inline';
+            
+            status.textContent = 'Connected!';
         } catch (err) {
-            console.error('Error:', err);
-            captionsDiv.textContent = 'Error starting video: ' + err.message;
+            status.textContent = 'Error: ' + err.message;
         }
-    });
+    };
 
-    // Controls
-    muteAudioBtn.addEventListener('click', () => {
-        if (stream) {
-            const audioTracks = stream.getAudioTracks();
-            isAudioMuted = !isAudioMuted;
-            audioTracks.forEach(track => track.enabled = !isAudioMuted);
-            muteAudioBtn.textContent = isAudioMuted ? '🔇' : '🎤';
-        }
-    });
+    muteAudioBtn.onclick = () => {
+        const tracks = stream.getAudioTracks();
+        tracks.forEach(track => {
+            track.enabled = !track.enabled;
+            muteAudioBtn.textContent = track.enabled ? '🎤' : '🔇';
+        });
+    };
 
-    muteVideoBtn.addEventListener('click', () => {
-        if (stream) {
-            const videoTracks = stream.getVideoTracks();
-            isVideoMuted = !isVideoMuted;
-            videoTracks.forEach(track => track.enabled = !isVideoMuted);
-            muteVideoBtn.textContent = isVideoMuted ? '🚫' : '📹';
-        }
-    });
+    muteVideoBtn.onclick = () => {
+        const tracks = stream.getVideoTracks();
+        tracks.forEach(track => {
+            track.enabled = !track.enabled;
+            muteVideoBtn.textContent = track.enabled ? '📹' : '🚫';
+        });
+    };
 });
 
 async function translateAndDisplay(text) {
