@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const localVideo = document.getElementById('localVideo');
+    const video = document.getElementById('localVideo');
     const startBtn = document.getElementById('startVideo');
     const muteAudioBtn = document.getElementById('muteAudio');
     const muteVideoBtn = document.getElementById('muteVideo');
@@ -22,39 +22,30 @@ document.addEventListener('DOMContentLoaded', () => {
         status.textContent = 'Requesting camera and microphone access...';
         
         try {
-            // First request only video to test camera
-            stream = await navigator.mediaDevices.getUserMedia({
-                video: {
-                    width: { ideal: 1280 },
-                    height: { ideal: 720 }
-                }
-            });
-
-            status.textContent = 'Camera connected, requesting microphone...';
-
-            // Then add audio
-            const fullStream = await navigator.mediaDevices.getUserMedia({
+            const stream = await navigator.mediaDevices.getUserMedia({
                 video: true,
                 audio: true
             });
 
-            stream = fullStream;
-            localVideo.srcObject = stream;
-
-            // Wait for video to be ready
-            await new Promise((resolve) => {
-                localVideo.onloadedmetadata = () => {
-                    resolve();
-                };
-            });
-
-            await localVideo.play();
-            
+            video.srcObject = stream;
             startBtn.style.display = 'none';
             muteAudioBtn.style.display = 'inline';
             muteVideoBtn.style.display = 'inline';
-            
-            status.textContent = 'Connected! Camera and microphone are working.';
+            status.textContent = 'Connected!';
+
+            muteAudioBtn.onclick = () => {
+                stream.getAudioTracks().forEach(track => {
+                    track.enabled = !track.enabled;
+                    muteAudioBtn.textContent = track.enabled ? '🎤' : '🔇';
+                });
+            };
+
+            muteVideoBtn.onclick = () => {
+                stream.getVideoTracks().forEach(track => {
+                    track.enabled = !track.enabled;
+                    muteVideoBtn.textContent = track.enabled ? '📹' : '🚫';
+                });
+            };
 
         } catch (err) {
             console.error('Error:', err);
@@ -66,24 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 status.textContent = 'Error: ' + err.message;
             }
         }
-    };
-
-    muteAudioBtn.onclick = () => {
-        if (!stream) return;
-        const tracks = stream.getAudioTracks();
-        tracks.forEach(track => {
-            track.enabled = !track.enabled;
-            muteAudioBtn.textContent = track.enabled ? '🎤' : '🔇';
-        });
-    };
-
-    muteVideoBtn.onclick = () => {
-        if (!stream) return;
-        const tracks = stream.getVideoTracks();
-        tracks.forEach(track => {
-            track.enabled = !track.enabled;
-            muteVideoBtn.textContent = track.enabled ? '📹' : '🚫';
-        });
     };
 });
 
