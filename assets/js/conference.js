@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     muteAudioBtn.style.display = 'none';
     muteVideoBtn.style.display = 'none';
 
-    // Diccionario de traducciones en tiempo real
+    // Diccionario simple de traducciones
     const translations = {
         'en': {
             'es': {
@@ -22,52 +22,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 'how are you': 'cómo estás',
                 'welcome': 'bienvenido',
                 'good morning': 'buenos días',
-                'thank you': 'gracias',
-                'goodbye': 'adiós',
-                'please': 'por favor',
-                'nice to meet you': 'encantado de conocerte'
-            },
-            'pt': {
-                'hello': 'olá',
-                'how are you': 'como vai você',
-                'welcome': 'bem-vindo',
-                'good morning': 'bom dia',
-                'thank you': 'obrigado',
-                'goodbye': 'tchau',
-                'please': 'por favor',
-                'nice to meet you': 'prazer em conhecê-lo'
-            },
-            'th': {
-                'hello': 'สวัสดี',
-                'how are you': 'สบายดีไหม',
-                'welcome': 'ยินดีต้อนรับ',
-                'good morning': 'อรุณสวัสดิ์',
-                'thank you': 'ขอบคุณ',
-                'goodbye': 'ลาก่อน',
-                'please': 'กรุณา',
-                'nice to meet you': 'ยินดีที่ได้รู้จัก'
+                'thank you': 'gracias'
             }
         }
     };
 
-    startBtn.onclick = async () => {
-        try {
-            stream = await navigator.mediaDevices.getUserMedia({
-                video: { width: 640, height: 480 },
-                audio: true
-            });
-
-            video.srcObject = stream;
-            startBtn.style.display = 'none';
-            muteAudioBtn.style.display = 'inline';
-            muteVideoBtn.style.display = 'inline';
-            
-            startRealtimeTranslation();
-
-        } catch (err) {
-            console.error('Error:', err);
-            translatedText.textContent = 'Error: ' + err.message;
-        }
+    startBtn.onclick = () => {
+        startRealtimeTranslation();
+        startBtn.disabled = true;
+        startBtn.textContent = 'Listening...';
     };
 
     function startRealtimeTranslation() {
@@ -75,10 +38,10 @@ document.addEventListener('DOMContentLoaded', () => {
             recognition = new webkitSpeechRecognition();
             recognition.continuous = true;
             recognition.interimResults = true;
-            recognition.lang = 'auto';
+            recognition.lang = 'en-US'; // Fijo en inglés para pruebas
 
             recognition.onstart = () => {
-                translatedText.textContent = 'Escuchando...';
+                originalText.textContent = 'Listening...';
             };
 
             recognition.onresult = (event) => {
@@ -86,34 +49,31 @@ document.addEventListener('DOMContentLoaded', () => {
                     .map(result => result[0].transcript)
                     .join(' ');
 
-                const detectedLang = event.results[0][0].lang.split('-')[0];
-                const targetLang = listenLanguage.value.split('-')[0];
-
                 // Mostrar texto original
-                originalText.textContent = `[${detectedLang}] ${transcript}`;
+                originalText.textContent = `[EN] ${transcript}`;
 
-                // Traducir en tiempo real
+                // Traducir al español
                 const words = transcript.toLowerCase().split(' ');
                 const translatedWords = words.map(word => {
-                    return translations[detectedLang]?.[targetLang]?.[word] || word;
+                    return translations['en']['es'][word] || word;
                 });
 
                 // Mostrar traducción
-                translatedText.textContent = `[${targetLang}] ${translatedWords.join(' ')}`;
+                translatedText.textContent = `[ES] ${translatedWords.join(' ')}`;
             };
 
             recognition.onerror = (event) => {
                 console.error('Error:', event.error);
-                translatedText.textContent = 'Error en reconocimiento de voz';
+                originalText.textContent = 'Error en reconocimiento de voz';
             };
 
             recognition.onend = () => {
-                recognition.start();
+                recognition.start(); // Mantener escuchando
             };
 
             recognition.start();
         } else {
-            translatedText.textContent = 'Su navegador no soporta reconocimiento de voz';
+            originalText.textContent = 'Su navegador no soporta reconocimiento de voz';
         }
     }
 
