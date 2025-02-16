@@ -22,67 +22,38 @@
     </nav>
 
     <main class="conference-container">
-        <!-- Selector de idioma -->
-        <div class="language-selector">
-            <select id="languageSelect">
-                <option value="en-es">English → Español</option>
-                <option value="en-pt">English → Português</option>
-                <option value="en-th">English → ไทย</option>
-                <option value="es-en">Español → English</option>
-                <option value="es-pt">Español → Português</option>
-                <option value="es-th">Español → ไทย</option>
-                <option value="pt-en">Português → English</option>
-                <option value="pt-es">Português → Español</option>
-                <option value="pt-th">Português → ไทย</option>
-                <option value="th-en">ไทย → English</option>
-                <option value="th-es">ไทย → Español</option>
-                <option value="th-pt">ไทย → Português</option>
-            </select>
-        </div>
-
-        <!-- Grid de videos -->
-        <div class="video-grid">
-            <!-- Video local -->
-            <div class="video-box main-video">
-                <video id="localVideo" autoplay muted playsinline></video>
-                <div class="video-controls">
-                    <button id="startVideo">Start Video</button>
-                    <button id="muteAudio">🎤</button>
-                    <button id="muteVideo">📹</button>
-                </div>
-                <div class="participant-name">You</div>
-            </div>
-        </div>
-
-        <!-- Área de subtítulos traducidos -->
-        <div class="captions-container">
-            <div id="captions">
-                <p class="original-text"></p>
-                <p class="translated-text"></p>
-            </div>
-        </div>
-
+        <!-- Controles de idioma -->
         <div class="language-controls">
-            <!-- Idioma en el que habla el usuario -->
-            <div class="language-select">
-                <label>Speak in:</label>
-                <select id="speakLanguage">
-                    <option value="en-US">English</option>
-                    <option value="es-ES">Español</option>
-                    <option value="pt-BR">Português</option>
-                    <option value="th-TH">ไทย</option>
-                </select>
-            </div>
-
-            <!-- Idioma en el que quiere escuchar -->
             <div class="language-select">
                 <label>Translate to:</label>
                 <select id="listenLanguage">
-                    <option value="en-US">English</option>
                     <option value="es-ES">Español</option>
+                    <option value="en-US">English</option>
                     <option value="pt-BR">Português</option>
                     <option value="th-TH">ไทย</option>
                 </select>
+            </div>
+        </div>
+
+        <!-- Video -->
+        <div class="video-box">
+            <video id="localVideo" autoplay muted playsinline></video>
+            <div class="video-controls">
+                <button id="startVideo">Start Video</button>
+                <button id="muteAudio">🎤</button>
+                <button id="muteVideo">📹</button>
+            </div>
+        </div>
+
+        <!-- Área de texto -->
+        <div class="text-container">
+            <div class="text-box">
+                <h3>Original:</h3>
+                <p class="original-text"></p>
+            </div>
+            <div class="text-box">
+                <h3>Translation:</h3>
+                <p class="translated-text"></p>
             </div>
         </div>
     </main>

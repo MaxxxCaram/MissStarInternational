@@ -535,4 +535,35 @@ body {
     border: 1px solid #D4AF37;
     padding: 0.5rem;
     border-radius: 5px;
+}
+
+.text-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: rgba(0,0,0,0.8);
+    border: 1px solid #D4AF37;
+    border-radius: 10px;
+}
+
+.text-box {
+    margin: 1rem 0;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(212,175,55,0.3);
+}
+
+.text-box h3 {
+    color: #D4AF37;
+    margin-bottom: 0.5rem;
+}
+
+.original-text, .translated-text {
+    color: #fff;
+    font-size: 1.2rem;
+    min-height: 1.5rem;
+    margin: 0;
+}
+
+.translated-text {
+    color: #D4AF37;
 } 
