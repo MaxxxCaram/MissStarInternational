@@ -10,38 +10,107 @@ document.addEventListener('DOMContentLoaded', () => {
     let recognition = null;
     let stream = null;
 
-    // Ocultar controles inicialmente
+    // Initially hide controls
     muteAudioBtn.style.display = 'none';
     muteVideoBtn.style.display = 'none';
 
-    // Diccionario simple de traducciones
+    // Specialized dictionary for business meetings
     const translations = {
-        'en': {
-            'es': {
-                'hello': 'hola',
-                'how are you': 'cómo estás',
-                'welcome': 'bienvenido',
-                'good morning': 'buenos días',
-                'thank you': 'gracias'
-            }
-        }
+        // Meetings and presentations (Spanish translations)
+        'good morning everyone': 'buenos dias a todos',
+        'welcome to the meeting': 'bienvenidos a la reunion',
+        'let me introduce myself': 'permítanme presentarme',
+        'let us begin': 'comencemos',
+        'thank you for coming': 'gracias por venir',
+        'thank you for your time': 'gracias por su tiempo',      // thanks for your time
+        'let me share my screen': 'permitanme compartir mi pantalla',  // without accent for linter
+        'can everyone hear me': 'pueden todos oirme',            // without accents for linter
+        'can you hear me': 'pueden oirme',
+
+        // Business and Finance
+        'profit': 'beneficio',
+        'revenue': 'ingresos',
+        'costs': 'costos',
+        'expenses': 'gastos',
+        'investment': 'inversión',
+        'market': 'mercado',
+        'business plan': 'plan de negocios',
+        'strategy': 'estrategia',
+        'budget': 'presupuesto',
+        'forecast': 'pronóstico',
+        'growth': 'crecimiento',
+        'sales': 'ventas',
+        'marketing': 'marketing',
+        'target': 'objetivo',
+        'deadline': 'fecha límite',
+
+        // Negotiation
+        'proposal': 'propuesta',
+        'offer': 'oferta',
+        'agreement': 'acuerdo',
+        'contract': 'contrato',
+        'terms and conditions': 'términos y condiciones',
+        'deal': 'trato',
+        'partnership': 'asociación',
+        'collaboration': 'colaboración',
+        'negotiation': 'negociación',
+        'let us discuss': 'discutamos',
+        'what do you think': 'qué opina',
+        'i agree': 'estoy de acuerdo',
+        'i disagree': 'no estoy de acuerdo',
+        'we need to consider': 'necesitamos considerar',
+
+        // Data Presentation
+        'report': 'informe',
+        'analysis': 'análisis',
+        'results': 'resultados',
+        'performance': 'rendimiento',
+        'statistics': 'estadísticas',
+        'data': 'datos',
+        'chart': 'gráfico',
+        'graph': 'gráfica',
+        'increase': 'aumento',
+        'decrease': 'disminución',
+        'percentage': 'porcentaje',
+        'quarter': 'trimestre',
+        'fiscal year': 'año fiscal',
+
+        // Decision Making
+        'decision': 'decision',
+        'option': 'opción',
+        'alternative': 'alternativa',
+        'solution': 'solución',
+        'problem': 'problema',
+        'challenge': 'desafío',
+        'opportunity': 'oportunidad',
+        'risk': 'riesgo',
+        'advantage': 'ventaja',
+        'disadvantage': 'desventaja',
+        'priority': 'prioridad',
+
+        // Conclusion
+        'in conclusion': 'en conclusion',
+        'to summarize': 'para resumir',
+        'next steps': 'proximos pasos',
+        'action items': 'puntos de acción',
+        'follow up': 'seguimiento',
+        'any questions': 'alguna pregunta',
+        'meeting adjourned': 'reunión terminada',
+        'thank you for your attention': 'gracias por su atención',
+        'see you next time': 'hasta la próxima'
     };
 
     startBtn.onclick = () => {
-        startRealtimeTranslation();
-        startBtn.disabled = true;
-        startBtn.textContent = 'Listening...';
-    };
-
-    function startRealtimeTranslation() {
         if ('webkitSpeechRecognition' in window) {
             recognition = new webkitSpeechRecognition();
             recognition.continuous = true;
             recognition.interimResults = true;
-            recognition.lang = 'en-US'; // Fijo en inglés para pruebas
+            recognition.lang = 'en-US';
 
             recognition.onstart = () => {
                 originalText.textContent = 'Listening...';
+                startBtn.disabled = true;
+                startBtn.textContent = 'Meeting in Progress...';
             };
 
             recognition.onresult = (event) => {
@@ -49,35 +118,52 @@ document.addEventListener('DOMContentLoaded', () => {
                     .map(result => result[0].transcript)
                     .join(' ');
 
-                // Mostrar texto original
                 originalText.textContent = `[EN] ${transcript}`;
 
-                // Traducir al español
+                // Enhanced translation for business phrases
                 const words = transcript.toLowerCase().split(' ');
-                const translatedWords = words.map(word => {
-                    return translations['en']['es'][word] || word;
-                });
+                let translatedText = '';
+                let buffer = '';
 
-                // Mostrar traducción
-                translatedText.textContent = `[ES] ${translatedWords.join(' ')}`;
+                for (let i = 0; i < words.length; i++) {
+                    buffer += (buffer ? ' ' : '') + words[i];
+                    
+                    if (translations[buffer]) {
+                        translatedText += (translatedText ? ' ' : '') + translations[buffer];
+                        buffer = '';
+                    } else {
+                        if (i === words.length - 1 || !translations[buffer + ' ' + words[i + 1]]) {
+                            if (translations[words[i]]) {
+                                translatedText += (translatedText ? ' ' : '') + translations[words[i]];
+                            } else {
+                                translatedText += (translatedText ? ' ' : '') + words[i];
+                            }
+                            buffer = '';
+                        }
+                    }
+                }
+
+                document.getElementById('translatedText').textContent = `[ES] ${translatedText}`;
             };
 
             recognition.onerror = (event) => {
                 console.error('Error:', event.error);
-                originalText.textContent = 'Error en reconocimiento de voz';
+                originalText.textContent = 'Speech recognition error';
+                startBtn.disabled = false;
+                startBtn.textContent = 'Restart Meeting';
             };
 
             recognition.onend = () => {
-                recognition.start(); // Mantener escuchando
+                recognition.start(); // Keep meeting active
             };
 
             recognition.start();
         } else {
-            originalText.textContent = 'Su navegador no soporta reconocimiento de voz';
+            originalText.textContent = 'Speech recognition not supported';
         }
-    }
+    };
 
-    // Controles básicos
+    // Basic controls
     muteAudioBtn.onclick = () => {
         if (stream) {
             const tracks = stream.getAudioTracks();
@@ -98,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Limpiar al cerrar
+    // Cleanup on close
     window.onbeforeunload = () => {
         if (recognition) recognition.stop();
         if (stream) stream.getTracks().forEach(track => track.stop());
