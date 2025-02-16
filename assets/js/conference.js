@@ -4,10 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const muteAudioBtn = document.getElementById('muteAudio');
     const muteVideoBtn = document.getElementById('muteVideo');
     const captionsDiv = document.getElementById('captions');
+    const languageSelect = document.getElementById('languageSelect');
     
     let stream = null;
     let isAudioMuted = false;
     let isVideoMuted = false;
+    let recognition = null;
 
     // Hide control buttons initially
     muteAudioBtn.style.display = 'none';
@@ -15,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     startVideoBtn.addEventListener('click', async () => {
         try {
-            // Basic video constraints
             stream = await navigator.mediaDevices.getUserMedia({
                 video: true,
                 audio: true
@@ -25,15 +26,47 @@ document.addEventListener('DOMContentLoaded', () => {
             startVideoBtn.style.display = 'none';
             muteAudioBtn.style.display = 'inline-block';
             muteVideoBtn.style.display = 'inline-block';
-            captionsDiv.textContent = 'Video started';
-
+            
+            // Start speech recognition
+            startSpeechRecognition();
+            
         } catch (err) {
             console.error('Error:', err);
             captionsDiv.textContent = 'Error starting video. Please check permissions.';
         }
     });
 
-    // Simple controls
+    function startSpeechRecognition() {
+        if ('webkitSpeechRecognition' in window) {
+            recognition = new webkitSpeechRecognition();
+            recognition.continuous = true;
+            recognition.interimResults = true;
+            recognition.lang = 'en-US';
+
+            recognition.onstart = () => {
+                captionsDiv.textContent = 'Listening...';
+            };
+
+            recognition.onresult = (event) => {
+                const text = Array.from(event.results)
+                    .map(result => result[0].transcript)
+                    .join('');
+                
+                translateAndDisplay(text);
+            };
+
+            recognition.onerror = (event) => {
+                console.error('Speech recognition error:', event.error);
+                captionsDiv.textContent = 'Speech recognition error. Please try again.';
+            };
+
+            recognition.start();
+        } else {
+            captionsDiv.textContent = 'Speech recognition not supported. Please use Chrome.';
+        }
+    }
+
+    // Controls
     muteAudioBtn.addEventListener('click', () => {
         if (stream) {
             const audioTracks = stream.getAudioTracks();
@@ -49,6 +82,14 @@ document.addEventListener('DOMContentLoaded', () => {
             isVideoMuted = !isVideoMuted;
             videoTracks.forEach(track => track.enabled = !isVideoMuted);
             muteVideoBtn.textContent = isVideoMuted ? '🚫' : '📹';
+        }
+    });
+
+    // Language change handler
+    languageSelect.addEventListener('change', () => {
+        if (recognition) {
+            recognition.stop();
+            startSpeechRecognition();
         }
     });
 });
