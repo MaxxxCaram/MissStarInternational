@@ -5,24 +5,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const muteAudioBtn = document.getElementById('muteAudio');
     const muteVideoBtn = document.getElementById('muteVideo');
     const captionsDiv = document.getElementById('captions');
-    const languageSelect = document.getElementById('languageSelect');
     
     // State
     let stream = null;
     let isAudioMuted = false;
     let isVideoMuted = false;
-    let recognition = null;
 
     // Initially hide mute buttons
     muteAudioBtn.style.display = 'none';
     muteVideoBtn.style.display = 'none';
-
-    // Check browser support
-    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-        startVideoBtn.disabled = true;
-        captionsDiv.textContent = 'Your browser does not support video. Please use Chrome.';
-        return;
-    }
 
     // Start Video Button
     startVideoBtn.addEventListener('click', async () => {
@@ -44,42 +35,15 @@ document.addEventListener('DOMContentLoaded', () => {
             startVideoBtn.style.display = 'none';
             muteAudioBtn.style.display = 'inline-block';
             muteVideoBtn.style.display = 'inline-block';
-            
-            // Start speech recognition
-            if ('webkitSpeechRecognition' in window) {
-                recognition = new webkitSpeechRecognition();
-                recognition.continuous = true;
-                recognition.interimResults = true;
-                recognition.lang = 'en-US';
-
-                recognition.onstart = () => {
-                    captionsDiv.textContent = 'Listening...';
-                };
-
-                recognition.onresult = (event) => {
-                    const text = Array.from(event.results)
-                        .map(result => result[0].transcript)
-                        .join('');
-                    
-                    translateAndDisplay(text);
-                };
-
-                recognition.start();
-            } else {
-                captionsDiv.textContent = 'Speech recognition not supported';
-            }
+            captionsDiv.textContent = 'Video started';
 
         } catch (err) {
             console.error('Error:', err);
-            if (err.name === 'NotAllowedError') {
-                captionsDiv.textContent = 'Please allow camera access and try again';
-            } else {
-                captionsDiv.textContent = 'Error starting video: ' + err.message;
-            }
+            captionsDiv.textContent = 'Error starting video: ' + err.message;
         }
     });
 
-    // Mute Audio Button
+    // Controls
     muteAudioBtn.addEventListener('click', () => {
         if (stream) {
             const audioTracks = stream.getAudioTracks();
@@ -89,21 +53,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Mute Video Button
     muteVideoBtn.addEventListener('click', () => {
         if (stream) {
             const videoTracks = stream.getVideoTracks();
             isVideoMuted = !isVideoMuted;
             videoTracks.forEach(track => track.enabled = !isVideoMuted);
             muteVideoBtn.textContent = isVideoMuted ? '🚫' : '📹';
-        }
-    });
-
-    // Language change
-    languageSelect.addEventListener('change', () => {
-        if (recognition) {
-            recognition.stop();
-            recognition.start();
         }
     });
 });
