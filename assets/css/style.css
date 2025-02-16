@@ -402,9 +402,52 @@ body {
 
 /* Conference styles */
 .conference-container {
-    padding-top: 80px;
-    min-height: 100vh;
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.controls {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#startBtn {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
     background: #000;
+    color: #D4AF37;
+    border: 2px solid #D4AF37;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.text-container {
+    background: rgba(0,0,0,0.8);
+    border: 1px solid #D4AF37;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.text-box {
+    margin: 1rem 0;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(212,175,55,0.3);
+}
+
+.text-box h3 {
+    color: #D4AF37;
+    margin-bottom: 0.5rem;
+}
+
+#originalText, #translatedText {
+    color: #fff;
+    font-size: 1.2rem;
+    min-height: 1.5rem;
+}
+
+#translatedText {
+    color: #D4AF37;
 }
 
 .language-selector {
