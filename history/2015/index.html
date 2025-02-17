@@ -22,68 +22,121 @@
         </div>
     </nav>
 
-    <div class="history-gallery">
-        <div class="year-section">
-            <h2>Miss Star International 2015</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="./austria.jpg" alt="Austria">
-                    <div class="gallery-info">Austria</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="./belgium.jpg" alt="Belgium">
-                    <div class="gallery-info">Belgium</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="./chile.jpg" alt="Chile">
-                    <div class="gallery-info">Chile</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="./ecuador.jpg" alt="Ecuador">
-                    <div class="gallery-info">Ecuador</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="./francia.jpg" alt="France">
-                    <div class="gallery-info">France</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="./greece.jpg" alt="Greece">
-                    <div class="gallery-info">Greece</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="./Jamaica.jpg" alt="Jamaica">
-                    <div class="gallery-info">Jamaica</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="./Netherlands.jpg" alt="Netherlands">
-                    <div class="gallery-info">Netherlands</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="./Paraguay.jpg" alt="Paraguay">
-                    <div class="gallery-info">Paraguay</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="./peru.jpg" alt="Peru">
-                    <div class="gallery-info">Peru</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="./puerto rico.jpg" alt="Puerto Rico">
-                    <div class="gallery-info">Puerto Rico</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="./sudafrica.jpg" alt="South Africa">
-                    <div class="gallery-info">South Africa</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="./switzerland.jpg" alt="Switzerland">
-                    <div class="gallery-info">Switzerland</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="./usa.jpg" alt="USA">
-                    <div class="gallery-info">USA</div>
-                </div>
+    <div class="gallery-carousel">
+        <div class="carousel-container">
+            <div class="carousel-slide">
+                <img src="./austria.jpg" alt="Austria">
+                <div class="carousel-info">Austria</div>
+            </div>
+            <div class="carousel-slide">
+                <img src="./belgium.jpg" alt="Belgium">
+                <div class="carousel-info">Belgium</div>
+            </div>
+            <div class="carousel-slide">
+                <img src="./chile.jpg" alt="Chile">
+                <div class="carousel-info">Chile</div>
+            </div>
+            <div class="carousel-slide">
+                <img src="./ecuador.jpg" alt="Ecuador">
+                <div class="carousel-info">Ecuador</div>
+            </div>
+            <div class="carousel-slide">
+                <img src="./francia.jpg" alt="France">
+                <div class="carousel-info">France</div>
+            </div>
+            <div class="carousel-slide">
+                <img src="./greece.jpg" alt="Greece">
+                <div class="carousel-info">Greece</div>
+            </div>
+            <div class="carousel-slide">
+                <img src="./Jamaica.jpg" alt="Jamaica">
+                <div class="carousel-info">Jamaica</div>
+            </div>
+            <div class="carousel-slide">
+                <img src="./Netherlands.jpg" alt="Netherlands">
+                <div class="carousel-info">Netherlands</div>
+            </div>
+            <div class="carousel-slide">
+                <img src="./Paraguay.jpg" alt="Paraguay">
+                <div class="carousel-info">Paraguay</div>
+            </div>
+            <div class="carousel-slide">
+                <img src="./peru.jpg" alt="Peru">
+                <div class="carousel-info">Peru</div>
+            </div>
+            <div class="carousel-slide">
+                <img src="./puerto rico.jpg" alt="Puerto Rico">
+                <div class="carousel-info">Puerto Rico</div>
+            </div>
+            <div class="carousel-slide">
+                <img src="./sudafrica.jpg" alt="South Africa">
+                <div class="carousel-info">South Africa</div>
+            </div>
+            <div class="carousel-slide">
+                <img src="./switzerland.jpg" alt="Switzerland">
+                <div class="carousel-info">Switzerland</div>
+            </div>
+            <div class="carousel-slide">
+                <img src="./usa.jpg" alt="USA">
+                <div class="carousel-info">USA</div>
             </div>
         </div>
+        
+        <div class="carousel-nav">
+            <button class="carousel-button prev">❮</button>
+            <button class="carousel-button next">❯</button>
+        </div>
+        
+        <div class="carousel-dots"></div>
     </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const container = document.querySelector('.carousel-container');
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dotsContainer = document.querySelector('.carousel-dots');
+        const prevButton = document.querySelector('.carousel-button.prev');
+        const nextButton = document.querySelector('.carousel-button.next');
+        
+        let currentSlide = 0;
+        
+        // Create dots
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('carousel-dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+        
+        function updateSlide() {
+            container.style.transform = `translateX(-${currentSlide * 100}%)`;
+            document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+        
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlide();
+        }
+        
+        prevButton.addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateSlide();
+        });
+        
+        nextButton.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlide();
+        });
+        
+        // Auto advance
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlide();
+        }, 5000);
+    });
+    </script>
 </body>
 </html> 
