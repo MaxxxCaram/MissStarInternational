@@ -23,6 +23,7 @@
     </nav>
 
     <div class="gallery-carousel">
+        <h2>Miss Star International 2015</h2>
         <div class="carousel-container">
             <div class="carousel-slide">
                 <img src="./austria.jpg" alt="Austria">
@@ -90,53 +91,6 @@
         <div class="carousel-dots"></div>
     </div>
 
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const container = document.querySelector('.carousel-container');
-        const slides = document.querySelectorAll('.carousel-slide');
-        const dotsContainer = document.querySelector('.carousel-dots');
-        const prevButton = document.querySelector('.carousel-button.prev');
-        const nextButton = document.querySelector('.carousel-button.next');
-        
-        let currentSlide = 0;
-        
-        // Create dots
-        slides.forEach((_, index) => {
-            const dot = document.createElement('div');
-            dot.classList.add('carousel-dot');
-            if (index === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => goToSlide(index));
-            dotsContainer.appendChild(dot);
-        });
-        
-        function updateSlide() {
-            container.style.transform = `translateX(-${currentSlide * 100}%)`;
-            document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentSlide);
-            });
-        }
-        
-        function goToSlide(index) {
-            currentSlide = index;
-            updateSlide();
-        }
-        
-        prevButton.addEventListener('click', () => {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            updateSlide();
-        });
-        
-        nextButton.addEventListener('click', () => {
-            currentSlide = (currentSlide + 1) % slides.length;
-            updateSlide();
-        });
-        
-        // Auto advance
-        setInterval(() => {
-            currentSlide = (currentSlide + 1) % slides.length;
-            updateSlide();
-        }, 5000);
-    });
-    </script>
+    <script src="../../assets/js/carousel.js"></script>
 </body>
 </html> 
