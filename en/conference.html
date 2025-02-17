@@ -21,57 +21,36 @@
         </div>
     </nav>
 
-    <main class="conference-container">
-        <div class="controls">
-            <button id="startBtn">Start Listening</button>
-        </div>
-
-        <div class="text-container">
-            <div class="text-box">
-                <h3>Original:</h3>
-                <p id="originalText"></p>
-            </div>
-            <div class="text-box">
-                <h3>Translation:</h3>
-                <p id="translatedText"></p>
+    <div class="conference-container">
+        <div class="video-grid">
+            <div class="main-video video-box">
+                <video id="localVideo" autoplay muted playsinline></video>
+                <div class="video-controls">
+                    <button id="muteAudio">🎤</button>
+                    <button id="muteVideo">📹</button>
+                </div>
+                <div class="participant-name">You</div>
             </div>
         </div>
-    </main>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const startBtn = document.getElementById('startBtn');
-            const originalText = document.getElementById('originalText');
-            const translatedText = document.getElementById('translatedText');
-            let recognition = null;
+        <div class="conference-controls">
+            <button id="startBtn" class="control-btn">Join Meeting</button>
+            <div class="translation-controls">
+                <select id="listenLanguage">
+                    <option value="en">English</option>
+                    <option value="es">Spanish</option>
+                    <option value="fr">French</option>
+                    <option value="pt">Portuguese</option>
+                </select>
+            </div>
+        </div>
 
-            startBtn.onclick = () => {
-                if ('webkitSpeechRecognition' in window) {
-                    recognition = new webkitSpeechRecognition();
-                    recognition.continuous = true;
-                    recognition.interimResults = true;
-                    recognition.lang = 'en-US';
+        <div class="captions-container">
+            <div class="original-text"></div>
+            <div class="translated-text"></div>
+        </div>
+    </div>
 
-                    recognition.onstart = () => {
-                        originalText.textContent = 'Listening...';
-                        startBtn.disabled = true;
-                    };
-
-                    recognition.onresult = (event) => {
-                        const transcript = Array.from(event.results)
-                            .map(result => result[0].transcript)
-                            .join(' ');
-
-                        originalText.textContent = transcript;
-                        translatedText.textContent = 'Traducción: ' + transcript;
-                    };
-
-                    recognition.start();
-                } else {
-                    originalText.textContent = 'Speech recognition not supported';
-                }
-            };
-        });
-    </script>
+    <script src="../assets/js/conference.js"></script>
 </body>
 </html> 

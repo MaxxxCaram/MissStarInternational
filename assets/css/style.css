@@ -430,94 +430,35 @@ body {
 
 /* Conference styles */
 .conference-container {
-    padding: 2rem;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.controls {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-#startBtn {
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
+    padding-top: 80px;
+    height: 100vh;
     background: #000;
-    color: #D4AF37;
-    border: 2px solid #D4AF37;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.text-container {
-    background: rgba(0,0,0,0.8);
-    border: 1px solid #D4AF37;
-    border-radius: 10px;
-    padding: 1rem;
-}
-
-.text-box {
-    margin: 1rem 0;
-    padding: 1rem;
-    border-bottom: 1px solid rgba(212,175,55,0.3);
-}
-
-.text-box h3 {
-    color: #D4AF37;
-    margin-bottom: 0.5rem;
-}
-
-#originalText, #translatedText {
-    color: #fff;
-    font-size: 1.2rem;
-    min-height: 1.5rem;
-}
-
-#translatedText {
-    color: #D4AF37;
-}
-
-.language-selector {
-    position: fixed;
-    top: 80px;
-    right: 20px;
-    z-index: 100;
-    background: rgba(0,0,0,0.8);
-    padding: 10px;
-    border: 1px solid #D4AF37;
-    border-radius: 5px;
-}
-
-#languageSelect {
-    background: transparent;
-    color: #D4AF37;
-    border: 1px solid #D4AF37;
-    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .video-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1rem;
-    padding: 1rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    gap: 10px;
+    padding: 20px;
+    height: 60vh;
 }
 
 .video-box {
     position: relative;
-    background: rgba(0,0,0,0.8);
+    background: #1a1a1a;
     border: 2px solid #D4AF37;
     border-radius: 10px;
     overflow: hidden;
-    aspect-ratio: 4/3;
 }
 
 .main-video {
     grid-column: 1 / -1;
-    max-width: 640px;
+    max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
 }
 
 .video-box video {
@@ -526,117 +467,81 @@ body {
     object-fit: cover;
 }
 
+.video-controls {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.video-controls button {
+    background: rgba(0, 0, 0, 0.7);
+    color: #D4AF37;
+    border: 1px solid #D4AF37;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
 .participant-name {
     position: absolute;
     bottom: 50px;
     left: 10px;
-    color: #fff;
-    background: rgba(0,0,0,0.7);
+    color: #D4AF37;
+    background: rgba(0, 0, 0, 0.7);
     padding: 5px 10px;
     border-radius: 5px;
 }
 
-.captions-container {
-    max-width: 800px;
-    margin: 1rem auto;
-    padding: 1rem;
-    background: rgba(0,0,0,0.8);
-    border: 1px solid #D4AF37;
-    border-radius: 10px;
-}
-
-.original-text, .translated-text {
-    margin: 0.5rem 0;
-    color: #fff;
-    text-align: center;
-}
-
-.translated-text {
-    color: #D4AF37;
-}
-
-.video-controls {
-    position: absolute;
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 1rem;
-}
-
-.video-controls button {
-    background: rgba(0,0,0,0.7);
-    border: 1px solid #D4AF37;
-    color: #D4AF37;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#status {
-    color: #fff;
-    text-align: center;
-    margin-top: 1rem;
-}
-
-.language-controls {
+.conference-controls {
     display: flex;
     justify-content: center;
-    gap: 2rem;
-    margin: 1rem 0;
-    padding: 1rem;
-    background: rgba(0,0,0,0.8);
-    border: 1px solid #D4AF37;
-    border-radius: 10px;
+    gap: 20px;
+    padding: 20px;
 }
 
-.language-select {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+.control-btn {
+    background: #D4AF37;
+    color: #000;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
 }
 
-.language-select label {
+.translation-controls select {
+    background: #000;
     color: #D4AF37;
-}
-
-.language-select select {
-    background: transparent;
-    color: #fff;
     border: 1px solid #D4AF37;
-    padding: 0.5rem;
+    padding: 10px;
     border-radius: 5px;
 }
 
-.text-container {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 1rem;
-    background: rgba(0,0,0,0.8);
+.captions-container {
+    background: rgba(0, 0, 0, 0.8);
     border: 1px solid #D4AF37;
     border-radius: 10px;
-}
-
-.text-box {
-    margin: 1rem 0;
-    padding: 1rem;
-    border-bottom: 1px solid rgba(212,175,55,0.3);
-}
-
-.text-box h3 {
-    color: #D4AF37;
-    margin-bottom: 0.5rem;
+    padding: 15px;
+    margin: 0 20px;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .original-text, .translated-text {
+    padding: 10px;
+    margin: 5px 0;
     color: #fff;
-    font-size: 1.2rem;
-    min-height: 1.5rem;
-    margin: 0;
 }
 
 .translated-text {
     color: #D4AF37;
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 /* Gallery Carousel */
