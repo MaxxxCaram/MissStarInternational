@@ -1,6 +1,6 @@
 ---
-description:
-globs:
+description: get credential to get access to FTP
+globs: 
 ---
 
 # Your rule content

@@ -1,0 +1,21 @@
+{
+    "name": "missstarinternational",
+    "version": "1.0.0",
+    "description": "Miss Star International Website",
+    "scripts": {
+        "start": "node server.js",
+        "build": "node scripts/build.js",
+        "deploy": "node scripts/deploy-all.js",
+        "test": "node scripts/test-db.js"
+    },
+    "dependencies": {
+        "express": "^4.17.1",
+        "mongoose": "^6.0.12",
+        "dotenv": "^10.0.0",
+        "imagemin": "^8.0.1",
+        "imagemin-mozjpeg": "^9.0.0",
+        "imagemin-pngquant": "^9.0.2",
+        "terser": "^5.9.0",
+        "pm2": "^5.1.2"
+    }
+} 
