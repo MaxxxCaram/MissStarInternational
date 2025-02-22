@@ -19,11 +19,11 @@ class Dashboard {
     }
 
     setupCharts() {
-        // Implementar gráficos con Chart.js o similar
+        // Implement charts with Chart.js or similar
     }
 
     updateDashboard(stats) {
-        // Actualizar UI con estadísticas
+        // Update UI with statistics
     }
 }
 

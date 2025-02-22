@@ -16,8 +16,32 @@ class Conference {
         this.stream = null;
         this.recognition = null;
         
-        this.translations = [];
-        this.loadTranslations();
+        this.translations = {
+            en: {
+                hello: "Hello",
+                welcome: "Welcome to the meeting",
+                thanks: "Thank you",
+                goodbye: "Goodbye"
+            },
+            es: {
+                hello: "Hola",
+                welcome: "Bienvenidos a la reunión",
+                thanks: "Gracias", 
+                goodbye: "Adiós"
+            },
+            pt: {
+                hello: "Olá",
+                welcome: "Bem-vindo à reunião",
+                thanks: "Obrigado",
+                goodbye: "Adeus"
+            },
+            th: {
+                hello: "สวัสดี",
+                welcome: "ยินดีต้อนรับสู่การประชุม",
+                thanks: "ขอบคุณ",
+                goodbye: "ลาก่อน"
+            }
+        };
         
         this.token = null;
         this.authenticate();
@@ -349,6 +373,22 @@ class Conference {
 
     setupAnalytics() {
         analytics.trackEvent('conference', 'init');
+    }
+
+    // System monitoring methods
+    monitorPerformance() {
+        // Performance monitoring implementation
+    }
+
+    // Memory monitoring implementation
+    monitorMemory() {
+        // Memory monitoring implementation
+    }
+
+    notifyOnJoin() {
+        notifications.notify('Conference Started', {
+            body: 'Welcome to the conference!'
+        });
     }
 }
 

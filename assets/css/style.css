@@ -1,4 +1,4 @@
-/* Variables globales */
+/* Global variables */
 :root {
     --primary-color: #D4AF37;
     --background-color: #000;
@@ -8,7 +8,7 @@
     --animation-speed: 0.3s;
 }
 
-/* Estilos base */
+/* Base styles */
 * {
     margin: 0;
     padding: 0;
@@ -24,7 +24,7 @@ body {
     overflow: hidden;
 }
 
-/* Navegación */
+/* Navigation */
 .nav {
     position: fixed;
     top: 0;
@@ -33,6 +33,7 @@ body {
     background: #000;
     border-bottom: 2px solid #D4AF37;
     z-index: 1000;
+    display: none; /* Hidden temporarily */
 }
 
 .nav-content {

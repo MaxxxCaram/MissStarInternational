@@ -22,7 +22,7 @@
     <script type="module">
         import auth from '/assets/js/auth.js';
         
-        // Verificar autenticación al cargar
+        // Check authentication on load
         document.addEventListener('DOMContentLoaded', async () => {
             const authStatus = document.getElementById('authStatus');
             if (await auth.validateToken()) {
