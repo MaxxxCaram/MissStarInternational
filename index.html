@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Miss Star International</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
     <style>
         body {
             margin: 0;
@@ -46,43 +45,28 @@
         }
 
         @keyframes glow {
-            0%, 100% {
-                text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-            }
-            50% {
-                text-shadow: 0 0 20px rgba(212, 175, 55, 0.8),
-                             0 0 30px rgba(212, 175, 55, 0.6);
-            }
+            0%, 100% { text-shadow: 0 0 10px rgba(212, 175, 55, 0.5); }
+            50% { text-shadow: 0 0 20px rgba(212, 175, 55, 0.8), 0 0 30px rgba(212, 175, 55, 0.6); }
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem;
+            background: rgba(0,0,0,0.8);
+            display: none; /* Oculto temporalmente */
         }
     </style>
 </head>
 <body>
-    <nav class="nav">
-        <div class="nav-content">
-            <a href="/" class="nav-logo">Miss Star International</a>
-            <div class="nav-links">
-                <a href="/en/conference.html">Conference</a>
-                <a href="/history.html">History</a>
-                <select id="languageSelect" onchange="changeLanguage(this.value)">
-                    <option value="en">English</option>
-                    <option value="es">Español</option>
-                    <option value="pt">Português</option>
-                    <option value="th">ไทย</option>
-                </select>
-            </div>
-        </div>
-    </nav>
-
-    <main class="main-content">
-        <h1>Welcome to Miss Star International</h1>
-        <p>Discover the world's most prestigious beauty pageant.</p>
-        
-        <div class="featured-content">
-            <h2>Latest Events</h2>
-            <!-- Contenido dinámico aquí -->
-        </div>
-    </main>
-
-    <script src="/assets/js/conference.js"></script>
+    <img src="assets/images/logo/logomain1.png" alt="Miss Star International" class="logo">
+    <h1>Coming Soon</h1>
+    <p>A New Dynasty Begins</p>
+    <div class="credentials">
+        <p>Operated by Miss Star International LLC</p>
+        <p>International Trademark № 4.238.776 © 2023-2025</p>
+        <p>Website Established 2022 - All Rights Reserved © 2022-2025</p>
+    </div>
 </body>
 </html>
