@@ -16,16 +16,6 @@ async function deploy() {
         console.log('📤 Subiendo archivos...');
         await execAsync(`rsync -avz --exclude 'node_modules' --exclude '.git' ./ info@missstarinternational.com:/var/www/missstarinternational.com/`);
 
-        // 4. Configurar el servidor
-        console.log('⚙️ Configurando el servidor...');
-        const serverSetup = [
-            'cd /var/www/missstarinternational.com',
-            'npm install --production',
-            'pm2 restart all'
-        ].join(' && ');
-
-        await execAsync(`ssh info@missstarinternational.com "${serverSetup}"`);
-
         console.log('✅ Despliegue completado con éxito!');
     } catch (error) {
         console.error('❌ Error durante el despliegue:', error);
