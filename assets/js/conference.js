@@ -16,6 +16,7 @@ class Conference {
         this.stream = null;
         this.recognition = null;
         
+        // Multilingual translations
         this.translations = {
             en: {
                 hello: "Hello",
@@ -25,21 +26,21 @@ class Conference {
             },
             es: {
                 hello: "Hola",
-                welcome: "Bienvenidos a la reunión",
-                thanks: "Gracias", 
-                goodbye: "Adiós"
+                welcome: "Welcome to the meeting",
+                thanks: "Thank you", 
+                goodbye: "Goodbye"
             },
             pt: {
-                hello: "Olá",
-                welcome: "Bem-vindo à reunião",
-                thanks: "Obrigado",
-                goodbye: "Adeus"
+                hello: "Hello",
+                welcome: "Welcome to the meeting",
+                thanks: "Thank you",
+                goodbye: "Goodbye"
             },
             th: {
-                hello: "สวัสดี",
-                welcome: "ยินดีต้อนรับสู่การประชุม",
-                thanks: "ขอบคุณ",
-                goodbye: "ลาก่อน"
+                hello: "Hello",
+                welcome: "Welcome to the meeting",
+                thanks: "Thank you",
+                goodbye: "Goodbye"
             }
         };
         
@@ -57,7 +58,7 @@ class Conference {
 
     async init() {
         if (!await auth.validateToken()) {
-            await auth.authenticate('tu_api_key_segura');
+            await auth.authenticate('api_key_secure');
         }
         this.startBtn.onclick = () => this.startMeeting();
         this.muteAudioBtn.onclick = () => this.toggleAudio();
@@ -92,7 +93,7 @@ class Conference {
                 setupTime: performance.now() - startTime
             });
         } catch (err) {
-            console.error('Error accessing media devices:', err);
+            console.error('Error starting meeting:', err);
             this.logAction('meeting_error', { error: err.message });
         }
     }
@@ -265,7 +266,7 @@ class Conference {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    apiKey: 'tu_api_key_segura'
+                    apiKey: 'api_key_secure'
                 })
             });
             const data = await response.json();
@@ -375,16 +376,17 @@ class Conference {
         analytics.trackEvent('conference', 'init');
     }
 
-    // System monitoring methods
+    // Monitor performance
     monitorPerformance() {
         // Performance monitoring implementation
     }
 
-    // Memory monitoring implementation
+    // Monitor memory
     monitorMemory() {
         // Memory monitoring implementation
     }
 
+    // Notify when someone joins
     notifyOnJoin() {
         notifications.notify('Conference Started', {
             body: 'Welcome to the conference!'

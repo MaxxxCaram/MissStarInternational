@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Miss Star International - A New Dynasty</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Miss Star International - Welcome</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/language-selector.css">
     <style>
         body {
             margin: 0;
@@ -60,28 +61,35 @@
         }
     </style>
 </head>
-<body>
-    <nav class="nav" style="display: none;"> <!-- Hidden temporarily -->
-        <div class="nav-content">
-            <a href="/" class="nav-logo">Miss Star International</a>
-            <div class="nav-links">
-                <a href="/en/">English</a>
-                <a href="/es/">Español</a>
-                <a href="/pt/">Português</a>
-                <a href="/th/">ไทย</a>
-            </div>
+<body class="landing-page">
+    <div class="language-selection">
+        <div class="logo-container">
+            <img src="/assets/images/logo.png" alt="Miss Star International" class="main-logo">
         </div>
-    </nav>
-
-    <main class="main-content">
-        <img src="/assets/images/logo/logo-main1.png" alt="Miss Star International" class="logo">
-        <h1>Miss Star International</h1>
-        <p>A New Dynasty Begins</p>
-        <div class="credentials">
-            <p>Operated by Miss Star International LLC</p>
-            <p>International Trademark № 4.238.776 © 2023-2025</p>
-            <p>Website Established 2022 - All Rights Reserved © 2022-2025</p>
+        
+        <h1>Select Your Language</h1>
+        
+        <div class="language-grid">
+            <a href="/en/" class="language-card">
+                <img src="/assets/images/flags/en.png" alt="English">
+                <span>English</span>
+            </a>
+            
+            <a href="/es/" class="language-card">
+                <img src="/assets/images/flags/es.png" alt="Español">
+                <span>Español</span>
+            </a>
+            
+            <a href="/pt/" class="language-card">
+                <img src="/assets/images/flags/pt.png" alt="Português">
+                <span>Português</span>
+            </a>
+            
+            <a href="/th/" class="language-card">
+                <img src="/assets/images/flags/th.png" alt="ไทย">
+                <span>ไทย</span>
+            </a>
         </div>
-    </main>
+    </div>
 </body>
 </html>
