@@ -16,6 +16,7 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
+app.use(express.static('public')); // Para servir archivos estáticos
 
 // Determine environment
 const env = process.env.NODE_ENV || 'development';
@@ -223,5 +224,5 @@ app.post('/api/email/create', authMiddleware, async (req, res) => {
     }
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 443;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`)); 
