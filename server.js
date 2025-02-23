@@ -10,6 +10,7 @@ const Role = require('./models/Role');
 const User = require('./models/User');
 const path = require('path');
 const { createCorporateEmail } = require('./scripts/create-email');
+require('dotenv').config();
 
 const app = express();
 
@@ -22,10 +23,10 @@ app.use(express.static('public')); // Para servir archivos estáticos
 const env = process.env.NODE_ENV || 'development';
 const config = dbConfig[env];
 
-// MongoDB connection
-mongoose.connect(config.url, config.options)
-    .then(() => console.log('Connected to MongoDB'))
-    .catch(err => console.error('MongoDB connection error:', err));
+// MongoDB connection test
+mongoose.connect(process.env.MONGODB_URI)
+    .then(() => console.log('✅ MongoDB conectado correctamente'))
+    .catch(err => console.error('❌ Error de conexión MongoDB:', err));
 
 // Schemas
 const translationSchema = new mongoose.Schema({
@@ -187,7 +188,7 @@ app.use((req, res, next) => {
 
 // Main routes
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
 // Language-specific routes
