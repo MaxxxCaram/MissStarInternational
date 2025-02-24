@@ -4,79 +4,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Miss Star International - Select Language</title>
+    <title>Miss Star International</title>
     <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="/assets/css/language-selector.css">
     <style>
         body {
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
             min-height: 100vh;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             font-family: 'Arial', sans-serif;
+            color: #D4AF37;
         }
 
-        .logo {
-            max-width: 300px;
-            margin-bottom: 2rem;
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
         }
 
-        .language-container {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-            justify-content: center;
-            max-width: 800px;
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .main-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
             padding: 2rem;
         }
 
-        .language-option {
-            text-decoration: none;
-            text-align: center;
-            transition: transform 0.3s ease;
+        h1 {
+            font-size: 4rem;
+            color: #D4AF37;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
-        .language-option:hover {
-            transform: scale(1.1);
+        .tagline {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
-        .flag {
-            width: 120px;
-            height: 80px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-
-        .language-name {
-            margin-top: 1rem;
-            color: #333;
+        .credentials {
             font-size: 1.2rem;
+            color: #D4AF37;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .credentials p {
+            margin: 0.5rem 0;
+        }
+
+        nav {
+            margin-bottom: 2rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        nav a:hover {
+            color: #D4AF37;
         }
     </style>
 </head>
 <body>
-    <img src="assets/images/main-logo1.png" alt="Miss Star International Logo" class="logo">
-    <div class="language-container">
-        <a href="es/home.html" class="language-option">
-            <img src="assets/images/flags/es.svg" alt="Español" class="flag">
-            <p class="language-name">Español</p>
-        </a>
-        <a href="en/home.html" class="language-option">
-            <img src="assets/images/flags/en.svg" alt="English" class="flag">
-            <p class="language-name">English</p>
-        </a>
-        <a href="pt/home.html" class="language-option">
-            <img src="assets/images/flags/pt.svg" alt="Português" class="flag">
-            <p class="language-name">Português</p>
-        </a>
-        <a href="th/home.html" class="language-option">
-            <img src="assets/images/flags/th.png" alt="ภาษาไทย" class="flag">
-            <p class="language-name">ภาษาไทย</p>
-        </a>
+    <div class="video-background">
+        <video autoplay muted loop playsinline>
+            <source src="assets/videos/hero-video.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="main-content">
+        <nav>
+            <a href="en/home.html">HOME</a>
+            <a href="en/history.html">HISTORY</a>
+            <a href="en/competition.html">COMPETITION</a>
+            <a href="en/consortium.html">CONSORTIUM</a>
+            <a href="en/news.html">NEWS</a>
+            <a href="en/contact.html">CONTACT</a>
+        </nav>
+
+        <h1>MISS STAR INTERNATIONAL</h1>
+        <p class="tagline">A New Dynasty Begins</p>
+
+        <div class="credentials">
+            <p>Operated by Miss Star International LLC</p>
+            <p>International Trademark № 4.238.776 © 2023-2025</p>
+            <p>Website Established 2022 - All Rights Reserved © 2022-2025</p>
+        </div>
     </div>
 </body>
 </html>
