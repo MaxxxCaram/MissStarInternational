@@ -4,354 +4,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Miss Star International - Welcome</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="/assets/css/language-selector.css">
+    <title>Miss Star International</title>
+    <link rel="stylesheet" href="/assets/css/main.min.css">
     <style>
-        body {
-            margin: 0;
-            padding: 0;
+        .landing-page {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                        url('/assets/images/background.jpg') center/cover no-repeat;
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
-            background: #000;
-            color: #D4AF37;
-            font-family: Arial, sans-serif;
-            text-align: center;
+            align-items: center;
         }
 
-        .logo {
-            max-width: 300px;
+        .language-selection {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(0,0,0,0.5);
+            border-radius: 15px;
+            border: 2px solid #D4AF37;
+        }
+
+        .logo-container {
             margin-bottom: 2rem;
+        }
+
+        .main-logo {
+            max-width: 300px;
+            height: auto;
         }
 
         h1 {
+            color: #D4AF37;
             font-size: 2.5rem;
-            margin: 1rem 0;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-            animation: glow 2s ease-in-out infinite;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
         }
 
-        p {
+        .language-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .language-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1.5rem;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid #D4AF37;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .language-card:hover {
+            transform: translateY(-5px);
+            background: rgba(212, 175, 55, 0.1);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .language-card img {
+            width: 60px;
+            height: 40px;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+        }
+
+        .language-card span {
+            color: #D4AF37;
             font-size: 1.2rem;
-            margin: 0.5rem 0;
-            color: #fff;
-        }
-
-        .credentials {
-            margin-top: 2rem;
-            font-size: 0.9rem;
-            color: #D4AF37;
-        }
-
-        @keyframes glow {
-            0%, 100% { text-shadow: 0 0 10px rgba(212, 175, 55, 0.5); }
-            50% { text-shadow: 0 0 20px rgba(212, 175, 55, 0.8), 0 0 30px rgba(212, 175, 55, 0.6); }
-        }
-
-        .nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1rem;
-            background: rgba(0,0,0,0.8);
-            display: none; /* Oculto temporalmente */
-        }
-
-        /* Additional styles for section links */
-        section h2 {
-            position: relative;
-            display: inline-block;
-        }
-
-        section h2 a {
-            color: #D4AF37;
-            text-decoration: none;
-            font-size: 2.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8),
-                         0 0 15px rgba(212, 175, 55, 0.5);
-            transition: all 0.3s ease;
-        }
-
-        section h2 a:hover {
-            color: #fff;
-            transform: scale(1.05);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8),
-                         0 0 20px rgba(255, 255, 255, 0.8);
-        }
-
-        /* Add styles for links */
-        h2 a, h3 a {
-            color: #D4AF37;
-            text-decoration: none;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8),
-                         0 0 20px rgba(212, 175, 55, 0.5);
-            transition: all 0.3s ease;
-        }
-
-        h2 a:hover, h3 a:hover {
-            color: #fff;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8),
-                         0 0 20px rgba(255, 255, 255, 0.8);
-            transform: scale(1.05);
-        }
-
-        .current-winner {
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3));
-            padding: 2rem;
-            margin: 2rem auto;
-            max-width: 1200px;
-            border: 2px solid #D4AF37;
-            border-radius: 10px;
-        }
-
-        .current-winner h2 {
-            font-size: 3rem;
-            color: #D4AF37;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8),
-                         0 0 20px rgba(212, 175, 55, 0.5);
-        }
-
-        .winner-title {
-            font-size: 2.5rem;
-            color: #D4AF37;
-            margin-bottom: 2rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8),
-                         0 0 15px rgba(212, 175, 55, 0.5);
-        }
-
-        .winner-link {
-            display: inline-block;
-            color: #D4AF37;
-            text-decoration: none;
-            font-size: 1.8rem;
-            padding: 1rem 2rem;
-            border: 2px solid #D4AF37;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-        }
-
-        .winner-link:hover {
-            color: #fff;
-            background: rgba(212, 175, 55, 0.2);
-            transform: scale(1.05);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8),
-                         0 0 20px rgba(255, 255, 255, 0.8);
-        }
-
-        /* Additional styles for section links */
-        section h2 {
-            position: relative;
-            display: inline-block;
-        }
-
-        section h2 a {
-            color: #D4AF37;
-            text-decoration: none;
-            font-size: 2.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8),
-                         0 0 15px rgba(212, 175, 55, 0.5);
-            transition: all 0.3s ease;
-        }
-
-        section h2 a:hover {
-            color: #fff;
-            transform: scale(1.05);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8),
-                         0 0 20px rgba(255, 255, 255, 0.8);
-        }
-
-        /* Add styles for links */
-        h2 a, h3 a {
-            color: #D4AF37;
-            text-decoration: none;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8),
-                         0 0 20px rgba(212, 175, 55, 0.5);
-            transition: all 0.3s ease;
-        }
-
-        h2 a:hover, h3 a:hover {
-            color: #fff;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8),
-                         0 0 20px rgba(255, 255, 255, 0.8);
-            transform: scale(1.05);
-        }
-
-        .current-winner {
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3));
-            padding: 2rem;
-            margin: 2rem auto;
-            max-width: 1200px;
-            border: 2px solid #D4AF37;
-            border-radius: 10px;
-        }
-
-        .current-winner h2 {
-            font-size: 3rem;
-            color: #D4AF37;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8),
-                         0 0 20px rgba(212, 175, 55, 0.5);
-        }
-
-        .winner-title {
-            font-size: 2.5rem;
-            color: #D4AF37;
-            margin-bottom: 2rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8),
-                         0 0 15px rgba(212, 175, 55, 0.5);
-        }
-
-        .winner-link {
-            display: inline-block;
-            color: #D4AF37;
-            text-decoration: none;
-            font-size: 1.8rem;
-            padding: 1rem 2rem;
-            border: 2px solid #D4AF37;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-        }
-
-        .winner-link:hover {
-            color: #fff;
-            background: rgba(212, 175, 55, 0.2);
-            transform: scale(1.05);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8),
-                         0 0 20px rgba(255, 255, 255, 0.8);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
         }
     </style>
 </head>
-<<<<<<< Updated upstream
 <body class="landing-page">
     <div class="language-selection">
         <div class="logo-container">
-            <img src="/assets/images/logo.png" alt="Miss Star International" class="main-logo">
+            <img src="/assets/images/logo-main1.png" alt="Miss Star International" class="main-logo">
         </div>
         
         <h1>Select Your Language</h1>
         
         <div class="language-grid">
-            <a href="/en/" class="language-card">
+            <a href="/en/home.html" class="language-card">
                 <img src="/assets/images/flags/en.png" alt="English">
                 <span>English</span>
             </a>
             
-            <a href="/es/" class="language-card">
+            <a href="/es/home.html" class="language-card">
                 <img src="/assets/images/flags/es.png" alt="Español">
                 <span>Español</span>
             </a>
             
-            <a href="/pt/" class="language-card">
+            <a href="/pt/home.html" class="language-card">
                 <img src="/assets/images/flags/pt.png" alt="Português">
                 <span>Português</span>
             </a>
             
-            <a href="/th/" class="language-card">
+            <a href="/th/home.html" class="language-card">
                 <img src="/assets/images/flags/th.png" alt="ไทย">
                 <span>ไทย</span>
             </a>
-=======
-<body>
-    <div class="video-background">
-        <video autoplay muted loop playsinline>
-            <source src="assets/videos/hero-video.mp4" type="video/mp4">
-        </video>
-    </div>
-
-    <div class="main-content">
-        <nav>
-            <a href="home.html">HOME</a>
-            <a href="history.html">HISTORY</a>
-            <a href="competition.html">COMPETITION</a>
-            <a href="consortium.html">CONSORTIUM</a>
-            <a href="news.html">NEWS</a>
-            <a href="contact.html">CONTACT</a>
-        </nav>
-
-        <div class="current-winner">
-            <h2>Current Title Holder</h2>
-            <div class="winner-title">Miss Star International 2024 - Patricia Payumo</div>
-            <a href="winners/2024-patricia-payumo.html" class="winner-link">Watch Crowning Moment</a>
-        </div>
-
-        <section id="national-directors">
-            <h2><a href="national-directors.html">National Directors</a></h2>
-            <p>Global network of leaders in the beauty and entertainment industry</p>
-            
-            <div class="benefits">
-                <h3><a href="national-license.html">Exclusive National License</a></h3>
-                <p>Platform for International Development</p>
-                <p>Access to Global Events</p>
-            </div>
-        </section>
-
-        <section id="reality-show">
-            <h2><a href="reality-show.html">Reality Show</a></h2>
-            <p>A window into the world of Miss Star International</p>
-            
-            <div class="production-details">
-                <h3><a href="production.html">International Production</a></h3>
-                <p>Global Distribution</p>
-                <p>Exclusive Content</p>
-            </div>
-        </section>
-
-        <section id="dynasty-portal">
-            <h2><a href="dynasty-portal.html">Dynasty Portal</a></h2>
-            <p>Digital platform for directors and candidates</p>
-            
-            <div class="features">
-                <h3><a href="management.html">Advanced Management System</a></h3>
-                <p>Tools and Resources</p>
-                <p>Exclusive Access</p>
-            </div>
-        </section>
-
-        <section id="entertainment">
-            <h2><a href="entertainment.html">MSI Entertainment</a></h2>
-            <p>New Era of Entertainment</p>
-            <p>Follow the transformation journey of exceptional candidates</p>
-            
-            <div class="content">
-                <h3><a href="episodes.html">Weekly Episodes</a></h3>
-                <p>Exclusive behind-the-scenes content</p>
-                <h3><a href="broadcast.html">Live Broadcast</a></h3>
-                <p>Available on international platforms</p>
-                <h3><a href="interactive.html">Interactive Content</a></h3>
-                <p>Immersive experience for viewers</p>
-            </div>
-        </section>
-
-        <section id="benefits">
-            <h2><a href="benefits.html">Benefits</a></h2>
-            
-            <div class="status">
-                <h3><a href="elite-status.html">Elite Status</a></h3>
-                <p>Join the elite circle of international business leaders</p>
-            </div>
-            
-            <div class="exposure">
-                <h3><a href="exposure.html">Global Exposure</a></h3>
-                <p>International platform to showcase talent and vision</p>
-            </div>
-            
-            <div class="opportunities">
-                <h3><a href="opportunities.html">Exclusive Opportunities</a></h3>
-                <p>Access to international contracts and collaborations</p>
-            </div>
-        </section>
-
-        <div class="credentials">
-            <p>Operated by Miss Star International LLC</p>
-            <p>International Trademark № 4.238.776 © 2023-2025</p>
-            <p>Website Established 2022 - All Rights Reserved © 2022-2025</p>
->>>>>>> Stashed changes
         </div>
     </div>
 </body>
