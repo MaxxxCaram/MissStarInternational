@@ -49,4 +49,29 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Interceptar errores de red
+    window.addEventListener('error', function(e) {
+        // Verificar si es un error de carga de recurso
+        if (e.target.tagName === 'IMG' || e.target.tagName === 'SCRIPT' || e.target.tagName === 'LINK') {
+            console.log('Recurso no encontrado:', e.target.src || e.target.href);
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        }
+    }, true);
+
+    // Verificar que todas las imágenes de banderas estén cargadas
+    const flags = document.querySelectorAll('.flag');
+    flags.forEach(flag => {
+        flag.onerror = function() {
+            console.log('Error al cargar bandera:', flag.src);
+            // Reemplazar con un color de fondo como fallback
+            flag.style.backgroundColor = '#333';
+            flag.style.border = '1px solid #D4AF37';
+            return true;
+        };
+    });
+
+    console.log('Miss Star International - Sitio web cargado correctamente');
 });
