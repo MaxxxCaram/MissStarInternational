@@ -1,6 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480">
-    <path fill="#ff0000" d="M256 0h384v480H256z"/>
-    <path fill="#006600" d="M0 0h256v480H0z"/>
-    <circle cx="256" cy="240" r="80" fill="#ffff00"/>
-    <path fill="#ff0000" d="M208 200h96v80h-96z"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 600 400">
+    <rect width="600" height="400" fill="#f00"/>
+    <rect width="240" height="400" fill="#060"/>
+    <g transform="translate(270, 200)">
+        <circle r="70" fill="#ff0"/>
+        <circle r="60" fill="#f00"/>
+        <g fill="#039">
+            <circle r="53"/>
+            <circle r="40" fill="#fff"/>
+            <path d="M-40,0 A40,40 0 0,1 40,0 L40,-15 A40,40 0 0,0 -40,-15 z"/>
+            <g id="castle">
+                <g id="tower">
+                    <rect x="-6" y="-40" width="12" height="25"/>
+                    <rect x="-8" y="-15" width="16" height="5"/>
+                </g>
+                <use href="#tower" transform="translate(-20)"/>
+                <use href="#tower" transform="translate(20)"/>
+                <rect x="-35" y="-10" width="70" height="10"/>
+            </g>
+        </g>
+    </g>
 </svg> 
