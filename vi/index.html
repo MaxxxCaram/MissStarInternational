@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miss Star International - Một Triều Đại Mới</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* Video Styles */
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            object-fit: cover;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        /* Navigation Styles */
+        .nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            z-index: 2;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-container img {
+            width: 120px;
+            height: auto;
+        }
+
+        .nav-links {
+            display: flex;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #D4AF37;
+        }
+    </style>
+</head>
+<body>
+    <!-- Video Background -->
+    <div class="video-container">
+        <video autoplay muted loop playsinline>
+            <source src="../assets/videos/hero-video.mp4" type="video/mp4">
+            Trình duyệt của bạn không hỗ trợ thẻ video.
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <div class="logo-container">
+                <img src="../assets/images/logo/logo-main1.png" alt="Logo Miss Star International">
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Trang Chủ</a>
+                <a href="history.html">Lịch Sử</a>
+                <a href="competition.html">Cuộc Thi</a>
+                <a href="consortium.html">Liên Đoàn</a>
+                <a href="news.html">Tin Tức</a>
+                <a href="contact.html">Liên Hệ</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Current Winner Banner -->
+    <section class="current-winner">
+        <div class="container">
+            <div class="winner-banner">
+                <h2>Hoa Hậu Star International 2024</h2>
+                <a href="../queens/2024/">Patricia Payumo - Nữ Hoàng Đương Nhiệm</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <section id="consortium" class="section">
+            <div class="container">
+                <h2><a href="#">Liên Đoàn Quốc Tế</a></h2>
+                <p><a href="#">Nhượng Quyền và Giám Đốc Quốc Gia</a></p>
+                <p>Mạng lưới toàn cầu của các nhà lãnh đạo trong ngành sắc đẹp và giải trí</p>
+                <ul>
+                    <li>Giấy Phép Quốc Gia Độc Quyền</li>
+                    <li>Nền Tảng Phát Triển Quốc Tế</li>
+                    <li>Tiếp Cận Sự Kiện Toàn Cầu</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="empower" class="section">
+            <div class="container">
+                <h2><a href="#">Mạng Lưới TransNation</a></h2>
+                <p>Mạng lưới TransNation là trái tim và động lực của Miss Star International. Đây là nền tảng dành riêng để nuôi dưỡng và trao quyền cho thế hệ nhà hoạt động tiếp theo, cung cấp giáo dục toàn diện và không gian trao đổi kiến thức để thúc đẩy khả năng lãnh đạo và hòa nhập toàn cầu.</p>
+            </div>
+        </section>
+
+        <section id="dynasty-portal" class="section">
+            <div class="container">
+                <h2><a href="#">Cổng Thông Tin Triều Đại</a></h2>
+                <p>Nền tảng kỹ thuật số cho giám đốc và thí sinh</p>
+                <p>Phần mềm Phòng Hội Nghị Trực Tuyến: "Yuni Carey", được tạo ra bởi người sáng lập của chúng tôi để tôn vinh Hoa hậu Beyond the Crown 2019 vĩnh cửu của chúng tôi, Yuni Carey.</p>
+                <ul>
+                    <li>Hệ Thống Quản Lý Tiên Tiến</li>
+                    <li>Công Cụ Tiếp Thị</li>
+                    <li>Tài Nguyên Độc Quyền</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="dynasty-benefits" class="section">
+            <div class="container">
+                <h2><a href="#">Lợi Ích Triều Đại</a></h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">👑</div>
+                        <h3>Địa Vị Hoàng Gia</h3>
+                        <p>Tham gia vào nhóm tinh hoa của các nhà lãnh đạo quốc tế trong lĩnh vực sắc đẹp và kinh doanh</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🌟</div>
+                        <h3>Phơi Bày Toàn Cầu</h3>
+                        <p>Nền tảng quốc tế để thể hiện tài năng và tầm nhìn của bạn</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">💎</div>
+                        <h3>Cơ Hội Độc Quyền</h3>
+                        <p>Tiếp cận các hợp đồng quốc tế và hợp tác cao cấp</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html> 
