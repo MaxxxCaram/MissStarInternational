@@ -1,112 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Miss Star International</title>
-    <link rel="stylesheet" href="/assets/css/main.min.css">
+    <title>Miss Star International - Select Language</title>
     <style>
-        .landing-page {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-                        url('/assets/images/background.jpg') center/cover no-repeat;
-            min-height: 100vh;
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+            font-family: 'Inter', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
+            min-height: 100vh;
+            color: #fff;
         }
 
-        .language-selection {
+        .container {
             text-align: center;
-            padding: 2rem;
-            background: rgba(0,0,0,0.5);
-            border-radius: 15px;
-            border: 2px solid #D4AF37;
+            padding: 20px;
         }
 
-        .logo-container {
-            margin-bottom: 2rem;
-        }
-
-        .main-logo {
+        .logo {
             max-width: 300px;
-            height: auto;
+            margin-bottom: 40px;
         }
 
-        h1 {
-            color: #D4AF37;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-        }
-
-        .language-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .language-card {
+        .language-select {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 1.5rem;
-            background: rgba(0,0,0,0.3);
-            border: 1px solid #D4AF37;
-            border-radius: 10px;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .language-option {
             text-decoration: none;
-            transition: all 0.3s ease;
+            color: #fff;
+            transition: transform 0.3s;
+            text-align: center;
         }
 
-        .language-card:hover {
-            transform: translateY(-5px);
-            background: rgba(212, 175, 55, 0.1);
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+        .language-option:hover {
+            transform: scale(1.1);
         }
 
-        .language-card img {
-            width: 60px;
-            height: 40px;
-            margin-bottom: 1rem;
+        .flag {
+            width: 100px;
+            height: 70px;
             border-radius: 5px;
+            margin-bottom: 10px;
+            box-shadow: 0 0 10px rgba(255,255,255,0.2);
         }
 
-        .language-card span {
-            color: #D4AF37;
-            font-size: 1.2rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+        .language-name {
+            font-size: 1.2em;
         }
     </style>
 </head>
-<body class="landing-page">
-    <div class="language-selection">
-        <div class="logo-container">
-            <img src="/assets/images/logo-main1.png" alt="Miss Star International" class="main-logo">
-        </div>
+<body>
+    <div class="container">
+        <img src="assets/images/logo/logo-main1.png" alt="Miss Star International Logo" class="logo">
         
-        <h1>Select Your Language</h1>
-        
-        <div class="language-grid">
-            <a href="/en/home.html" class="language-card">
-                <img src="/assets/images/flags/en.png" alt="English">
-                <span>English</span>
+        <div class="language-select">
+            <a href="en/index.html" class="language-option">
+                <img src="assets/images/flags/en.png" alt="English" class="flag">
+                <div class="language-name">English</div>
             </a>
             
-            <a href="/es/home.html" class="language-card">
-                <img src="/assets/images/flags/es.png" alt="Español">
-                <span>Español</span>
-            </a>
-            
-            <a href="/pt/home.html" class="language-card">
-                <img src="/assets/images/flags/pt.png" alt="Português">
-                <span>Português</span>
-            </a>
-            
-            <a href="/th/home.html" class="language-card">
-                <img src="/assets/images/flags/th.png" alt="ไทย">
-                <span>ไทย</span>
+            <a href="es/index.html" class="language-option">
+                <img src="assets/images/flags/es.png" alt="Español" class="flag">
+                <div class="language-name">Español</div>
             </a>
         </div>
     </div>
