@@ -3,53 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Miss Star International - Welcome | Bienvenidos | Bem-vindos | ยินดีต้อนรับ | Chào mừng</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <title>Miss Star International - Select Language</title>
     <style>
         body {
             margin: 0;
             padding: 0;
             background: #000;
             font-family: 'Inter', sans-serif;
-            min-height: 100vh;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
             color: #fff;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-                        url('assets/images/background.jpg') center/cover no-repeat fixed;
         }
 
         .container {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
             text-align: center;
+            padding: 20px;
         }
 
         .logo {
             max-width: 300px;
             margin-bottom: 40px;
-            animation: glow 2s infinite alternate;
-        }
-
-        @keyframes glow {
-            from {
-                filter: drop-shadow(0 0 2px #D4AF37);
-            }
-            to {
-                filter: drop-shadow(0 0 10px #D4AF37);
-            }
-        }
-
-        .welcome-text {
-            font-family: 'Cinzel', serif;
-            font-size: 2em;
-            margin-bottom: 40px;
-            color: #D4AF37;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         .language-select {
@@ -57,26 +32,17 @@
             justify-content: center;
             gap: 30px;
             flex-wrap: wrap;
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
         .language-option {
             text-decoration: none;
             color: #fff;
-            transition: all 0.3s ease;
+            transition: transform 0.3s;
             text-align: center;
-            background: rgba(0,0,0,0.6);
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px solid #D4AF37;
-            width: 150px;
         }
 
         .language-option:hover {
-            transform: translateY(-5px);
-            background: rgba(212, 175, 55, 0.1);
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+            transform: scale(1.1);
         }
 
         .flag {
@@ -89,44 +55,12 @@
 
         .language-name {
             font-size: 1.2em;
-            margin-top: 10px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: rgba(0,0,0,0.8);
-            color: #D4AF37;
-        }
-
-        @media (max-width: 768px) {
-            .language-select {
-                gap: 15px;
-            }
-
-            .language-option {
-                width: 130px;
-            }
-
-            .flag {
-                width: 80px;
-                height: 56px;
-            }
-
-            .welcome-text {
-                font-size: 1.5em;
-            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <img src="assets/images/logo/logo-main1.png" alt="Miss Star International Logo" class="logo">
-        
-        <div class="welcome-text">
-            Welcome to Miss Star International<br>
-            A New Dynasty
-        </div>
         
         <div class="language-select">
             <a href="en/index.html" class="language-option">
@@ -155,9 +89,5 @@
             </a>
         </div>
     </div>
-
-    <footer>
-        <div>© 2024 Miss Star International. All rights reserved.</div>
-    </footer>
 </body>
-</html> 
+</html>

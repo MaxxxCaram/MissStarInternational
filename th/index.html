@@ -1,3 +1,453 @@
-<div class="logo-container">
-    <img src="/assets/images/logo/logo-main1.png" alt="Miss Star International Logo">
-</div> 
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miss Star International - ราชวงศ์ใหม่</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* Video Styles */
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            object-fit: cover;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        /* Navigation Styles */
+        .nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            z-index: 2;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-container img {
+            width: 120px;
+            height: auto;
+        }
+
+        .nav-links {
+            display: flex;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #D4AF37;
+        }
+
+        /* Hero Section Styles */
+        .hero {
+            position: relative;
+            width: 100%;
+            min-height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 2;
+            padding: 40px 0;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        /* Hero Logo Styles */
+        .hero-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px; /* Adjust size as needed */
+            opacity: 1; /* Adjust transparency as needed */
+            z-index: -1; /* Place behind the text */
+            animation: pulse 5s infinite alternate; /* Add a pulsing animation */
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 0.3;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            100% {
+                opacity: 0.7;
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+        }
+
+        /* Winner Banner Styles */
+        .current-winner {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .winner-banner {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .winner-banner h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .winner-banner a {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #D4AF37;
+            color: #000;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .winner-banner a:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Consortium Card Styles */
+        .consortium-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .consortium-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .consortium-card p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #eee;
+        }
+
+        .consortium-card ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+
+        .consortium-card li {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: #eee;
+        }
+
+        /* Dynasty Benefits Styles */
+        .benefits-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .benefit-card {
+            width: 300px;
+            padding: 20px;
+            margin: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .benefit-card p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #eee;
+        }
+
+        /* Hall of Fame Styles */
+        .hall-of-fame-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .hall-of-fame-card {
+            width: 300px;
+            padding: 20px;
+            margin: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .hall-of-fame-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .hall-of-fame-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .hall-of-fame-card p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #eee;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .section h2 {
+                font-size: 2rem;
+            }
+
+            .benefit-card, .hall-of-fame-card {
+                width: 100%;
+                margin: 20px 0;
+            }
+
+            .hero-logo {
+                width: 80%; /* Adjust logo size for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Video Background -->
+    <div class="video-container">
+        <video autoplay muted loop playsinline>
+            <source src="../assets/videos/hero-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <div class="logo-container">
+                <img src="../assets/images/logo/logo-main1.png" alt="Miss Star International Logo">
+            </div>
+            <div class="nav-links">
+                <a href="index.html">หน้าหลัก</a>
+                <a href="history.html">ประวัติ</a>
+                <a href="competition.html">การแข่งขัน</a>
+                <a href="consortium.html">กลุ่มบริษัท</a>
+                <a href="news.html">ข่าวสาร</a>
+                <a href="contact.html">ติดต่อ</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="../assets/images/logo/logo-main1.png" alt="Miss Star International Logo" class="hero-logo">
+    </section>
+
+    <!-- Current Winner Banner -->
+    <section class="current-winner">
+        <div class="container">
+            <div class="winner-banner">
+                <h2>Miss Star International 2024</h2>
+                <a href="../../queens/2024/">Patricia Payumo - ราชินีครองราชย์</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <section id="consortium" class="section">
+            <div class="container">
+                <h2><a href="#">กลุ่มบริษัทนานาชาติ</a></h2>
+                <p><a href="#">แฟรนไชส์และผู้อำนวยการระดับชาติของเรา</a></p>
+                <p>เครือข่ายระดับโลกของผู้นำในอุตสาหกรรมความงามและความบันเทิง</p>
+                <ul>
+                    <li>ใบอนุญาตระดับชาติสุดพิเศษ</li>
+                    <li>แพลตฟอร์มการพัฒนาระหว่างประเทศ</li>
+                    <li>การเข้าถึงกิจกรรมระดับโลก</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="empower" class="section">
+            <div class="container">
+                <h2><a href="#">เครือข่าย Empower TransNation</a></h2>
+                <p>เครือข่าย Empower TransNatio คือหัวใจสำคัญที่มีชีวิตชีวาและแรงผลักดันเบื้องหลัง Miss Star International เป็นแพลตฟอร์มที่อุทิศตนเพื่อบ่มเพาะและส่งเสริมศักยภาพนักกิจกรรมรุ่นต่อไป โดยให้การศึกษาที่ครอบคลุมและพื้นที่สำหรับการแลกเปลี่ยนระหว่างรุ่นเพื่อส่งเสริมความเป็นผู้นำและการ包容ระดับโลก</p>
+            </div>
+        </section>
+
+        <section id="dynasty-portal" class="section">
+            <div class="container">
+                <h2><a href="#">พอร์ทัลราชวงศ์</a></h2>
+                <p>แพลตฟอร์มดิจิทัลสำหรับผู้กำกับและผู้สมัคร</p>
+                <p>ซอฟต์แวร์ห้องประชุมออนไลน์สด: “Yuni Carey” สร้างขึ้นโดยผู้ก่อตั้งของเราเพื่อเป็นเกียรติแก่ Miss Beyond the Crown 2019 ผู้เป็นนิรันดร์ของเรา ยูนิ แครีย์</p>
+                <ul>
+                    <li>ระบบจัดการขั้นสูง</li>
+                    <li>เครื่องมือทางการตลาด</li>
+                    <li>แหล่งข้อมูลพิเศษ</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="dynasty-benefits" class="section">
+            <div class="container">
+                <h2><a href="#">ผลประโยชน์ของราชวงศ์</a></h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">👑</div>
+                        <h3>สถานะรอยัล</h3>
+                        <p>เข้าร่วมวงสังคมชั้นสูงของผู้นำระดับนานาชาติในด้านความงามและธุรกิจ</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🌟</div>
+                        <h3>การเปิดรับระดับโลก</h3>
+                        <p>แพลตฟอร์มนานาชาติเพื่อแสดงความสามารถและวิสัยทัศน์ของคุณ</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">💎</div>
+                        <h3>โอกาสพิเศษ</h3>
+                        <p>เข้าถึงสัญญาระหว่างประเทศและความร่วมมือระดับพรีเมียม</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="reality-show" class="section">
+            <div class="container">
+                <h2><a href="#">โครงการเรียลลิตี้โชว์ระดับนานาชาติ</a></h2>
+                <p>ยุคใหม่แห่งความบันเทิง</p>
+                <p>ติดตามการเดินทางแห่งการเปลี่ยนแปลงของผู้สมัครที่ยอดเยี่ยม</p>
+                <ul>
+                    <li>ตอนประจำสัปดาห์<br>เนื้อหาพิเศษและเบื้องหลัง</li>
+                    <li>การออกอากาศทั่วโลก<br>จะพร้อมใช้งานบนแพลตฟอร์มระดับสากล</li>
+                    <li>เนื้อหาเชิงโต้ตอบ<br>ประสบการณ์ที่ดื่มด่ำสำหรับผู้ชม</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="hall-of-fame" class="section">
+            <div class="container">
+                <h2><a href="#">หอเกียรติยศ MSI</a></h2>
+                <p>เฉลิมฉลองมรดกแห่งราชินีของเรา</p>
+                <div class="hall-of-fame-grid">
+                    <div class="hall-of-fame-card">
+                        <img src="../assets/images/queens/2023_veso.jpg" alt="Miss Star International 2023">
+                        <h3>Veso Golden, ไนจีเรีย</h3>
+                        <p>Miss Star International 2023</p>
+                    </div>
+                    <div class="hall-of-fame-card">
+                        <img src="../assets/images/queens/2023_ugfisdwgkjewbk.jpg" alt="Miss Star International 2023">
+                        <h3>Ugfisdwgkjewbk, นิการากัว</h3>
+                        <p>Miss Star International 2023</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="beyond-the-crown" class="section">
+            <div class="container">
+                <h2><a href="#">นางงามเหนือมงกุฎ</a></h2>
+                <p>Miss Beyond the Crown คือมงกุฎอีกอันที่เรามอบให้กับผู้หญิงคนนั้น ซึ่งเรื่องราวความสำเร็จของเธอและวิธีที่เธอเอาชนะอุปสรรคในชีวิตของเธอสามารถเป็นแบบอย่างให้กับคนรุ่นต่อไป</p>
+                <h3><a href="#">Miss Beyond the Crown, 2024</a></h3>
+                <p>Erhtuioerhtor, ประเทศ</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <p>มรดกยังคงดำเนินต่อไป...</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
