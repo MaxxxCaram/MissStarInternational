@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reality Show - Miss Star International</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+        }
+        
+        a {
+            color: #00a0e4;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: #00a0e4;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #00a0e4;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../images/background.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin-top: 70px;
+        }
+        
+        .page-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .page-header p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #fff;
+        }
+        
+        /* Content Sections */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: #00a0e4;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: #00a0e4;
+        }
+        
+        /* Video Section */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            margin: 40px 0;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Episodes Grid */
+        .episodes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .episode-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .episode-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 160, 228, 0.2);
+        }
+        
+        .episode-thumbnail {
+            height: 200px;
+            background-color: #333;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .episode-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .episode-card:hover .episode-thumbnail img {
+            transform: scale(1.1);
+        }
+        
+        .episode-number {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #00a0e4;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+        
+        .episode-content {
+            padding: 25px;
+        }
+        
+        .episode-content h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #00a0e4;
+        }
+        
+        .episode-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #999;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        /* Cast Section */
+        .cast-section {
+            background-color: rgba(255, 255, 255, 0.02);
+            padding: 80px 0;
+        }
+        
+        .cast-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .cast-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+        
+        .cast-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 160, 228, 0.2);
+        }
+        
+        .cast-image {
+            height: 300px;
+            background-color: #333;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cast-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .cast-card:hover .cast-image img {
+            transform: scale(1.1);
+        }
+        
+        .cast-content {
+            padding: 25px;
+        }
+        
+        .cast-content h3 {
+            font-size: 22px;
+            margin-bottom: 5px;
+            color: #00a0e4;
+        }
+        
+        .cast-role {
+            color: #999;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-icons a {
+            color: #ccc;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: #00a0e4;
+        }
+        
+        /* Behind the Scenes */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 50px;
+        }
+        
+        .gallery-item {
+            height: 200px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background-color: rgba(0, 160, 228, 0.1);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-content h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #00a0e4;
+        }
+        
+        .cta-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #00a0e4;
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background-color: #0078a8;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 160, 228, 0.3);
+            text-decoration: none;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #111;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            color: #00a0e4;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #00a0e4;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: #ccc;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: #00a0e4;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-bottom p {
+            color: #777;
+            margin: 0;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .page-header {
+                height: 300px;
+            }
+            
+            .page-header h1 {
+                font-size: 36px;
+            }
+            
+            .page-header p {
+                font-size: 16px;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 30px;
+            }
+            
+            .episodes-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cast-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .footer-column {
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="../../index.html" class="logo">Miss Star <span>International</span></a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../index.html">English</a></li>
+                <li><a href="../../es/index.html">Español</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>Miss Star International: The Reality Show</h1>
+            <p>Experience the journey, drama, and transformation of our contestants</p>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>About the Show</h2>
+            </div>
+            <p>Miss Star International: The Reality Show takes you behind the scenes of one of the world's most prestigious pageants. Follow the journey of contestants from around the globe as they compete for the crown, navigate challenges, form friendships, and undergo personal transformations.</p>
+            <p>Our reality show offers an intimate look at the dedication, passion, and hard work that goes into preparing for the international stage. From intense training sessions to emotional breakthroughs, you'll witness every moment of this life-changing experience.</p>
+            
+            <div class="video-container">
+                <!-- Placeholder for trailer or promotional video -->
+                <iframe src="about:blank" title="Miss Star International Reality Show Trailer" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Latest Season</h2>
+            </div>
+            <p>Season 3 of Miss Star International: The Reality Show follows 20 contestants from different countries as they live together, compete in challenges, and prepare for the grand finale. This season introduces new elements, including community service projects, cultural exchange activities, and innovative talent showcases.</p>
+            
+            <div class="episodes-grid">
+                <div class="episode-card">
+                    <div class="episode-thumbnail">
+                        <img src="../../images/placeholder.jpg" alt="Episode 1">
+                        <div class="episode-number">EP 01</div>
+                    </div>
+                    <div class="episode-content">
+                        <h3>The Arrival</h3>
+                        <div class="episode-meta">
+                            <span>45 min</span>
+                            <span>Air Date: June 5, 2024</span>
+                        </div>
+                        <p>Contestants from around the world arrive at the mansion and meet each other for the first time. Initial friendships form and rivalries begin as they settle into their new home.</p>
+                    </div>
+                </div>
+                
+                <div class="episode-card">
+                    <div class="episode-thumbnail">
+                        <img src="../../images/placeholder.jpg" alt="Episode 2">
+                        <div class="episode-number">EP 02</div>
+                    </div>
+                    <div class="episode-content">
+                        <h3>First Challenge</h3>
+                        <div class="episode-meta">
+                            <span>45 min</span>
+                            <span>Air Date: June 12, 2024</span>
+                        </div>
+                        <p>The contestants face their first major challenge: a photoshoot that tests their ability to embody the values of Miss Star International while showcasing their unique personalities.</p>
+                    </div>
+                </div>
+                
+                <div class="episode-card">
+                    <div class="episode-thumbnail">
+                        <img src="../../images/placeholder.jpg" alt="Episode 3">
+                        <div class="episode-number">EP 03</div>
+                    </div>
+                    <div class="episode-content">
+                        <h3>Cultural Exchange</h3>
+                        <div class="episode-meta">
+                            <span>45 min</span>
+                            <span>Air Date: June 19, 2024</span>
+                        </div>
+                        <p>Contestants share aspects of their cultures with each other, preparing traditional dishes, teaching dances, and sharing stories from their homelands.</p>
+                    </div>
+                </div>
+                
+                <div class="episode-card">
+                    <div class="episode-thumbnail">
+                        <img src="../../images/placeholder.jpg" alt="Episode 4">
+                        <div class="episode-number">EP 04</div>
+                    </div>
+                    <div class="episode-content">
+                        <h3>Public Speaking</h3>
+                        <div class="episode-meta">
+                            <span>45 min</span>
+                            <span>Air Date: June 26, 2024</span>
+                        </div>
+                        <p>The contestants work with communication experts to develop their public speaking skills and prepare for their platform presentations.</p>
+                    </div>
+                </div>
+                
+                <div class="episode-card">
+                    <div class="episode-thumbnail">
+                        <img src="../../images/placeholder.jpg" alt="Episode 5">
+                        <div class="episode-number">EP 05</div>
+                    </div>
+                    <div class="episode-content">
+                        <h3>Community Service</h3>
+                        <div class="episode-meta">
+                            <span>45 min</span>
+                            <span>Air Date: July 3, 2024</span>
+                        </div>
+                        <p>Teams of contestants work on community service projects, demonstrating their commitment to making a positive impact in the world.</p>
+                    </div>
+                </div>
+                
+                <div class="episode-card">
+                    <div class="episode-thumbnail">
+                        <img src="../../images/placeholder.jpg" alt="Episode 6">
+                        <div class="episode-number">EP 06</div>
+                    </div>
+                    <div class="episode-content">
+                        <h3>Runway Challenge</h3>
+                        <div class="episode-meta">
+                            <span>45 min</span>
+                            <span>Air Date: July 10, 2024</span>
+                        </div>
+                        <p>Contestants work with fashion designers and runway coaches to prepare for a high-stakes fashion show challenge.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cast-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Meet the Cast</h2>
+            </div>
+            <p>Our diverse cast of contestants brings unique perspectives, talents, and stories to the show. Each contestant represents not only their country but also their personal journey and platform.</p>
+            
+            <div class="cast-grid">
+                <div class="cast-card">
+                    <div class="cast-image">
+                        <img src="../../images/placeholder.jpg" alt="Contestant">
+                    </div>
+                    <div class="cast-content">
+                        <h3>Maria Gonzalez</h3>
+                        <div class="cast-role">Spain</div>
+                        <p>A passionate advocate for environmental conservation with a background in marine biology.</p>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cast-card">
+                    <div class="cast-image">
+                        <img src="../../images/placeholder.jpg" alt="Contestant">
+                    </div>
+                    <div class="cast-content">
+                        <h3>Aisha Johnson</h3>
+                        <div class="cast-role">United States</div>
+                        <p>A mental health advocate and psychology student working to reduce stigma around mental illness.</p>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cast-card">
+                    <div class="cast-image">
+                        <img src="../../images/placeholder.jpg" alt="Contestant">
+                    </div>
+                    <div class="cast-content">
+                        <h3>Mei Lin</h3>
+                        <div class="cast-role">China</div>
+                        <p>A classically trained dancer who uses her art to promote cultural understanding and exchange.</p>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cast-card">
+                    <div class="cast-image">
+                        <img src="../../images/placeholder.jpg" alt="Contestant">
+                    </div>
+                    <div class="cast-content">
+                        <h3>Sofia Patel</h3>
+                        <div class="cast-role">India</div>
+                        <p>An entrepreneur and women's rights activist working to empower women through education and economic opportunities.</p>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Behind the Scenes</h2>
+            </div>
+            <p>Get an exclusive look at what happens when the cameras aren't rolling. Our behind-the-scenes gallery captures candid moments, preparation, and the real emotions of the contestants throughout their journey.</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="../../images/placeholder.jpg" alt="Behind the Scenes">
+                </div>
+                <div class="gallery-item">
+                    <img src="../../images/placeholder.jpg" alt="Behind the Scenes">
+                </div>
+                <div class="gallery-item">
+                    <img src="../../images/placeholder.jpg" alt="Behind the Scenes">
+                </div>
+                <div class="gallery-item">
+                    <img src="../../images/placeholder.jpg" alt="Behind the Scenes">
+                </div>
+                <div class="gallery-item">
+                    <img src="../../images/placeholder.jpg" alt="Behind the Scenes">
+                </div>
+                <div class="gallery-item">
+                    <img src="../../images/placeholder.jpg" alt="Behind the Scenes">
+                </div>
+                <div class="gallery-item">
+                    <img src="../../images/placeholder.jpg" alt="Behind the Scenes">
+                </div>
+                <div class="gallery-item">
+                    <img src="../../images/placeholder.jpg" alt="Behind the Scenes">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Watch Now</h2>
+                <p>Don't miss a single episode of Miss Star International: The Reality Show. Stream all episodes on our official platform or through our partner networks.</p>
+                <a href="#" class="cta-button">Stream Now</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Miss Star International</h3>
+                    <p>Empowering individuals worldwide through celebration of diversity, talent, and advocacy.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="../index.html">English</a></li>
+                        <li><a href="../../es/index.html">Español</a></li>
+                        <li><a href="../consortium/index.html">Consortium</a></li>
+                        <li><a href="../empower/index.html">Empower</a></li>
+                        <li><a href="../dynasty-portal/index.html">Dynasty Portal</a></li>
+                        <li><a href="../dynasty-benefits/index.html">Dynasty Benefits</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Miss Star International. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 
