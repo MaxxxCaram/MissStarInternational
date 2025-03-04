@@ -9,13 +9,13 @@ function New-EmailAccount {
     param (
         [string]$emailUser,
         [string]$domain,
-        [System.Security.SecureString]$emailPassword,
+        [SecureString]$emailPassword,
         [int]$quota = 1024  # Quota in MB, default 1GB
     )
 
-    # Convert SecureString to plain text for API call
-    $BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($emailPassword)
-    $plainPassword = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
+    # Convert SecureString to plain text using NetworkCredential
+    $cred = New-Object System.Net.NetworkCredential("", $emailPassword)
+    $plainPassword = $cred.Password
 
     # Encode credentials for basic authentication
     $base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes("$($username):$($password)"))
@@ -51,9 +51,6 @@ function New-EmailAccount {
     } catch {
         Write-Host "Request error: $_" -ForegroundColor Red
         return $false
-    } finally {
-        # Clean up the unmanaged memory
-        [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($BSTR)
     }
 }
 

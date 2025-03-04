@@ -1,101 +1,105 @@
-# Script para crear cuentas de correo en DirectAdmin
-# Credenciales de DirectAdmin
+# Script to create email accounts in DirectAdmin
+# DirectAdmin Credentials
 $directAdminUrl = "https://web0151.zxcs.nl:2222"
 $username = "u127684p143111"
 $password = '9h[Np*.K0_>`*=64}F'
 
-# Función para crear una cuenta de correo
-function Create-EmailAccount {
+# Function to create an email account
+function New-EmailAccount {
     param (
         [string]$emailUser,
         [string]$domain,
-        [string]$emailPassword,
-        [int]$quota = 1024  # Cuota en MB, por defecto 1GB
+        [SecureString]$emailPassword,
+        [int]$quota = 1024  # Quota in MB, default 1GB
     )
 
-    # Codificar credenciales para autenticación básica
+    # Convert SecureString to plain text for API
+    $BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($emailPassword)
+    $plainPassword = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
+
+    # Encode credentials for basic authentication
     $base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes("$($username):$($password)"))
     $headers = @{
         Authorization = "Basic $base64AuthInfo"
     }
 
-    # Construir la URL y los parámetros para la API de DirectAdmin
+    # Build URL and parameters for DirectAdmin API
     $apiUrl = "$directAdminUrl/CMD_API_POP"
     $body = @{
         action = "create"
         domain = $domain
         user = $emailUser
-        passwd = $emailPassword
-        passwd2 = $emailPassword
+        passwd = $plainPassword
+        passwd2 = $plainPassword
         quota = $quota
     }
 
     try {
-        # Ignorar errores de certificado SSL
+        # Ignore SSL certificate errors
         [System.Net.ServicePointManager]::ServerCertificateValidationCallback = { $true }
         
-        # Hacer la solicitud a la API
+        # Make API request
         $response = Invoke-WebRequest -Uri $apiUrl -Method POST -Body $body -Headers $headers -UseBasicParsing
         
         if ($response.StatusCode -eq 200) {
-            Write-Host "Cuenta de correo $emailUser@$domain creada exitosamente." -ForegroundColor Green
+            Write-Host "Email account $emailUser@$domain created successfully." -ForegroundColor Green
             return $true
         } else {
-            Write-Host "Error al crear la cuenta de correo: $($response.Content)" -ForegroundColor Red
+            Write-Host "Error creating email account: $($response.Content)" -ForegroundColor Red
             return $false
         }
     } catch {
-        Write-Host "Error en la solicitud: $_" -ForegroundColor Red
+        Write-Host "Request error: $_" -ForegroundColor Red
         return $false
     }
 }
 
-# Lista de cuentas de correo a crear
+# List of email accounts to create
 $emailAccounts = @(
     @{
         emailUser = "brasil"
         domain = "missstarinternational.com"
-        password = "BrasilMSI2023!"
+        password = "BrasilMSI2023!" | ConvertTo-SecureString -AsPlainText -Force
     },
     @{
         emailUser = "usa"
         domain = "missstarinternational.com"
-        password = "UsaMSI2023!"
+        password = "UsaMSI2023!" | ConvertTo-SecureString -AsPlainText -Force
     },
     @{
         emailUser = "españa"
         domain = "missstarinternational.com"
-        password = "EspañaMSI2023!"
+        password = "EspañaMSI2023!" | ConvertTo-SecureString -AsPlainText -Force
     },
     @{
         emailUser = "info"
         domain = "missstarinternational.com"
-        password = "InfoMSI2023!"
+        password = "InfoMSI2023!" | ConvertTo-SecureString -AsPlainText -Force
     },
     @{
         emailUser = "admin"
         domain = "missstarinternational.com"
-        password = "AdminMSI2023!"
+        password = "AdminMSI2023!" | ConvertTo-SecureString -AsPlainText -Force
     },
     @{
         emailUser = "media"
         domain = "missstarinternational.com"
-        password = "MediaMSI2023!"
+        password = "MediaMSI2023!" | ConvertTo-SecureString -AsPlainText -Force
     },
     @{
         emailUser = "support"
         domain = "missstarinternational.com"
-        password = "SupportMSI2023!"
+        password = "SupportMSI2023!" | ConvertTo-SecureString -AsPlainText -Force
     }
 )
 
-# Crear cada cuenta de correo
-Write-Host "Iniciando creación de cuentas de correo..." -ForegroundColor Cyan
+# Create each email account
+Write-Host "Starting email accounts creation..." -ForegroundColor Cyan
 foreach ($account in $emailAccounts) {
-    Write-Host "Creando cuenta: $($account.emailUser)@$($account.domain)..." -ForegroundColor Yellow
-    Create-EmailAccount -emailUser $account.emailUser -domain $account.domain -emailPassword $account.password
+    Write-Host "Creating account: $($account.emailUser)@$($account.domain)..." -ForegroundColor Yellow
+    New-EmailAccount -emailUser $account.emailUser -domain $account.domain -emailPassword $account.password
 }
-Write-Host "Proceso completado." -ForegroundColor Cyan
+Write-Host "Process completed." -ForegroundColor Cyan
 
-# Restaurar la validación de certificados
+# Restore certificate validation
 [System.Net.ServicePointManager]::ServerCertificateValidationCallback = $null 

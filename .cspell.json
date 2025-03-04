@@ -1,0 +1,33 @@
+{
+    "version": "0.2",
+    "language": "en,es",
+    "words": [
+        "Kayra",
+        "Flores",
+        "Polo",
+        "Hernandez",
+        "Ava",
+        "Simoes",
+        "Som",
+        "Chai",
+        "Sammy",
+        "Kim",
+        "Rubi",
+        "Validor",
+        "Michelle",
+        "Rellayze",
+        "thailand",
+        "spain",
+        "peru",
+        "vietnam",
+        "netherlands",
+        "mexico",
+        "argentina",
+        "brasil",
+        "BSTR",
+        "españa"
+    ],
+    "ignorePaths": [
+        "node_modules/**"
+    ]
+} 
