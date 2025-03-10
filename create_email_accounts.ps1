@@ -38,19 +38,35 @@ function New-EmailAccount {
         # Ignore SSL certificate errors
         [System.Net.ServicePointManager]::ServerCertificateValidationCallback = { $true }
         
-        # Make API request
-        $response = Invoke-WebRequest -Uri $apiUrl -Method POST -Body $body -Headers $headers -UseBasicParsing
+        # Make API request and store response
+        $apiResponse = Invoke-WebRequest -Uri $apiUrl -Method POST -Body $body -Headers $headers -UseBasicParsing
         
-        if ($response.StatusCode -eq 200) {
+        # Process the response
+        if ($apiResponse.StatusCode -eq 200) {
+            # Check if the response content indicates success
+            if ($apiResponse.Content -match "error") {
+                Write-Host "API Error for $emailUser@$domain : $($apiResponse.Content)" -ForegroundColor Red
+                return $false
+            }
             Write-Host "Email account $emailUser@$domain created successfully." -ForegroundColor Green
+            # Log the successful creation
+            Write-Host "Response details: $($apiResponse.Content)" -ForegroundColor Gray
             return $true
         } else {
-            Write-Host "Error creating email account: $($response.Content)" -ForegroundColor Red
+            Write-Host "Error creating email account $emailUser@$domain. Status code: $($apiResponse.StatusCode)" -ForegroundColor Red
+            Write-Host "Error details: $($apiResponse.Content)" -ForegroundColor Red
             return $false
         }
     } catch {
-        Write-Host "Request error: $_" -ForegroundColor Red
+        Write-Host "Request error for $emailUser@$domain : $($_.Exception.Message)" -ForegroundColor Red
+        if ($_.Exception.Response) {
+            Write-Host "Response status code: $($_.Exception.Response.StatusCode.value__)" -ForegroundColor Red
+            Write-Host "Response status description: $($_.Exception.Response.StatusDescription)" -ForegroundColor Red
+        }
         return $false
+    } finally {
+        # Clean up the BSTR
+        [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($BSTR)
     }
 }
 
@@ -95,11 +111,24 @@ $emailAccounts = @(
 
 # Create each email account
 Write-Host "Starting email accounts creation..." -ForegroundColor Cyan
+$successCount = 0
+$failureCount = 0
+
 foreach ($account in $emailAccounts) {
     Write-Host "Creating account: $($account.emailUser)@$($account.domain)..." -ForegroundColor Yellow
-    New-EmailAccount -emailUser $account.emailUser -domain $account.domain -emailPassword $account.password
+    $result = New-EmailAccount -emailUser $account.emailUser -domain $account.domain -emailPassword $account.password
+    if ($result) {
+        $successCount++
+    } else {
+        $failureCount++
+    }
 }
-Write-Host "Process completed." -ForegroundColor Cyan
+
+# Display summary
+Write-Host "`nEmail Account Creation Summary:" -ForegroundColor Cyan
+Write-Host "Successfully created: $successCount" -ForegroundColor Green
+Write-Host "Failed to create: $failureCount" -ForegroundColor $(if ($failureCount -gt 0) { "Red" } else { "Green" })
+Write-Host "Total attempted: $($emailAccounts.Count)" -ForegroundColor Cyan
 
 # Restore certificate validation
 [System.Net.ServicePointManager]::ServerCertificateValidationCallback = $null 

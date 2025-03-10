@@ -38,18 +38,31 @@ function New-EmailAccount {
         # Ignore SSL certificate errors
         [System.Net.ServicePointManager]::ServerCertificateValidationCallback = { $true }
         
-        # Make API request
-        $response = Invoke-WebRequest -Uri $apiUrl -Method POST -Body $body -Headers $headers -UseBasicParsing
+        # Make API request and store response
+        $apiResponse = Invoke-WebRequest -Uri $apiUrl -Method POST -Body $body -Headers $headers -UseBasicParsing
         
-        if ($response.StatusCode -eq 200) {
+        # Process the response
+        if ($apiResponse.StatusCode -eq 200) {
+            # Check if the response content indicates success
+            if ($apiResponse.Content -match "error") {
+                Write-Host "API Error: $($apiResponse.Content)" -ForegroundColor Red
+                return $false
+            }
             Write-Host "Email account $emailUser@$domain created successfully." -ForegroundColor Green
+            # Log the successful creation
+            Write-Host "Response details: $($apiResponse.Content)" -ForegroundColor Gray
             return $true
         } else {
-            Write-Host "Error creating email account: $($response.Content)" -ForegroundColor Red
+            Write-Host "Error creating email account. Status code: $($apiResponse.StatusCode)" -ForegroundColor Red
+            Write-Host "Error details: $($apiResponse.Content)" -ForegroundColor Red
             return $false
         }
     } catch {
-        Write-Host "Request error: $_" -ForegroundColor Red
+        Write-Host "Request error: $($_.Exception.Message)" -ForegroundColor Red
+        if ($_.Exception.Response) {
+            Write-Host "Response status code: $($_.Exception.Response.StatusCode.value__)" -ForegroundColor Red
+            Write-Host "Response status description: $($_.Exception.Response.StatusDescription)" -ForegroundColor Red
+        }
         return $false
     }
 }
@@ -57,8 +70,13 @@ function New-EmailAccount {
 # Create CEO email account
 Write-Host "Creating CEO email account..." -ForegroundColor Cyan
 $ceoPassword = "MissStarCEO2024!" | ConvertTo-SecureString -AsPlainText -Force
-New-EmailAccount -emailUser "ceo" -domain "missstarinternational.com" -emailPassword $ceoPassword
-Write-Host "Process completed." -ForegroundColor Cyan
+$result = New-EmailAccount -emailUser "ceo" -domain "missstarinternational.com" -emailPassword $ceoPassword
+
+if ($result) {
+    Write-Host "CEO email account creation completed successfully." -ForegroundColor Green
+} else {
+    Write-Host "CEO email account creation failed." -ForegroundColor Red
+}
 
 # Restore certificate validation
 [System.Net.ServicePointManager]::ServerCertificateValidationCallback = $null 
