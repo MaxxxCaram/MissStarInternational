@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miss Star {{country}} - Franquicia Oficial</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/franchise.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <!-- Navegación común -->
+        </nav>
+    </header>
+
+    <main>
+        <section class="franchise-hero">
+            <img src="/assets/images/franchises/{{country_code}}.svg" alt="Logo {{country}}" class="franchise-logo">
+            <h1>Miss Star {{country}}</h1>
+            <div class="franchise-social">
+                <!-- Enlaces a redes sociales -->
+            </div>
+        </section>
+
+        <section class="national-director">
+            <h2>Dirección Nacional</h2>
+            <div class="director-info">
+                <img src="/assets/images/franchises/directors/{{country_code}}.jpg" alt="Director Nacional">
+                <div class="director-details">
+                    <h3>{{director_name}}</h3>
+                    <p class="director-bio">{{director_bio}}</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="current-queen">
+            <h2>Miss Star {{country}} {{current_year}}</h2>
+            <div class="queen-info">
+                <img src="/assets/images/franchises/queens/{{country_code}}_{{current_year}}.jpg" alt="Miss Star {{country}} {{current_year}}">
+                <div class="queen-details">
+                    <h3>{{queen_name}}</h3>
+                    <p class="queen-bio">{{queen_bio}}</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="next-pageant">
+            <h2>Próxima Elección Nacional</h2>
+            <div class="pageant-info">
+                <div class="date">
+                    <i class="fas fa-calendar"></i>
+                    <span>{{pageant_date}}</span>
+                </div>
+                <div class="location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>{{pageant_location}}</span>
+                </div>
+                <a href="{{registration_link}}" class="cta-button">Inscríbete Ahora</a>
+            </div>
+        </section>
+
+        <section class="trans-rights">
+            <h2>Derechos Trans en {{country}}</h2>
+            <div class="rights-info">
+                <div class="legal-status">
+                    <h3>Marco Legal</h3>
+                    <ul>
+                        {{legal_rights}}
+                    </ul>
+                </div>
+                <div class="current-situation">
+                    <h3>Situación Actual</h3>
+                    <p>{{rights_situation}}</p>
+                </div>
+                <div class="progress">
+                    <h3>Avances Recientes</h3>
+                    <ul>
+                        {{recent_progress}}
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects">
+            <h2>Proyectos y Actividades</h2>
+            <div class="projects-grid">
+                {{projects}}
+            </div>
+        </section>
+
+        <section class="news">
+            <h2>Últimas Noticias</h2>
+            <div class="news-grid">
+                {{news}}
+            </div>
+        </section>
+
+        <section class="contact">
+            <h2>Contacto</h2>
+            <div class="contact-info">
+                <p>Email: {{contact_email}}</p>
+                <div class="social-media">
+                    {{social_media_links}}
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Footer común -->
+    </footer>
+
+    <script src="/assets/js/franchise.js"></script>
+</body>
+</html> 
