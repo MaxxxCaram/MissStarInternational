@@ -1,0 +1,77 @@
+[
+    {
+        "emailUser": "ceo",
+        "domain": "missstarinternational.com",
+        "password": "MissStarCEO2024!"
+    },
+    {
+        "emailUser": "brasil",
+        "domain": "missstarinternational.com",
+        "password": "BrasilMSI2023!"
+    },
+    {
+        "emailUser": "thailand",
+        "domain": "missstarinternational.com",
+        "password": "ThailandMSI2023!"
+    },
+    {
+        "emailUser": "spain",
+        "domain": "missstarinternational.com",
+        "password": "SpainMSI2023!"
+    },
+    {
+        "emailUser": "peru",
+        "domain": "missstarinternational.com",
+        "password": "PeruMSI2023!"
+    },
+    {
+        "emailUser": "vietnam",
+        "domain": "missstarinternational.com",
+        "password": "VietnamMSI2023!"
+    },
+    {
+        "emailUser": "netherlands",
+        "domain": "missstarinternational.com",
+        "password": "NetherlandsMSI2023!"
+    },
+    {
+        "emailUser": "mexico",
+        "domain": "missstarinternational.com",
+        "password": "MexicoMSI2023!"
+    },
+    {
+        "emailUser": "argentina",
+        "domain": "missstarinternational.com",
+        "password": "ArgentinaMSI2023!"
+    },
+    {
+        "emailUser": "info",
+        "domain": "missstarinternational.com",
+        "password": "MissStarInfo2024!"
+    },
+    {
+        "emailUser": "press",
+        "domain": "missstarinternational.com",
+        "password": "MissStarPress2024!"
+    },
+    {
+        "emailUser": "marketing",
+        "domain": "missstarinternational.com",
+        "password": "MissStarMkt2024!"
+    },
+    {
+        "emailUser": "sponsors",
+        "domain": "missstarinternational.com",
+        "password": "MissStarSponsors2024!"
+    },
+    {
+        "emailUser": "casting",
+        "domain": "missstarinternational.com",
+        "password": "MissStarCasting2024!"
+    },
+    {
+        "emailUser": "partners",
+        "domain": "missstarinternational.com",
+        "password": "MissStarPartners2024!"
+    }
+] 

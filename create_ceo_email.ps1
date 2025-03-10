@@ -2,7 +2,7 @@
 # DirectAdmin Credentials
 $directAdminUrl = "https://web0151.zxcs.nl:2222"
 $username = "u127684p143111"
-$password = '9h[Np*.K0_>`*=64}F'
+$password = 'C^F]TDaQ0h579taQ2oKI|(o'
 
 # Function to create an email account
 function New-EmailAccount {
@@ -56,7 +56,7 @@ function New-EmailAccount {
 
 # Create CEO email account
 Write-Host "Creating CEO email account..." -ForegroundColor Cyan
-$ceoPassword = "CeoMSI2023!" | ConvertTo-SecureString -AsPlainText -Force
+$ceoPassword = "MissStarCEO2024!" | ConvertTo-SecureString -AsPlainText -Force
 New-EmailAccount -emailUser "ceo" -domain "missstarinternational.com" -emailPassword $ceoPassword
 Write-Host "Process completed." -ForegroundColor Cyan
 
