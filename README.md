@@ -2,6 +2,9 @@
 
 ## Último Update: 13/03/2024
 
+## Prueba de Funcionamiento
+Última actualización: 10 de marzo de 2024
+
 ### Estructura Actual del Sitio 
 
 ### Cambios Realizados Hoy
