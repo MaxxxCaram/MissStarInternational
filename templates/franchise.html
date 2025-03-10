@@ -1,116 +1,114 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="{{language_code}}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Miss Star {{country}} - Franquicia Oficial</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="/assets/css/franchise.css">
+    <title>Miss Star {{country}} - Official Franchise</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/franchise.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <!-- Navegación común -->
+    <header class="main-header">
+        <nav class="main-nav">
+            <!-- Navigation will be added dynamically -->
         </nav>
     </header>
 
-    <main>
-        <section class="franchise-hero">
-            <img src="/assets/images/franchises/{{country_code}}.svg" alt="Logo {{country}}" class="franchise-logo">
-            <h1>Miss Star {{country}}</h1>
-            <div class="franchise-social">
-                <!-- Enlaces a redes sociales -->
+    <main class="franchise-content">
+        <section class="hero-section">
+            <div class="hero-content">
+                <img src="../assets/images/franchises/logos/{{country_code}}.png" alt="Miss Star {{country}} Logo" class="franchise-logo">
+                <h1 class="hero-title">{{hero_title}}</h1>
+                <p class="hero-subtitle">{{hero_subtitle}}</p>
             </div>
         </section>
 
-        <section class="national-director">
-            <h2>Dirección Nacional</h2>
-            <div class="director-info">
-                <img src="/assets/images/franchises/directors/{{country_code}}.jpg" alt="Director Nacional">
-                <div class="director-details">
-                    <h3>{{director_name}}</h3>
-                    <p class="director-bio">{{director_bio}}</p>
+        <section class="director-section">
+            <div class="section-container">
+                <div class="director-profile">
+                    <img src="../assets/images/directors/{{country_code}}_director.jpg" alt="National Director {{country}}" class="director-image">
+                    <div class="director-info">
+                        <h2 class="section-title">{{director_title}}</h2>
+                        <h3 class="director-name">{{director_name}}</h3>
+                        <p class="director-bio">{{director_bio}}</p>
+                        <p class="director-contact">Email: {{country_code}}@missstarinternational.com</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="current-queen">
-            <h2>Miss Star {{country}} {{current_year}}</h2>
-            <div class="queen-info">
-                <img src="/assets/images/franchises/queens/{{country_code}}_{{current_year}}.jpg" alt="Miss Star {{country}} {{current_year}}">
-                <div class="queen-details">
-                    <h3>{{queen_name}}</h3>
-                    <p class="queen-bio">{{queen_bio}}</p>
+        <section class="queen-section">
+            <div class="section-container">
+                <div class="queen-profile">
+                    <img src="../assets/images/queens/{{country_code}}_{{year}}.jpg" alt="Miss Star {{country}} {{year}}" class="queen-image">
+                    <div class="queen-info">
+                        <h2 class="section-title">{{queen_title}}</h2>
+                        <h3 class="queen-name">{{queen_name}}</h3>
+                        <p class="queen-bio">{{queen_bio}}</p>
+                        <div class="social-links">
+                            {{queen_social_links}}
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="next-pageant">
-            <h2>Próxima Elección Nacional</h2>
-            <div class="pageant-info">
-                <div class="date">
-                    <i class="fas fa-calendar"></i>
-                    <span>{{pageant_date}}</span>
-                </div>
-                <div class="location">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>{{pageant_location}}</span>
-                </div>
-                <a href="{{registration_link}}" class="cta-button">Inscríbete Ahora</a>
-            </div>
-        </section>
-
-        <section class="trans-rights">
-            <h2>Derechos Trans en {{country}}</h2>
-            <div class="rights-info">
-                <div class="legal-status">
-                    <h3>Marco Legal</h3>
-                    <ul>
-                        {{legal_rights}}
-                    </ul>
-                </div>
-                <div class="current-situation">
-                    <h3>Situación Actual</h3>
-                    <p>{{rights_situation}}</p>
-                </div>
-                <div class="progress">
-                    <h3>Avances Recientes</h3>
-                    <ul>
-                        {{recent_progress}}
-                    </ul>
+        <section class="event-section">
+            <div class="section-container">
+                <h2 class="section-title">{{event_title}}</h2>
+                <div class="event-details">
+                    <p class="event-date">{{event_date}}</p>
+                    <p class="event-location">{{event_location}}</p>
+                    <p class="event-description">{{event_description}}</p>
+                    <a href="#register" class="primary-button">{{register_button_text}}</a>
                 </div>
             </div>
         </section>
 
-        <section class="projects">
-            <h2>Proyectos y Actividades</h2>
-            <div class="projects-grid">
-                {{projects}}
+        <section class="rights-section">
+            <div class="section-container">
+                <h2 class="section-title">{{rights_title}}</h2>
+                <div class="rights-grid">
+                    {{rights_cards}}
+                </div>
             </div>
         </section>
 
-        <section class="news">
-            <h2>Últimas Noticias</h2>
-            <div class="news-grid">
-                {{news}}
+        <section class="projects-section">
+            <div class="section-container">
+                <h2 class="section-title">{{projects_title}}</h2>
+                <div class="projects-grid">
+                    {{project_cards}}
+                </div>
             </div>
         </section>
 
-        <section class="contact">
-            <h2>Contacto</h2>
-            <div class="contact-info">
-                <p>Email: {{contact_email}}</p>
-                <div class="social-media">
-                    {{social_media_links}}
+        <section class="news-section">
+            <div class="section-container">
+                <h2 class="section-title">{{news_title}}</h2>
+                <div class="news-grid">
+                    {{news_cards}}
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="section-container">
+                <h2 class="section-title">{{contact_title}}</h2>
+                <div class="contact-info">
+                    <p class="contact-email">Email: {{country_code}}@missstarinternational.com</p>
+                    <div class="social-links">
+                        {{social_links}}
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <!-- Footer común -->
+    <footer class="main-footer">
+        <!-- Footer content will be added dynamically -->
     </footer>
 
-    <script src="/assets/js/franchise.js"></script>
+    <script src="../assets/js/franchise.js"></script>
 </body>
 </html> 
