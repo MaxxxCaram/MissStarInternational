@@ -4,50 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Historia - Miss Star International</title>
-    <link rel="alternate" hreflang="en" href="/en/history.html">
-    <link rel="alternate" hreflang="pt" href="/pt/historia.html">
-    <link rel="alternate" hreflang="es" href="/es/historia.html">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-    <header>
-        <div class="language-selector">
-            <select id="languageSelect" onchange="changeLanguage()">
-                <option value="es" selected>Español</option>
-                <option value="en">English</option>
-                <option value="pt">Português</option>
-            </select>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="../index.html" class="logo">
+                <img src="../assets/images/logo/logo-main1.png" alt="Miss Star International Logo">
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="historia.html" class="active">Historia</a>
+                <a href="competencia.html">Competencia</a>
+                <a href="consorcio/index.html">Consorcio</a>
+                <a href="noticias.html">Noticias</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
         </div>
+    </nav>
+
+    <main class="history-container">
+        <h1>Historia de Miss Star International</h1>
         
-        <nav class="nav-main">
-            <div class="nav-brand">
-                <a href="/es/">
-                    <img src="../assets/images/logo.png" alt="Logo Miss Star International">
-                </a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="/es/competencia">La Competencia</a></li>
-                <li><a href="/es/candidatas">Candidatas</a></li>
-                <li><a href="/es/noticias">Noticias</a></li>
-                <li><a href="/es/historia" class="active">Historia</a></li>
-                <li><a href="/es/contacto">Contacto</a></li>
-            </ul>
-            <button class="nav-toggle">
-                <span class="hamburger"></span>
-            </button>
-        </nav>
-    </header>
-
-    <main>
-        <section class="history-hero">
-            <div class="hero-content">
-                <h1>Nuestra Historia</h1>
-                <p>Un legado de empoderamiento y transformación</p>
-            </div>
-        </section>
-
-        <section class="timeline scroll-reveal">
+        <section class="timeline">
             <div class="timeline-item">
                 <div class="timeline-content">
                     <h3>2024</h3>
@@ -59,8 +39,8 @@
             <div class="timeline-item">
                 <div class="timeline-content">
                     <h3>2023</h3>
-                    <h4>Expansión Global</h4>
-                    <p>El certamen alcanza nuevos territorios, estableciendo franquicias en más de 30 países y regiones.</p>
+                    <h4>10º Aniversario y Expansión Global</h4>
+                    <p>Celebración del décimo aniversario en Barcelona, España. El certamen alcanza nuevos territorios, estableciendo franquicias en más de 30 países y regiones.</p>
                 </div>
             </div>
 
@@ -68,67 +48,62 @@
                 <div class="timeline-content">
                     <h3>2022</h3>
                     <h4>Innovación Digital</h4>
-                    <p>Implementación de plataformas digitales y reality shows para aumentar la visibilidad y el alcance del certamen.</p>
+                    <p>Implementación de plataformas digitales y reality shows para aumentar la visibilidad y el alcance del certamen. Establecimiento de nuevas franquicias internacionales.</p>
                 </div>
             </div>
-        </section>
 
-        <section class="legacy scroll-reveal">
-            <h2>Nuestro Legado</h2>
-            <div class="legacy-grid">
-                <div class="legacy-item">
-                    <h3>Empoderamiento</h3>
-                    <p>Creando oportunidades y plataformas para que las mujeres trans brillen y alcancen su máximo potencial.</p>
-                </div>
-                <div class="legacy-item">
-                    <h3>Inclusión</h3>
-                    <p>Promoviendo la diversidad y la aceptación en la industria de la belleza y el entretenimiento.</p>
-                </div>
-                <div class="legacy-item">
-                    <h3>Impacto Social</h3>
-                    <p>Generando cambios positivos en las comunidades a través de proyectos sociales y educativos.</p>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>2016</h3>
+                    <h4>Expansión Internacional</h4>
+                    <p>El certamen crece significativamente, incluyendo participantes de 28 países, entre ellos Argentina, Brasil, Chile, Colombia, Japón, Filipinas y muchos más.</p>
                 </div>
             </div>
-        </section>
 
-        <section class="queens scroll-reveal">
-            <h2>Reinas del Pasado</h2>
-            <div class="queens-gallery">
-                <!-- Las imágenes y nombres se agregarán dinámicamente -->
-                <p class="coming-soon">Galería en construcción - Próximamente</p>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>2015</h3>
+                    <h4>Los Primeros Pasos</h4>
+                    <p>Primera edición internacional con participantes de 14 países, incluyendo Austria, Bélgica, Chile, Ecuador, Francia, Grecia, Jamaica, Países Bajos, Paraguay, Perú, Puerto Rico, Sudáfrica, Suiza y USA.</p>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="footer-content">
-            <div class="footer-logo">
-                <img src="../assets/images/logo-white.png" alt="Miss Star International">
-            </div>
             <div class="footer-links">
-                <div class="footer-column">
-                    <h4>Organización</h4>
-                    <ul>
-                        <li><a href="/es/sobre-nosotros">Sobre Nosotros</a></li>
-                        <li><a href="/es/directorio">Directorio</a></li>
-                        <li><a href="/es/prensa">Sala de Prensa</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Redes Sociales</h4>
-                    <ul class="social-links">
-                        <li><a href="#" target="_blank">Instagram</a></li>
-                        <li><a href="#" target="_blank">Facebook</a></li>
-                        <li><a href="#" target="_blank">Twitter</a></li>
-                    </ul>
-                </div>
+                <a href="index.html">Inicio</a>
+                <a href="historia.html">Historia</a>
+                <a href="competencia.html">Competencia</a>
+                <a href="consorcio/index.html">Consorcio</a>
+                <a href="noticias.html">Noticias</a>
+                <a href="contacto.html">Contacto</a>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Miss Star International. Todos los derechos reservados.</p>
+            <div class="copyright">
+                &copy; 2024 Miss Star International. Todos los derechos reservados.
+            </div>
         </div>
     </footer>
 
     <script src="../assets/js/main.js"></script>
+    <script>
+        // Animación de la línea de tiempo
+        document.addEventListener('DOMContentLoaded', () => {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.5
+            });
+
+            timelineItems.forEach(item => observer.observe(item));
+        });
+    </script>
 </body>
 </html> 
