@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MSI Consortium - Tu Imperio de Belleza</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
     <style>
         :root {
             --gold: #D4AF37;
@@ -125,10 +126,111 @@
             color: var(--gold);
             font-weight: bold;
         }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            padding: 1rem;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .franchise-section {
+            padding: 4rem 0;
+            background: rgba(0,0,0,0.8);
+        }
+        .franchise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .franchise-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        .franchise-item:hover {
+            transform: translateY(-5px);
+        }
+        .franchise-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid #D4AF37;
+        }
+        .franchise-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .franchise-name {
+            color: #D4AF37;
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+        }
+        .franchise-director {
+            color: #fff;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
 </head>
 <body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="../index.html" class="logo">
+                <img src="../assets/images/logo/logo-main1.png" alt="Miss Star International Logo">
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="historia.html">Historia</a>
+                <a href="competencia.html">Competencia</a>
+                <a href="consorcio/index.html">Consorcio</a>
+                <a href="noticias.html">Noticias</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
     <div class="hero-section">
         <div class="hero-content">
             <h1>CONSTRUYE TU IMPERIO</h1>
@@ -187,7 +289,7 @@
             <div class="card">
                 <h3>Gold Director</h3>
                 <ul>
-                    <li>Territorio Preferencial</li>
+                    <li>Territorio Preferente</li>
                     <li>2 Votos en Decisiones</li>
                     <li>Alto % de Ingresos</li>
                 </ul>
@@ -234,6 +336,61 @@
             </div>
         </div>
     </div>
+
+    <section class="franchise-section">
+        <h2 class="section-title">Nuestras Franquicias</h2>
+        <div class="franchise-grid">
+            <div class="franchise-item">
+                <div class="franchise-logo">
+                    <img src="../assets/images/franchises/peru.jpg" alt="MSI Perú">
+                </div>
+                <h3 class="franchise-name">MSI Perú</h3>
+                <p class="franchise-director">Dir. Kayra Flores</p>
+            </div>
+            <div class="franchise-item">
+                <div class="franchise-logo">
+                    <img src="../assets/images/franchises/mexico.jpg" alt="MSI México">
+                </div>
+                <h3 class="franchise-name">MSI México</h3>
+                <p class="franchise-director">Dir. Polo Hernandez</p>
+            </div>
+            <div class="franchise-item">
+                <div class="franchise-logo">
+                    <img src="../assets/images/franchises/brazil.jpg" alt="MSI Brasil">
+                </div>
+                <h3 class="franchise-name">MSI Brasil</h3>
+                <p class="franchise-director">Dir. Ava Simoes</p>
+            </div>
+            <div class="franchise-item">
+                <div class="franchise-logo">
+                    <img src="../assets/images/franchises/thailand.jpg" alt="MSI Tailandia">
+                </div>
+                <h3 class="franchise-name">MSI Tailandia</h3>
+                <p class="franchise-director">Dir. Som Chai Sammy</p>
+            </div>
+            <div class="franchise-item">
+                <div class="franchise-logo">
+                    <img src="../assets/images/franchises/vietnam.jpg" alt="MSI Vietnam">
+                </div>
+                <h3 class="franchise-name">MSI Vietnam</h3>
+                <p class="franchise-director">Dir. Kim Kim</p>
+            </div>
+            <div class="franchise-item">
+                <div class="franchise-logo">
+                    <img src="../assets/images/franchises/netherlands.jpg" alt="MSI Países Bajos">
+                </div>
+                <h3 class="franchise-name">MSI Países Bajos</h3>
+                <p class="franchise-director">Dir. Rubi Validor</p>
+            </div>
+            <div class="franchise-item">
+                <div class="franchise-logo">
+                    <img src="../assets/images/franchises/spain.jpg" alt="MSI España">
+                </div>
+                <h3 class="franchise-name">MSI España</h3>
+                <p class="franchise-director">Dir. Michelle Rellayze</p>
+            </div>
+        </div>
+    </section>
 
     <script>
         document.querySelector('.cta-button').addEventListener('click', function() {
