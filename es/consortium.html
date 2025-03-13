@@ -393,9 +393,14 @@
     </section>
 
     <script>
-        document.querySelector('.cta-button').addEventListener('click', function() {
-            // Aquí podemos agregar la funcionalidad del formulario de contacto
-            alert('Gracias por tu interés. Pronto nos pondremos en contacto contigo.');
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctaButton = document.querySelector('.cta-button');
+            if (ctaButton) {
+                ctaButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    alert('Gracias por tu interés. Pronto nos pondremos en contacto contigo.');
+                });
+            }
         });
     </script>
 </body>
