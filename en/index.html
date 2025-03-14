@@ -39,7 +39,7 @@
             height: auto;
             transform: translateX(-50%) translateY(-50%);
             object-fit: cover;
-            display: none; /* Ocultar video hasta que esté disponible */
+            display: none;
         }
 
         .video-overlay {
@@ -327,122 +327,102 @@
     </style>
 </head>
 <body>
-    <!-- Video Background -->
-    <div class="video-container">
-        <!-- Video comentado hasta tener el archivo correcto -->
-        <!--<video autoplay muted loop playsinline>
-            <source src="../assets/videos/hero-video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>-->
-        <div class="video-overlay"></div>
-    </div>
-
-    <!-- Navigation -->
     <nav class="nav">
         <div class="nav-content">
             <div class="logo-container">
-                <a href="index.html">
-                    <img src="../assets/images/logo/logo.png" alt="Miss Star International Logo">
-                </a>
+                <img src="../assets/images/logo/logo.png" alt="Miss Star International Logo">
             </div>
             <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="history.html">History</a>
-                <a href="competition.html">Competition</a>
-                <a href="consortium/index.html">Consortium</a>
-                <a href="news.html">News</a>
-                <a href="contact.html">Contact</a>
+                <a href="#about">About</a>
+                <a href="#franchises">Franchises</a>
+                <a href="#history">History</a>
+                <a href="#contact">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Current Winner Banner -->
+    <div class="video-container">
+        <video autoplay muted loop>
+            <source src="../assets/videos/hero-video.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Miss Star International</h1>
+                <p class="hero-tagline">A New Dynasty of Beauty and Empowerment</p>
+            </div>
+        </div>
+    </div>
+
     <section class="current-winner">
+        <div class="winner-banner">
+            <h2>Current Winner</h2>
+            <p>Meet our reigning queen, representing beauty, strength, and advocacy.</p>
+            <a href="#winner-profile">View Profile</a>
+        </div>
+    </section>
+
+    <section id="about" class="section">
         <div class="container">
-            <div class="winner-banner">
-                <h2>Miss Star International 2024</h2>
-                <a href="../../queens/2024/">Patricia Payumo - The Reigning Queen</a>
+            <h2>About Miss Star International</h2>
+            <div class="consortium-card">
+                <h3>Our Mission</h3>
+                <p>Miss Star International is more than just a beauty pageant. We are a global movement dedicated to celebrating diversity, promoting inclusion, and empowering individuals to reach their full potential.</p>
+                <ul>
+                    <li>Advocating for trans rights and visibility</li>
+                    <li>Promoting education and professional development</li>
+                    <li>Supporting community initiatives</li>
+                    <li>Creating opportunities for leadership</li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <!-- Main Content -->
-    <main>
-        <section id="consortium" class="section">
-            <div class="container">
-                <h2><a href="consortium/index.html">International Consortium</a></h2>
-                <p><a href="consortium/index.html">Our Franchises and National Directors</a></p>
-                <p>Global network of leaders in the beauty and entertainment industry</p>
-                <ul>
-                    <li>Exclusive National License</li>
-                    <li>International Development Platform</li>
-                    <li>Access to Global Events</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="empower" class="section">
-            <div class="container">
-                <h2><a href="empower/index.html">Empower TransNation Network</a></h2>
-                <p>Empower TransNation Network is the vibrant heart and driving force behind Miss Star International. It's a platform dedicated to nurturing and empowering the next generation of activists, providing a comprehensive education and a space for inter-generational exchange to foster leadership and global inclusion.</p>
-            </div>
-        </section>
-
-        <section id="dynasty-portal" class="section">
-            <div class="container">
-                <h2><a href="dynasty-portal/index.html">Dynasty Portal</a></h2>
-                <p>The Dynasty Portal is an exclusive platform designed for Miss Star International members, offering premium resources, networking opportunities, and special benefits. Our portal serves as a gateway to a world of possibilities, connecting you with industry professionals, educational resources, and unique opportunities to advance your career and personal growth.</p>
-            </div>
-        </section>
-
-        <section id="dynasty-benefits" class="section">
-            <div class="container">
-                <h2><a href="dynasty-benefits/index.html">Dynasty Benefits</a></h2>
-                <p>As a member of the Miss Star International community, you gain access to a wide range of exclusive benefits designed to enhance your experience, support your growth, and provide valuable opportunities. Our Dynasty Benefits program is carefully crafted to offer meaningful advantages to all our members, from contestants to directors and partners.</p>
-            </div>
-        </section>
-
-        <section id="reality-show" class="section">
-            <div class="container">
-                <h2><a href="reality-show/index.html">Reality Show</a></h2>
-                <p>Miss Star International: The Reality Show takes you behind the scenes of one of the world's most prestigious pageants. Follow the journey of contestants from around the globe as they compete for the crown, navigate challenges, form friendships, and undergo personal transformations.</p>
-            </div>
-        </section>
-
-        <section id="hall-of-fame" class="section">
-            <div class="container">
-                <h2><a href="hall-of-fame/index.html">MSI Hall of Fame</a></h2>
-                <p>Celebrating the Legacy of Our Queens</p>
-                <div class="hall-of-fame-grid">
-                    <div class="hall-of-fame-card">
-                        <img src="../assets/images/queens/veso.jpg" alt="Miss Star International 2023">
-                        <h3>Veso Golden, Nigeria</h3>
-                        <p>Miss Star International 2023</p>
-                    </div>
-                    <div class="hall-of-fame-card">
-                        <img src="../assets/images/queens/default-queen.jpg" alt="Miss Star International 2023">
-                        <h3>Ugfisdwgkjewbk, Nicaragua</h3>
-                        <p>Miss Star International 2023</p>
-                    </div>
+    <section id="franchises" class="section">
+        <div class="container">
+            <h2>Our Global Franchises</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🌍</div>
+                    <h3>Global Network</h3>
+                    <p>Join our worldwide community of franchises and partners.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💫</div>
+                    <h3>Brand Recognition</h3>
+                    <p>Leverage our established brand and global presence.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🤝</div>
+                    <h3>Support System</h3>
+                    <p>Access resources, training, and ongoing support.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="beyond-the-crown" class="section">
-            <div class="container">
-                <h2><a href="#">Miss Beyond the Crown</a></h2>
-                <p>Miss Beyond the Crown, is the other crown that we give to the woman, that her story of success and how she overcame obstacles in her life can serve as role model for the upcoming generations.</p>
-                <h3><a href="#">Miss Beyond the Crown, 2024</a></h3>
-                <p>Erhtuioerhtor, country</p>
+    <section id="history" class="section">
+        <div class="container">
+            <h2>Our History</h2>
+            <div class="consortium-card">
+                <p>From our humble beginnings to becoming a global phenomenon, Miss Star International has been at the forefront of change and progress in the beauty pageant industry.</p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="section">
-            <div class="container">
-                <p>The legacy continues...</p>
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="consortium-card">
+                <p>Get in touch with us to learn more about our organization, franchises, or partnership opportunities.</p>
+                <ul>
+                    <li>Email: info@missstarinternational.com</li>
+                    <li>Phone: +1 (555) 123-4567</li>
+                    <li>Address: 123 Beauty Lane, Fashion City, FC 12345</li>
+                </ul>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
     <script src="../assets/js/main.js"></script>
 </body>
