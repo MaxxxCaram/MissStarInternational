@@ -1,6 +1,6 @@
 @echo off
 echo ===================================================
-echo    MISS STAR INTERNATIONAL - DESPLIEGUE AUTOMATICO
+echo    MISS STAR INTERNATIONAL - DESPLIEGUE AUTOMATIC
 echo ===================================================
 echo.
 

@@ -22,7 +22,7 @@
 1. Eliminar carpeta .vs
 2. Organizar mejor la estructura de assets
 3. Corregir el efecto fade de las banderas
-4. Revisar redirecciones entre páginas
+4. Revisar page redirections
 
 ### Notas Importantes
 - Las banderas deben desaparecer al hacer clic

@@ -25,7 +25,15 @@
         "argentina",
         "brasil",
         "BSTR",
-        "españa"
+        "españa",
+        "redirecciones",
+        "Mariñas",
+        "redirections",
+        "zxcs",
+        "venv",
+        "jpgsvg",
+        "recursivamente",
+        "AUTOMATICO"
     ],
     "ignorePaths": [
         "node_modules/**"
