@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hội nghị - Miss Star International</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <main class="conference-container">
+        <div class="video-container">
+            <video id="localVideo" autoplay muted></video>
+            <div class="controls">
+                <button id="startBtn">Bắt đầu Cuộc họp</button>
+                <button id="muteAudio">Tắt Âm thanh</button>
+                <button id="muteVideo">Tắt Video</button>
+            </div>
+        </div>
+
+        <div class="translation-container">
+            <div class="original-text"></div>
+            <div class="translated-text"></div>
+            <select id="listenLanguage">
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="pt">Português</option>
+                <option value="th">ไทย</option>
+                <option value="vi" selected>Tiếng Việt</option>
+            </select>
+        </div>
+    </main>
+
+    <script src="assets/js/conference.js"></script>
+</body>
+</html> 

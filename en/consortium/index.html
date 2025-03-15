@@ -60,7 +60,7 @@
             background-color: rgba(0, 0, 0, 0.7);
             padding: 120px 0 60px;
             text-align: center;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../assets/images/header-bg.jpg');
+            background: linear-gradient(45deg, rgba(0, 0, 0, 0.9), rgba(212, 175, 55, 0.1));
             background-size: cover;
             background-position: center;
         }
@@ -147,6 +147,25 @@
             object-fit: cover;
         }
 
+        .director-profile {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .director-image {
+            width: 80px !important;
+            height: 80px !important;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #D4AF37;
+        }
+
+        .director-details {
+            flex: 1;
+        }
+
         .franchise-info {
             padding: 20px;
         }
@@ -171,6 +190,39 @@
             font-size: 0.9rem;
             color: #D4AF37;
             margin-top: 5px;
+        }
+
+        .current-queen {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .queen-image {
+            width: 100px !important;
+            height: 100px !important;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #D4AF37;
+        }
+
+        .queen-details {
+            flex: 1;
+        }
+
+        .queen-title {
+            color: #D4AF37;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .queen-name {
+            color: #fff;
+            font-size: 1.1rem;
         }
 
         /* Call to Action Styles */
@@ -254,6 +306,86 @@
                 display: none;
             }
         }
+
+        .current-title-holder {
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .title-holder-card {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(45deg, rgba(212, 175, 55, 0.1), rgba(255, 255, 255, 0.05));
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .franchise-logo {
+            width: 300px !important;
+            height: 120px !important;
+            margin-bottom: 30px;
+            object-fit: contain;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Franchise Card Styles */
+        .franchise-title-image {
+            width: 100% !important;
+            height: auto;
+            margin-bottom: 30px;
+            display: block;
+        }
+
+        .franchise-card {
+            width: 400px;
+            text-align: center;
+            padding: 40px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .franchise-info {
+            padding: 0;
+        }
+
+        .franchise-info h3 {
+            display: none;
+        }
+
+        .director-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .director-image {
+            width: 300px !important;
+            height: 300px !important;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #D4AF37;
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .director-details {
+            text-align: center;
+        }
+
+        .director {
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .email {
+            font-size: 0.9rem;
+            color: #D4AF37;
+        }
     </style>
 </head>
 <body>
@@ -307,88 +439,123 @@
                     <p>Meet the exceptional individuals who lead our national franchises around the world. These dedicated directors work tirelessly to discover and develop talent, organize spectacular national competitions, and uphold the values of Miss Star International.</p>
                     
                     <div class="franchise-grid">
+                        <!-- Peru -->
                         <div class="franchise-card">
-                            <a href="../franchises/peru/">
-                                <img src="../../assets/images/franchises/peru.jpg" alt="Peru Franchise">
+                            <a href="../franchises/peru/index.html">
+                                <img src="../../assets/images/franchises/peru.jpg" alt="Miss Star Peru Logo" class="franchise-logo">
+                                <div class="franchise-info">
+                                    <div class="director-profile">
+                                        <img src="../../assets/images/franchises/peru/kayra.png" alt="Kayra Flores" class="director-image">
+                                        <div class="director-details">
+                                            <div class="director">National Director: Kayra Flores</div>
+                                            <div class="email">peru@missstarinternational.com</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </a>
-                            <div class="franchise-info">
-                                <h3><a href="../franchises/peru/">Peru</a></h3>
-                                <p>The flagship franchise of Miss Star International, known for its spectacular productions and commitment to diversity.</p>
-                                <p class="director">Director: Kayra Flores</p>
-                                <p class="email">Email: peru@missstarinternational.com</p>
-                            </div>
                         </div>
-                        
+
+                        <!-- Mexico -->
                         <div class="franchise-card">
-                            <a href="../franchises/mexico/">
-                                <img src="../../assets/images/franchises/mexico.jpg" alt="Mexico Franchise">
+                            <a href="../franchises/mexico/index.html">
+                                <img src="../../assets/images/franchises/mexico.jpg" alt="Miss Star Mexico Logo" class="franchise-logo">
+                                <div class="franchise-info">
+                                    <div class="director-profile">
+                                        <img src="../../assets/images/franchises/mexico/director.png" alt="Polo Hernández" class="director-image">
+                                        <div class="director-details">
+                                            <div class="director">National Director: Polo Hernández</div>
+                                            <div class="email">mexico@missstarinternational.com</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </a>
-                            <div class="franchise-info">
-                                <h3><a href="../franchises/mexico/">Mexico</a></h3>
-                                <p>A powerhouse in international pageantry, celebrated for producing world-class candidates and innovative shows.</p>
-                                <p class="director">Director: Polo Hernandez</p>
-                                <p class="email">Email: mexico@missstarinternational.com</p>
-                            </div>
                         </div>
-                        
+
+                        <!-- Brazil -->
                         <div class="franchise-card">
-                            <a href="../franchises/brazil/">
-                                <img src="../../assets/images/franchises/brazil.jpg" alt="Brazil Franchise">
+                            <a href="../franchises/brazil/index.html">
+                                <img src="../../assets/images/franchises/brazil.jpg" alt="Miss Star Brazil Logo" class="franchise-logo">
+                                <div class="franchise-info">
+                                    <div class="director-profile">
+                                        <img src="../../assets/images/franchises/brazil/director.png" alt="Ava Simoes" class="director-image">
+                                        <div class="director-details">
+                                            <div class="director">National Director: Ava Simoes</div>
+                                            <div class="email">brazil@missstarinternational.com</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </a>
-                            <div class="franchise-info">
-                                <h3><a href="../franchises/brazil/">Brazil</a></h3>
-                                <p>Known for its vibrant competitions and the beauty of their people, the Brazilian franchise is a cornerstone of our consortium.</p>
-                                <p class="director">Director: Miss Star International 2019 Ava Simoes</p>
-                                <p class="email">Email: brazil@missstarinternational.com</p>
-                            </div>
                         </div>
-                        
+
+                        <!-- Thailand -->
                         <div class="franchise-card">
-                            <a href="../franchises/thailand/">
-                                <img src="../../assets/images/franchises/thailand.jpg" alt="Thailand Franchise">
+                            <a href="../franchises/thailand/index.html">
+                                <img src="../../assets/images/franchises/thailand.jpg" alt="Miss Star Thailand Logo" class="franchise-logo">
+                                <div class="franchise-info">
+                                    <div class="director-profile">
+                                        <img src="../../assets/images/franchises/thailand/somchai.jpg" alt="Som Chai Sammy" class="director-image">
+                                        <div class="director-details">
+                                            <div class="director">National Director: Som Chai Sammy</div>
+                                            <div class="email">thailand@missstarinternational.com</div>
+                                        </div>
+                                    </div>
+                                    <div class="current-queen">
+                                        <img src="../../assets/images/franchises/thailand/missstarthai24.png" alt="Harper Ambrosio" class="queen-image">
+                                        <div class="queen-details">
+                                            <div class="queen-title">Miss Star Thailand 2024</div>
+                                            <div class="queen-name">Harper Ambrosio</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </a>
-                            <div class="franchise-info">
-                                <h3><a href="../franchises/thailand/">Thailand</a></h3>
-                                <p>Renowned for its elegant productions and dedication to cultural heritage, the Thai franchise sets high standards.</p>
-                                <p class="director">Director: Som Chai Sammy</p>
-                                <p class="email">Email: thailand@missstarinternational.com</p>
-                            </div>
                         </div>
-                        
+
+                        <!-- Vietnam -->
                         <div class="franchise-card">
-                            <a href="../franchises/vietnam/">
-                                <img src="../../assets/images/franchises/vietnam.jpg" alt="Vietnam Franchise">
+                            <a href="../franchises/vietnam/index.html">
+                                <img src="../../assets/images/franchises/vietnam.jpg" alt="Miss Star Vietnam Logo" class="franchise-logo">
+                                <div class="franchise-info">
+                                    <div class="director-profile">
+                                        <img src="../../assets/images/franchises/vietnam/director.png" alt="Kim KIM" class="director-image">
+                                        <div class="director-details">
+                                            <div class="director">National Director: Kim KIM</div>
+                                            <div class="email">vietnam@missstarinternational.com</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </a>
-                            <div class="franchise-info">
-                                <h3><a href="../franchises/vietnam/">Vietnam</a></h3>
-                                <p>A rising star in the pageant world, Vietnam brings a fresh perspective and celebrates the beauty of Southeast Asian culture.</p>
-                                <p class="director">Director: Kim Kim</p>
-                                <p class="email">Email: vietnam@missstarinternational.com</p>
-                            </div>
                         </div>
-                        
+
+                        <!-- Netherlands -->
                         <div class="franchise-card">
-                            <a href="../franchises/netherlands/">
-                                <img src="../../assets/images/franchises/netherlands.jpg" alt="Netherlands Franchise">
+                            <a href="../franchises/netherlands/index.html">
+                                <img src="../../assets/images/franchises/netherlands.jpg" alt="Miss Star Netherlands Logo" class="franchise-logo">
+                                <div class="franchise-info">
+                                    <div class="director-profile">
+                                        <img src="../../assets/images/franchises/netherlands/director.png" alt="Rubi Validor" class="director-image">
+                                        <div class="director-details">
+                                            <div class="director">National Director: Rubi Validor</div>
+                                            <div class="email">netherlands@missstarinternational.com</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </a>
-                            <div class="franchise-info">
-                                <h3><a href="../franchises/netherlands/">Netherlands</a></h3>
-                                <p>Known for its progressive approach to beauty pageants, the Dutch franchise emphasizes both inner and outer beauty.</p>
-                                <p class="director">Director: Rubi Validor</p>
-                                <p class="email">Email: netherlands@missstarinternational.com</p>
-                            </div>
                         </div>
-                        
+
+                        <!-- Spain -->
                         <div class="franchise-card">
-                            <a href="../franchises/spain/">
-                                <img src="../../assets/images/franchises/spain.jpg" alt="Spain Franchise">
+                            <a href="../franchises/spain/index.html">
+                                <img src="../../assets/images/franchises/spain.jpg" alt="Miss Star Spain Logo" class="franchise-logo">
+                                <div class="franchise-info">
+                                    <div class="director-profile">
+                                        <img src="../../assets/images/franchises/spain/director.png" alt="Michelle Relayze" class="director-image">
+                                        <div class="director-details">
+                                            <div class="director">National Director: Michelle Relayze</div>
+                                            <div class="email">spain@missstarinternational.com</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </a>
-                            <div class="franchise-info">
-                                <h3><a href="../franchises/spain/">Spain</a></h3>
-                                <p>With a rich cultural heritage and passion for excellence, the Spanish franchise brings elegance and sophistication to our consortium.</p>
-                                <p class="director">Director: Michelle Rellayze</p>
-                                <p class="email">Email: spain@missstarinternational.com</p>
-                            </div>
                         </div>
                     </div>
                 </div>

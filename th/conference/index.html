@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>การประชุม - Miss Star International</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <main class="conference-container">
+        <div class="video-container">
+            <video id="localVideo" autoplay muted></video>
+            <div class="controls">
+                <button id="startBtn">เริ่มการประชุม</button>
+                <button id="muteAudio">ปิดเสียง</button>
+                <button id="muteVideo">ปิดวิดีโอ</button>
+            </div>
+        </div>
+
+        <div class="translation-container">
+            <div class="original-text"></div>
+            <div class="translated-text"></div>
+            <select id="listenLanguage">
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="pt">Português</option>
+                <option value="th" selected>ไทย</option>
+                <option value="vi">Tiếng Việt</option>
+            </select>
+        </div>
+    </main>
+
+    <script src="assets/js/conference.js"></script>
+</body>
+</html> 
