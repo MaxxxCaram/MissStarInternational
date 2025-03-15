@@ -19,6 +19,10 @@ const FTP_CONFIG = {
   port: 21
 };
 
+// Configuración de reintentos
+const MAX_RETRIES = 3;
+const RETRY_DELAY = 3000; // 3 segundos
+
 // Directorios a excluir
 const EXCLUDE_DIRS = [
   '.git',
@@ -26,7 +30,8 @@ const EXCLUDE_DIRS = [
   '.vscode',
   '.vs',
   '.venv',
-  'browser-tools-mcp'
+  'browser-tools-mcp',
+  'imap' // Excluir directorio imap que está causando problemas
 ];
 
 // Archivos a excluir
@@ -58,11 +63,67 @@ function shouldExclude(name) {
 }
 
 /**
+ * Función para esperar un tiempo determinado
+ */
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+/**
+ * Función para subir un archivo con reintentos
+ */
+async function uploadFileWithRetry(client, localPath, remotePath, retries = 0) {
+  try {
+    await client.uploadFrom(localPath, remotePath);
+    return true;
+  } catch (error) {
+    if (retries < MAX_RETRIES) {
+      console.log(`⚠️ Error al subir ${path.basename(localPath)}, reintentando (${retries + 1}/${MAX_RETRIES})...`);
+      await sleep(RETRY_DELAY);
+      return uploadFileWithRetry(client, localPath, remotePath, retries + 1);
+    } else {
+      throw error;
+    }
+  }
+}
+
+/**
+ * Función para reconectar al servidor FTP
+ */
+async function reconnectFTP(client) {
+  try {
+    // Cerrar conexión existente si está abierta
+    try {
+      client.close();
+    } catch (e) {
+      // Ignorar errores al cerrar
+    }
+    
+    console.log('🔄 Reconectando al servidor FTP...');
+    await sleep(RETRY_DELAY);
+    
+    // Crear nueva conexión
+    await client.access({
+      host: FTP_CONFIG.host,
+      user: FTP_CONFIG.user,
+      password: FTP_CONFIG.password,
+      secure: false
+    });
+    
+    console.log('✅ Reconexión exitosa');
+    return true;
+  } catch (error) {
+    console.error(`❌ Error al reconectar: ${error.message}`);
+    return false;
+  }
+}
+
+/**
  * Función para subir un directorio recursivamente
  */
-async function uploadDirectory(client, localPath, remotePath) {
+async function uploadDirectory(client, localPath, remotePath, depth = 0) {
   // Reducir verbosidad, solo mostrar directorios principales
-  if (remotePath === '/' || remotePath.split('/').length <= 2) {
+  if (depth <= 1) {
     console.log(`📂 Procesando directorio: ${path.basename(localPath)}`);
   }
   
@@ -84,26 +145,74 @@ async function uploadDirectory(client, localPath, remotePath) {
       
       const localItemPath = path.join(localPath, item);
       const remoteItemPath = path.join(remotePath, item).replace(/\\/g, '/');
-      const itemStat = await stat(localItemPath);
       
-      if (itemStat.isDirectory()) {
-        // Subir subdirectorio recursivamente
-        await uploadDirectory(client, localItemPath, remoteItemPath);
-      } else {
-        // Reducir verbosidad, no mostrar cada archivo
-        filesUploaded++;
+      try {
+        const itemStat = await stat(localItemPath);
         
-        // Mostrar progreso cada 10 archivos
-        if (filesUploaded % 10 === 0) {
-          console.log(`📤 Archivos subidos: ${filesUploaded}`);
+        if (itemStat.isDirectory()) {
+          // Subir subdirectorio recursivamente
+          await uploadDirectory(client, localItemPath, remoteItemPath, depth + 1);
+        } else {
+          // Reducir verbosidad, no mostrar cada archivo
+          filesUploaded++;
+          
+          // Mostrar progreso cada 10 archivos
+          if (filesUploaded % 10 === 0) {
+            console.log(`📤 Archivos subidos: ${filesUploaded}`);
+          }
+          
+          // Subir archivo con reintentos
+          await uploadFileWithRetry(client, localItemPath, remoteItemPath);
         }
-        
-        await client.uploadFrom(localItemPath, remoteItemPath);
+      } catch (error) {
+        if (error.code === 'ECONNRESET' || error.code === 'ETIMEDOUT') {
+          console.error(`⚠️ Error de conexión: ${error.message}`);
+          
+          // Intentar reconectar
+          const reconnected = await reconnectFTP(client);
+          if (reconnected) {
+            // Reintentar el elemento actual
+            console.log(`🔄 Reintentando ${item}...`);
+            // Reducir el contador para no contar dos veces
+            if (!itemStat || !itemStat.isDirectory()) {
+              filesUploaded--;
+            } else {
+              directoriesProcessed--;
+            }
+            // Volver a procesar el elemento
+            const itemStat = await stat(localItemPath);
+            if (itemStat.isDirectory()) {
+              await uploadDirectory(client, localItemPath, remoteItemPath, depth + 1);
+            } else {
+              filesUploaded++;
+              await uploadFileWithRetry(client, localItemPath, remoteItemPath);
+            }
+          } else {
+            throw new Error(`No se pudo reconectar al servidor FTP después de error: ${error.message}`);
+          }
+        } else {
+          console.error(`❌ Error al procesar ${localItemPath}: ${error.message}`);
+          // Continuar con el siguiente elemento
+        }
       }
     }
   } catch (error) {
-    console.error(`❌ Error al procesar ${localPath}: ${error.message}`);
-    throw error;
+    if (error.code === 'ECONNRESET' || error.code === 'ETIMEDOUT') {
+      console.error(`⚠️ Error de conexión en directorio ${localPath}: ${error.message}`);
+      
+      // Intentar reconectar
+      const reconnected = await reconnectFTP(client);
+      if (reconnected) {
+        // Reintentar el directorio actual
+        console.log(`🔄 Reintentando directorio ${path.basename(localPath)}...`);
+        await uploadDirectory(client, localPath, remotePath, depth);
+      } else {
+        throw new Error(`No se pudo reconectar al servidor FTP después de error: ${error.message}`);
+      }
+    } else {
+      console.error(`❌ Error al procesar directorio ${localPath}: ${error.message}`);
+      // No lanzar el error para continuar con otros directorios
+    }
   }
 }
 
@@ -115,6 +224,9 @@ async function main() {
   
   const client = new ftp.Client();
   client.ftp.verbose = false; // Desactivar mensajes detallados
+  
+  // Configurar tiempos de espera más largos
+  client.ftp.socket.setTimeout(60000); // 60 segundos
   
   try {
     console.log(`🔌 Conectando a ${FTP_CONFIG.host}...`);
@@ -140,8 +252,12 @@ async function main() {
     console.error(`❌ Error durante el despliegue: ${error.message}`);
     process.exit(1);
   } finally {
-    client.close();
-    console.log('🔌 Conexión cerrada');
+    try {
+      client.close();
+      console.log('🔌 Conexión cerrada');
+    } catch (e) {
+      // Ignorar errores al cerrar
+    }
   }
 }
 
