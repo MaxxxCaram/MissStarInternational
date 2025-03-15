@@ -55,7 +55,13 @@ async function main() {
     
     // 2. Ejecutar el script de despliegue FTP
     console.log('🚀 Iniciando despliegue FTP...');
-    await execAsync('node scripts/ftp-deploy.js');
+    // Usar ruta absoluta para evitar problemas de rutas relativas
+    const ftpDeployPath = path.join(__dirname, 'ftp-deploy.js');
+    
+    // Aumentar el tamaño del buffer para evitar el error de maxBuffer
+    await execAsync(`node "${ftpDeployPath}"`, { 
+      maxBuffer: 1024 * 1024 * 10 // 10 MB de buffer
+    });
     
     console.log('✅ Proceso completado con éxito');
   } catch (error) {

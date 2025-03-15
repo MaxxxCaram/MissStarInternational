@@ -37,6 +37,10 @@ const EXCLUDE_FILES = [
   '.cspell.json'
 ];
 
+// Contador de archivos procesados
+let filesUploaded = 0;
+let directoriesProcessed = 0;
+
 /**
  * Función para verificar si un archivo o directorio debe ser excluido
  */
@@ -57,7 +61,12 @@ function shouldExclude(name) {
  * Función para subir un directorio recursivamente
  */
 async function uploadDirectory(client, localPath, remotePath) {
-  console.log(`📂 Procesando directorio: ${localPath} -> ${remotePath}`);
+  // Reducir verbosidad, solo mostrar directorios principales
+  if (remotePath === '/' || remotePath.split('/').length <= 2) {
+    console.log(`📂 Procesando directorio: ${path.basename(localPath)}`);
+  }
+  
+  directoriesProcessed++;
   
   try {
     // Crear directorio remoto si no existe
@@ -69,7 +78,7 @@ async function uploadDirectory(client, localPath, remotePath) {
     // Procesar cada elemento
     for (const item of items) {
       if (shouldExclude(item)) {
-        console.log(`⏭️ Excluyendo: ${item}`);
+        // Reducir verbosidad, no mostrar cada exclusión
         continue;
       }
       
@@ -81,8 +90,14 @@ async function uploadDirectory(client, localPath, remotePath) {
         // Subir subdirectorio recursivamente
         await uploadDirectory(client, localItemPath, remoteItemPath);
       } else {
-        // Subir archivo
-        console.log(`📤 Subiendo: ${localItemPath} -> ${remoteItemPath}`);
+        // Reducir verbosidad, no mostrar cada archivo
+        filesUploaded++;
+        
+        // Mostrar progreso cada 10 archivos
+        if (filesUploaded % 10 === 0) {
+          console.log(`📤 Archivos subidos: ${filesUploaded}`);
+        }
+        
         await client.uploadFrom(localItemPath, remoteItemPath);
       }
     }
@@ -99,7 +114,7 @@ async function main() {
   console.log('🔄 Iniciando despliegue FTP...');
   
   const client = new ftp.Client();
-  client.ftp.verbose = true; // Activar para ver mensajes detallados
+  client.ftp.verbose = false; // Desactivar mensajes detallados
   
   try {
     console.log(`🔌 Conectando a ${FTP_CONFIG.host}...`);
@@ -120,7 +135,7 @@ async function main() {
     // Subir todo el directorio
     await uploadDirectory(client, localDir, '/');
     
-    console.log('✅ Despliegue completado con éxito');
+    console.log(`✅ Despliegue completado con éxito. Se subieron ${filesUploaded} archivos en ${directoriesProcessed} directorios.`);
   } catch (error) {
     console.error(`❌ Error durante el despliegue: ${error.message}`);
     process.exit(1);
