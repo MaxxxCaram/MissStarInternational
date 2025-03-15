@@ -50,11 +50,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Interceptar errores de red
+    // Interceptar errores de red silenciosamente
     window.addEventListener('error', function(e) {
-        // Verificar si es un error de carga de recurso
         if (e.target.tagName === 'IMG' || e.target.tagName === 'SCRIPT' || e.target.tagName === 'LINK') {
-            console.log('Recurso no encontrado:', e.target.src || e.target.href);
             e.preventDefault();
             e.stopPropagation();
             return false;
