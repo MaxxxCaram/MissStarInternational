@@ -1,16 +1,16 @@
 # Miss Star International - Bitácora de Desarrollo
 
-## Último Update: 13/03/2024
+## Último Update: 15/03/2024
 
 ## Prueba de Funcionamiento
-Última actualización: 10 de marzo de 2024
+Última actualización: 15 de marzo de 2024
 
 ### Estructura Actual del Sitio 
 
 ### Cambios Realizados Hoy
-1. Implementación del selector de idiomas (en progreso)
-2. Creación inicial de Hall of Fame en diferentes idiomas
-3. Limpieza de archivos innecesarios del repositorio
+1. Implementación de scripts de despliegue FTP automático
+2. Limpieza de scripts obsoletos
+3. Automatización del proceso de publicación
 
 ### Problemas Pendientes
 1. **URGENTE**: Las banderas no desaparecen después de seleccionar el idioma
@@ -28,6 +28,22 @@
 - Las banderas deben desaparecer al hacer clic
 - Cada versión de idioma debe ser idéntica en estructura
 - Mantener consistencia en todas las traducciones
+
+### Instrucciones de Despliegue FTP
+Para subir el sitio al servidor FTP, sigue estos pasos:
+
+1. **Despliegue Automático (Recomendado)**:
+   - Ejecuta el archivo `scripts/auto-deploy.bat` haciendo doble clic
+   - Espera a que el proceso termine
+
+2. **Despliegue Manual**:
+   - Ejecuta `node scripts/deploy-ftp.js` en la terminal para subir archivos al FTP
+   - O ejecuta `node scripts/deploy-ftp.js` para limpiar scripts obsoletos y subir archivos
+
+3. **Credenciales FTP**:
+   - Host: web0151.zxcs.nl
+   - Usuario: u127684p143111
+   - Contraseña: C^F]TDaQ0h579taQ2oKI|(o
 
 ### Próximos Pasos
 1. Corregir el efecto fade de las banderas
