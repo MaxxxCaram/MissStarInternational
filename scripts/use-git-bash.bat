@@ -1,0 +1,3 @@
+@echo off
+echo Ejecutando comando en Git Bash...
+"C:\Program Files\Git\bin\bash.exe" -c "cd %~dp0 && node %*" 

@@ -4,9 +4,114 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hội nghị - Miss Star International</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" href="../../assets/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../../assets/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <style>
+        /* Conference specific styles */
+        .conference-container {
+            padding-top: 100px;
+            height: 100vh;
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #1a1a1a;
+            border: 2px solid #D4AF37;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        #localVideo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 10;
+        }
+
+        .controls button {
+            background: rgba(0, 0, 0, 0.7);
+            color: #D4AF37;
+            border: 1px solid #D4AF37;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .controls button:hover {
+            background: rgba(212, 175, 55, 0.2);
+        }
+
+        .translation-container {
+            padding: 20px;
+            background: rgba(26, 26, 26, 0.8);
+            border-radius: 10px;
+            margin: 0 20px;
+        }
+
+        .original-text, .translated-text {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            min-height: 50px;
+            color: #fff;
+        }
+
+        #listenLanguage {
+            background: rgba(0, 0, 0, 0.7);
+            color: #D4AF37;
+            border: 1px solid #D4AF37;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 200px;
+        }
+
+        #listenLanguage option {
+            background: #000;
+            color: #D4AF37;
+        }
+    </style>
 </head>
 <body>
+    <nav class="nav">
+        <div class="nav-content">
+            <div class="logo-container">
+                <img src="../../assets/images/logo/logo-main1.png" alt="Logo Miss Star International">
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Trang chủ</a>
+                <a href="../index.html#about">Giới thiệu</a>
+                <a href="../index.html#franchises">Nhượng quyền</a>
+                <a href="../index.html#history">Lịch sử</a>
+                <a href="../index.html#contact">Liên hệ</a>
+            </div>
+        </div>
+    </nav>
+
     <main class="conference-container">
         <div class="video-container">
             <video id="localVideo" autoplay muted></video>
@@ -30,6 +135,54 @@
         </div>
     </main>
 
-    <script src="assets/js/conference.js"></script>
+    <script src="../../assets/js/main.js"></script>
+    <script>
+        // JavaScript dành cho hội nghị
+        document.addEventListener('DOMContentLoaded', function() {
+            const startBtn = document.getElementById('startBtn');
+            const muteAudioBtn = document.getElementById('muteAudio');
+            const muteVideoBtn = document.getElementById('muteVideo');
+            const localVideo = document.getElementById('localVideo');
+            const listenLanguage = document.getElementById('listenLanguage');
+            const originalText = document.querySelector('.original-text');
+            const translatedText = document.querySelector('.translated-text');
+            
+            let stream;
+            let audioTrack;
+            let videoTrack;
+            
+            startBtn.addEventListener('click', async function() {
+                try {
+                    stream = await navigator.mediaDevices.getUserMedia({video: true, audio: true});
+                    localVideo.srcObject = stream;
+                    audioTrack = stream.getAudioTracks()[0];
+                    videoTrack = stream.getVideoTracks()[0];
+                    startBtn.textContent = 'Cuộc họp đã bắt đầu';
+                    startBtn.disabled = true;
+                } catch (error) {
+                    console.error('Lỗi truy cập thiết bị media:', error);
+                    originalText.textContent = 'Lỗi khi truy cập camera hoặc micrô. Vui lòng kiểm tra quyền.';
+                }
+            });
+            
+            muteAudioBtn.addEventListener('click', function() {
+                if (audioTrack) {
+                    audioTrack.enabled = !audioTrack.enabled;
+                    muteAudioBtn.textContent = audioTrack.enabled ? 'Tắt Âm thanh' : 'Bật Âm thanh';
+                }
+            });
+            
+            muteVideoBtn.addEventListener('click', function() {
+                if (videoTrack) {
+                    videoTrack.enabled = !videoTrack.enabled;
+                    muteVideoBtn.textContent = videoTrack.enabled ? 'Tắt Video' : 'Bật Video';
+                }
+            });
+            
+            listenLanguage.addEventListener('change', function() {
+                translatedText.textContent = `Đã dịch sang ${listenLanguage.options[listenLanguage.selectedIndex].text}`;
+            });
+        });
+    </script>
 </body>
 </html> 

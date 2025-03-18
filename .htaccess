@@ -3,8 +3,26 @@
     Header set Access-Control-Allow-Origin "*"
 </IfModule>
 
-# Redirect 404 errors to home page
+# Redirect 404 errors to home page - except for conference pages
 ErrorDocument 404 /index.html
+
+# Allow direct access to conference pages
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Don't redirect if the file or directory exists
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+    
+    # Don't redirect conference URLs
+    RewriteRule ^(en|es|pt|th|vi)/conference/ - [L]
+    
+    # For all other 404s, redirect to home page
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ /index.html [L]
+</IfModule>
 
 # Compress files to improve performance
 <IfModule mod_deflate.c>
@@ -19,10 +37,13 @@ ErrorDocument 404 /index.html
     ExpiresByType image/gif "access plus 1 year"
     ExpiresByType image/png "access plus 1 year"
     ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresByType image/ico "access plus 1 year"
+    ExpiresByType image/icon "access plus 1 year"
+    ExpiresByType image/vnd.microsoft.icon "access plus 1 year"
     ExpiresByType text/css "access plus 1 month"
     ExpiresByType application/pdf "access plus 1 month"
     ExpiresByType text/x-javascript "access plus 1 month"
     ExpiresByType application/x-shockwave-flash "access plus 1 month"
-    ExpiresByType image/x-icon "access plus 1 year"
     ExpiresDefault "access plus 2 days"
 </IfModule> 
