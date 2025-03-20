@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News - Miss Star International</title>
+    <link rel="alternate" hreflang="en" href="/en/news.html">
+    <link rel="alternate" hreflang="pt" href="/pt/noticias.html">
+    <link rel="alternate" hreflang="es" href="/es/noticias.html">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="language-selector">
+            <select id="languageSelect" onchange="changeLanguage()">
+                <option value="es">Español</option>
+                <option value="en" selected>English</option>
+                <option value="pt">Português</option>
+            </select>
+        </div>
+        
+        <nav class="nav-main">
+            <div class="nav-brand">
+                <a href="/en/">
+                    <img src="../assets/images/logo.png" alt="Miss Star International Logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/en/competition">The Competition</a></li>
+                <li><a href="/en/contestants">Contestants</a></li>
+                <li><a href="/en/news" class="active">News</a></li>
+                <li><a href="/en/history">History</a></li>
+                <li><a href="/en/contact">Contact</a></li>
+            </ul>
+            <button class="nav-toggle">
+                <span class="hamburger"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="news-hero">
+            <div class="hero-content">
+                <h1>News and Updates</h1>
+                <p>Stay informed about the world of Miss Star International</p>
+            </div>
+        </section>
+
+        <section class="news-grid scroll-reveal">
+            <article class="news-card featured">
+                <div class="news-image">
+                    <img src="../assets/images/news/announcement.jpg" alt="Important Announcement">
+                </div>
+                <div class="news-content">
+                    <span class="news-date">March 15, 2024</span>
+                    <h2>Miss Star International 2024 Host City Announcement</h2>
+                    <p>The Miss Star International Consortium is pleased to announce the official host city for the 2024 edition...</p>
+                    <a href="#" class="read-more">Read more</a>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="news-image">
+                    <img src="../assets/images/news/directors.jpg" alt="National Directors">
+                </div>
+                <div class="news-content">
+                    <span class="news-date">March 10, 2024</span>
+                    <h3>National Directors Meeting</h3>
+                    <p>National directors gathered to discuss new initiatives...</p>
+                    <a href="#" class="read-more">Read more</a>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="news-image">
+                    <img src="../assets/images/news/casting.jpg" alt="National Casting">
+                </div>
+                <div class="news-content">
+                    <span class="news-date">March 5, 2024</span>
+                    <h3>National Castings Begin</h3>
+                    <p>National castings begin to select representatives...</p>
+                    <a href="#" class="read-more">Read more</a>
+                </div>
+            </article>
+        </section>
+
+        <section class="news-categories scroll-reveal">
+            <h2>Categories</h2>
+            <div class="category-buttons">
+                <button class="category-btn active">All</button>
+                <button class="category-btn">Official Announcements</button>
+                <button class="category-btn">Events</button>
+                <button class="category-btn">Contestants</button>
+                <button class="category-btn">Press</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="../assets/images/logo-white.png" alt="Miss Star International">
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Organization</h4>
+                    <ul>
+                        <li><a href="/en/about-us">About Us</a></li>
+                        <li><a href="/en/directory">Directory</a></li>
+                        <li><a href="/en/press">Press Room</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Social Media</h4>
+                    <ul class="social-links">
+                        <li><a href="#" target="_blank">Instagram</a></li>
+                        <li><a href="#" target="_blank">Facebook</a></li>
+                        <li><a href="#" target="_blank">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Miss Star International. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html> 

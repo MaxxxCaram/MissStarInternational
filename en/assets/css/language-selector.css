@@ -1,0 +1,66 @@
+.landing-page {
+    background: #000;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.language-selection {
+    text-align: center;
+    padding: 2rem;
+}
+
+.logo-container {
+    margin-bottom: 2rem;
+}
+
+.main-logo {
+    max-width: 300px;
+    height: auto;
+}
+
+.language-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.language-card {
+    background: rgba(212, 175, 55, 0.1);
+    border: 2px solid #D4AF37;
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: #D4AF37;
+    transition: all 0.3s ease;
+}
+
+.language-card:hover {
+    transform: translateY(-5px);
+    background: rgba(212, 175, 55, 0.2);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+.language-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+.language-card span {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+h1 {
+    color: #D4AF37;
+    font-size: 2.5rem;
+    margin: 2rem 0;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+} 

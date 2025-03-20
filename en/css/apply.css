@@ -1,0 +1,85 @@
+.apply-hero {
+    height: 60vh;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                url('../assets/apply-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.apply-content {
+    text-align: center;
+    color: var(--white);
+}
+
+.application-form {
+    padding: 4rem 0;
+    background: var(--black);
+}
+
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+}
+
+.progress-bar {
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.progress {
+    height: 2px;
+    background: var(--gold);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    transition: width 0.3s ease;
+}
+
+.form-step {
+    transition: all 0.3s ease;
+}
+
+.form-step.hidden {
+    display: none;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid var(--gold);
+    color: var(--white);
+    border-radius: 5px;
+}
+
+.upload-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.upload-box {
+    height: 200px;
+    border: 2px dashed var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-box:hover {
+    background: rgba(212,175,55,0.1);
+} 

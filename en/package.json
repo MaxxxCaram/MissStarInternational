@@ -1,0 +1,23 @@
+{
+    "name": "missstarinternational",
+    "version": "1.0.0",
+    "description": "Miss Star International Website",
+    "scripts": {
+        "start": "node server.js",
+        "dev": "nodemon server.js",
+        "setup-email": "node scripts/setup-email.js",
+        "create-email": "node scripts/create-email.js"
+    },
+    "dependencies": {
+        "express": "^4.17.1",
+        "mongoose": "^6.0.12",
+        "dotenv": "^10.0.0",
+        "nodemailer": "^6.9.0",
+        "googleapis": "^118.0.0",
+        "aws-sdk": "^2.1.0",
+        "pm2": "^5.1.2",
+        "jsonwebtoken": "^9.0.0",
+        "bcrypt": "^5.1.0",
+        "cors": "^2.8.5"
+    }
+} 

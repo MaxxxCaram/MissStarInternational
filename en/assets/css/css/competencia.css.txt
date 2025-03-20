@@ -1,0 +1,230 @@
+/* Hero específico de competencia */
+.competition-hero {
+    height: 60vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
+                url('../images/competition-hero.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: -6rem;
+}
+
+/* Fases de la competencia */
+.competition-phases {
+    padding: 5rem 2rem;
+    background-color: #0a0a0a;
+}
+
+.phases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 3rem;
+}
+
+.phase-card {
+    background: linear-gradient(145deg, #111111, #1a1a1a);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.phase-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(196, 167, 71, 0.15);
+}
+
+.phase-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background: #c4a747;
+    border-radius: 50%;
+    padding: 1rem;
+}
+
+.phase-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+.phase-card h3 {
+    color: #c4a747;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.phase-card p {
+    color: #888;
+    line-height: 1.6;
+}
+
+/* Criterios de evaluación */
+.judging-criteria {
+    padding: 5rem 2rem;
+    background: #0c0c0c;
+}
+
+.criteria-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 3rem;
+}
+
+.criteria-item {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(145deg, #111111, #1a1a1a);
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.criteria-item:hover {
+    transform: translateY(-5px);
+}
+
+.criteria-item h3 {
+    font-size: 3rem;
+    color: #c4a747;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.criteria-item h4 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.criteria-item p {
+    color: #888;
+}
+
+/* Premios */
+.prizes {
+    padding: 5rem 2rem;
+    background: #0a0a0a;
+}
+
+.prizes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 3rem;
+}
+
+.prize-card {
+    background: linear-gradient(145deg, #111111, #1a1a1a);
+    padding: 2.5rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.main-prize {
+    border: 2px solid #c4a747;
+    position: relative;
+    overflow: hidden;
+}
+
+.main-prize::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #c4a747, #ffd700);
+}
+
+.prize-card h3 {
+    color: #c4a747;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.prize-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.prize-card ul li {
+    margin-bottom: 1rem;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+/* Títulos de sección */
+.competition-phases h2,
+.judging-criteria h2,
+.prizes h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+/* Animaciones */
+.phase-card,
+.criteria-item,
+.prize-card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.phase-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.phase-card:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .competition-hero {
+        height: 50vh;
+    }
+
+    .competition-phases h2,
+    .judging-criteria h2,
+    .prizes h2 {
+        font-size: 2rem;
+    }
+
+    .phase-card,
+    .criteria-item,
+    .prize-card {
+        padding: 1.5rem;
+    }
+
+    .criteria-item h3 {
+        font-size: 2.5rem;
+    }
+
+    .prize-card h3 {
+        font-size: 1.5rem;
+    }
+}

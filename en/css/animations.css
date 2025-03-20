@@ -1,0 +1,90 @@
+/* Animaciones generales */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animación del título */
+.hero-content h1 span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efecto de brillo dorado */
+.gold-shine {
+    position: relative;
+    overflow: hidden;
+}
+
+.gold-shine::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255,215,0,0.1),
+        transparent
+    );
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) rotate(45deg);
+    }
+}
+
+/* Animación de la corona */
+.crown-icon {
+    transition: transform 0.3s ease;
+}
+
+.crown-icon.rotate-shine {
+    transform: rotate(10deg);
+    filter: drop-shadow(0 0 10px var(--gold));
+}
+
+/* Efecto hover en botones */
+.cta-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212,175,55,0.3);
+}
+
+/* Animación de carga de imágenes */
+.image-loader {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.image-loader.loaded {
+    opacity: 1;
+} 
