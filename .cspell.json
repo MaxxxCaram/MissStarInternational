@@ -1,6 +1,6 @@
 {
     "version": "0.2",
-    "language": "en,es",
+    "language": "en,es,pt",
     "ignorePaths": [
         "node_modules/**",
         "**/node_modules/**",
@@ -43,7 +43,37 @@
         "spain",
         "portugal",
         "Imgur",
-        "imgur"
+        "imgur",
+        "Empoderamiento",
+        "Contáctanos",
+        "Dinastia",
+        "Franquias",
+        "História",
+        "Contato",
+        "Beleza",
+        "Empoderamento",
+        "Atual",
+        "Conheça",
+        "nossa",
+        "rainha",
+        "Nossa",
+        "Missão",
+        "Nossas",
+        "Franquias",
+        "Globais",
+        "Contate",
+        "ราชวงศ์ใหม่",
+        "ยวกับเรา",
+        "แฟรนไชส์",
+        "ประวัติ",
+        "ติดต่อ",
+        "Triều",
+        "Giới",
+        "Thiệu",
+        "Nhượng",
+        "Quyền",
+        "Lịch",
+        "Liên"
     ],
     "ignoreRegExpList": [
         "URL.*",
@@ -51,5 +81,8 @@
         "API_KEY.*",
         "SECRET.*",
         "TOKEN.*"
+    ],
+    "ignorePhrases": [
+        "/scripts/sync-all-sites.js"
     ]
 } 
