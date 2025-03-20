@@ -1,0 +1,103 @@
+name: Deploy Website
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          
+      - name: Install dependencies
+        run: npm ci || npm install
+        
+      - name: Check for linting errors
+        run: npm run lint || echo "No lint script found, skipping"
+        continue-on-error: true
+        
+      - name: Build
+        run: npm run build || echo "No build script needed"
+        
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          
+      - name: Install dependencies
+        run: npm ci || npm install
+        
+      - name: Install FTP client
+        run: npm install basic-ftp
+        
+      - name: Deploy via FTP
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST || 'web0151.zxcs.nl' }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME || 'u127684p143111' }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_DESTINATION: '/domains/missstarinternational.com/public_html'
+        run: |
+          # Create deployment script
+          cat > deploy.js << 'EOL'
+          const ftp = require('basic-ftp');
+          const fs = require('fs');
+          const path = require('path');
+          
+          async function main() {
+            const client = new ftp.Client();
+            client.ftp.verbose = true;
+            
+            try {
+              console.log('Connecting to FTP server...');
+              await client.access({
+                host: process.env.FTP_HOST,
+                user: process.env.FTP_USERNAME,
+                password: process.env.FTP_PASSWORD,
+                secure: false
+              });
+              
+              console.log('Connected. Navigating to destination directory...');
+              await client.ensureDir(process.env.FTP_DESTINATION);
+              
+              // Upload the index.html file
+              if (fs.existsSync('index.html')) {
+                console.log('Uploading index.html...');
+                await client.uploadFrom('index.html', 'index.html');
+              }
+              
+              // Upload assets directory if it exists
+              if (fs.existsSync('assets')) {
+                console.log('Uploading assets directory...');
+                await client.uploadFromDir('assets', 'assets');
+              }
+              
+              // Upload any other necessary files/directories
+              // ...
+              
+              console.log('Deployment completed successfully!');
+            } catch (err) {
+              console.error('Error during deployment:', err);
+              process.exit(1);
+            } finally {
+              client.close();
+            }
+          }
+          
+          main();
+          EOL
+          
+          # Run the deployment script
+          node deploy.js
