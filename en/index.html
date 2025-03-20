@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Miss Star International - Welcome</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: #fff;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                        #000000;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #D4AF37;
+        }
+
+        .subtitle {
+            font-size: 2rem;
+            color: #D4AF37;
+            margin-bottom: 50px;
+        }
+
+        .language-select {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .language-option {
+            text-decoration: none;
+            color: #D4AF37;
+            transition: all 0.3s ease;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 15px 30px;
+            border-radius: 8px;
+            border: 1px solid #D4AF37;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .language-option:hover {
+            background-color: rgba(212, 175, 55, 0.2);
+            transform: scale(1.02);
+        }
+
+        .flag {
+            font-size: 24px;
+            margin-right: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0,0,0,0.8);
+            color: #D4AF37;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.5rem;
+            }
+        }
+
+        .star {
+            color: #D4AF37;
+            font-size: 32px;
+            display: inline-block;
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>
+            <span class="star">★</span>
+            Miss Star International
+            <span class="star">★</span>
+        </h1>
+        
+        <div class="subtitle">A New Dynasty</div>
+        
+        <div class="language-select">
+            <a href="main.php?lang=en" class="language-option">
+                <span class="flag">🇺🇸</span> English
+            </a>
+            
+            <a href="main.php?lang=es" class="language-option">
+                <span class="flag">🇪🇸</span> Español
+            </a>
+
+            <a href="main.php?lang=pt" class="language-option">
+                <span class="flag">🇵🇹</span> Português
+            </a>
+
+            <a href="main.php?lang=th" class="language-option">
+                <span class="flag">🇹🇭</span> ไทย
+            </a>
+
+            <a href="main.php?lang=vi" class="language-option">
+                <span class="flag">🇻🇳</span> Tiếng Việt
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <div>© 2024 Miss Star International. All rights reserved.</div>
+    </footer>
+</body>
+</html>

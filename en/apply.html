@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply Now - Miss Star International</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/apply.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <!-- ... header content ... -->
+    </header>
+
+    <!-- Apply Hero -->
+    <section class="apply-hero">
+        <div class="apply-content">
+            <h1>JOIN THE DYNASTY</h1>
+            <p>Your Journey Begins Here</p>
+        </div>
+    </section>
+
+    <!-- Application Form -->
+    <section class="application-form">
+        <div class="form-container">
+            <div class="progress-bar">
+                <div class="progress" id="formProgress"></div>
+                <div class="steps">
+                    <span class="step active">1</span>
+                    <span class="step">2</span>
+                    <span class="step">3</span>
+                </div>
+            </div>
+
+            <form id="applicationForm">
+                <!-- Step 1: Personal Info -->
+                <div class="form-step" data-step="1">
+                    <h3>Personal Information</h3>
+                    <div class="form-group">
+                        <input type="text" required placeholder="Full Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" required placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" required placeholder="Phone">
+                    </div>
+                    <button type="button" class="next-btn">Next</button>
+                </div>
+
+                <!-- Step 2: Media Upload -->
+                <div class="form-step hidden" data-step="2">
+                    <h3>Media Upload</h3>
+                    <div class="upload-container">
+                        <div class="upload-box" id="photoUpload">
+                            <span>Upload Photos</span>
+                        </div>
+                        <div class="upload-box" id="videoUpload">
+                            <span>Upload Introduction Video</span>
+                        </div>
+                    </div>
+                    <div class="nav-buttons">
+                        <button type="button" class="prev-btn">Previous</button>
+                        <button type="button" class="next-btn">Next</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Final Details -->
+                <div class="form-step hidden" data-step="3">
+                    <h3>Additional Information</h3>
+                    <div class="form-group">
+                        <textarea placeholder="Tell us about yourself"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Social Media Links">
+                    </div>
+                    <div class="nav-buttons">
+                        <button type="button" class="prev-btn">Previous</button>
+                        <button type="submit" class="submit-btn">Submit Application</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <!-- Antes del cierre del body -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html> 
