@@ -5,6 +5,11 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+env:
+  FTP_HOST: web0151.zxcs.nl
+  FTP_USERNAME: u127684p143111
+  FTP_DESTINATION: /domains/missstarinternational.com/public_html
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -83,6 +88,8 @@ jobs:
           EOL
       
       - name: Test FTP credentials
+        env:
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         run: |
           node -e "
           const ftp = require('basic-ftp');
@@ -116,16 +123,9 @@ jobs:
             }
           });
           "
-        env:
-          FTP_HOST: web0151.zxcs.nl
-          FTP_USERNAME: u127684p143111
-          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
       
       - name: Run the deployment script
         if: success()
-        run: node deploy.js
         env:
-          FTP_HOST: web0151.zxcs.nl
-          FTP_USERNAME: u127684p143111
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-          FTP_DESTINATION: /domains/missstarinternational.com/public_html
+        run: node deploy.js
