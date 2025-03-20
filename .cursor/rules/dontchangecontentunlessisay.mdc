@@ -4,7 +4,7 @@ globs:
 alwaysApply: true
 ---
 
-# code always in english
+# don't change content unless I "literally" say it
 
 - You can @ files here
 - You can use markdown but dont have to
