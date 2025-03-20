@@ -1,61 +1,35 @@
-name: Deploy Website
+name: Deploy to FTP
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-          
-      - name: Install dependencies
-        run: npm ci || npm install
-        
-      - name: Check for linting errors
-        run: npm run lint || echo "No lint script found, skipping"
-        continue-on-error: true
-        
-      - name: Build
-        run: npm run build || echo "No build script needed"
-        
   deploy:
-    needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Fetch all history
+          token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '18'
           
       - name: Install dependencies
-        run: npm ci || npm install
+        run: npm install basic-ftp fs path
         
-      - name: Install FTP client
-        run: npm install basic-ftp
-        
-      - name: Deploy via FTP
-        env:
-          FTP_HOST: ${{ secrets.FTP_HOST || 'web0151.zxcs.nl' }}
-          FTP_USERNAME: ${{ secrets.FTP_USERNAME || 'u127684p143111' }}
-          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-          FTP_DESTINATION: '/domains/missstarinternational.com/public_html'
+      - name: Create deployment script
         run: |
-          # Create deployment script
           cat > deploy.js << 'EOL'
           const ftp = require('basic-ftp');
           const fs = require('fs');
           const path = require('path');
-          
+
           async function main() {
             const client = new ftp.Client();
             client.ftp.verbose = true;
@@ -84,8 +58,17 @@ jobs:
                 await client.uploadFromDir('assets', 'assets');
               }
               
-              // Upload any other necessary files/directories
-              // ...
+              // Upload .htaccess if it exists
+              if (fs.existsSync('.htaccess')) {
+                console.log('Uploading .htaccess...');
+                await client.uploadFrom('.htaccess', '.htaccess');
+              }
+              
+              // Upload favicon.ico if it exists
+              if (fs.existsSync('favicon.ico')) {
+                console.log('Uploading favicon.ico...');
+                await client.uploadFrom('favicon.ico', 'favicon.ico');
+              }
               
               console.log('Deployment completed successfully!');
             } catch (err) {
@@ -95,9 +78,54 @@ jobs:
               client.close();
             }
           }
-          
+
           main();
           EOL
+      
+      - name: Test FTP credentials
+        run: |
+          node -e "
+          const ftp = require('basic-ftp');
           
-          # Run the deployment script
-          node deploy.js
+          async function testConnection() {
+            const client = new ftp.Client();
+            client.ftp.verbose = true;
+            
+            try {
+              console.log('Testing FTP connection...');
+              await client.access({
+                host: process.env.FTP_HOST,
+                user: process.env.FTP_USERNAME,
+                password: process.env.FTP_PASSWORD,
+                secure: false
+              });
+              console.log('✅ FTP connection successful!');
+              client.close();
+              return true;
+            } catch (err) {
+              console.error('❌ FTP connection failed:', err.message);
+              client.close();
+              return false;
+            }
+          }
+          
+          testConnection().then(success => {
+            if (!success) {
+              console.log('⚠️ Please check your FTP credentials in GitHub Secrets');
+              process.exit(1);
+            }
+          });
+          "
+        env:
+          FTP_HOST: web0151.zxcs.nl
+          FTP_USERNAME: u127684p143111
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+      
+      - name: Run the deployment script
+        if: success()
+        run: node deploy.js
+        env:
+          FTP_HOST: web0151.zxcs.nl
+          FTP_USERNAME: u127684p143111
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_DESTINATION: /domains/missstarinternational.com/public_html

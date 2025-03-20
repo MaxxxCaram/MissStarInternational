@@ -3,6 +3,10 @@
     "language": "en,es",
     "ignorePaths": [
         "node_modules/**",
+        "**/node_modules/**",
+        "**/vscode-extension/**",
+        "**/*.vsix",
+        "package-lock.json",
         "dist/**",
         "build/**"
     ],
