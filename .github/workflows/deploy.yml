@@ -5,6 +5,7 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+# Variables públicas a nivel de workflow
 env:
   FTP_HOST: web0151.zxcs.nl
   FTP_USERNAME: u127684p143111
@@ -12,120 +13,21 @@ env:
 
 jobs:
   deploy:
+    name: 📂 Deploy Website
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: 🚚 Get latest code
         uses: actions/checkout@v3
         with:
           fetch-depth: 0  # Fetch all history
-          token: ${{ secrets.GITHUB_TOKEN }}
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+
+      - name: 📂 Sync files via FTP
+        uses: sebastianpopp/ftp-action@releases/v2
         with:
-          node-version: '18'
-          
-      - name: Install dependencies
-        run: npm install basic-ftp fs path
-        
-      - name: Create deployment script
-        run: |
-          cat > deploy.js << 'EOL'
-          const ftp = require('basic-ftp');
-          const fs = require('fs');
-          const path = require('path');
-
-          async function main() {
-            const client = new ftp.Client();
-            client.ftp.verbose = true;
-            
-            try {
-              console.log('Connecting to FTP server...');
-              await client.access({
-                host: process.env.FTP_HOST,
-                user: process.env.FTP_USERNAME,
-                password: process.env.FTP_PASSWORD,
-                secure: false
-              });
-              
-              console.log('Connected. Navigating to destination directory...');
-              await client.ensureDir(process.env.FTP_DESTINATION);
-              
-              // Upload the index.html file
-              if (fs.existsSync('index.html')) {
-                console.log('Uploading index.html...');
-                await client.uploadFrom('index.html', 'index.html');
-              }
-              
-              // Upload assets directory if it exists
-              if (fs.existsSync('assets')) {
-                console.log('Uploading assets directory...');
-                await client.uploadFromDir('assets', 'assets');
-              }
-              
-              // Upload .htaccess if it exists
-              if (fs.existsSync('.htaccess')) {
-                console.log('Uploading .htaccess...');
-                await client.uploadFrom('.htaccess', '.htaccess');
-              }
-              
-              // Upload favicon.ico if it exists
-              if (fs.existsSync('favicon.ico')) {
-                console.log('Uploading favicon.ico...');
-                await client.uploadFrom('favicon.ico', 'favicon.ico');
-              }
-              
-              console.log('Deployment completed successfully!');
-            } catch (err) {
-              console.error('Error during deployment:', err);
-              process.exit(1);
-            } finally {
-              client.close();
-            }
-          }
-
-          main();
-          EOL
-      
-      - name: Test FTP credentials
-        env:
-          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-        run: |
-          node -e "
-          const ftp = require('basic-ftp');
-          
-          async function testConnection() {
-            const client = new ftp.Client();
-            client.ftp.verbose = true;
-            
-            try {
-              console.log('Testing FTP connection...');
-              await client.access({
-                host: process.env.FTP_HOST,
-                user: process.env.FTP_USERNAME,
-                password: process.env.FTP_PASSWORD,
-                secure: false
-              });
-              console.log('✅ FTP connection successful!');
-              client.close();
-              return true;
-            } catch (err) {
-              console.error('❌ FTP connection failed:', err.message);
-              client.close();
-              return false;
-            }
-          }
-          
-          testConnection().then(success => {
-            if (!success) {
-              console.log('⚠️ Please check your FTP credentials in GitHub Secrets');
-              process.exit(1);
-            }
-          });
-          "
-      
-      - name: Run the deployment script
-        if: success()
-        env:
-          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-        run: node deploy.js
+          host: ${{ env.FTP_HOST }}
+          user: ${{ env.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          localDir: "."
+          remoteDir: ${{ env.FTP_DESTINATION }}
+          options: "--delete --asci -v"
+          excludeFiles: ".git*,.github/*,scripts/*,node_modules/*,*.md,*.json,*.bat,*.log,temp*"
