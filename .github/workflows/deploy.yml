@@ -29,5 +29,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           localDir: "."
           remoteDir: ${{ env.FTP_DESTINATION }}
-          options: "--delete --asci -v"
-          excludeFiles: ".git*,.github/*,scripts/*,node_modules/*,*.md,*.json,*.bat,*.log,temp*"
+          options: "--delete --asci -v --exclude-glob .git* --exclude-glob .github/* --exclude-glob scripts/* --exclude-glob node_modules/* --exclude-glob *.md --exclude-glob *.json --exclude-glob *.bat --exclude-glob *.log --exclude-glob temp*"

@@ -9,6 +9,7 @@
         "package-lock.json",
         "dist/**",
         "build/**",
+        "en/**",
         "**/GitHub.vscode-github-actions-*.vsix"
     ],
     "words": [
@@ -182,6 +183,8 @@
         "API_KEY.*",
         "SECRET.*",
         "TOKEN.*",
-        "/*"
+        "/*",
+        "en/index\\.html",
+        "en/.+\\.html"
     ]
 } 
