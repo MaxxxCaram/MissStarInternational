@@ -1,0 +1,58 @@
+# Actualizando estructura...
+✓ /public_html
+  ✓ /assets
+    ✓ /css
+      ├── main.css        # Estilos base
+      ├── responsive.css  # Media queries
+      └── animations.css  # Efectos y transiciones
+    ✓ /js
+      ├── main.js        # Funcionalidad principal
+      └── slider.js      # Para carruseles de imágenes
+    ✓ /images
+      └── layout/        # Elementos UI
+      ✓ /franchises
+        ✓ /brazil
+        ✓ /mexico
+        ✓ /netherlands
+        ✓ /peru
+        ✓ /spain
+        ✓ /thailand
+        ✓ /vietnam
+      ✓ /flags
+      ✓ /logo
+      ✓ /history
+    ✓ /videos
+  ✓ /franchises
+    ✓ /brazil
+    ✓ /mexico
+    ✓ /netherlands
+    ✓ /peru
+    ✓ /spain
+    ✓ /thailand
+    ✓ /vietnam
+  ✓ /languages
+    ✓ /en
+    ✓ /es
+    ✓ /th
+    ✓ /vi
+  ✓ /queens
+    ✓ /2024 
+
+# Configuración de URLs de franquicias
+
+Principal:
+www.missstarinternational.com
+
+Franquicias:
+✓ brazil.missstarinternational.com
+✓ mexico.missstarinternational.com
+✓ netherlands.missstarinternational.com
+✓ peru.missstarinternational.com
+✓ spain.missstarinternational.com
+✓ thailand.missstarinternational.com
+✓ vietnam.missstarinternational.com
+
+Alternativas (redirecciones):
+✓ www.missstarinternational.com/brazil -> brazil.missstarinternational.com
+✓ www.missstarinternational.com/mexico -> mexico.missstarinternational.com
+...etc 

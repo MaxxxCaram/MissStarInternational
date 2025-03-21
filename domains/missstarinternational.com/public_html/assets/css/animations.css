@@ -1,0 +1,39 @@
+/* Portal Loader */
+.portal-loader {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: var(--cyber-dark);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.portal-ring {
+    width: 200px;
+    height: 200px;
+    border: 4px solid transparent;
+    border-radius: 50%;
+    border-top: 4px solid var(--neon-primary);
+    animation: portalSpin 2s linear infinite;
+}
+
+/* Hologram Effect */
+.hologram {
+    position: relative;
+    animation: hologramFloat 3s ease-in-out infinite;
+}
+
+@keyframes hologramFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+/* Particle Effects */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+} 

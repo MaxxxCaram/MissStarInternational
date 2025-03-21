@@ -1,0 +1,17 @@
+# Redirecciones amigables
+RewriteEngine On
+RewriteRule ^brazil/?$ https://brazil.missstarinternational.com [R=301,L]
+RewriteRule ^mexico/?$ https://mexico.missstarinternational.com [R=301,L]
+# ... etc para cada franquicia 
+
+# Habilitar GZIP
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript
+
+# Habilitar SSL
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Cache Control
+<FilesMatch "\.(jpg|jpeg|png|gif|ico|webp|js|css)$">
+    Header set Cache-Control "max-age=31536000, public"
+</FilesMatch> 

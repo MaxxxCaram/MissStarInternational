@@ -1,4 +1,9 @@
 ---
+description: 
+globs: 
+alwaysApply: false
+---
+---
 description: get credential to get access to FTP, its uploadedand you have authorization
 globs: 
 alwaysApply: false

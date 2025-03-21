@@ -1,0 +1,176 @@
+/* Estilos Futuristas */
+:root {
+    --neon-primary: #ffd700;
+    --neon-secondary: #ff10f0;
+    --cyber-dark: #0a0a0a;
+    --cyber-light: #ffffff;
+    --holographic: linear-gradient(45deg, #ffd700, #ff69b4, #4169e1);
+    --glass: rgba(255, 255, 255, 0.1);
+}
+
+/* Base Styles */
+body {
+    background: var(--cyber-dark);
+    color: var(--cyber-light);
+    font-family: 'Orbitron', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Glassmorphism */
+.glass-effect {
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+/* Navegación */
+.cyber-nav {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Hero Section */
+.hero-cyber {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.cyber-title {
+    font-size: 5rem;
+    background: var(--holographic);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 20px rgba(255,215,0,0.5);
+    animation: glitch 2s infinite;
+}
+
+/* Franchise Cards */
+.franchise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.franchise-card {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.franchise-card::before {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    background: linear-gradient(
+        45deg,
+        #ffd700 0%,
+        #ff69b4 25%,
+        #4169e1 50%,
+        #ffd700 75%,
+        #ff69b4 100%
+    );
+    background-size: 200% 200%;
+    animation: hologramBorder 5s linear infinite;
+    filter: blur(15px);
+    z-index: -1;
+}
+
+@keyframes hologramBorder {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 200% 200%; }
+}
+
+.cyber-title {
+    position: relative;
+    text-shadow: 
+        2px 2px 0px #ffd700,
+        -2px -2px 0px #ff69b4;
+    animation: titleFloat 3s ease-in-out infinite;
+}
+
+@keyframes titleFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+/* Botones */
+.holo-button, .neon-button {
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.holo-button {
+    background: var(--glass);
+    border: 2px solid rgba(255,215,0,0.5);
+}
+
+.neon-button {
+    background: var(--neon-primary);
+    color: var(--cyber-dark);
+    box-shadow: 0 0 20px var(--neon-primary);
+}
+
+/* Timeline */
+.cyber-timeline {
+    position: relative;
+    padding: 4rem 0;
+}
+
+.timeline-track {
+    display: flex;
+    overflow-x: auto;
+    padding: 2rem 0;
+}
+
+/* Animaciones */
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 20px var(--neon-primary); }
+    50% { box-shadow: 0 0 40px var(--neon-primary); }
+    100% { box-shadow: 0 0 20px var(--neon-primary); }
+}
+
+.holo-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px var(--neon-primary);
+}
+
+.franchise-card:hover .holographic-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animaciones y Efectos */
+@keyframes portalSpin {
+    0% { transform: rotate(0deg) scale(1); }
+    100% { transform: rotate(360deg) scale(1.5); }
+}
+
+@keyframes neonPulse {
+    0% { text-shadow: 0 0 10px var(--neon-primary); }
+    50% { text-shadow: 0 0 20px var(--neon-primary), 0 0 30px var(--neon-secondary); }
+    100% { text-shadow: 0 0 10px var(--neon-primary); }
+} 
