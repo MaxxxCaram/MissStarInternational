@@ -1,9 +1,12 @@
-// Implementando:
-- Three.js para elementos 3D
-- GSAP para animaciones fluidas
-- WebGL para efectos visuales
-- Intersection Observer para animaciones al scroll
-- Web Audio API para efectos de sonido 
+/**
+ * Main JavaScript for Miss Star International
+ * Dependencies:
+ * - Three.js: 3D elements
+ * - GSAP: Fluid animations
+ * - WebGL: Visual effects
+ * - Intersection Observer: Scroll animations
+ * - Web Audio API: Sound effects
+ */
 
 // Inicialización
 document.addEventListener('DOMContentLoaded', () => {
