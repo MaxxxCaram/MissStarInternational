@@ -7,26 +7,68 @@
 
 // Inicialización
 document.addEventListener('DOMContentLoaded', () => {
-    initParticles();
-    initHolographicEffects();
-    initPortalLoader();
-    initTiltCards();
+    // Verificar recursos críticos
+    const requiredScripts = [
+        'THREE',
+        'gsap',
+        'particlesJS',
+        'VanillaTilt'
+    ];
+
+    // Verificar si faltan scripts
+    const missingScripts = requiredScripts.filter(script => {
+        return typeof window[script] === 'undefined';
+    });
+
+    if (missingScripts.length > 0) {
+        console.error('Scripts faltantes:', missingScripts);
+        return;
+    }
+
+    // Inicializar componentes
+    try {
+        initPortalLoader();
+        initStarField();
+        initParticles();
+        initHolographicEffects();
+        initTiltCards();
+    } catch (error) {
+        console.error('Error inicializando componentes:', error);
+    }
 });
 
-// Portal Loader
+// Inicializar Portal Loader
 function initPortalLoader() {
+    const loader = document.querySelector('.portal-loader');
+    if (!loader) return;
+
     setTimeout(() => {
-        document.querySelector('.portal-loader').style.opacity = '0';
+        loader.style.opacity = '0';
         setTimeout(() => {
-            document.querySelector('.portal-loader').style.display = 'none';
+            loader.style.display = 'none';
         }, 1000);
     }, 2000);
 }
 
-// Efectos Holográficos
+// Inicializar Campo de Estrellas
+function initStarField() {
+    if (typeof THREE === 'undefined') return;
+    
+    const starField = new StarField();
+    starField.init();
+}
+
+// Inicializar Partículas
+function initParticles() {
+    if (typeof particlesJS === 'undefined') return;
+    
+    particlesJS('particles-js', particlesConfig);
+}
+
+// Inicializar Efectos Holográficos
 function initHolographicEffects() {
-    const hologramElements = document.querySelectorAll('.hologram');
-    hologramElements.forEach(element => {
+    const elements = document.querySelectorAll('.hologram');
+    elements.forEach(element => {
         element.addEventListener('mousemove', (e) => {
             const { left, top, width, height } = element.getBoundingClientRect();
             const x = (e.clientX - left) / width;
@@ -43,11 +85,13 @@ function initHolographicEffects() {
 
 // Inicializar Tilt en Cards
 function initTiltCards() {
+    if (typeof VanillaTilt === 'undefined') return;
+    
     VanillaTilt.init(document.querySelectorAll(".franchise-card"), {
         max: 25,
         speed: 400,
         glare: true,
-        "max-glare": 0.5,
+        "max-glare": 0.5
     });
 }
 

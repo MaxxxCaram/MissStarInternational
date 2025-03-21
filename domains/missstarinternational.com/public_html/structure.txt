@@ -56,3 +56,29 @@ Alternativas (redirecciones):
 ✓ www.missstarinternational.com/brazil -> brazil.missstarinternational.com
 ✓ www.missstarinternational.com/mexico -> mexico.missstarinternational.com
 ...etc 
+
+public_html/
+├── index.html (página principal)
+├── en/
+│   ├── index.html
+│   ├── conference/
+│   ├── consortium/
+│   ├── dynasty-benefits/
+│   ├── dynasty-portal/
+│   ├── empower/
+│   ├── hall-of-fame/
+│   ├── history/
+│   └── reality-show/
+├── assets/
+│   ├── css/
+│   │   ├── future.css
+│   │   └── animations.css
+│   ├── js/
+│   │   ├── main.js
+│   │   ├── loader.js
+│   │   ├── particles.js
+│   │   └── 3d-effects.js
+│   └── images/
+│       ├── logo/
+│       └── franchises/
+└── 404.html 

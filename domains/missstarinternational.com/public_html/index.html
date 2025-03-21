@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Miss Star International - Future of Beauty</title>
+    <title>Miss Star International - The Future of Beauty</title>
     <link rel="stylesheet" href="/assets/css/future.css">
     <link rel="stylesheet" href="/assets/css/animations.css">
     <!-- Three.js y GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.0/dist/vanilla-tilt.min.js"></script>
     <link rel="preconnect" href="https://cdn.missstarinternational.com">
     <link rel="dns-prefetch" href="https://cdn.missstarinternational.com">
@@ -17,9 +18,12 @@
     <!-- Preload critical assets -->
     <link rel="preload" href="/assets/fonts/Orbitron-Bold.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/css/future.css" as="style">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body class="cyber-theme">
-    <!-- Portal Loading -->
+    <!-- Portal Loader -->
     <div class="portal-loader">
         <div class="portal-ring"></div>
         <div class="holographic-logo">
@@ -27,85 +31,89 @@
         </div>
     </div>
 
-    <!-- Partículas de Fondo -->
+    <!-- Particles Container -->
     <div id="particles-js"></div>
 
-    <!-- Navegación Futurista -->
-    <nav class="cyber-nav glass-effect">
-        <div class="nav-logo">
-            <div class="hologram-container">
-                <div class="hologram"></div>
+    <!-- Main Content -->
+    <main>
+        <nav class="cyber-nav glass-effect">
+            <div class="nav-logo">
+                <div class="hologram-container">
+                    <div class="hologram"></div>
+                </div>
             </div>
-        </div>
-        <div class="nav-links">
-            <a href="#" class="neon-link">Contestants <span class="cyber-arrow">→</span></a>
-            <a href="#" class="neon-link">Universe <span class="cyber-arrow">→</span></a>
-            <a href="#" class="neon-link">Experience <span class="cyber-arrow">→</span></a>
-            <a href="#" class="neon-link">Dynasty <span class="cyber-arrow">→</span></a>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero-cyber">
-        <div class="hero-content">
-            <h1 class="cyber-title glitch" data-text="MISS STAR INTERNATIONAL">MISS STAR INTERNATIONAL</h1>
-            <p class="cyber-subtitle">The Future of Beauty</p>
-            <div class="cyber-buttons">
-                <a href="#explore" class="holo-button">Enter Universe</a>
-                <a href="#register" class="neon-button pulse">Join Dynasty</a>
+            <div class="nav-links">
+                <a href="#" class="neon-link">Contestants <span class="cyber-arrow">→</span></a>
+                <a href="#" class="neon-link">Universe <span class="cyber-arrow">→</span></a>
+                <a href="#" class="neon-link">Experience <span class="cyber-arrow">→</span></a>
+                <a href="#" class="neon-link">Dynasty <span class="cyber-arrow">→</span></a>
             </div>
-        </div>
-        <div class="cyber-grid"></div>
-    </section>
+        </nav>
+        
+        <section class="hero-cyber">
+            <div class="hero-content">
+                <h1 class="cyber-title glitch" data-text="MISS STAR INTERNATIONAL">MISS STAR INTERNATIONAL</h1>
+                <p class="cyber-subtitle">The Future of Beauty</p>
+                <div class="cyber-buttons">
+                    <a href="#explore" class="holo-button">Enter Universe</a>
+                    <a href="#register" class="neon-button pulse">Join Dynasty</a>
+                </div>
+            </div>
+            <div class="cyber-grid"></div>
+        </section>
 
-    <!-- Franquicias Grid -->
-    <section class="franchise-showcase">
-        <h2 class="section-title holo-text">Global Franchises</h2>
-        <div class="franchise-grid">
-            <!-- Brazil -->
-            <div class="franchise-card" data-tilt data-tilt-max="25">
-                <div class="holographic-overlay"></div>
-                <img src="/assets/images/franchises/brazil.png" alt="Brazil">
-                <div class="card-content">
-                    <h3>BRAZIL</h3>
-                    <div class="card-hover-content">
-                        <p>Enter the Brazilian Universe</p>
-                        <span class="cyber-arrow">→</span>
+        <!-- Franquicias Grid -->
+        <section class="franchise-showcase">
+            <h2 class="section-title holo-text">Global Franchises</h2>
+            <div class="franchise-grid">
+                <!-- Brazil -->
+                <div class="franchise-card" data-tilt data-tilt-max="25">
+                    <div class="holographic-overlay"></div>
+                    <img src="/assets/images/franchises/brazil.png" alt="Brazil">
+                    <div class="card-content">
+                        <h3>BRAZIL</h3>
+                        <div class="card-hover-content">
+                            <p>Enter the Brazilian Universe</p>
+                            <span class="cyber-arrow">→</span>
+                        </div>
                     </div>
                 </div>
+                <!-- Repetir para cada franquicia -->
             </div>
-            <!-- Repetir para cada franquicia -->
-        </div>
-    </section>
+        </section>
 
-    <!-- Timeline Futurista -->
-    <section class="cyber-timeline">
-        <div class="timeline-track">
-            <div class="timeline-item" data-year="2024">
-                <div class="timeline-content glass-effect">
-                    <h3>Global Finals</h3>
-                    <p>The Future Awaits</p>
+        <!-- Timeline Futurista -->
+        <section class="cyber-timeline">
+            <div class="timeline-track">
+                <div class="timeline-item" data-year="2024">
+                    <div class="timeline-content glass-effect">
+                        <h3>Global Finals</h3>
+                        <p>The Future Awaits</p>
+                    </div>
+                </div>
+                <!-- Más eventos -->
+            </div>
+        </section>
+
+        <!-- Portal de Experiencia -->
+        <section class="experience-portal">
+            <div class="portal-content glass-effect">
+                <h2>Enter the Experience</h2>
+                <div class="portal-grid">
+                    <div class="portal-item">
+                        <div class="portal-icon">🎭</div>
+                        <h3>Virtual Stage</h3>
+                    </div>
+                    <!-- Más portales -->
                 </div>
             </div>
-            <!-- Más eventos -->
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Portal de Experiencia -->
-    <section class="experience-portal">
-        <div class="portal-content glass-effect">
-            <h2>Enter the Experience</h2>
-            <div class="portal-grid">
-                <div class="portal-item">
-                    <div class="portal-icon">🎭</div>
-                    <h3>Virtual Stage</h3>
-                </div>
-                <!-- Más portales -->
-            </div>
-        </div>
-    </section>
-
+    <!-- Scripts -->
+    <script src="/assets/js/loader.js"></script>
     <script src="/assets/js/particles.js"></script>
+    <script src="/assets/js/3d-effects.js"></script>
     <script src="/assets/js/main.js"></script>
 </body>
 </html> 

@@ -43,6 +43,7 @@ body {
     justify-content: center;
     position: relative;
     overflow: hidden;
+    z-index: 2;
 }
 
 .cyber-title {
@@ -173,4 +174,27 @@ body {
     0% { text-shadow: 0 0 10px var(--neon-primary); }
     50% { text-shadow: 0 0 20px var(--neon-primary), 0 0 30px var(--neon-secondary); }
     100% { text-shadow: 0 0 10px var(--neon-primary); }
+}
+
+/* Ajustes críticos */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.portal-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--cyber-dark);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 } 
