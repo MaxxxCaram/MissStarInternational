@@ -17,7 +17,8 @@ body {
 
 /* Glassmorphism */
 .glass-effect {
-    background: var(--glass-bg);
+    background: rgba(255,255,255,0.1);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255,255,255,0.2);
     border-radius: 10px;
@@ -46,8 +47,22 @@ body {
     text-transform: uppercase;
     margin: 0;
     background: linear-gradient(45deg, var(--neon-primary), var(--neon-secondary));
+    background-clip: text;
     -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -ms-background-clip: text;
+    -o-background-clip: text;
     -webkit-text-fill-color: transparent;
+    color: transparent;
+    text-shadow: 
+        2px 2px 0px #ffd700,
+        -2px -2px 0px #ff69b4;
+    animation: titleFloat 3s ease-in-out infinite;
+}
+
+@keyframes titleFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(1deg); }
 }
 
 /* Franchise Cards */
@@ -85,19 +100,6 @@ body {
 @keyframes hologramBorder {
     0% { background-position: 0% 0%; }
     100% { background-position: 200% 200%; }
-}
-
-.cyber-title {
-    position: relative;
-    text-shadow: 
-        2px 2px 0px #ffd700,
-        -2px -2px 0px #ff69b4;
-    animation: titleFloat 3s ease-in-out infinite;
-}
-
-@keyframes titleFloat {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-10px) rotate(1deg); }
 }
 
 /* Botones */
@@ -195,4 +197,30 @@ body {
     text-decoration: none;
     text-shadow: 0 0 5px var(--neon-primary);
     transition: all 0.3s ease;
+}
+
+/* Otros efectos que necesitan prefijos */
+.neon-glow {
+    -webkit-box-shadow: 0 0 10px var(--neon-primary);
+    box-shadow: 0 0 10px var(--neon-primary);
+}
+
+.transform-3d {
+    -webkit-transform: perspective(1000px);
+    transform: perspective(1000px);
+}
+
+.site-logo {
+    max-width: 200px;
+    height: auto;
+    position: relative;
+    z-index: 100;
+    filter: drop-shadow(0 0 10px var(--neon-primary));
+}
+
+.logo-container {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    z-index: 1000;
 } 
