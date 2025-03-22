@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+    initPortalLoader();
+    initParticles();
     // Inicializar video de fondo si existe
     const videoBackground = document.getElementById('video-background');
     if (videoBackground) {
