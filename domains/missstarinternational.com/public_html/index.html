@@ -6,25 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Miss Star International - Concurso Internacional de Belleza">
     <title>Miss Star International</title>
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="/assets/css/future.css" as="style">
+    <link rel="preload" href="/assets/css/animations.css" as="style">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="/assets/css/future.css">
     <link rel="stylesheet" href="/assets/css/animations.css">
-    <!-- Three.js y GSAP -->
+    
+    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.0/dist/vanilla-tilt.min.js"></script>
+    <script src="/assets/js/main.js" defer></script>
     <link rel="preconnect" href="https://cdn.missstarinternational.com">
     <link rel="dns-prefetch" href="https://cdn.missstarinternational.com">
-    
-    <!-- Preload critical assets -->
-    <link rel="preload" href="/assets/fonts/Orbitron-Bold.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/assets/css/future.css" as="style">
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body class="cyber-theme">
-    <!-- Portal Loader -->
+    <div id="particles-js"></div>
     <div class="portal-loader">
         <div class="portal-ring"></div>
         <div class="holographic-logo">
@@ -32,25 +36,23 @@
         </div>
     </div>
 
-    <!-- Particles Container -->
-    <div id="particles-js"></div>
+    <nav class="cyber-nav glass-effect">
+        <div class="nav-logo">
+            <div class="hologram-container">
+                <div class="hologram"></div>
+            </div>
+        </div>
+        <div class="nav-links">
+            <a href="#" class="neon-link">Home</a>
+        </div>
+    </nav>
+
+    <section class="hero-cyber">
+        <h1 class="cyber-title">Miss Star International</h1>
+    </section>
 
     <!-- Main Content -->
     <main>
-        <nav class="cyber-nav glass-effect">
-            <div class="nav-logo">
-                <div class="hologram-container">
-                    <div class="hologram"></div>
-                </div>
-            </div>
-            <div class="nav-links">
-                <a href="#" class="neon-link">Contestants <span class="cyber-arrow">→</span></a>
-                <a href="#" class="neon-link">Universe <span class="cyber-arrow">→</span></a>
-                <a href="#" class="neon-link">Experience <span class="cyber-arrow">→</span></a>
-                <a href="#" class="neon-link">Dynasty <span class="cyber-arrow">→</span></a>
-            </div>
-        </nav>
-        
         <section class="hero-cyber">
             <div class="hero-content">
                 <h1 class="cyber-title glitch" data-text="MISS STAR INTERNATIONAL">MISS STAR INTERNATIONAL</h1>
@@ -110,11 +112,5 @@
             </div>
         </section>
     </main>
-
-    <!-- Scripts -->
-    <script src="/assets/js/loader.js"></script>
-    <script src="/assets/js/particles.js"></script>
-    <script src="/assets/js/3d-effects.js"></script>
-    <script src="/assets/js/main.js"></script>
 </body>
 </html> 
