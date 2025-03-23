@@ -41,4 +41,17 @@ AddDefaultCharset UTF-8
 AddCharset UTF-8 .html .css .js .xml .json .txt
 
 # Página 404
-ErrorDocument 404 /404.html 
+ErrorDocument 404 /404.html
+
+# Permitir acceso a todos los recursos
+<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf|woff|woff2)$">
+    Order allow,deny
+    Allow from all
+</FilesMatch>
+
+# Corregir errores 403
+<IfModule mod_rewrite.c>
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ /index.html [L,QSA]
+</IfModule> 
