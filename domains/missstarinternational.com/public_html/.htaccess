@@ -1,6 +1,6 @@
 # Configuración básica para verificar funcionamiento
 DirectoryIndex index.html
-Options -Indexes +FollowSymLinks
+Options +FollowSymLinks
 RewriteEngine On
 
 # Forzar HTTPS

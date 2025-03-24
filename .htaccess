@@ -1,3 +1,79 @@
+# Configuración básica para Miss Star International
+Options -Indexes
+ServerSignature Off
+
+# Configurar la codificación de caracteres
+AddDefaultCharset UTF-8
+
+# Configurar el manejo de archivos
+<IfModule mod_mime.c>
+    AddType text/css .css
+    AddType text/javascript .js
+    AddType application/javascript .js
+    AddType image/svg+xml .svg
+    AddType image/webp .webp
+    AddType font/woff .woff
+    AddType font/woff2 .woff2
+</IfModule>
+
+# Activar compresión de archivos
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript application/json application/xml image/svg+xml
+</IfModule>
+
+# Configurar caché del navegador
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 month"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType application/x-font-woff "access plus 1 year"
+</IfModule>
+
+# Redireccionar a HTTPS si está disponible
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Redireccionar HTTP a HTTPS
+    # Descomenta las líneas siguientes cuando tengas SSL instalado
+    # RewriteCond %{HTTPS} off
+    # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    
+    # Redirigir a index.html si se solicita un directorio
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^(.+[^/])$ $1/ [R=301,L]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^(.+)/$ $1/index.html [L]
+    
+    # Manejar redirecciones para directorios de idiomas
+    RewriteRule ^(en|es|pt)$ /$1/ [R=301,L]
+    
+    # Definir página de error 404
+    ErrorDocument 404 /404.html
+</IfModule>
+
+# Protección adicional
+<FilesMatch "(\.htaccess|\.htpasswd|\.git)">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Configuración de seguridad
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
 # Avoid domain errors
 <IfModule mod_headers.c>
     Header set Access-Control-Allow-Origin "*"
@@ -22,11 +98,6 @@ ErrorDocument 404 /index.html
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)$ /index.html [L]
-</IfModule>
-
-# Compress files to improve performance
-<IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript
 </IfModule>
 
 # Browser cache

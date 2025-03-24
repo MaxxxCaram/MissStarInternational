@@ -7,7 +7,8 @@
         "dev": "nodemon server.js",
         "setup-email": "node scripts/setup-email.js",
         "create-email": "node scripts/create-email.js",
-        "build": "echo 'No build step required for static site'",
+        "build": "node scripts/sync-folders.js && echo 'Build completed'",
+        "sync": "node scripts/sync-folders.js",
         "lint": "eslint .",
         "codeql-build": "npm install"
     },
@@ -26,5 +27,8 @@
         "pm2": "^5.1.2",
         "puppeteer": "^24.4.0",
         "selenium-webdriver": "^4.29.0"
+    },
+    "engines": {
+        "node": ">=14.0.0"
     }
 }

@@ -1,0 +1,137 @@
+/* Base Styles */
+:root {
+    --gold: #D4AF37;
+    --black: #000000;
+    --white: #FFFFFF;
+    --royal-purple: #4B0082;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: var(--black);
+    color: var(--white);
+}
+
+/* Header */
+.main-header {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(10px);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+#hero-video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding-top: 40vh;
+}
+
+h1 {
+    font-size: 4rem;
+    color: var(--gold);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.cta-main {
+    background: var(--gold);
+    color: var(--black);
+    padding: 1rem 2rem;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+}
+
+.menu {
+    /* Estilos del menú */
+    display: none;
+}
+
+.menu.active {
+    display: block;
+}
+
+.animated {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.tilt {
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+}
+
+header {
+    transition: background 0.3s ease;
+}
+
+/* Loader Styles */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.loader-content img {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+.loader-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #333;
+    border-top: 5px solid #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

@@ -3,451 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Miss Star International - Uma Nova Dinastia</title>
+    <title>Miss Star International - Português</title>
+    <link rel="icon" href="/assets/images/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/future.css">
+    <script src="/assets/js/main.js" defer></script>
     <style>
-        /* General Styles */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #000;
-            color: #fff;
-            margin: 0;
-            overflow-x: hidden;
-        }
-
-        /* Video Styles */
-        .video-container {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .video-container video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translateX(-50%) translateY(-50%);
-            object-fit: cover;
-        }
-
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            z-index: 1;
-        }
-
-        /* Navigation Styles */
-        .nav {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px;
-            z-index: 2;
-        }
-
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo-container img {
-            width: 120px;
-            height: auto;
-        }
-
-        .nav-links {
-            display: flex;
-        }
-
-        .nav-links a {
-            color: #fff;
-            text-decoration: none;
-            margin-left: 20px;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #D4AF37;
-        }
-
-        /* Hero Section Styles */
-        .hero {
-            position: relative;
-            width: 100%;
-            min-height: 50vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            z-index: 2;
-            padding: 40px 0;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            padding: 20px;
-        }
-
-        /* Hero Logo Styles */
-        .hero-logo {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 500px; /* Adjust size as needed */
-            opacity: 1; /* Adjust transparency as needed */
-            z-index: -1; /* Place behind the text */
-            animation: pulse 5s infinite alternate; /* Add a pulsing animation */
-        }
-
-        @keyframes pulse {
-            0% {
-                opacity: 0.3;
-                transform: translate(-50%, -50%) scale(1);
-            }
-            100% {
-                opacity: 0.7;
-                transform: translate(-50%, -50%) scale(1.1);
-            }
-        }
-
-        /* Winner Banner Styles */
-        .current-winner {
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 40px 0;
-            text-align: center;
-        }
-
-        .winner-banner {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .winner-banner h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: #fff;
-        }
-
-        .winner-banner a {
-            display: inline-block;
-            padding: 15px 30px;
-            background-color: #D4AF37;
-            color: #000;
-            text-decoration: none;
-            font-size: 1.2rem;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .winner-banner a:hover {
-            background-color: #fff;
-            color: #000;
-        }
-
-        /* Section Styles */
-        .section {
-            padding: 60px 0;
-            text-align: center;
-        }
-
-        .section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            color: #fff;
-        }
-
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Consortium Card Styles */
-        .consortium-card {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-
-        .consortium-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: #fff;
-        }
-
-        .consortium-card p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #eee;
-        }
-
-        .consortium-card ul {
-            list-style: none;
-            padding: 0;
-            margin-top: 15px;
-        }
-
-        .consortium-card li {
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-            color: #eee;
-        }
-
-        /* Dynasty Benefits Styles */
-        .benefits-grid {
+            flex: 1;
             display: flex;
+            flex-direction: column;
             justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-
-        .benefit-card {
-            width: 300px;
+            align-items: center;
             padding: 20px;
-            margin: 20px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
             text-align: center;
+            min-height: 100vh;
         }
 
-        .benefit-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
+        .logo {
+            max-width: 300px;
+            margin-bottom: 40px;
+            animation: glow 2s infinite alternate;
         }
 
-        .benefit-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: #fff;
+        .welcome-text {
+            font-family: 'Cinzel', serif;
+            font-size: 2em;
+            margin-bottom: 40px;
+            color: #D4AF37;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
-        .benefit-card p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #eee;
+        .content-section {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background: rgba(0,0,0,0.6);
+            border-radius: 10px;
+            border: 1px solid #D4AF37;
         }
 
-        /* Hall of Fame Styles */
-        .hall-of-fame-grid {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
+        .back-link {
+            display: inline-block;
             margin-top: 30px;
+            color: #D4AF37;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 1px solid #D4AF37;
+            border-radius: 5px;
+            transition: all 0.3s ease;
         }
 
-        .hall-of-fame-card {
-            width: 300px;
-            padding: 20px;
-            margin: 20px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
+        .back-link:hover {
+            background: rgba(212, 175, 55, 0.2);
+            transform: translateY(-3px);
+        }
+
+        footer {
             text-align: center;
-        }
-
-        .hall-of-fame-card img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 15px;
-        }
-
-        .hall-of-fame-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: #fff;
-        }
-
-        .hall-of-fame-card p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #eee;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .section h2 {
-                font-size: 2rem;
-            }
-
-            .benefit-card, .hall-of-fame-card {
-                width: 100%;
-                margin: 20px 0;
-            }
-
-            .hero-logo {
-                width: 80%; /* Adjust logo size for smaller screens */
-            }
+            padding: 20px;
+            background: rgba(0,0,0,0.8);
+            width: 100%;
+            color: #D4AF37;
         }
     </style>
 </head>
 <body>
-    <!-- Video Background -->
-    <div class="video-container">
-        <video autoplay muted loop playsinline>
-            <source src="../assets/videos/hero-video.mp4" type="video/mp4">
-            Seu navegador não suporta a tag de vídeo.
-        </video>
-        <div class="video-overlay"></div>
+    <div id="portal-loader"></div>
+    <nav class="cyber-nav"></nav>
+
+    <div class="container">
+        <img src="/assets/images/logo/logo-main1.png" alt="Miss Star International Logo" class="logo">
+        
+        <div class="welcome-text">
+            Bem-vindos à Miss Star International<br>
+            Uma Nova Dinastia
+        </div>
+        
+        <div class="content-section">
+            <h2>Em Breve</h2>
+            <p>Estamos trabalhando para criar uma experiência incrível para você. A versão completa em português do nosso site estará disponível em breve.</p>
+            <p>Miss Star International representa uma nova era em concursos internacionais de beleza, celebrando a diversidade, o talento e o intercâmbio cultural.</p>
+        </div>
+        
+        <a href="/" class="back-link">Voltar para Seleção de Idioma</a>
     </div>
 
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-content">
-            <div class="logo-container">
-                <img src="../assets/images/logo/logo-main1.png" alt="Logotipo da Miss Star International">
-            </div>
-            <div class="nav-links">
-                <a href="index.html">Início</a>
-                <a href="historia.html">História</a>
-                <a href="competicao.html">Competição</a>
-                <a href="consorcio.html">Consórcio</a>
-                <a href="noticias.html">Notícias</a>
-                <a href="contato.html">Contato</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <img src="../assets/images/logo/logo-main1.png" alt="Logotipo da Miss Star International" class="hero-logo">
-    </section>
-
-    <!-- Current Winner Banner -->
-    <section class="current-winner">
-        <div class="container">
-            <div class="winner-banner">
-                <h2>Miss Star International 2024</h2>
-                <a href="../../queens/2024/">Patricia Payumo - A Rainha Reinante</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Main Content -->
-    <main>
-        <section id="consortium" class="section">
-            <div class="container">
-                <h2><a href="#">Consórcio Internacional</a></h2>
-                <p><a href="#">Nossas Franquias e Diretores Nacionais</a></p>
-                <p>Rede global de líderes na indústria da beleza e entretenimento</p>
-                <ul>
-                    <li>Licença Nacional Exclusiva</li>
-                    <li>Plataforma de Desenvolvimento Internacional</li>
-                    <li>Acesso a Eventos Globais</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="empower" class="section">
-            <div class="container">
-                <h2><a href="#">Rede Transnacional de Empoderamento</a></h2>
-                <p>A Rede Transnacional de Empoderamento é o coração vibrante e a força motriz por trás da Miss Star International. É uma plataforma dedicada a nutrir e capacitar a próxima geração de ativistas, proporcionando uma educação abrangente e um espaço para a troca intergeracional para promover a liderança e a inclusão global.</p>
-            </div>
-        </section>
-
-        <section id="dynasty-portal" class="section">
-            <div class="container">
-                <h2><a href="#">Portal da Dinastia</a></h2>
-                <p>Plataforma digital para diretores e candidatos</p>
-                <p>Software de sala de conferências online ao vivo: "Yuni Carey", criado pelo nosso fundador para homenagear nossa eternamente Miss Além da Coroa 2019, Yuni Carey.</p>
-                <ul>
-                    <li>Sistema de Gestão Avançado</li>
-                    <li>Ferramentas de Marketing</li>
-                    <li>Recursos Exclusivos</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="dynasty-benefits" class="section">
-            <div class="container">
-                <h2><a href="#">Benefícios da Dinastia</a></h2>
-                <div class="benefits-grid">
-                    <div class="benefit-card">
-                        <div class="benefit-icon">👑</div>
-                        <h3>Status Real</h3>
-                        <p>Junte-se a um círculo de elite de líderes internacionais em beleza e negócios</p>
-                    </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon">🌟</div>
-                        <h3>Exposição Global</h3>
-                        <p>Plataforma internacional para mostrar seu talento e visão</p>
-                    </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon">💎</div>
-                        <h3>Oportunidades Exclusivas</h3>
-                        <p>Acesso a contratos internacionais e colaborações premium</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="reality-show" class="section">
-            <div class="container">
-                <h2><a href="#">Projeto de Reality Show Internacional</a></h2>
-                <p>Uma Nova Era no Entretenimento</p>
-                <p>Siga a jornada de transformação de candidatos excepcionais</p>
-                <ul>
-                    <li>Episódios Semanais<br>Conteúdo exclusivo e bastidores</li>
-                    <li>Transmissão Global<br>Estará disponível em plataformas internacionais</li>
-                    <li>Conteúdo Interativo<br>Experiência imersiva para os espectadores</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="hall-of-fame" class="section">
-            <div class="container">
-                <h2><a href="#">Hall da Fama da MSI</a></h2>
-                <p>Celebrando o Legado de Nossas Rainhas</p>
-                <div class="hall-of-fame-grid">
-                    <div class="hall-of-fame-card">
-                        <img src="../assets/images/queens/2023_veso.jpg" alt="Miss Star International 2023">
-                        <h3>Veso Golden, Nigéria</h3>
-                        <p>Miss Star International 2023</p>
-                    </div>
-                    <div class="hall-of-fame-card">
-                        <img src="../assets/images/queens/2023_ugfisdwgkjewbk.jpg" alt="Miss Star International 2023">
-                        <h3>Ugfisdwgkjewbk, Nicarágua</h3>
-                        <p>Miss Star International 2023</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="beyond-the-crown" class="section">
-            <div class="container">
-                <h2><a href="#">Miss Além da Coroa</a></h2>
-                <p>Miss Além da Coroa, é a outra coroa que damos à mulher, que sua história de sucesso e como superou os obstáculos em sua vida pode servir de modelo para as próximas gerações.</p>
-                <h3><a href="#">Miss Além da Coroa, 2024</a></h3>
-                <p>Erhtuioerhtor, país</p>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container">
-                <p>O legado continua...</p>
-            </div>
-        </section>
-    </main>
-
-    <script src="../assets/js/main.js"></script>
+    <footer>
+        <div>© 2024 Miss Star International. Todos os direitos reservados.</div>
+    </footer>
 </body>
 </html>

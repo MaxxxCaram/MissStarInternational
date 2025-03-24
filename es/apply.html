@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Aplica a Miss Star International - El Futuro de los Concursos de Belleza">
+    <meta name="keywords" content="miss, concurso de belleza, aplicación, internacional, futuro, competencia">
+    <title>Aplica - Miss Star International</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/images/logo/favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;600;800&family=Quicksand:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../css/future.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/apply.css">
+</head>
+<body>
+    <!-- Portal Loader -->
+    <div class="portal-loader" id="portal-loader">
+        <div class="portal-circle">
+            <div class="portal-center">
+                <div class="portal-glow"></div>
+            </div>
+        </div>
+        <div class="portal-text" id="portal-text">INICIALIZANDO PORTAL</div>
+    </div>
+    
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+    
+    <!-- Holographic navigation -->
+    <nav class="nav-holographic">
+        <div class="nav-logo">
+            <a href="index.html">
+                <img src="../assets/images/logo/logo-small.png" alt="Miss Star International" class="logo-small">
+            </a>
+        </div>
+        <div class="nav-menu">
+            <a href="index.html" class="menu-item">Inicio</a>
+            <a href="index.html#about" class="menu-item">Acerca</a>
+            <a href="index.html#franchises" class="menu-item">Franquicias</a>
+            <a href="index.html#competition" class="menu-item">Competencia</a>
+            <a href="apply.html" class="menu-item active">Aplicar</a>
+        </div>
+        <div class="language-selector">
+            <div class="current-lang">ES</div>
+            <div class="languages-dropdown">
+                <a href="../en/apply.html" class="lang-option">EN</a>
+                <a href="../pt/apply.html" class="lang-option">PT</a>
+                <a href="../vi/apply.html" class="lang-option">VI</a>
+                <a href="../th/apply.html" class="lang-option">TH</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Apply Hero -->
+        <section class="apply-hero">
+            <div class="apply-hero-content">
+                <h1 class="apply-title glitch-text">ÚNETE AL FUTURO</h1>
+                <p class="apply-subtitle">Aplica ahora para ser parte de Miss Star International</p>
+            </div>
+            <div class="hero-flourish">
+                <div class="decor-line"></div>
+                <div class="decor-circle"></div>
+                <div class="decor-line"></div>
+            </div>
+        </section>
+        
+        <!-- Application Requirements -->
+        <section class="requirements-section section-future fade-in-scroll">
+            <h2 class="section-title">REQUISITOS</h2>
+            <div class="requirements-grid">
+                <div class="requirement-card">
+                    <div class="requirement-icon">
+                        <i class="hologram-icon age"></i>
+                    </div>
+                    <h3>EDAD</h3>
+                    <p>Las candidatas deben tener entre 18 y 28 años</p>
+                </div>
+                
+                <div class="requirement-card">
+                    <div class="requirement-icon">
+                        <i class="hologram-icon nationality"></i>
+                    </div>
+                    <h3>NACIONALIDAD</h3>
+                    <p>Debes ser ciudadana o residente del país que representas</p>
+                </div>
+                
+                <div class="requirement-card">
+                    <div class="requirement-icon">
+                        <i class="hologram-icon height"></i>
+                    </div>
+                    <h3>ALTURA</h3>
+                    <p>Altura mínima de 1,67 m (5'6")</p>
+                </div>
+                
+                <div class="requirement-card">
+                    <div class="requirement-icon">
+                        <i class="hologram-icon education"></i>
+                    </div>
+                    <h3>EDUCACIÓN</h3>
+                    <p>Educación secundaria mínima o equivalente</p>
+                </div>
+                
+                <div class="requirement-card">
+                    <div class="requirement-icon">
+                        <i class="hologram-icon language"></i>
+                    </div>
+                    <h3>IDIOMA</h3>
+                    <p>Dominio del inglés o en proceso de aprendizaje</p>
+                </div>
+                
+                <div class="requirement-card">
+                    <div class="requirement-icon">
+                        <i class="hologram-icon character"></i>
+                    </div>
+                    <h3>CARÁCTER</h3>
+                    <p>Valores éticos sólidos y compromiso con causas sociales</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Application Form -->
+        <section class="application-section section-future fade-in-scroll">
+            <h2 class="section-title">FORMULARIO DE APLICACIÓN</h2>
+            
+            <form class="application-form future-form">
+                <!-- Step 1: Personal Information -->
+                <div class="form-step">
+                    <h3 class="step-title">INFORMACIÓN PERSONAL</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">Nombre *</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="lastName">Apellidos *</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Número de Teléfono *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="birthdate">Fecha de Nacimiento *</label>
+                            <input type="date" id="birthdate" name="birthdate" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="age">Edad *</label>
+                            <input type="number" id="age" name="age" min="18" max="28" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nationality">Nacionalidad *</label>
+                            <input type="text" id="nationality" name="nationality" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="country">País que Representas *</label>
+                            <select id="country" name="country" required>
+                                <option value="">Selecciona un País</option>
+                                <option value="USA">Estados Unidos</option>
+                                <option value="UK">Reino Unido</option>
+                                <option value="Canada">Canadá</option>
+                                <option value="Australia">Australia</option>
+                                <option value="France">Francia</option>
+                                <option value="Germany">Alemania</option>
+                                <option value="Japan">Japón</option>
+                                <option value="China">China</option>
+                                <option value="Brazil">Brasil</option>
+                                <option value="Mexico">México</option>
+                                <option value="Spain">España</option>
+                                <option value="Italy">Italia</option>
+                                <option value="Russia">Rusia</option>
+                                <option value="India">India</option>
+                                <option value="South Korea">Corea del Sur</option>
+                                <option value="Vietnam">Vietnam</option>
+                                <option value="Thailand">Tailandia</option>
+                                <!-- Agregar más países según sea necesario -->
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 2: Physical Details -->
+                <div class="form-step">
+                    <h3 class="step-title">DETALLES FÍSICOS</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="height">Altura (cm) *</label>
+                            <input type="number" id="height" name="height" min="150" max="200" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="weight">Peso (kg)</label>
+                            <input type="number" id="weight" name="weight" min="40" max="100">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="hairColor">Color de Cabello</label>
+                            <input type="text" id="hairColor" name="hairColor">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="eyeColor">Color de Ojos</label>
+                            <input type="text" id="eyeColor" name="eyeColor">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="languages">Idiomas que Hablas</label>
+                            <input type="text" id="languages" name="languages" placeholder="ej., Español, Inglés, Francés">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 3: Background & Experience -->
+                <div class="form-step">
+                    <h3 class="step-title">ANTECEDENTES Y EXPERIENCIA</h3>
+                    
+                    <div class="form-group">
+                        <label for="education">Nivel de Educación más Alto *</label>
+                        <select id="education" name="education" required>
+                            <option value="">Selecciona Nivel de Educación</option>
+                            <option value="High School">Bachillerato/Secundaria</option>
+                            <option value="Associate's Degree">Técnico Superior</option>
+                            <option value="Bachelor's Degree">Licenciatura/Grado</option>
+                            <option value="Master's Degree">Maestría</option>
+                            <option value="Doctorate">Doctorado</option>
+                            <option value="Other">Otro</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="occupation">Ocupación Actual</label>
+                        <input type="text" id="occupation" name="occupation">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="pageantExperience">Experiencia Previa en Concursos</label>
+                        <textarea id="pageantExperience" name="pageantExperience" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="specialSkills">Habilidades o Talentos Especiales</label>
+                        <textarea id="specialSkills" name="specialSkills" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="socialCause">Causa Social o Plataforma *</label>
+                        <textarea id="socialCause" name="socialCause" rows="3" required></textarea>
+                    </div>
+                </div>
+                
+                <!-- Step 4: Photos & Media -->
+                <div class="form-step">
+                    <h3 class="step-title">FOTOS Y MEDIOS</h3>
+                    
+                    <div class="form-group">
+                        <label>Foto de Retrato *</label>
+                        <div class="file-drop-area">
+                            <input type="file" id="headshot" name="headshot" accept="image/*" required data-file-type="image">
+                            <div class="drop-label">Arrastra y suelta tu foto de retrato o haz clic para buscar</div>
+                            <div class="file-preview"></div>
+                        </div>
+                        <div class="file-requirements">Formato JPG o PNG, máximo 5MB. Retrato profesional con fondo neutro.</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Foto de Cuerpo Completo *</label>
+                        <div class="file-drop-area">
+                            <input type="file" id="fullBody" name="fullBody" accept="image/*" required data-file-type="image">
+                            <div class="drop-label">Arrastra y suelta tu foto de cuerpo completo o haz clic para buscar</div>
+                            <div class="file-preview"></div>
+                        </div>
+                        <div class="file-requirements">Formato JPG o PNG, máximo 5MB. Foto de cuerpo completo en atuendo formal.</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Video de Presentación (Opcional)</label>
+                        <div class="file-drop-area">
+                            <input type="file" id="applicationVideo" name="applicationVideo" accept="video/*" data-file-type="video">
+                            <div class="drop-label">Arrastra y suelta tu video o haz clic para buscar</div>
+                            <div class="file-preview"></div>
+                        </div>
+                        <div class="file-requirements">Formato MP4, máximo 50MB, 60 segundos máximo. Preséntate y explica por qué quieres unirte a Miss Star International.</div>
+                    </div>
+                </div>
+                
+                <!-- Step 5: Terms & Submission -->
+                <div class="form-step">
+                    <h3 class="step-title">TÉRMINOS Y ENVÍO</h3>
+                    
+                    <div class="form-group terms-group">
+                        <div class="terms-container">
+                            <h4>TÉRMINOS Y CONDICIONES</h4>
+                            <div class="terms-content">
+                                <p>Al enviar esta solicitud, reconoces y aceptas los siguientes términos:</p>
+                                <ol>
+                                    <li>Toda la información proporcionada en esta solicitud es verdadera y precisa según tu conocimiento.</li>
+                                    <li>Cumples con todos los requisitos especificados para la competencia Miss Star International.</li>
+                                    <li>Otorgas a Miss Star International permiso para utilizar tus fotos, videos e información biográfica con fines promocionales.</li>
+                                    <li>Cumplirás con todas las reglas y regulaciones de la competencia tal como se anuncien.</li>
+                                    <li>Entiendes que la presentación de esta solicitud no garantiza la aceptación en la competencia.</li>
+                                    <li>Aceptas conducirte con dignidad y respeto durante todo el proceso de competencia.</li>
+                                    <li>Estás disponible para participar en todos los eventos y actividades relacionados con la competencia si eres seleccionada.</li>
+                                </ol>
+                            </div>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="termsAgreement" name="termsAgreement" required>
+                            <label for="termsAgreement">He leído y acepto los términos y condiciones *</label>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="ageConfirmation" name="ageConfirmation" required>
+                            <label for="ageConfirmation">Confirmo que tengo al menos 18 años *</label>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="dataConsent" name="dataConsent" required>
+                            <label for="dataConsent">Doy mi consentimiento para el procesamiento de mis datos personales para los fines de esta solicitud *</label>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="marketingConsent" name="marketingConsent">
+                            <label for="marketingConsent">Me gustaría recibir actualizaciones sobre Miss Star International (opcional)</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="additionalComments">Comentarios Adicionales (Opcional)</label>
+                        <textarea id="additionalComments" name="additionalComments" rows="3"></textarea>
+                    </div>
+                </div>
+                
+                <!-- Form Progress & Navigation -->
+                <div class="form-progress">
+                    <div class="steps-indicator">
+                        <div class="step-indicator active" data-step="1">
+                            <div class="indicator-dot"></div>
+                            <span class="indicator-label">Paso 1</span>
+                        </div>
+                        <div class="step-indicator" data-step="2">
+                            <div class="indicator-dot"></div>
+                            <span class="indicator-label">Paso 2</span>
+                        </div>
+                        <div class="step-indicator" data-step="3">
+                            <div class="indicator-dot"></div>
+                            <span class="indicator-label">Paso 3</span>
+                        </div>
+                        <div class="step-indicator" data-step="4">
+                            <div class="indicator-dot"></div>
+                            <span class="indicator-label">Paso 4</span>
+                        </div>
+                        <div class="step-indicator" data-step="5">
+                            <div class="indicator-dot"></div>
+                            <span class="indicator-label">Paso 5</span>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 20%"></div>
+                    </div>
+                </div>
+                
+                <div class="form-navigation">
+                    <button type="button" class="btn-prev btn-future"><span>Anterior</span></button>
+                    <button type="button" class="btn-next btn-future"><span>Siguiente</span></button>
+                    <button type="submit" class="btn-submit btn-future"><span>Enviar Solicitud</span></button>
+                </div>
+            </form>
+        </section>
+        
+        <!-- FAQ Section -->
+        <section class="faq-section section-future fade-in-scroll">
+            <h2 class="section-title">PREGUNTAS FRECUENTES</h2>
+            
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Qué es Miss Star International?</h3>
+                        <div class="question-icon"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Miss Star International es un concurso de belleza de próxima generación que combina elementos tradicionales con tecnologías futuristas y un enfoque en liderazgo, innovación e impacto social. Estamos redefiniendo los concursos de belleza para la era moderna.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿En qué se diferencia de otros concursos?</h3>
+                        <div class="question-icon"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A diferencia de los concursos tradicionales, Miss Star International incorpora tecnología de vanguardia, experiencias de realidad virtual y aumentada, y se centra en cómo las concursantes pueden utilizar la innovación para impulsar un cambio social positivo. Nuestra plataforma enfatiza tanto las cualidades internas como la belleza externa.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Cuáles son las fechas clave para la competencia?</h3>
+                        <div class="question-icon"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>La fecha límite de solicitud es el 30 de junio de 2025. Las preliminares virtuales se llevarán a cabo en agosto de 2025, con selecciones regionales en septiembre. Las finales internacionales se celebrarán en noviembre de 2025 en Singapur. Todas las fechas están sujetas a cambios, y las participantes serán notificadas.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Cómo se evalúa a las concursantes?</h3>
+                        <div class="question-icon"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Las concursantes son evaluadas en base a múltiples criterios: presentación personal, habilidades de comunicación, cualidades de liderazgo, plataforma de impacto social, muestra de talento, inteligencia y cómo encarnan nuestros valores fundamentales de innovación, sostenibilidad y ciudadanía global.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Cuál es el paquete de premios?</h3>
+                        <div class="question-icon"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>La ganadora recibe el título de Miss Star International, una beca de $100,000, un rol de embajadora global, un paquete de tecnología de lujo, exposición mediática, oportunidades de viajes internacionales y financiamiento para desarrollar su plataforma de impacto social.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Cómo puedo representar a mi país si no hay franquicia?</h3>
+                        <div class="question-icon"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Si tu país actualmente no tiene una franquicia de Miss Star International, puedes aplicar directamente a través de la solicitud internacional. Según las solicitudes recibidas, podemos establecer una nueva franquicia en tu país o seleccionar representantes a través de nuestra búsqueda global de talentos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer-future">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="../assets/images/logo/logo-small.png" alt="Miss Star International">
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>EXPLORAR</h3>
+                    <ul>
+                        <li><a href="index.html#about">Acerca</a></li>
+                        <li><a href="index.html#franchises">Franquicias</a></li>
+                        <li><a href="index.html#competition">Competencia</a></li>
+                        <li><a href="news.html">Noticias</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>LEGAL</h3>
+                    <ul>
+                        <li><a href="privacy.html">Privacidad</a></li>
+                        <li><a href="terms.html">Términos</a></li>
+                        <li><a href="cookies.html">Cookies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>CONECTAR</h3>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon instagram"></a>
+                        <a href="#" class="social-icon facebook"></a>
+                        <a href="#" class="social-icon twitter"></a>
+                        <a href="#" class="social-icon youtube"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-subscribe">
+                <h3>SUSCRÍBETE</h3>
+                <p>Recibe las últimas noticias directamente en tu dispositivo</p>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Tu correo electrónico" required>
+                    <button type="submit" class="subscribe-button">ENVIAR</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year">2025</span> Miss Star International. Todos los Derechos Reservados.</p>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="../js/particles.js"></script>
+    <script src="../js/loader.js"></script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/apply.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+        // Actualizar año
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Acordeón de FAQ
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                
+                question.addEventListener('click', () => {
+                    // Alternar elemento actual
+                    item.classList.toggle('active');
+                    
+                    // Cerrar otros elementos
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

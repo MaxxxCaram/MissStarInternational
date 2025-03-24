@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSI Dashboard</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Active Users</h3>
+                <div id="activeUsers">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Total Conferences</h3>
+                <div id="totalConferences">0</div>
+            </div>
+            <!-- Más estadísticas -->
+        </div>
+        
+        <div class="charts-container">
+            <canvas id="usageChart"></canvas>
+            <canvas id="translationsChart"></canvas>
+        </div>
+        
+        <div class="recent-activity">
+            <h3>Recent Activity</h3>
+            <div id="activityList"></div>
+        </div>
+    </div>
+
+    <script type="module" src="/assets/js/dashboard.js"></script>
+</body>
+</html> 

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia - Miss Star International</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="../index.html" class="logo">
+                <img src="../assets/images/logo/logo-main1.png" alt="Miss Star International Logo">
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="historia.html" class="active">Historia</a>
+                <a href="competencia.html">Competencia</a>
+                <a href="consorcio/index.html">Consorcio</a>
+                <a href="noticias.html">Noticias</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="history-container">
+        <h1>Línea de Tiempo del Proyecto</h1>
+        
+        <section class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Mes 1</h3>
+                    <h4>Fase Inicial</h4>
+                    <p>Firma de acuerdos y asignación de capital inicial para el proyecto. Establecimiento de la estructura organizacional básica.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Mes 2-3</h3>
+                    <h4>Desarrollo de Franquicias</h4>
+                    <p>Selección y capacitación de Directores Nacionales. Establecimiento de criterios de selección y estándares operativos.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Mes 3-6</h3>
+                    <h4>Análisis y Estrategia</h4>
+                    <p>Análisis de mercado e implementación de estrategias de participación de la audiencia. Desarrollo de plataformas digitales.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Mes 6-12</h3>
+                    <h4>Lanzamiento Principal</h4>
+                    <p>Lanzamiento del nuevo formato de reality show. Implementación de estrategias de marketing y comunicación global.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Mes 12-14</h3>
+                    <h4>Evaluación y Ajustes</h4>
+                    <p>Evaluación de resultados y ajustes de estrategia. Optimización de procesos y preparación para la siguiente fase.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">Inicio</a>
+                <a href="historia.html">Historia</a>
+                <a href="competencia.html">Competencia</a>
+                <a href="consorcio/index.html">Consorcio</a>
+                <a href="noticias.html">Noticias</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+            <div class="copyright">
+                &copy; 2024 Miss Star International. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Animación de la línea de tiempo
+        document.addEventListener('DOMContentLoaded', () => {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.5
+            });
+
+            timelineItems.forEach(item => observer.observe(item));
+        });
+    </script>
+</body>
+</html> 

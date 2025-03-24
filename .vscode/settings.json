@@ -8,5 +8,6 @@
         "Grisales",
         "missstarinternational"
     ],
-    "liveServer.settings.port": 5503
+    "liveServer.settings.port": 5503,
+    "editor.defaultFormatter": "ms-python.python"
 }

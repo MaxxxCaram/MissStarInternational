@@ -17,3 +17,6 @@ npm-debug.log*
 # Build files
 dist/
 build/
+
+# Local Netlify folder
+.netlify

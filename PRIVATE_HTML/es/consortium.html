@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSI Consortium - Tu Imperio de Belleza</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --dark: #1A1A1A;
+            --light: #FFFFFF;
+        }
+
+        body {
+            background: var(--dark);
+            color: var(--light);
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .hero-section {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
+                        url('../assets/images/consortium-bg.jpg');
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        h1 {
+            color: var(--gold);
+            font-size: 3.5em;
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        .section {
+            padding: 4rem 2rem;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            background: rgba(212,175,55,0.1);
+        }
+
+        .cta-button {
+            background: var(--gold);
+            color: var(--dark);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+        }
+
+        .cta-button:hover {
+            background: #FFC107;
+            transform: scale(1.05);
+        }
+
+        .power-pitch {
+            background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)),
+                        url('../assets/images/luxury-bg.jpg');
+            padding: 4rem 2rem;
+            text-align: center;
+            color: var(--light);
+        }
+
+        .power-title {
+            font-size: 3em;
+            color: var(--gold);
+            margin-bottom: 2rem;
+        }
+
+        .highlight-box {
+            border: 2px solid var(--gold);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+            background: rgba(212,175,55,0.1);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .feature-item {
+            text-align: left;
+            padding: 1rem;
+        }
+
+        .gold-text {
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            padding: 1rem;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .franchise-section {
+            padding: 4rem 0;
+            background: rgba(0,0,0,0.8);
+        }
+        .franchise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .franchise-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        .franchise-item:hover {
+            transform: translateY(-5px);
+        }
+        .franchise-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid #D4AF37;
+        }
+        .franchise-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .franchise-name {
+            color: #D4AF37;
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+        }
+        .franchise-director {
+            color: #fff;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="../index.html" class="logo">
+                <img src="../assets/images/logo/logo-main1.png" alt="Miss Star International Logo">
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="historia.html">Historia</a>
+                <a href="competencia.html">Competencia</a>
+                <a href="consorcio/index.html">Consorcio</a>
+                <a href="noticias.html">Noticias</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>CONSTRUYE TU IMPERIO</h1>
+            <p class="highlight">Sin Inversión Inicial - 100% Control de Tu Territorio</p>
+            <div class="highlight-box">
+                <h2>¿POR QUÉ UNIRTE AL CONSORTIUM?</h2>
+                <p>Sé parte de la revolución en la industria de los concursos de belleza</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="power-pitch">
+        <h2 class="power-title">PODER REAL EN TUS MANOS</h2>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <h3 class="gold-text">💰 CONTROL FINANCIERO</h3>
+                <ul>
+                    <li>70% de ingresos locales</li>
+                    <li>Sin inversión inicial</li>
+                    <li>Múltiples fuentes de ingreso</li>
+                </ul>
+            </div>
+            
+            <div class="feature-item">
+                <h3 class="gold-text">👑 AUTONOMÍA TOTAL</h3>
+                <ul>
+                    <li>Tu territorio, tus reglas</li>
+                    <li>Decisiones estratégicas locales</li>
+                    <li>adaptation a tu mercado</li>
+                </ul>
+            </div>
+
+            <div class="feature-item">
+                <h3 class="gold-text">🌟 EXPOSICIÓN GLOBAL</h3>
+                <ul>
+                    <li>Reality Show Internacional</li>
+                    <li>Plataformas de streaming</li>
+                    <li>Redes sociales monetizadas</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">TU CAMINO AL ÉXITO</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>Diamond Director</h3>
+                <ul>
+                    <li>Territorio Exclusivo</li>
+                    <li>3 Votos en Decisiones Globales</li>
+                    <li>Máximo % de Ingresos</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Gold Director</h3>
+                <ul>
+                    <li>Territorio Preferente</li>
+                    <li>2 Votos en Decisiones</li>
+                    <li>Alto % de Ingresos</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Silver Director</h3>
+                <ul>
+                    <li>Territorio Inicial</li>
+                    <li>1 Voto en Decisiones</li>
+                    <li>Training Completo</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="grid-container">
+            <div class="card">
+                <h2>Apoyo Completo</h2>
+                <ul>
+                    <li>Material de marketing profesional</li>
+                    <li>Capacitación continua</li>
+                    <li>Herramientas de gestión</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Reality Show</h2>
+                <ul>
+                    <li>Oportunidades de product placement</li>
+                    <li>Exposición mediática internacional</li>
+                    <li>Contenido exclusivo</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Proceso de Selección</h2>
+                <ul>
+                    <li>Plan de negocios</li>
+                    <li>Cartera potencial de patrocinadores</li>
+                    <li>Experiencia en eventos/marketing</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <section class="franchise-section">
+        <h2 class="section-title">Nuestras Franquicias</h2>
+        <div class="franchise-grid">
+            <div class="franchise-item">
+                <div class="franchise-logo">
+                    <img src="../assets/images/franchises/peru.jpg" alt="MSI Perú">
+                </div>
+                <h3 class="franchise-name">MSI Perú</h3>
+                <p class="franchise-director">Dir. Kayra Flores</p>
+            </div>
+            <div class="franchise-item">
+                <div class="franchise-logo">
+                    <img src="../assets/images/franchises/mexico.jpg" alt="MSI México">
+                </div>
+                <h3 class="franchise-name">MSI México</h3>
+                <p class="franchise-director">Dir. Polo Hernandez</p>
+            </div>
+            <div class="franchise-item">
+                <div class="franchise-logo">
+                    <img src="../assets/images/franchises/brazil.jpg" alt="MSI Brasil">
+                </div>
+                <h3 class="franchise-name">MSI Brasil</h3>
+                <p class="franchise-director">Dir. Ava Simoes</p>
+            </div>
+            <div class="franchise-item">
+                <div class="franchise-logo">
+                    <img src="../assets/images/franchises/thailand.jpg" alt="MSI Tailandia">
+                </div>
+                <h3 class="franchise-name">MSI Tailandia</h3>
+                <p class="franchise-director">Dir. Som Chai Sammy</p>
+            </div>
+            <div class="franchise-item">
+                <div class="franchise-logo">
+                    <img src="../assets/images/franchises/vietnam.jpg" alt="MSI Vietnam">
+                </div>
+                <h3 class="franchise-name">MSI Vietnam</h3>
+                <p class="franchise-director">Dir. Kim Kim</p>
+            </div>
+            <div class="franchise-item">
+                <div class="franchise-logo">
+                    <img src="../assets/images/franchises/netherlands.jpg" alt="MSI Países Bajos">
+                </div>
+                <h3 class="franchise-name">MSI Países Bajos</h3>
+                <p class="franchise-director">Dir. Rubi Validor</p>
+            </div>
+            <div class="franchise-item">
+                <div class="franchise-logo">
+                    <img src="../assets/images/franchises/spain.jpg" alt="MSI España">
+                </div>
+                <h3 class="franchise-name">MSI España</h3>
+                <p class="franchise-director">Dir. Michelle Rellayze</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.querySelector('.cta-button').addEventListener('click', function() {
+            // Aquí podemos agregar la funcionalidad del formulario de contacto
+            alert('Gracias por tu interés. Pronto nos pondremos en contacto contigo.');
+        });
+    </script>
+</body>
+</html> 

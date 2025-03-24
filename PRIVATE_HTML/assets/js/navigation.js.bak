@@ -1,0 +1,345 @@
+/**
+ * Miss Star International - Navigation JavaScript
+ * Maneja la navegación, menú móvil y efectos relacionados
+ */
+
+class FutureNavigation {
+    constructor(options = {}) {
+        // Opciones por defecto
+        this.options = {
+            selectorNav: '.site-header',
+            selectorMobileToggle: '.hamburger',
+            selectorNavMenu: '.main-nav',
+            selectorDropdown: '.has-dropdown',
+            scrollThreshold: 50,
+            mobileBreakpoint: 992,
+            ...options
+        };
+        
+        // Referencias DOM
+        this.header = document.querySelector(this.options.selectorNav);
+        this.mobileToggle = document.querySelector(this.options.selectorMobileToggle);
+        this.navMenu = document.querySelector(this.options.selectorNavMenu);
+        this.dropdowns = document.querySelectorAll(this.options.selectorDropdown);
+        
+        // Estado
+        this.isMobileMenuOpen = false;
+        this.isScrolled = false;
+        this.isMobile = window.innerWidth < this.options.mobileBreakpoint;
+        
+        // Inicializar
+        this.init();
+    }
+    
+    /**
+     * Inicializar navegación
+     */
+    init() {
+        if (!this.header) return;
+        
+        // Configurar menú móvil
+        this.setupMobileMenu();
+        
+        // Configurar dropdowns
+        this.setupDropdowns();
+        
+        // Configurar eventos de scroll
+        this.setupScrollEvents();
+        
+        // Configurar eventos de cambio de tamaño
+        this.setupResizeEvents();
+        
+        // Inicializar eventos de clic en enlaces
+        this.setupLinkEvents();
+        
+        console.log('Navigation initialized');
+    }
+    
+    /**
+     * Configurar menú móvil
+     */
+    setupMobileMenu() {
+        if (!this.mobileToggle || !this.navMenu) return;
+        
+        this.mobileToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            this.toggleMobileMenu();
+        });
+        
+        // Cerrar menú al hacer clic fuera
+        document.addEventListener('click', (e) => {
+            if (
+                this.isMobileMenuOpen && 
+                !this.navMenu.contains(e.target) && 
+                !this.mobileToggle.contains(e.target)
+            ) {
+                this.closeMobileMenu();
+            }
+        });
+    }
+    
+    /**
+     * Alternar menú móvil
+     */
+    toggleMobileMenu() {
+        if (this.isMobileMenuOpen) {
+            this.closeMobileMenu();
+        } else {
+            this.openMobileMenu();
+        }
+    }
+    
+    /**
+     * Abrir menú móvil
+     */
+    openMobileMenu() {
+        if (!this.mobileToggle || !this.navMenu) return;
+        
+        this.mobileToggle.classList.add('active');
+        this.navMenu.classList.add('active');
+        document.body.classList.add('nav-open');
+        this.isMobileMenuOpen = true;
+        
+        // Animación de items
+        const navItems = this.navMenu.querySelectorAll('li');
+        navItems.forEach((item, index) => {
+            item.style.animationDelay = `${index * 0.1}s`;
+            item.classList.add('animate-in');
+        });
+    }
+    
+    /**
+     * Cerrar menú móvil
+     */
+    closeMobileMenu() {
+        if (!this.mobileToggle || !this.navMenu) return;
+        
+        this.mobileToggle.classList.remove('active');
+        this.navMenu.classList.remove('active');
+        document.body.classList.remove('nav-open');
+        this.isMobileMenuOpen = false;
+        
+        // Reset animaciones
+        const navItems = this.navMenu.querySelectorAll('li');
+        navItems.forEach(item => {
+            item.classList.remove('animate-in');
+            item.style.animationDelay = '';
+        });
+    }
+    
+    /**
+     * Configurar menús desplegables
+     */
+    setupDropdowns() {
+        if (!this.dropdowns.length) return;
+        
+        this.dropdowns.forEach(dropdown => {
+            const link = dropdown.querySelector('a');
+            const submenu = dropdown.querySelector('ul');
+            
+            if (!link || !submenu) return;
+            
+            // Crear toggle para móvil
+            const toggleBtn = document.createElement('button');
+            toggleBtn.className = 'dropdown-toggle';
+            toggleBtn.innerHTML = '<span class="sr-only">Toggle</span><i class="fa fa-chevron-down"></i>';
+            toggleBtn.setAttribute('aria-expanded', 'false');
+            
+            link.after(toggleBtn);
+            
+            // Manejar clicks
+            toggleBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+                
+                toggleBtn.setAttribute('aria-expanded', !isExpanded);
+                dropdown.classList.toggle('open');
+                
+                // Animar cambio de altura
+                if (isExpanded) {
+                    submenu.style.height = '0';
+                } else {
+                    submenu.style.height = submenu.scrollHeight + 'px';
+                }
+            });
+            
+            // En escritorio, usar hover
+            dropdown.addEventListener('mouseenter', () => {
+                if (!this.isMobile) {
+                    dropdown.classList.add('hover');
+                }
+            });
+            
+            dropdown.addEventListener('mouseleave', () => {
+                if (!this.isMobile) {
+                    dropdown.classList.remove('hover');
+                }
+            });
+        });
+    }
+    
+    /**
+     * Configurar eventos de scroll
+     */
+    setupScrollEvents() {
+        window.addEventListener('scroll', () => {
+            this.handleScroll();
+        });
+        
+        // Ejecutar una vez al cargar
+        this.handleScroll();
+    }
+    
+    /**
+     * Manejar evento de scroll
+     */
+    handleScroll() {
+        if (!this.header) return;
+        
+        const scrollY = window.scrollY;
+        
+        if (scrollY > this.options.scrollThreshold) {
+            if (!this.isScrolled) {
+                this.header.classList.add('scrolled');
+                this.isScrolled = true;
+            }
+        } else {
+            if (this.isScrolled) {
+                this.header.classList.remove('scrolled');
+                this.isScrolled = false;
+            }
+        }
+        
+        // Marcar enlace activo basado en la sección visible
+        this.updateActiveNavLink();
+    }
+    
+    /**
+     * Configurar eventos de resize
+     */
+    setupResizeEvents() {
+        window.addEventListener('resize', () => {
+            // Actualizar estado móvil
+            const wasMobile = this.isMobile;
+            this.isMobile = window.innerWidth < this.options.mobileBreakpoint;
+            
+            // Si cambia el modo, resetear
+            if (wasMobile !== this.isMobile) {
+                this.resetMobileState();
+            }
+        });
+    }
+    
+    /**
+     * Resetear estado móvil
+     */
+    resetMobileState() {
+        if (!this.isMobile) {
+            // Cambiar de móvil a desktop
+            this.closeMobileMenu();
+            
+            // Resetear submenús
+            this.dropdowns.forEach(dropdown => {
+                const submenu = dropdown.querySelector('ul');
+                if (submenu) {
+                    submenu.style.height = '';
+                }
+                dropdown.classList.remove('open');
+                const toggle = dropdown.querySelector('.dropdown-toggle');
+                if (toggle) {
+                    toggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+    }
+    
+    /**
+     * Configurar eventos de clic en enlaces
+     */
+    setupLinkEvents() {
+        const navLinks = document.querySelectorAll('.main-nav a[href^="#"]:not([href="#"])');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                
+                // Solo para enlaces de ancla internos
+                if (href.startsWith('#')) {
+                    const target = document.querySelector(href);
+                    
+                    if (target) {
+                        e.preventDefault();
+                        
+                        // Cerrar menú móvil
+                        if (this.isMobileMenuOpen) {
+                            this.closeMobileMenu();
+                        }
+                        
+                        // Obtener offset
+                        const headerHeight = this.header ? this.header.offsetHeight : 0;
+                        const targetPos = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+                        
+                        // Scroll suave
+                        window.scrollTo({
+                            top: targetPos,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+    }
+    
+    /**
+     * Actualizar enlace activo basado en la sección visible
+     */
+    updateActiveNavLink() {
+        const sections = document.querySelectorAll('section[id], div[id].section');
+        const navLinks = document.querySelectorAll('.main-nav a[href^="#"]');
+        
+        if (!sections.length || !navLinks.length) return;
+        
+        let currentSection = '';
+        const offset = this.header ? this.header.offsetHeight : 0;
+        
+        sections.forEach(section => {
+            const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+            const sectionHeight = section.offsetHeight;
+            
+            // Si hemos pasado el inicio de la sección (con un offset)
+            if (window.scrollY >= sectionTop - offset - 10) {
+                currentSection = '#' + section.getAttribute('id');
+            }
+        });
+        
+        // Remover clase activa de todos los enlaces
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            link.parentElement.classList.remove('active');
+        });
+        
+        // Añadir clase activa al enlace correspondiente
+        if (currentSection) {
+            const activeLink = document.querySelector(`.main-nav a[href="${currentSection}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+                activeLink.parentElement.classList.add('active');
+                
+                // Si está en un dropdown, marcar el padre
+                const parentLi = activeLink.closest('.has-dropdown');
+                if (parentLi) {
+                    parentLi.classList.add('active');
+                }
+            }
+        }
+    }
+}
+
+// Inicializar al cargar el documento
+document.addEventListener('DOMContentLoaded', () => {
+    const navigation = new FutureNavigation();
+    
+    // Exponer globalmente si es necesario
+    window.futureNavigation = navigation;
+}); 
