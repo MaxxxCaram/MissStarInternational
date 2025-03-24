@@ -422,6 +422,55 @@
                     background: rgba(0, 0, 0, 0.3);
                 }
 
+                .language-selector {
+                    position: relative;
+                    margin-left: 20px;
+                    padding: 8px 15px;
+                    border-radius: 20px;
+                    background: rgba(255, 255, 255, 0.1);
+                    -webkit-backdrop-filter: blur(10px);
+                    backdrop-filter: blur(10px);
+                    /* Fallback para navegadores que no soportan backdrop-filter */
+                    background: rgba(0, 0, 0, 0.6);
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                }
+
+                .current-lang {
+                    color: var(--text-color);
+                    cursor: pointer;
+                    font-size: 0.9em;
+                }
+
+                .languages-dropdown {
+                    display: none;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    background: rgba(0, 0, 0, 0.8);
+                    -webkit-backdrop-filter: blur(10px);
+                    backdrop-filter: blur(10px);
+                    border-radius: 10px;
+                    padding: 5px 0;
+                    min-width: 100%;
+                    z-index: 1000;
+                }
+
+                .language-selector:hover .languages-dropdown {
+                    display: block;
+                }
+
+                .lang-option {
+                    display: block;
+                    padding: 5px 15px;
+                    color: var(--text-color);
+                    text-decoration: none;
+                    transition: background-color 0.3s;
+                }
+
+                .lang-option:hover {
+                    background: rgba(255, 255, 255, 0.1);
+                }
+
                 .partners-grid {
                     display: flex;
                     flex-direction: column;
