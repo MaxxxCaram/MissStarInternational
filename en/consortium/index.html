@@ -3,592 +3,332 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="International Consortium - Miss Star International">
+    <meta name="keywords" content="miss, beauty pageant, consortium, international, franchises">
     <title>International Consortium - Miss Star International</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../assets/css/styles.css">
-    <style>
-        /* General Styles */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #000;
-            color: #fff;
-            margin: 0;
-            overflow-x: hidden;
-        }
-
-        /* Navigation Styles */
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px;
-            z-index: 100;
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo-container img {
-            width: 120px;
-            height: auto;
-        }
-
-        .nav-links {
-            display: flex;
-        }
-
-        .nav-links a {
-            color: #fff;
-            text-decoration: none;
-            margin-left: 20px;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #D4AF37;
-        }
-
-        /* Page Header Styles */
-        .page-header {
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 120px 0 60px;
-            text-align: center;
-            background: linear-gradient(45deg, rgba(0, 0, 0, 0.9), rgba(212, 175, 55, 0.1));
-            background-size: cover;
-            background-position: center;
-        }
-
-        .page-title {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: #D4AF37;
-            font-family: 'Cinzel', serif;
-        }
-
-        .page-subtitle {
-            font-size: 1.5rem;
-            color: #fff;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* Content Section Styles */
-        .content-section {
-            padding: 60px 0;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .content-block {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 30px;
-            margin-bottom: 40px;
-        }
-
-        .content-block h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: #D4AF37;
-        }
-
-        .content-block p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .content-block ul {
-            margin-bottom: 20px;
-        }
-
-        .content-block li {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            line-height: 1.6;
-        }
-
-        /* Franchise Grid Styles */
-        .franchise-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .franchise-card {
-            width: 300px;
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease;
-        }
-
-        .franchise-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .franchise-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
-
-        .director-profile {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .director-image {
-            width: 80px !important;
-            height: 80px !important;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #D4AF37;
-        }
-
-        .director-details {
-            flex: 1;
-        }
-
-        .franchise-info {
-            padding: 20px;
-        }
-
-        .franchise-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: #D4AF37;
-        }
-
-        .franchise-info p {
-            font-size: 1rem;
-            margin-bottom: 15px;
-        }
-
-        .franchise-info .director {
-            font-style: italic;
-            color: #ccc;
-        }
-
-        .franchise-info .email {
-            font-size: 0.9rem;
-            color: #D4AF37;
-            margin-top: 5px;
-        }
-
-        .current-queen {
-            margin-top: 20px;
-            padding-top: 15px;
-            border-top: 1px solid rgba(212, 175, 55, 0.3);
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .queen-image {
-            width: 100px !important;
-            height: 100px !important;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #D4AF37;
-        }
-
-        .queen-details {
-            flex: 1;
-        }
-
-        .queen-title {
-            color: #D4AF37;
-            font-size: 0.9rem;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .queen-name {
-            color: #fff;
-            font-size: 1.1rem;
-        }
-
-        /* Call to Action Styles */
-        .cta-section {
-            background-color: rgba(212, 175, 55, 0.1);
-            padding: 60px 0;
-            text-align: center;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 15px 30px;
-            background-color: #D4AF37;
-            color: #000;
-            text-decoration: none;
-            font-size: 1.2rem;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-            margin-top: 20px;
-        }
-
-        .cta-button:hover {
-            background-color: #fff;
-            color: #000;
-        }
-
-        /* Footer Styles */
-        footer {
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 40px 0;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        .footer-links a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 15px;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: #D4AF37;
-        }
-
-        .copyright {
-            color: #D4AF37;
-            font-size: 0.9rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .page-title {
-                font-size: 2.5rem;
-            }
-
-            .page-subtitle {
-                font-size: 1.2rem;
-            }
-
-            .content-block h2 {
-                font-size: 1.8rem;
-            }
-
-            .franchise-card {
-                width: 100%;
-                max-width: 300px;
-            }
-
-            .nav-links {
-                display: none;
-            }
-        }
-
-        .current-title-holder {
-            margin: 40px 0;
-            text-align: center;
-        }
-        
-        .title-holder-card {
-            display: inline-flex;
-            align-items: center;
-            background: linear-gradient(45deg, rgba(212, 175, 55, 0.1), rgba(255, 255, 255, 0.05));
-            border-radius: 15px;
-            padding: 20px;
-        }
-
-        .franchise-logo {
-            width: 300px !important;
-            height: 120px !important;
-            margin-bottom: 30px;
-            object-fit: contain;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Franchise Card Styles */
-        .franchise-title-image {
-            width: 100% !important;
-            height: auto;
-            margin-bottom: 30px;
-            display: block;
-        }
-
-        .franchise-card {
-            width: 400px;
-            text-align: center;
-            padding: 40px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 15px;
-            transition: transform 0.3s ease;
-        }
-
-        .franchise-info {
-            padding: 0;
-        }
-
-        .franchise-info h3 {
-            display: none;
-        }
-
-        .director-profile {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 25px;
-            margin-top: 25px;
-        }
-
-        .director-image {
-            width: 300px !important;
-            height: 300px !important;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #D4AF37;
-            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
-        }
-
-        .director-details {
-            text-align: center;
-        }
-
-        .director {
-            font-size: 1.1rem;
-            color: #fff;
-            margin-bottom: 8px;
-        }
-
-        .email {
-            font-size: 0.9rem;
-            color: #D4AF37;
-        }
-    </style>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../assets/images/logo/favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;600;800&family=Quicksand:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../css/future.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/consortium.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-content">
-            <div class="logo-container">
-                <a href="../../index.html">
-                    <img src="../../assets/images/logo/logo-main1.png" alt="Miss Star International Logo">
-                </a>
+    <!-- Portal Loader -->
+    <div class="portal-loader" id="portal-loader">
+        <div class="portal-circle">
+            <div class="portal-center">
+                <div class="portal-glow"></div>
             </div>
-            <div class="nav-links">
-                <a href="../index.html">Home</a>
-                <a href="../history.html">History</a>
-                <a href="../competition.html">Competition</a>
-                <a href="../consortium/index.html">Consortium</a>
-                <a href="../news.html">News</a>
-                <a href="../contact.html">Contact</a>
+        </div>
+        <div class="portal-text" id="portal-text">INITIALIZING PORTAL</div>
+    </div>
+    
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+    
+    <!-- Holographic navigation -->
+    <nav class="nav-holographic">
+        <div class="nav-logo">
+            <a href="../index.html">
+                <img src="../../assets/images/logo/logo-main.png" alt="Miss Star International" class="logo-small">
+            </a>
+        </div>
+        <div class="nav-menu">
+            <a href="../index.html" class="menu-item">Home</a>
+            <a href="../index.html#about" class="menu-item">About</a>
+            <a href="../index.html#franchises" class="menu-item">Franchises</a>
+            <a href="../index.html#competition" class="menu-item">Competition</a>
+            <a href="../apply.html" class="menu-item">Apply</a>
+        </div>
+        <div class="language-selector">
+            <div class="current-lang">EN</div>
+            <div class="languages-dropdown">
+                <a href="../../es/consortium/index.html" class="lang-option">ES</a>
+                <a href="../../pt/consortium/index.html" class="lang-option">PT</a>
+                <a href="../../vi/consortium/index.html" class="lang-option">VI</a>
+                <a href="../../th/consortium/index.html" class="lang-option">TH</a>
             </div>
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <header class="page-header">
-        <h1 class="page-title">International Consortium</h1>
-        <p class="page-subtitle">Our Franchises and National Directors</p>
-    </header>
-
     <!-- Main Content -->
-    <main>
-        <section class="content-section">
-            <div class="container">
-                <div class="content-block">
-                    <h2>Global Network of Leaders</h2>
-                    <p>The Miss Star International Consortium is a prestigious global network of leaders in the beauty and entertainment industry. Our franchises and national directors represent the pinnacle of excellence in pageantry, bringing together diverse talents and perspectives from around the world.</p>
-                    
-                    <p>Each franchise holder is carefully selected based on their commitment to our values of diversity, empowerment, and excellence. They play a crucial role in identifying and nurturing talent, organizing national competitions, and representing their countries on the international stage.</p>
-                    
-                    <h3>Key Benefits for Franchise Holders:</h3>
-                    <ul>
-                        <li><strong>Exclusive National License:</strong> Sole rights to organize Miss Star International national competitions in their territory.</li>
-                        <li><strong>International Development Platform:</strong> Access to global resources, training, and networking opportunities.</li>
-                        <li><strong>Access to Global Events:</strong> Participation in international events, galas, and the annual Miss Star International Grand Finale.</li>
-                        <li><strong>Brand Association:</strong> Connection with a prestigious international brand that stands for beauty with purpose.</li>
-                        <li><strong>Business Opportunities:</strong> Potential for partnerships, sponsorships, and media collaborations.</li>
-                    </ul>
-                </div>
-
-                <div class="content-block">
-                    <h2>Our Franchise Network</h2>
-                    <p>Meet the exceptional individuals who lead our national franchises around the world. These dedicated directors work tirelessly to discover and develop talent, organize spectacular national competitions, and uphold the values of Miss Star International.</p>
-                    
-                    <div class="franchise-grid">
-                        <!-- Peru -->
-                        <div class="franchise-card">
-                            <a href="../franchises/peru/index.html">
-                                <img src="../../assets/images/franchises/peru.jpg" alt="Miss Star Peru" class="franchise-title-image">
-                                <div class="franchise-info">
-                                    <div class="director-profile">
-                                        <img src="../../assets/images/franchises/peru/kayra.png" alt="Kayra Flores" class="director-image">
-                                        <div class="director-details">
-                                            <div class="director">National Director: Kayra Flores</div>
-                                            <div class="email">peru@missstarinternational.com</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <!-- Mexico -->
-                        <div class="franchise-card">
-                            <a href="../franchises/mexico/index.html">
-                                <img src="../../assets/images/franchises/mexico.jpg" alt="Miss Star Mexico" class="franchise-title-image">
-                                <div class="franchise-info">
-                                    <div class="director-profile">
-                                        <img src="../../assets/images/franchises/mexico/director.png" alt="Polo Hernández" class="director-image">
-                                        <div class="director-details">
-                                            <div class="director">National Director: Polo Hernández</div>
-                                            <div class="email">mexico@missstarinternational.com</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <!-- Brazil -->
-                        <div class="franchise-card">
-                            <a href="../franchises/brazil/index.html">
-                                <img src="../../assets/images/franchises/brazil.jpg" alt="Miss Star Brazil" class="franchise-title-image">
-                                <div class="franchise-info">
-                                    <div class="director-profile">
-                                        <img src="../../assets/images/franchises/brazil/director.png" alt="Ava Simoes" class="director-image">
-                                        <div class="director-details">
-                                            <div class="director">National Director: Ava Simoes</div>
-                                            <div class="email">brazil@missstarinternational.com</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <!-- Thailand -->
-                        <div class="franchise-card">
-                            <a href="../franchises/thailand/index.html">
-                                <img src="../../assets/images/franchises/thailand.jpg" alt="Miss Star Thailand" class="franchise-title-image">
-                                <div class="franchise-info">
-                                    <div class="director-profile">
-                                        <img src="../../assets/images/franchises/thailand/somchai.jpg" alt="Som Chai Sammy" class="director-image">
-                                        <div class="director-details">
-                                            <div class="director">National Director: Som Chai Sammy</div>
-                                            <div class="email">thailand@missstarinternational.com</div>
-                                        </div>
-                                    </div>
-                                    <div class="current-queen">
-                                        <img src="../../assets/images/franchises/thailand/missstarthai24.png" alt="Harper Ambrosio" class="queen-image">
-                                        <div class="queen-details">
-                                            <div class="queen-title">Miss Star Thailand 2024</div>
-                                            <div class="queen-name">Harper Ambrosio</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <!-- Vietnam -->
-                        <div class="franchise-card">
-                            <a href="../franchises/vietnam/index.html">
-                                <img src="../../assets/images/franchises/vietnam.jpg" alt="Miss Star Vietnam" class="franchise-title-image">
-                                <div class="franchise-info">
-                                    <div class="director-profile">
-                                        <img src="../../assets/images/franchises/vietnam/kim.png" alt="Kim KIM" class="director-image">
-                                        <div class="director-details">
-                                            <div class="director">National Director: Kim KIM</div>
-                                            <div class="email">vietnam@missstarinternational.com</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <!-- Netherlands -->
-                        <div class="franchise-card">
-                            <a href="../franchises/netherlands/index.html">
-                                <img src="../../assets/images/franchises/netherlands.jpg" alt="Miss Star Netherlands" class="franchise-title-image">
-                                <div class="franchise-info">
-                                    <div class="director-profile">
-                                        <img src="../../assets/images/franchises/netherlands/director.png" alt="Rubi Validor" class="director-image">
-                                        <div class="director-details">
-                                            <div class="director">National Director: Rubi Validor</div>
-                                            <div class="email">netherlands@missstarinternational.com</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <!-- Spain -->
-                        <div class="franchise-card">
-                            <a href="../franchises/spain/index.html">
-                                <img src="../../assets/images/franchises/spain.jpg" alt="Miss Star Spain" class="franchise-title-image">
-                                <div class="franchise-info">
-                                    <div class="director-profile">
-                                        <img src="../../assets/images/franchises/spain/director.png" alt="Michelle Relayze" class="director-image">
-                                        <div class="director-details">
-                                            <div class="director">National Director: Michelle Relayze</div>
-                                            <div class="email">spain@missstarinternational.com</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+    <main class="main-container">
+        <!-- Page Header -->
+        <section class="page-header section-future fade-in-scroll">
+            <h1 class="page-title glitch-text">INTERNATIONAL CONSORTIUM</h1>
+            <p class="page-subtitle">Uniting Global Beauty Under One Dynasty</p>
+            <div class="hero-flourish">
+                <div class="decor-line"></div>
+                <div class="decor-circle"></div>
+                <div class="decor-line"></div>
             </div>
         </section>
 
-        <!-- Call to Action -->
-        <section class="cta-section">
+        <!-- Content Sections -->
+        <div class="content-section section-future fade-in-scroll">
             <div class="container">
-                <h2>Become a Franchise Holder</h2>
-                <p>Interested in joining our prestigious consortium? We are currently accepting applications for franchise opportunities in select territories.</p>
-                <a href="../contact.html" class="cta-button">Apply Now</a>
+                <div class="content-block">
+                    <h2>About the Consortium</h2>
+                    <p>The Miss Star International Consortium represents a global network of franchise directors, each dedicated to discovering and nurturing the next generation of beauty queens who will shape the future of pageantry.</p>
+                </div>
+
+                <div class="content-block">
+                    <h2>Our Mission</h2>
+                    <p>To create a unified platform that celebrates diversity, promotes cultural exchange, and empowers women through innovative pageantry experiences.</p>
+                    <ul>
+                        <li>Foster international collaboration and cultural understanding</li>
+                        <li>Implement cutting-edge technologies in pageant production</li>
+                        <li>Support charitable initiatives and social causes</li>
+                        <li>Develop future leaders in the beauty and entertainment industry</li>
+                    </ul>
+                </div>
+
+                <!-- Franchise Grid -->
+                <div class="franchise-grid">
+                    <div class="franchise-card">
+                        <div class="franchise-image">
+                            <img src="../../assets/images/franchises/peru.jpg" alt="Miss Star Peru">
+                        </div>
+                        <div class="franchise-info">
+                            <div class="director-photo">
+                                <img src="../../assets/images/directors/peru-director.jpg" alt="Isabella Martinez - Peru National Director">
+                            </div>
+                            <div class="franchise-details">
+                                <h3><a href="https://peru.missstarinternational.com" target="_blank">Peru</a></h3>
+                                <p class="director-name">National Director: Isabella Martinez</p>
+                                <p>Established: 2023</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="franchise-card">
+                        <div class="franchise-image">
+                            <img src="../../assets/images/franchises/thailand.jpg" alt="Miss Star Thailand">
+                        </div>
+                        <div class="franchise-info">
+                            <div class="director-photo">
+                                <img src="../../assets/images/directors/thailand-director.jpg" alt="Somchai Wang - Thailand National Director">
+                            </div>
+                            <div class="franchise-details">
+                                <h3><a href="https://thailand.missstarinternational.com" target="_blank">Thailand</a></h3>
+                                <p class="director-name">National Director: Somchai Wang</p>
+                                <p>Established: 2023</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="franchise-card">
+                        <div class="franchise-image">
+                            <img src="../../assets/images/franchises/brazil.jpg" alt="Miss Star Brazil">
+                        </div>
+                        <div class="franchise-info">
+                            <div class="director-photo">
+                                <img src="../../assets/images/directors/brazil-director.jpg" alt="Ana Silva - Brazil National Director">
+                            </div>
+                            <div class="franchise-details">
+                                <h3><a href="https://brazil.missstarinternational.com" target="_blank">Brazil</a></h3>
+                                <p class="director-name">National Director: Ana Silva</p>
+                                <p>Established: 2024</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="franchise-card">
+                        <div class="franchise-image">
+                            <img src="../../assets/images/franchises/philippines.jpg" alt="Miss Star Philippines">
+                        </div>
+                        <div class="franchise-info">
+                            <div class="director-photo">
+                                <img src="../../assets/images/directors/philippines-director.jpg" alt="Maria Santos - Philippines National Director">
+                            </div>
+                            <div class="franchise-details">
+                                <h3><a href="https://philippines.missstarinternational.com" target="_blank">Philippines</a></h3>
+                                <p class="director-name">National Director: Maria Santos</p>
+                                <p>Established: 2024</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="franchise-card">
+                        <div class="franchise-image">
+                            <img src="../../assets/images/franchises/vietnam.jpg" alt="Miss Star Vietnam">
+                        </div>
+                        <div class="franchise-info">
+                            <div class="director-photo">
+                                <img src="../../assets/images/directors/vietnam-director.jpg" alt="Tran Nguyen - Vietnam National Director">
+                            </div>
+                            <div class="franchise-details">
+                                <h3><a href="https://vietnam.missstarinternational.com" target="_blank">Vietnam</a></h3>
+                                <p class="director-name">National Director: Tran Nguyen</p>
+                                <p>Established: 2024</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="franchise-card">
+                        <div class="franchise-image">
+                            <img src="../../assets/images/franchises/mexico.jpg" alt="Miss Star Mexico">
+                        </div>
+                        <div class="franchise-info">
+                            <div class="director-photo">
+                                <img src="../../assets/images/directors/mexico-director.jpg" alt="Carmen Rodriguez - Mexico National Director">
+                            </div>
+                            <div class="franchise-details">
+                                <h3><a href="https://mexico.missstarinternational.com" target="_blank">Mexico</a></h3>
+                                <p class="director-name">National Director: Carmen Rodriguez</p>
+                                <p>Established: 2024</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <style>
+                    .franchise-info {
+                        display: flex;
+                        align-items: center;
+                        padding: 20px;
+                        gap: 20px;
+                    }
+
+                    .director-photo {
+                        width: 120px;
+                        height: 120px;
+                        border-radius: 50%;
+                        overflow: hidden;
+                        border: 3px solid var(--accent-color);
+                        box-shadow: 0 0 15px rgba(0, 160, 228, 0.3);
+                    }
+
+                    .director-photo img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+
+                    .franchise-details {
+                        flex: 1;
+                    }
+
+                    .director-name {
+                        color: var(--accent-color);
+                        font-weight: 600;
+                        margin: 5px 0;
+                    }
+
+                    .franchise-card {
+                        background: rgba(255, 255, 255, 0.05);
+                        border-radius: 15px;
+                        overflow: hidden;
+                        transition: transform 0.3s ease, box-shadow 0.3s ease;
+                    }
+
+                    .franchise-card:hover {
+                        transform: translateY(-10px);
+                        box-shadow: 0 15px 30px rgba(0, 160, 228, 0.2);
+                    }
+
+                    .franchise-image {
+                        height: 250px;
+                        overflow: hidden;
+                    }
+
+                    .franchise-image img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        transition: transform 0.5s ease;
+                    }
+
+                    .franchise-card:hover .franchise-image img {
+                        transform: scale(1.1);
+                    }
+
+                    @media (max-width: 768px) {
+                        .franchise-info {
+                            flex-direction: column;
+                            text-align: center;
+                        }
+
+                        .director-photo {
+                            margin: 0 auto;
+                        }
+                    }
+                </style>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <section class="cta-section section-future fade-in-scroll">
+            <div class="container">
+                <h2>Join Our Global Network</h2>
+                <p>Become part of the future of international pageantry</p>
+                <a href="../apply.html" class="btn-future accent"><span>Apply Now</span></a>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer-future">
         <div class="footer-content">
+            <div class="footer-logo">
+                <img src="../../assets/images/logo/logo-main.png" alt="Miss Star International">
+            </div>
             <div class="footer-links">
-                <a href="../index.html">Home</a>
-                <a href="../history.html">History</a>
-                <a href="../competition.html">Competition</a>
-                <a href="../consortium/index.html">Consortium</a>
-                <a href="../news.html">News</a>
-                <a href="../contact.html">Contact</a>
+                <div class="footer-column">
+                    <h3>EXPLORE</h3>
+                    <ul>
+                        <li><a href="../index.html#about">About</a></li>
+                        <li><a href="../index.html#franchises">Franchises</a></li>
+                        <li><a href="../index.html#competition">Competition</a></li>
+                        <li><a href="../news.html">News</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>LEGAL</h3>
+                    <ul>
+                        <li><a href="../privacy.html">Privacy</a></li>
+                        <li><a href="../terms.html">Terms</a></li>
+                        <li><a href="../cookies.html">Cookies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>CONNECT</h3>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon instagram"></a>
+                        <a href="#" class="social-icon facebook"></a>
+                        <a href="#" class="social-icon twitter"></a>
+                        <a href="#" class="social-icon youtube"></a>
+                    </div>
+                </div>
             </div>
-            <div class="copyright">
-                &copy; 2024 Miss Star International. All rights reserved.
+            <div class="footer-subscribe">
+                <h3>SUBSCRIBE</h3>
+                <p>Receive the latest news directly to your device</p>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Your email" required>
+                    <button type="submit" class="subscribe-button">SEND</button>
+                </form>
             </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year">2025</span> Miss Star International. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <script src="../../assets/js/main.js"></script>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="../../js/particles.js"></script>
+    <script src="../../js/loader.js"></script>
+    <script src="../../js/animations.js"></script>
+    <script src="../../js/main.js"></script>
+    <script src="../../js/consortium.js"></script>
+    <script>
+        // Update year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html> 

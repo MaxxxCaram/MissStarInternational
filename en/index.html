@@ -313,6 +313,209 @@
                 <a href="news.html" class="btn-future"><span>View All News</span></a>
             </div>
         </section>
+
+        <!-- Partners Section -->
+        <section class="partners-section section-future fade-in-scroll">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Partners</h2>
+                    <p>Making Dreams Possible Together</p>
+                </div>
+                
+                <div class="partners-grid">
+                    <!-- Premium Partners -->
+                    <div class="partner-tier">
+                        <h3>Premium Partners</h3>
+                        <div class="partner-row">
+                            <div class="partner-card premium">
+                                <img src="../../assets/images/partners/partner1.png" alt="Partner 1">
+                                <div class="partner-info">
+                                    <h4>Global Beauty Corp</h4>
+                                    <p>Official Beauty & Skincare Partner</p>
+                                </div>
+                            </div>
+                            <div class="partner-card premium">
+                                <img src="../../assets/images/partners/partner2.png" alt="Partner 2">
+                                <div class="partner-info">
+                                    <h4>FashionTech Industries</h4>
+                                    <p>Official Fashion Technology Partner</p>
+                                </div>
+                            </div>
+                            <div class="partner-card premium">
+                                <img src="../../assets/images/partners/partner3.png" alt="Partner 3">
+                                <div class="partner-info">
+                                    <h4>LuxeHotels International</h4>
+                                    <p>Official Hospitality Partner</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Official Partners -->
+                    <div class="partner-tier">
+                        <h3>Official Partners</h3>
+                        <div class="partner-row">
+                            <div class="partner-card">
+                                <img src="../../assets/images/partners/partner4.png" alt="Partner 4">
+                                <div class="partner-info">
+                                    <h4>EcoGlam Cosmetics</h4>
+                                    <p>Sustainable Beauty Products</p>
+                                </div>
+                            </div>
+                            <div class="partner-card">
+                                <img src="../../assets/images/partners/partner5.png" alt="Partner 5">
+                                <div class="partner-info">
+                                    <h4>Digital Media Pro</h4>
+                                    <p>Digital Broadcasting Partner</p>
+                                </div>
+                            </div>
+                            <div class="partner-card">
+                                <img src="../../assets/images/partners/partner6.png" alt="Partner 6">
+                                <div class="partner-info">
+                                    <h4>TechStyle Solutions</h4>
+                                    <p>Innovation Technology Partner</p>
+                                </div>
+                            </div>
+                            <div class="partner-card">
+                                <img src="../../assets/images/partners/partner7.png" alt="Partner 7">
+                                <div class="partner-info">
+                                    <h4>WellnessPro Group</h4>
+                                    <p>Health & Wellness Partner</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Supporting Partners -->
+                    <div class="partner-tier">
+                        <h3>Supporting Partners</h3>
+                        <div class="partner-row">
+                            <div class="partner-card supporting">
+                                <img src="../../assets/images/partners/partner8.png" alt="Partner 8">
+                                <div class="partner-info">
+                                    <h4>TransHealth Foundation</h4>
+                                    <p>Healthcare Support Partner</p>
+                                </div>
+                            </div>
+                            <div class="partner-card supporting">
+                                <img src="../../assets/images/partners/partner9.png" alt="Partner 9">
+                                <div class="partner-info">
+                                    <h4>EduTech Alliance</h4>
+                                    <p>Educational Development Partner</p>
+                                </div>
+                            </div>
+                            <div class="partner-card supporting">
+                                <img src="../../assets/images/partners/partner10.png" alt="Partner 10">
+                                <div class="partner-info">
+                                    <h4>Global Rights Network</h4>
+                                    <p>Human Rights Advocacy Partner</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <style>
+                .partners-section {
+                    padding: 80px 0;
+                    background: rgba(0, 0, 0, 0.3);
+                }
+
+                .partners-grid {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 60px;
+                }
+
+                .partner-tier {
+                    text-align: center;
+                }
+
+                .partner-tier h3 {
+                    font-size: 1.8rem;
+                    color: var(--accent-color);
+                    margin-bottom: 30px;
+                    text-transform: uppercase;
+                    letter-spacing: 2px;
+                }
+
+                .partner-row {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    gap: 30px;
+                }
+
+                .partner-card {
+                    background: rgba(255, 255, 255, 0.05);
+                    border-radius: 15px;
+                    padding: 20px;
+                    width: 250px;
+                    transition: all 0.3s ease;
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                }
+
+                .partner-card.premium {
+                    background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+                    border: 2px solid var(--accent-color);
+                    width: 300px;
+                }
+
+                .partner-card:hover {
+                    transform: translateY(-10px);
+                    box-shadow: 0 10px 30px rgba(0, 160, 228, 0.2);
+                }
+
+                .partner-card img {
+                    width: 150px;
+                    height: 150px;
+                    object-fit: contain;
+                    margin-bottom: 15px;
+                    filter: brightness(0.9);
+                    transition: all 0.3s ease;
+                }
+
+                .partner-card:hover img {
+                    filter: brightness(1);
+                    transform: scale(1.05);
+                }
+
+                .partner-info h4 {
+                    color: var(--accent-color);
+                    font-size: 1.2rem;
+                    margin-bottom: 5px;
+                }
+
+                .partner-info p {
+                    font-size: 0.9rem;
+                    color: rgba(255, 255, 255, 0.7);
+                }
+
+                .partner-card.premium .partner-info h4 {
+                    font-size: 1.4rem;
+                }
+
+                .partner-card.supporting {
+                    width: 220px;
+                }
+
+                @media (max-width: 768px) {
+                    .partner-card, .partner-card.premium, .partner-card.supporting {
+                        width: 100%;
+                        max-width: 300px;
+                    }
+
+                    .partner-row {
+                        gap: 20px;
+                    }
+
+                    .partners-grid {
+                        gap: 40px;
+                    }
+                }
+            </style>
+        </section>
     </main>
     
     <!-- Footer -->

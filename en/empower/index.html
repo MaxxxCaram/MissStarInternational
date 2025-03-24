@@ -3,388 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Empower TransNation Network - Miss Star International">
+    <meta name="keywords" content="miss, beauty pageant, empower, transnation, network, international">
     <title>Empower TransNation Network - Miss Star International</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../assets/css/styles.css">
-    <style>
-        /* General Styles */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #000;
-            color: #fff;
-            margin: 0;
-            overflow-x: hidden;
-        }
-
-        /* Navigation Styles */
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px;
-            z-index: 100;
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo-container img {
-            width: 120px;
-            height: auto;
-        }
-
-        .nav-links {
-            display: flex;
-        }
-
-        .nav-links a {
-            color: #fff;
-            text-decoration: none;
-            margin-left: 20px;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #D4AF37;
-        }
-
-        /* Page Header Styles */
-        .page-header {
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 120px 0 60px;
-            text-align: center;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../assets/images/header-bg.jpg');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .page-title {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: #D4AF37;
-            font-family: 'Cinzel', serif;
-        }
-
-        .page-subtitle {
-            font-size: 1.5rem;
-            color: #fff;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* Content Section Styles */
-        .content-section {
-            padding: 60px 0;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .content-block {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 30px;
-            margin-bottom: 40px;
-        }
-
-        .content-block h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: #D4AF37;
-        }
-
-        .content-block p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .content-block ul {
-            margin-bottom: 20px;
-        }
-
-        .content-block li {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            line-height: 1.6;
-        }
-
-        /* Two Column Layout */
-        .two-columns {
-            display: flex;
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .column {
-            flex: 1;
-        }
-
-        /* Program Card Styles */
-        .program-cards {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .program-card {
-            flex: 1;
-            min-width: 300px;
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .program-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #D4AF37;
-        }
-
-        .program-card p {
-            font-size: 1rem;
-            line-height: 1.5;
-        }
-
-        /* Testimonial Styles */
-        .testimonial {
-            background-color: rgba(212, 175, 55, 0.1);
-            border-radius: 10px;
-            padding: 25px;
-            margin-top: 20px;
-            position: relative;
-        }
-
-        .testimonial:before {
-            content: '"';
-            font-size: 5rem;
-            position: absolute;
-            top: -20px;
-            left: 10px;
-            color: rgba(212, 175, 55, 0.2);
-            font-family: Georgia, serif;
-        }
-
-        .testimonial p {
-            font-style: italic;
-            margin-bottom: 15px;
-        }
-
-        .testimonial-author {
-            text-align: right;
-            font-weight: bold;
-            color: #D4AF37;
-        }
-
-        /* Call to Action Styles */
-        .cta-section {
-            background-color: rgba(212, 175, 55, 0.1);
-            padding: 60px 0;
-            text-align: center;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 15px 30px;
-            background-color: #D4AF37;
-            color: #000;
-            text-decoration: none;
-            font-size: 1.2rem;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-            margin-top: 20px;
-        }
-
-        .cta-button:hover {
-            background-color: #fff;
-            color: #000;
-        }
-
-        /* Footer Styles */
-        footer {
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 40px 0;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        .footer-links a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 15px;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: #D4AF37;
-        }
-
-        .copyright {
-            color: #D4AF37;
-            font-size: 0.9rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .page-title {
-                font-size: 2.5rem;
-            }
-
-            .page-subtitle {
-                font-size: 1.2rem;
-            }
-
-            .content-block h2 {
-                font-size: 1.8rem;
-            }
-
-            .two-columns {
-                flex-direction: column;
-            }
-
-            .program-card {
-                min-width: 100%;
-            }
-
-            .nav-links {
-                display: none;
-            }
-        }
-    </style>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../assets/images/logo/favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;600;800&family=Quicksand:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../css/future.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/empower.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-content">
-            <div class="logo-container">
-                <a href="../../index.html">
-                    <img src="../../assets/images/logo/logo-main1.png" alt="Miss Star International Logo">
-                </a>
+    <!-- Portal Loader -->
+    <div class="portal-loader" id="portal-loader">
+        <div class="portal-circle">
+            <div class="portal-center">
+                <div class="portal-glow"></div>
             </div>
-            <div class="nav-links">
-                <a href="../index.html">Home</a>
-                <a href="../history.html">History</a>
-                <a href="../competition.html">Competition</a>
-                <a href="../consortium/index.html">Consortium</a>
-                <a href="../news.html">News</a>
-                <a href="../contact.html">Contact</a>
+        </div>
+        <div class="portal-text" id="portal-text">INITIALIZING PORTAL</div>
+    </div>
+    
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+    
+    <!-- Holographic navigation -->
+    <nav class="nav-holographic">
+        <div class="nav-logo">
+            <a href="../index.html">
+                <img src="../../assets/images/logo/logo-main.png" alt="Miss Star International" class="logo-small">
+            </a>
+        </div>
+        <div class="nav-menu">
+            <a href="../index.html" class="menu-item">Home</a>
+            <a href="../index.html#about" class="menu-item">About</a>
+            <a href="../index.html#franchises" class="menu-item">Franchises</a>
+            <a href="../index.html#competition" class="menu-item">Competition</a>
+            <a href="../apply.html" class="menu-item">Apply</a>
+        </div>
+        <div class="language-selector">
+            <div class="current-lang">EN</div>
+            <div class="languages-dropdown">
+                <a href="../../es/empower/index.html" class="lang-option">ES</a>
+                <a href="../../pt/empower/index.html" class="lang-option">PT</a>
+                <a href="../../vi/empower/index.html" class="lang-option">VI</a>
+                <a href="../../th/empower/index.html" class="lang-option">TH</a>
             </div>
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <header class="page-header">
-        <h1 class="page-title">Empower TransNation Network</h1>
-        <p class="page-subtitle">Nurturing the Next Generation of Leaders</p>
-    </header>
-
     <!-- Main Content -->
-    <main>
-        <section class="content-section">
+    <main class="main-container">
+        <!-- Page Header -->
+        <section class="page-header section-future fade-in-scroll">
+            <h1 class="page-title glitch-text">EMPOWER TRANSNATION</h1>
+            <p class="page-subtitle">Empowering Voices, Transforming Lives</p>
+            <div class="hero-flourish">
+                <div class="decor-line"></div>
+                <div class="decor-circle"></div>
+                <div class="decor-line"></div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section section-future fade-in-scroll">
             <div class="container">
                 <div class="content-block">
                     <h2>Our Mission</h2>
-                    <p>Empower TransNation Network is the vibrant heart and driving force behind Miss Star International. It's a platform dedicated to nurturing and empowering the next generation of activists, providing a comprehensive education and a space for inter-generational exchange to foster leadership and global inclusivity.</p>
-                    
-                    <p>We believe in the power of community, education, and mentorship to create lasting change. Through our network, we connect individuals from diverse backgrounds, providing them with the tools, resources, and support they need to become effective advocates and leaders in their communities.</p>
-                    
-                    <div class="two-columns">
-                        <div class="column">
-                            <h3>Our Vision</h3>
-                            <p>To create a world where every individual, regardless of their gender identity or expression, has the opportunity to reach their full potential and contribute meaningfully to society.</p>
-                            
-                            <h3>Our Values</h3>
-                            <ul>
-                                <li><strong>Inclusivity:</strong> Embracing diversity in all its forms</li>
-                                <li><strong>Empowerment:</strong> Providing tools for self-determination</li>
-                                <li><strong>Education:</strong> Fostering knowledge and understanding</li>
-                                <li><strong>Advocacy:</strong> Standing up for equality and justice</li>
-                                <li><strong>Community:</strong> Building supportive networks</li>
-                            </ul>
+                    <p>Empower TransNation Network is dedicated to creating a supportive and inclusive environment that celebrates diversity, promotes understanding, and empowers individuals to embrace their authentic selves.</p>
+                    <div class="mission-points">
+                        <div class="mission-point">
+                            <div class="point-icon">
+                                <i class="icon-support"></i>
+                            </div>
+                            <h3>Support</h3>
+                            <p>Providing resources and guidance for personal growth</p>
                         </div>
-                        
-                        <div class="column">
-                            <div class="testimonial">
-                                <p>The Empower TransNation Network changed my life. Through their mentorship program, I found the confidence to become an advocate for my community. Today, I'm proud to be a voice for those who are still finding theirs.</p>
-                                <div class="testimonial-author">- Maria Gonzalez, Activist & Educator</div>
+                        <div class="mission-point">
+                            <div class="point-icon">
+                                <i class="icon-education"></i>
                             </div>
-                            
-                            <div class="testimonial">
-                                <p>As a mentor with the Empower TransNation Network, I've witnessed the incredible transformation that occurs when individuals are given the support and resources they need. This network truly creates leaders who will shape our future.</p>
-                                <div class="testimonial-author">- Dr. James Chen, Community Leader</div>
+                            <h3>Education</h3>
+                            <p>Fostering understanding through knowledge sharing</p>
+                        </div>
+                        <div class="mission-point">
+                            <div class="point-icon">
+                                <i class="icon-community"></i>
                             </div>
+                            <h3>Community</h3>
+                            <p>Building strong connections and lasting friendships</p>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="content-block">
+        <!-- Programs Section -->
+        <section class="programs-section section-future fade-in-scroll">
+            <div class="container">
+                <div class="section-title">
                     <h2>Our Programs</h2>
-                    <p>The Empower TransNation Network offers a range of programs designed to support individuals at every stage of their journey. From educational workshops to leadership development, our initiatives are tailored to meet the diverse needs of our community.</p>
-                    
-                    <div class="program-cards">
-                        <div class="program-card">
-                            <h3>Leadership Academy</h3>
-                            <p>A comprehensive program that equips participants with the skills, knowledge, and confidence to become effective leaders in their communities. Through workshops, mentorship, and hands-on projects, participants develop their unique leadership style and vision.</p>
+                    <p>Comprehensive support for personal and professional development</p>
+                </div>
+                <div class="programs-grid">
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="icon-mentorship"></i>
                         </div>
-                        
-                        <div class="program-card">
-                            <h3>Mentorship Initiative</h3>
-                            <p>Connecting experienced activists and professionals with emerging leaders to provide guidance, support, and inspiration. Our mentorship program creates meaningful relationships that foster personal and professional growth.</p>
+                        <h3>Mentorship</h3>
+                        <p>One-on-one guidance from experienced mentors</p>
+                    </div>
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="icon-workshop"></i>
                         </div>
-                        
-                        <div class="program-card">
-                            <h3>Educational Workshops</h3>
-                            <p>A series of workshops covering a wide range of topics, from advocacy and public speaking to self-care and community organizing. These interactive sessions provide practical skills and knowledge for effective activism.</p>
+                        <h3>Workshops</h3>
+                        <p>Skill-building sessions and professional development</p>
+                    </div>
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="icon-support-group"></i>
                         </div>
-                        
-                        <div class="program-card">
-                            <h3>Global Exchange Program</h3>
-                            <p>Facilitating cross-cultural learning and collaboration through international exchanges, virtual forums, and global projects. This program broadens perspectives and builds a global network of advocates working towards common goals.</p>
+                        <h3>Support Groups</h3>
+                        <p>Safe spaces for sharing experiences and growth</p>
+                    </div>
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="icon-advocacy"></i>
                         </div>
+                        <h3>Advocacy</h3>
+                        <p>Promoting awareness and positive change</p>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="content-block">
-                    <h2>Impact Stories</h2>
-                    <p>The true measure of our success is the impact we have on individuals and communities. Here are just a few stories that highlight the transformative power of the Empower TransNation Network:</p>
-                    
-                    <div class="two-columns">
-                        <div class="column">
-                            <h3>Leslie's Journey</h3>
-                            <p>When Leslie, from Peru joined our Leadership Academy, she was hesitant to speak up in group settings. Today, she leads a community organization that provides support services to over 200 individuals annually. Through mentorship and training, Leslie discovered her voice and her purpose.</p>
-                            
-                            <h3>The Bangkok Initiative</h3>
-                            <p>A group of our franchise  in Bangkok identified a gap in healthcare services for their community. Using the skills they developed through our programs, they successfully advocated for policy changes that have improved access to healthcare for thousands of individuals.</p>
+        <!-- Testimonials Section -->
+        <section class="testimonials-section section-future fade-in-scroll">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Success Stories</h2>
+                    <p>Hear from our community members</p>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"The support and guidance I've received through Empower TransNation has been life-changing. I've found my voice and my community."</p>
                         </div>
-                        
-                        <div class="column">
-                            <h3>Youth Empowerment Project</h3>
-                            <p>Our mentorship program in Mexico D.F has connected over 50 young activists with experienced mentors, resulting in the development of innovative community projects addressing issues from education to environmental justice.</p>
-                            
-                            <h3>Global Advocacy Coalition</h3>
-                            <p>Participants from our Global Exchange Program formed an international coalition that has successfully campaigned for legislative changes in multiple countries, demonstrating the power of collaborative advocacy across borders.</p>
+                        <div class="testimonial-author">
+                            <h4>Sarah Johnson</h4>
+                            <p>Community Member</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"The mentorship program helped me navigate both personal and professional challenges with confidence and grace."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <h4>Maria Rodriguez</h4>
+                            <p>Program Participant</p>
                         </div>
                     </div>
                 </div>
@@ -392,32 +177,73 @@
         </section>
 
         <!-- Call to Action -->
-        <section class="cta-section">
+        <section class="cta-section section-future fade-in-scroll">
             <div class="container">
-                <h2>Join the Empower TransNation Network</h2>
-                <p>Whether you're looking to develop your leadership skills, contribute as a mentor, or support our mission, there's a place for you in our network.</p>
-                <a href="../contact.html" class="cta-button">Get Involved Today</a>
+                <h2>Join Our Community</h2>
+                <p>Be part of a supportive network that celebrates authenticity</p>
+                <a href="../apply.html" class="btn-future accent"><span>Get Involved</span></a>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer-future">
         <div class="footer-content">
+            <div class="footer-logo">
+                <img src="../../assets/images/logo/logo-main.png" alt="Miss Star International">
+            </div>
             <div class="footer-links">
-                <a href="../index.html">Home</a>
-                <a href="../history.html">History</a>
-                <a href="../competition.html">Competition</a>
-                <a href="../consortium/index.html">Consortium</a>
-                <a href="../news.html">News</a>
-                <a href="../contact.html">Contact</a>
+                <div class="footer-column">
+                    <h3>EXPLORE</h3>
+                    <ul>
+                        <li><a href="../index.html#about">About</a></li>
+                        <li><a href="../index.html#franchises">Franchises</a></li>
+                        <li><a href="../index.html#competition">Competition</a></li>
+                        <li><a href="../news.html">News</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>LEGAL</h3>
+                    <ul>
+                        <li><a href="../privacy.html">Privacy</a></li>
+                        <li><a href="../terms.html">Terms</a></li>
+                        <li><a href="../cookies.html">Cookies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>CONNECT</h3>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon instagram"></a>
+                        <a href="#" class="social-icon facebook"></a>
+                        <a href="#" class="social-icon twitter"></a>
+                        <a href="#" class="social-icon youtube"></a>
+                    </div>
+                </div>
             </div>
-            <div class="copyright">
-                &copy; 2024 Miss Star International. All rights reserved.
+            <div class="footer-subscribe">
+                <h3>SUBSCRIBE</h3>
+                <p>Receive the latest news directly to your device</p>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Your email" required>
+                    <button type="submit" class="subscribe-button">SEND</button>
+                </form>
             </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year">2025</span> Miss Star International. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <script src="../../assets/js/main.js"></script>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="../../js/particles.js"></script>
+    <script src="../../js/loader.js"></script>
+    <script src="../../js/animations.js"></script>
+    <script src="../../js/main.js"></script>
+    <script src="../../js/empower.js"></script>
+    <script>
+        // Update year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html> 
