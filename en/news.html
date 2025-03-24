@@ -1,86 +1,196 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Latest News and Updates - Miss Star International">
+    <meta name="keywords" content="miss, beauty pageant, news, international, updates">
     <title>News & Updates - Miss Star International</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/news.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/images/logo/favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;600;800&family=Quicksand:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../css/future.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/news.css">
 </head>
 <body>
-    <!-- Header -->
-    <header class="main-header">
-        <!-- ... header content ... -->
-    </header>
-
-    <!-- News Hero -->
-    <section class="news-hero">
-        <div class="news-hero-content">
-            <h1>LATEST NEWS</h1>
-            <p>Stay Updated with the Dynasty</p>
-        </div>
-    </section>
-
-    <!-- Featured News -->
-    <section class="featured-news">
-        <div class="featured-article">
-            <div class="article-image">
-                <img src="assets/news/featured.jpg" alt="Featured News">
-            </div>
-            <div class="article-content">
-                <span class="category">ANNOUNCEMENT</span>
-                <h2>Miss Star International Announces Global Launch</h2>
-                <p class="date">January 15, 2024</p>
-                <p class="excerpt">A new era in international pageantry begins as Miss Star International 
-                announces its revolutionary global platform...</p>
-                <a href="#" class="read-more">Read More</a>
+    <!-- Portal Loader -->
+    <div class="portal-loader" id="portal-loader">
+        <div class="portal-circle">
+            <div class="portal-center">
+                <div class="portal-glow"></div>
             </div>
         </div>
-    </section>
-
-    <!-- News Grid -->
-    <section class="news-grid">
-        <div class="grid-container">
-            <!-- News Item 1 -->
-            <article class="news-item">
-                <div class="news-image">
-                    <img src="assets/news/news1.jpg" alt="News 1">
-                </div>
-                <div class="news-content">
-                    <span class="category">EVENTS</span>
-                    <h3>Casting Dates Announced</h3>
-                    <p class="date">January 20, 2024</p>
-                    <p class="excerpt">Global casting tour dates and locations revealed...</p>
-                </div>
-            </article>
-
-            <!-- News Item 2 -->
-            <article class="news-item">
-                <div class="news-image">
-                    <img src="assets/news/news2.jpg" alt="News 2">
-                </div>
-                <div class="news-content">
-                    <span class="category">PARTNERSHIPS</span>
-                    <h3>Major Sponsorship Announcement</h3>
-                    <p class="date">January 25, 2024</p>
-                    <p class="excerpt">Leading brands join the dynasty...</p>
-                </div>
-            </article>
-
-            <!-- More news items... -->
+        <div class="portal-text" id="portal-text">INITIALIZING PORTAL</div>
+    </div>
+    
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+    
+    <!-- Holographic navigation -->
+    <nav class="nav-holographic">
+        <div class="nav-logo">
+            <a href="index.html">
+                <img src="../assets/images/logo/logo-main.png" alt="Miss Star International" class="logo-small">
+            </a>
         </div>
-    </section>
-
-    <!-- Press Kit Section -->
-    <section class="press-kit">
-        <div class="press-container">
-            <h2>PRESS KIT</h2>
-            <p>Access official photos, logos, and press releases</p>
-            <a href="#" class="download-btn">Download Press Kit</a>
+        <div class="nav-menu">
+            <a href="index.html" class="menu-item">Home</a>
+            <a href="index.html#about" class="menu-item">About</a>
+            <a href="index.html#franchises" class="menu-item">Franchises</a>
+            <a href="index.html#competition" class="menu-item">Competition</a>
+            <a href="apply.html" class="menu-item">Apply</a>
         </div>
-    </section>
-    <!-- Antes del cierre del body -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+        <div class="language-selector">
+            <div class="current-lang">EN</div>
+            <div class="languages-dropdown">
+                <a href="../es/news.html" class="lang-option">ES</a>
+                <a href="../pt/news.html" class="lang-option">PT</a>
+                <a href="../vi/news.html" class="lang-option">VI</a>
+                <a href="../th/news.html" class="lang-option">TH</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- News Hero -->
+        <section class="news-hero section-future fade-in-scroll">
+            <div class="news-hero-content">
+                <h1 class="hero-title glitch-text">LATEST NEWS</h1>
+                <p class="hero-subtitle">Stay Updated with the Dynasty</p>
+            </div>
+            <div class="hero-flourish">
+                <div class="decor-line"></div>
+                <div class="decor-circle"></div>
+                <div class="decor-line"></div>
+            </div>
+        </section>
+
+        <!-- Featured News -->
+        <section class="featured-news section-future fade-in-scroll">
+            <div class="featured-article">
+                <div class="article-image">
+                    <img src="../assets/images/news/featured.jpg" alt="Featured News">
+                </div>
+                <div class="article-content">
+                    <span class="category">ANNOUNCEMENT</span>
+                    <h2>Miss Star International Announces Global Launch</h2>
+                    <p class="date">January 15, 2024</p>
+                    <p class="excerpt">A new era in international pageantry begins as Miss Star International announces its revolutionary global platform...</p>
+                    <a href="#" class="btn-future"><span>Read More</span></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Grid -->
+        <section class="news-grid section-future fade-in-scroll">
+            <div class="grid-container">
+                <!-- News Item 1 -->
+                <article class="news-item">
+                    <div class="news-image">
+                        <img src="../assets/images/news/news1.jpg" alt="News 1">
+                    </div>
+                    <div class="news-content">
+                        <span class="category">EVENTS</span>
+                        <h3>Casting Dates Announced</h3>
+                        <p class="date">January 20, 2024</p>
+                        <p class="excerpt">Global casting tour dates and locations revealed...</p>
+                        <a href="#" class="btn-future small"><span>Read More</span></a>
+                    </div>
+                </article>
+
+                <!-- News Item 2 -->
+                <article class="news-item">
+                    <div class="news-image">
+                        <img src="../assets/images/news/news2.jpg" alt="News 2">
+                    </div>
+                    <div class="news-content">
+                        <span class="category">PARTNERSHIPS</span>
+                        <h3>Major Sponsorship Announcement</h3>
+                        <p class="date">January 25, 2024</p>
+                        <p class="excerpt">Leading brands join the dynasty...</p>
+                        <a href="#" class="btn-future small"><span>Read More</span></a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Press Kit Section -->
+        <section class="press-kit section-future fade-in-scroll">
+            <div class="press-container">
+                <h2 class="section-title">PRESS KIT</h2>
+                <p>Access official photos, logos, and press releases</p>
+                <a href="#" class="btn-future accent"><span>Download Press Kit</span></a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-future">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="../assets/images/logo/logo-main.png" alt="Miss Star International">
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>EXPLORE</h3>
+                    <ul>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#franchises">Franchises</a></li>
+                        <li><a href="index.html#competition">Competition</a></li>
+                        <li><a href="news.html">News</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>LEGAL</h3>
+                    <ul>
+                        <li><a href="privacy.html">Privacy</a></li>
+                        <li><a href="terms.html">Terms</a></li>
+                        <li><a href="cookies.html">Cookies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>CONNECT</h3>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon instagram"></a>
+                        <a href="#" class="social-icon facebook"></a>
+                        <a href="#" class="social-icon twitter"></a>
+                        <a href="#" class="social-icon youtube"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-subscribe">
+                <h3>SUBSCRIBE</h3>
+                <p>Receive the latest news directly to your device</p>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Your email" required>
+                    <button type="submit" class="subscribe-button">SEND</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year">2025</span> Miss Star International. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="../js/particles.js"></script>
+    <script src="../js/loader.js"></script>
+    <script src="../js/animations.js"></script>
     <script src="../js/main.js"></script>
+    <script>
+        // Update year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html> 
