@@ -11,7 +11,7 @@ const User = require('./models/User');
 const path = require('path');
 const fs = require('fs');
 const { createCorporateEmail } = require('./scripts/create-email');
-require('dotenv').config();
+const helmet = require('helmet');
 
 const app = express();
 
@@ -21,6 +21,26 @@ mongoose.set('strictQuery', false);
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+// Security headers
+app.use(helmet());
+
+// Remove x-powered-by header
+app.disable('x-powered-by');
+
+// Cache control middleware
+app.use((req, res, next) => {
+    // Cache static assets for 1 year
+    if (req.url.match(/\.(jpg|jpeg|png|gif|ico|css|js|woff2)$/)) {
+        res.setHeader('Cache-Control', 'public, max-age=31536000');
+    }
+    
+    // Add security headers
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('Content-Security-Policy', "frame-ancestors 'self'");
+    
+    next();
+});
 
 // Verificar estructura de directorios
 console.log('🔎 Estructura del directorio actual:');
@@ -96,9 +116,16 @@ console.log('📂 Ruta public:', publicPath);
 console.log('📄 Index.html en PRIVATE_HTML:', fs.existsSync(path.join(privateHtmlPath, 'index.html')));
 console.log('📄 Index.html en public:', fs.existsSync(path.join(publicPath, 'index.html')));
 
-// Servir archivos estáticos desde ambas rutas
-// Cambiar el orden para que public tenga prioridad
-app.use(express.static(publicPath));
+// Serve static files
+app.use(express.static(publicPath, {
+    maxAge: '1y',
+    setHeaders: function(res, path) {
+        if (path.endsWith('.html')) {
+            // Don't cache HTML files
+            res.setHeader('Cache-Control', 'no-cache');
+        }
+    }
+}));
 
 // Determine environment
 const env = process.env.NODE_ENV || 'development';
