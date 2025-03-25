@@ -819,3 +819,33 @@ img {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
 }
+
+.glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    /* Fallback para navegadores que no soportan backdrop-filter */
+    @supports not ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
+        background: rgba(0, 0, 0, 0.8);
+    }
+}
+
+.nav-blur {
+    background: rgba(0, 0, 0, 0.5);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    /* Fallback */
+    @supports not ((-webkit-backdrop-filter: blur(12px)) or (backdrop-filter: blur(12px))) {
+        background: rgba(0, 0, 0, 0.9);
+    }
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    /* Fallback */
+    @supports not ((-webkit-backdrop-filter: blur(5px)) or (backdrop-filter: blur(5px))) {
+        background: rgba(0, 0, 0, 0.95);
+    }
+}
