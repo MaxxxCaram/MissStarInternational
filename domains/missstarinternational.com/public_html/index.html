@@ -1,14 +1,218 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Miss Star International</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miss Star International - Select Language</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- External Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
+    
     <style>
-        body {background: #000013; color: white; font-family: Arial; text-align: center; padding-top: 50px;}
-        h1 {color: #0ff; font-size: 40px;}
+        :root {
+            --primary-color: #00ffff;
+            --secondary-color: #ff00ff;
+            --bg-dark: #000013;
+            --text-glow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background: radial-gradient(circle at center, #000046 0%, var(--bg-dark) 100%);
+            color: #fff;
+            min-height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .logo {
+            width: 200px;
+            height: auto;
+            margin-bottom: 2rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .title {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            text-shadow: var(--text-glow);
+        }
+
+        .language-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 800px;
+        }
+
+        .language-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .language-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+        }
+
+        .language-card img {
+            width: 40px;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .language-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .language-native {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @media (max-width: 768px) {
+            .language-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>Miss Star International</h1>
-    <p>Página de prueba básica</p>
+    <div id="particles-js"></div>
+    <div class="content">
+        <img src="/assets/images/logo.png" alt="Miss Star International Logo" class="logo">
+        <h1 class="title">THE FUTURE OF BEAUTY</h1>
+        <h2 class="title">SELECT YOUR LANGUAGE</h2>
+        
+        <div class="language-grid">
+            <a href="/en/" class="language-card">
+                <img src="/assets/images/flags/en.png" alt="English Flag">
+                <span class="language-name">English</span>
+                <span class="language-native">English</span>
+            </a>
+            
+            <a href="/es/" class="language-card">
+                <img src="/assets/images/flags/es.png" alt="Spanish Flag">
+                <span class="language-name">Spanish</span>
+                <span class="language-native">Español</span>
+            </a>
+            
+            <a href="/pt/" class="language-card">
+                <img src="/assets/images/flags/pt.png" alt="Portuguese Flag">
+                <span class="language-name">Portuguese</span>
+                <span class="language-native">Português</span>
+            </a>
+            
+            <a href="/vi/" class="language-card">
+                <img src="/assets/images/flags/vi.png" alt="Vietnamese Flag">
+                <span class="language-name">Vietnamese</span>
+                <span class="language-native">Tiếng Việt</span>
+            </a>
+            
+            <a href="/th/" class="language-card">
+                <img src="/assets/images/flags/th.png" alt="Thai Flag">
+                <span class="language-name">Thai</span>
+                <span class="language-native">ภาษาไทย</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 80,
+                    density: { enable: true, value_area: 800 }
+                },
+                color: { value: '#ffffff' },
+                shape: { type: 'circle' },
+                opacity: {
+                    value: 0.5,
+                    random: true
+                },
+                size: {
+                    value: 3,
+                    random: true
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#ffffff',
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: { enable: true, mode: 'repulse' },
+                    onclick: { enable: true, mode: 'push' },
+                    resize: true
+                }
+            },
+            retina_detect: true
+        });
+    </script>
 </body>
 </html> 
