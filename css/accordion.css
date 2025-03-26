@@ -1,0 +1,228 @@
+/* Accordion Container */
+.accordion {
+  width: 100%;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--blur-md));
+  -webkit-backdrop-filter: blur(var(--blur-md));
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+/* Accordion Item */
+.accordion-item {
+  border-bottom: 1px solid rgba(0, 229, 255, 0.2);
+}
+
+.accordion-item:last-child {
+  border-bottom: none;
+}
+
+/* Accordion Header */
+.accordion-header {
+  position: relative;
+  padding: var(--spacing-md);
+  background: transparent;
+  cursor: pointer;
+  transition: var(--transition-standard);
+}
+
+.accordion-header:hover {
+  background: rgba(0, 229, 255, 0.05);
+}
+
+/* Accordion Title */
+.accordion-title {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  color: var(--light-color);
+  font-family: var(--future-font);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Accordion Icon */
+.accordion-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--primary-color);
+}
+
+/* Accordion Toggle */
+.accordion-toggle {
+  position: absolute;
+  top: 50%;
+  right: var(--spacing-md);
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  color: var(--primary-color);
+  transition: transform 0.3s ease;
+}
+
+.accordion-toggle::before,
+.accordion-toggle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transition: transform 0.3s ease;
+}
+
+.accordion-toggle::after {
+  transform: rotate(90deg);
+}
+
+.accordion-item.active .accordion-toggle::after {
+  transform: rotate(0);
+}
+
+/* Accordion Content */
+.accordion-content {
+  max-height: 0;
+  padding: 0 var(--spacing-md);
+  background: rgba(0, 229, 255, 0.05);
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 500px;
+  padding: var(--spacing-md);
+}
+
+/* Accordion Content Text */
+.accordion-text {
+  color: var(--light-color);
+  font-family: var(--body-font);
+  line-height: 1.6;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease-in-out;
+}
+
+.accordion-item.active .accordion-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Accordion Badge */
+.accordion-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 var(--spacing-xs);
+  margin-left: auto;
+  background: rgba(0, 229, 255, 0.2);
+  border-radius: 10px;
+  font-size: 0.8rem;
+  color: var(--light-color);
+}
+
+/* Accordion Animations */
+@keyframes accordion-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 229, 255, 0.2);
+  }
+}
+
+.accordion.glow {
+  animation: accordion-glow 2s ease-in-out infinite;
+}
+
+/* Accordion Hologram Effect */
+.accordion-item.active .accordion-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(0, 229, 255, 0.2),
+    transparent
+  );
+  transform: skewX(-25deg);
+  animation: hologram-scan 3s ease-in-out infinite;
+}
+
+@keyframes hologram-scan {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+
+/* Accordion Loading State */
+.accordion-item.loading .accordion-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+}
+
+.accordion-loading-spinner {
+  width: 30px;
+  height: 30px;
+  border: 2px solid rgba(0, 229, 255, 0.1);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spinner-rotate 1s linear infinite;
+}
+
+@keyframes spinner-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .accordion-header {
+    padding: var(--spacing-sm);
+  }
+
+  .accordion-toggle {
+    right: var(--spacing-sm);
+  }
+
+  .accordion-content {
+    padding: 0 var(--spacing-sm);
+  }
+
+  .accordion-item.active .accordion-content {
+    padding: var(--spacing-sm);
+  }
+}
+
+@media (max-width: 576px) {
+  .accordion-title {
+    font-size: 0.9rem;
+  }
+
+  .accordion-icon,
+  .accordion-toggle {
+    width: 16px;
+    height: 16px;
+  }
+
+  .accordion-badge {
+    min-width: 16px;
+    height: 16px;
+    font-size: 0.7rem;
+  }
+} 

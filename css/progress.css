@@ -1,0 +1,222 @@
+/* Progress Container */
+.progress {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--blur-md));
+  -webkit-backdrop-filter: blur(var(--blur-md));
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+/* Progress Bar */
+.progress-bar {
+  position: relative;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 229, 255, 0.4),
+    rgba(0, 229, 255, 0.8)
+  );
+  transition: width 0.3s ease;
+}
+
+/* Progress Bar with Stripes */
+.progress-bar.striped {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.15) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 1rem 1rem;
+}
+
+/* Animated Progress Bar */
+.progress-bar.animated {
+  animation: progress-bar-stripes 1s linear infinite;
+}
+
+@keyframes progress-bar-stripes {
+  0% {
+    background-position: 1rem 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* Progress Label */
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-xs);
+  color: var(--light-color);
+  font-family: var(--future-font);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Progress Value */
+.progress-value {
+  color: var(--primary-color);
+}
+
+/* Progress Sizes */
+.progress-sm {
+  height: 4px;
+}
+
+.progress-lg {
+  height: 12px;
+}
+
+/* Progress Colors */
+.progress-bar.success {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 255, 0, 0.4),
+    rgba(0, 255, 0, 0.8)
+  );
+}
+
+.progress-bar.warning {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 165, 0, 0.4),
+    rgba(255, 165, 0, 0.8)
+  );
+}
+
+.progress-bar.error {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.4),
+    rgba(255, 0, 0, 0.8)
+  );
+}
+
+/* Progress with Steps */
+.progress-steps {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--spacing-xs);
+}
+
+.progress-step {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  background: var(--glass-bg);
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.progress-step.active {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.progress-step.complete {
+  background: rgba(0, 255, 0, 0.8);
+  border-color: rgba(0, 255, 0, 0.8);
+}
+
+/* Progress Hologram Effect */
+.progress.hologram {
+  position: relative;
+  overflow: hidden;
+}
+
+.progress.hologram::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(0, 229, 255, 0.2),
+    transparent
+  );
+  transform: skewX(-25deg);
+  animation: hologram-scan 2s ease-in-out infinite;
+}
+
+@keyframes hologram-scan {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+
+/* Progress Glow Effect */
+.progress.glow {
+  animation: progress-glow 2s ease-in-out infinite;
+}
+
+@keyframes progress-glow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+  }
+}
+
+/* Progress with Buffer */
+.progress-buffer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: rgba(0, 229, 255, 0.2);
+  transition: width 0.3s ease;
+}
+
+/* Progress Indeterminate */
+.progress.indeterminate .progress-bar {
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 229, 255, 0.8),
+    transparent
+  );
+  animation: progress-indeterminate 1.5s ease-in-out infinite;
+}
+
+@keyframes progress-indeterminate {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 576px) {
+  .progress-label {
+    font-size: 0.7rem;
+  }
+
+  .progress-step {
+    width: 12px;
+    height: 12px;
+  }
+} 

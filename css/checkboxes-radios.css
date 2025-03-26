@@ -1,0 +1,270 @@
+/* Checkbox and Radio Container */
+.form-check {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  cursor: pointer;
+}
+
+/* Hide Default Input */
+.form-check input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Custom Checkbox */
+.checkbox {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--blur-md));
+  -webkit-backdrop-filter: blur(var(--blur-md));
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  border-radius: var(--radius-xs);
+  transition: var(--transition-standard);
+}
+
+/* Checkbox Icon */
+.checkbox::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--primary-color);
+  transform: translate(-50%, -50%) scale(0);
+  transition: var(--transition-standard);
+}
+
+/* Custom Radio */
+.radio {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--blur-md));
+  -webkit-backdrop-filter: blur(var(--blur-md));
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  border-radius: 50%;
+  transition: var(--transition-standard);
+}
+
+/* Radio Icon */
+.radio::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  transform: translate(-50%, -50%) scale(0);
+  transition: var(--transition-standard);
+}
+
+/* Label */
+.form-check-label {
+  color: var(--light-color);
+  font-family: var(--future-font);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Checked State */
+.form-check input:checked + .checkbox::before,
+.form-check input:checked + .radio::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.form-check input:checked + .checkbox,
+.form-check input:checked + .radio {
+  border-color: rgba(0, 229, 255, 0.4);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+}
+
+/* Hover State */
+.form-check:hover .checkbox,
+.form-check:hover .radio {
+  border-color: rgba(0, 229, 255, 0.4);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.1);
+}
+
+/* Focus State */
+.form-check input:focus + .checkbox,
+.form-check input:focus + .radio {
+  box-shadow: 0 0 0 2px rgba(0, 229, 255, 0.2);
+}
+
+/* Sizes */
+.form-check-sm .checkbox,
+.form-check-sm .radio {
+  width: 16px;
+  height: 16px;
+}
+
+.form-check-sm .checkbox::before,
+.form-check-sm .radio::before {
+  width: 8px;
+  height: 8px;
+}
+
+.form-check-lg .checkbox,
+.form-check-lg .radio {
+  width: 24px;
+  height: 24px;
+}
+
+.form-check-lg .checkbox::before,
+.form-check-lg .radio::before {
+  width: 12px;
+  height: 12px;
+}
+
+/* Colors */
+.form-check.success input:checked + .checkbox::before,
+.form-check.success input:checked + .radio::before {
+  background: rgba(0, 255, 0, 0.8);
+}
+
+.form-check.success input:checked + .checkbox,
+.form-check.success input:checked + .radio {
+  border-color: rgba(0, 255, 0, 0.4);
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+}
+
+.form-check.warning input:checked + .checkbox::before,
+.form-check.warning input:checked + .radio::before {
+  background: rgba(255, 165, 0, 0.8);
+}
+
+.form-check.warning input:checked + .checkbox,
+.form-check.warning input:checked + .radio {
+  border-color: rgba(255, 165, 0, 0.4);
+  box-shadow: 0 0 20px rgba(255, 165, 0, 0.2);
+}
+
+.form-check.error input:checked + .checkbox::before,
+.form-check.error input:checked + .radio::before {
+  background: rgba(255, 0, 0, 0.8);
+}
+
+.form-check.error input:checked + .checkbox,
+.form-check.error input:checked + .radio {
+  border-color: rgba(255, 0, 0, 0.4);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+}
+
+/* Hologram Effect */
+.checkbox.hologram,
+.radio.hologram {
+  position: relative;
+  overflow: hidden;
+}
+
+.checkbox.hologram::after,
+.radio.hologram::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(0, 229, 255, 0.2),
+    transparent
+  );
+  transform: skewX(-25deg);
+  animation: hologram-scan 2s ease-in-out infinite;
+}
+
+@keyframes hologram-scan {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+
+/* Glow Effect */
+.checkbox.glow,
+.radio.glow {
+  animation: check-glow 2s ease-in-out infinite;
+}
+
+@keyframes check-glow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+  }
+}
+
+/* Disabled State */
+.form-check.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.form-check.disabled input {
+  cursor: not-allowed;
+}
+
+/* Loading State */
+.form-check.loading .checkbox::before,
+.form-check.loading .radio::before {
+  animation: check-loading 1s linear infinite;
+}
+
+@keyframes check-loading {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+}
+
+/* Group Layout */
+.form-check-group {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.form-check-group.vertical {
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 576px) {
+  .form-check-label {
+    font-size: 0.8rem;
+  }
+
+  .checkbox,
+  .radio {
+    width: 18px;
+    height: 18px;
+  }
+
+  .checkbox::before,
+  .radio::before {
+    width: 9px;
+    height: 9px;
+  }
+} 

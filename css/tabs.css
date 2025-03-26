@@ -1,0 +1,255 @@
+/* Tabs Container */
+.tabs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Tabs Navigation */
+.tabs-nav {
+  display: flex;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--blur-md));
+  -webkit-backdrop-filter: blur(var(--blur-md));
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Tab Button */
+.tab-btn {
+  position: relative;
+  padding: var(--spacing-sm) var(--spacing-md);
+  color: var(--light-color);
+  font-family: var(--future-font);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+  transition: var(--transition-standard);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.9rem;
+}
+
+.tab-btn::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(0, 229, 255, 0.4),
+    transparent
+  );
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.tab-btn:hover {
+  color: rgba(0, 229, 255, 0.8);
+}
+
+.tab-btn:hover::before {
+  transform: scaleX(0.8);
+}
+
+.tab-btn.active {
+  color: var(--primary-color);
+  background: rgba(0, 229, 255, 0.1);
+}
+
+.tab-btn.active::before {
+  transform: scaleX(1);
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--primary-color),
+    transparent
+  );
+}
+
+/* Tab Content */
+.tab-content {
+  display: none;
+  padding: var(--spacing-md);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--blur-md));
+  -webkit-backdrop-filter: blur(var(--blur-md));
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  border-radius: var(--radius-sm);
+  transition: var(--transition-standard);
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.tab-content.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Tab Icon */
+.tab-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: var(--spacing-xs);
+  color: currentColor;
+}
+
+/* Tab Badge */
+.tab-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 var(--spacing-xs);
+  margin-left: var(--spacing-xs);
+  background: rgba(0, 229, 255, 0.2);
+  border-radius: 10px;
+  font-size: 0.8rem;
+}
+
+/* Vertical Tabs */
+.tabs-vertical {
+  flex-direction: row;
+  gap: var(--spacing-md);
+}
+
+.tabs-vertical .tabs-nav {
+  flex-direction: column;
+  width: 200px;
+  margin-bottom: 0;
+}
+
+.tabs-vertical .tab-btn::before {
+  top: 0;
+  right: -2px;
+  width: 2px;
+  height: 100%;
+  transform: scaleY(0);
+}
+
+.tabs-vertical .tab-btn:hover::before {
+  transform: scaleY(0.8);
+}
+
+.tabs-vertical .tab-btn.active::before {
+  transform: scaleY(1);
+}
+
+/* Tab Animations */
+@keyframes tab-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 229, 255, 0.2);
+  }
+}
+
+.tab-content.glow {
+  animation: tab-glow 2s ease-in-out infinite;
+}
+
+/* Tab Hologram Effect */
+.tab-content.hologram {
+  position: relative;
+  overflow: hidden;
+}
+
+.tab-content.hologram::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(0, 229, 255, 0.2),
+    transparent
+  );
+  transform: skewX(-25deg);
+  animation: hologram-scan 3s ease-in-out infinite;
+}
+
+@keyframes hologram-scan {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+
+/* Tab Loading State */
+.tab-content.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+
+.tab-loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(0, 229, 255, 0.1);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spinner-rotate 1s linear infinite;
+}
+
+@keyframes spinner-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .tabs-vertical {
+    flex-direction: column;
+  }
+
+  .tabs-vertical .tabs-nav {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .tabs-vertical .tab-btn::before {
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    transform: scaleX(0);
+  }
+
+  .tabs-vertical .tab-btn:hover::before {
+    transform: scaleX(0.8);
+  }
+
+  .tabs-vertical .tab-btn.active::before {
+    transform: scaleX(1);
+  }
+}
+
+@media (max-width: 576px) {
+  .tab-btn {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.8rem;
+  }
+
+  .tab-content {
+    padding: var(--spacing-sm);
+  }
+} 

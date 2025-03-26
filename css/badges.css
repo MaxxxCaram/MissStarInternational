@@ -1,0 +1,249 @@
+/* Badge Base */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--blur-md));
+  -webkit-backdrop-filter: blur(var(--blur-md));
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  border-radius: var(--radius-pill);
+  color: var(--light-color);
+  font-family: var(--future-font);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: var(--transition-standard);
+}
+
+/* Badge Sizes */
+.badge-sm {
+  padding: calc(var(--spacing-xs) / 2) var(--spacing-xs);
+  font-size: 0.7rem;
+}
+
+.badge-lg {
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: 0.9rem;
+}
+
+/* Badge Colors */
+.badge-primary {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 229, 255, 0.1),
+    rgba(0, 229, 255, 0.2)
+  );
+  border-color: rgba(0, 229, 255, 0.4);
+}
+
+.badge-success {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 255, 0, 0.1),
+    rgba(0, 255, 0, 0.2)
+  );
+  border-color: rgba(0, 255, 0, 0.4);
+}
+
+.badge-warning {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 165, 0, 0.1),
+    rgba(255, 165, 0, 0.2)
+  );
+  border-color: rgba(255, 165, 0, 0.4);
+}
+
+.badge-error {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.1),
+    rgba(255, 0, 0, 0.2)
+  );
+  border-color: rgba(255, 0, 0, 0.4);
+}
+
+/* Badge with Icon */
+.badge-icon {
+  width: 12px;
+  height: 12px;
+  color: currentColor;
+}
+
+.badge-lg .badge-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.badge-sm .badge-icon {
+  width: 10px;
+  height: 10px;
+}
+
+/* Badge with Counter */
+.badge-counter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 var(--spacing-xs);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-pill);
+  font-size: 0.7rem;
+}
+
+.badge-lg .badge-counter {
+  min-width: 20px;
+  height: 20px;
+  font-size: 0.8rem;
+}
+
+.badge-sm .badge-counter {
+  min-width: 16px;
+  height: 16px;
+  font-size: 0.6rem;
+}
+
+/* Badge Variants */
+.badge-outline {
+  background: transparent;
+}
+
+.badge-outline.badge-primary {
+  color: rgba(0, 229, 255, 0.8);
+}
+
+.badge-outline.badge-success {
+  color: rgba(0, 255, 0, 0.8);
+}
+
+.badge-outline.badge-warning {
+  color: rgba(255, 165, 0, 0.8);
+}
+
+.badge-outline.badge-error {
+  color: rgba(255, 0, 0, 0.8);
+}
+
+/* Badge States */
+.badge-removable {
+  padding-right: var(--spacing-xs);
+}
+
+.badge-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  margin-left: var(--spacing-xs);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: var(--transition-standard);
+}
+
+.badge-remove:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Badge Hologram Effect */
+.badge.hologram {
+  position: relative;
+  overflow: hidden;
+}
+
+.badge.hologram::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(0, 229, 255, 0.2),
+    transparent
+  );
+  transform: skewX(-25deg);
+  animation: hologram-scan 2s ease-in-out infinite;
+}
+
+@keyframes hologram-scan {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+
+/* Badge Glow Effect */
+.badge.glow {
+  animation: badge-glow 2s ease-in-out infinite;
+}
+
+@keyframes badge-glow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+  }
+}
+
+/* Badge Group */
+.badge-group {
+  display: inline-flex;
+  gap: var(--spacing-xs);
+}
+
+.badge-group .badge {
+  margin: 0;
+}
+
+/* Badge Positioning */
+.badge-floating {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+/* Badge Animation */
+.badge-pulse {
+  animation: badge-pulse 2s ease-in-out infinite;
+}
+
+@keyframes badge-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 576px) {
+  .badge {
+    font-size: 0.7rem;
+  }
+
+  .badge-lg {
+    font-size: 0.8rem;
+  }
+
+  .badge-sm {
+    font-size: 0.6rem;
+  }
+
+  .badge-counter {
+    min-width: 16px;
+    height: 16px;
+  }
+} 

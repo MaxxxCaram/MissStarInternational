@@ -1,0 +1,271 @@
+/* Switch Container */
+.switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  cursor: pointer;
+}
+
+/* Switch Input */
+.switch input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Switch Track */
+.switch-track {
+  position: relative;
+  width: 48px;
+  height: 24px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--blur-md));
+  -webkit-backdrop-filter: blur(var(--blur-md));
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  border-radius: var(--radius-pill);
+  transition: var(--transition-standard);
+}
+
+/* Switch Thumb */
+.switch-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  background: var(--light-color);
+  border-radius: 50%;
+  transition: var(--transition-standard);
+}
+
+/* Switch Label */
+.switch-label {
+  color: var(--light-color);
+  font-family: var(--future-font);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Switch Active State */
+.switch input:checked + .switch-track {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 229, 255, 0.4),
+    rgba(0, 229, 255, 0.8)
+  );
+  border-color: rgba(0, 229, 255, 0.4);
+}
+
+.switch input:checked + .switch-track .switch-thumb {
+  left: calc(100% - 22px);
+  background: var(--primary-color);
+}
+
+/* Switch Hover State */
+.switch:hover .switch-track {
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.1);
+}
+
+.switch input:checked:hover + .switch-track {
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+}
+
+/* Switch Focus State */
+.switch input:focus + .switch-track {
+  box-shadow: 0 0 0 2px rgba(0, 229, 255, 0.2);
+}
+
+/* Switch Sizes */
+.switch-sm .switch-track {
+  width: 36px;
+  height: 18px;
+}
+
+.switch-sm .switch-thumb {
+  width: 14px;
+  height: 14px;
+}
+
+.switch-sm input:checked + .switch-track .switch-thumb {
+  left: calc(100% - 16px);
+}
+
+.switch-lg .switch-track {
+  width: 60px;
+  height: 30px;
+}
+
+.switch-lg .switch-thumb {
+  width: 26px;
+  height: 26px;
+}
+
+.switch-lg input:checked + .switch-track .switch-thumb {
+  left: calc(100% - 28px);
+}
+
+/* Switch Colors */
+.switch.success input:checked + .switch-track {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 255, 0, 0.4),
+    rgba(0, 255, 0, 0.8)
+  );
+  border-color: rgba(0, 255, 0, 0.4);
+}
+
+.switch.success input:checked + .switch-track .switch-thumb {
+  background: rgba(0, 255, 0, 0.8);
+}
+
+.switch.warning input:checked + .switch-track {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 165, 0, 0.4),
+    rgba(255, 165, 0, 0.8)
+  );
+  border-color: rgba(255, 165, 0, 0.4);
+}
+
+.switch.warning input:checked + .switch-track .switch-thumb {
+  background: rgba(255, 165, 0, 0.8);
+}
+
+.switch.error input:checked + .switch-track {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.4),
+    rgba(255, 0, 0, 0.8)
+  );
+  border-color: rgba(255, 0, 0, 0.4);
+}
+
+.switch.error input:checked + .switch-track .switch-thumb {
+  background: rgba(255, 0, 0, 0.8);
+}
+
+/* Switch with Icons */
+.switch-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  color: var(--light-color);
+  transition: var(--transition-standard);
+}
+
+.switch-icon.on {
+  left: 4px;
+  opacity: 0;
+}
+
+.switch-icon.off {
+  right: 4px;
+  opacity: 1;
+}
+
+.switch input:checked + .switch-track .switch-icon.on {
+  opacity: 1;
+}
+
+.switch input:checked + .switch-track .switch-icon.off {
+  opacity: 0;
+}
+
+/* Switch Hologram Effect */
+.switch-track.hologram {
+  position: relative;
+  overflow: hidden;
+}
+
+.switch-track.hologram::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(0, 229, 255, 0.2),
+    transparent
+  );
+  transform: skewX(-25deg);
+  animation: hologram-scan 2s ease-in-out infinite;
+}
+
+@keyframes hologram-scan {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+
+/* Switch Glow Effect */
+.switch-track.glow {
+  animation: switch-glow 2s ease-in-out infinite;
+}
+
+@keyframes switch-glow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+  }
+}
+
+/* Switch Disabled State */
+.switch.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.switch.disabled input {
+  cursor: not-allowed;
+}
+
+/* Switch Loading State */
+.switch.loading .switch-thumb {
+  animation: switch-loading 1s linear infinite;
+}
+
+@keyframes switch-loading {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 576px) {
+  .switch-label {
+    font-size: 0.8rem;
+  }
+
+  .switch-track {
+    width: 40px;
+    height: 20px;
+  }
+
+  .switch-thumb {
+    width: 16px;
+    height: 16px;
+  }
+
+  .switch input:checked + .switch-track .switch-thumb {
+    left: calc(100% - 18px);
+  }
+} 
