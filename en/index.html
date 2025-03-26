@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Miss Star International - The Future of Beauty Pageants">
+    <meta name="description" content="Miss Star International - A New Dynasty. The future of beauty pageants.">
     <meta name="keywords" content="miss, beauty pageant, international, future, competition">
-    <title>Miss Star International - The Future of Beauty</title>
+    <title>Miss Star International - A New Dynasty</title>
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../assets/images/logo/favicon.ico">
@@ -14,619 +14,313 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;600;800&family=Quicksand:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- Styles -->
-    <link rel="stylesheet" href="css/future.css">
-    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <style>
+        /* Optimized styles with performance improvements */
+        :root {
+            --primary-color: #D4AF37;
+            --text-color: #fff;
+            --background-dark: #000;
+            --overlay-color: rgba(0, 0, 0, 0.6);
+            --card-background: rgba(255, 255, 255, 0.1);
+            --transition-speed: 0.3s;
+        }
+
+        /* Core styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-dark);
+            color: var(--text-color);
+            margin: 0;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Optimized video container */
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            will-change: transform;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            object-fit: cover;
+        }
+
+        .video-overlay {
+            position: absolute;
+            inset: 0;
+            background-color: var(--overlay-color);
+            z-index: 1;
+        }
+
+        /* Optimized navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            z-index: 1000;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo-container img {
+            width: 120px;
+            height: auto;
+            will-change: transform;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color var(--transition-speed) ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Optimized hero section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .hero-logo {
+            width: 500px;
+            max-width: 80%;
+            opacity: 0.7;
+            animation: pulse 5s infinite alternate;
+            will-change: transform, opacity;
+        }
+
+        @keyframes pulse {
+            from {
+                transform: scale(1) translateZ(0);
+                opacity: 0.3;
+            }
+            to {
+                transform: scale(1.1) translateZ(0);
+                opacity: 0.7;
+            }
+        }
+
+        /* Optimized sections */
+        .section {
+            padding: 60px 0;
+            text-align: center;
+            background-color: var(--background-dark);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Optimized cards */
+        .hall-of-fame-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .hall-of-fame-card {
+            background-color: var(--card-background);
+            border-radius: 10px;
+            padding: 20px;
+            transition: transform var(--transition-speed) ease;
+            will-change: transform;
+        }
+
+        .hall-of-fame-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .hall-of-fame-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 2px solid var(--primary-color);
+        }
+
+        /* Optimized winner banner */
+        .current-winner {
+            background-color: var(--overlay-color);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .winner-banner a {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: var(--primary-color);
+            color: var(--background-dark);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 5px;
+            transition: all var(--transition-speed) ease;
+        }
+
+        .winner-banner a:hover {
+            background-color: var(--text-color);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive optimizations */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .section {
+                padding: 40px 0;
+            }
+
+            .hero-logo {
+                width: 80%;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Portal Loader -->
-    <div class="portal-loader" id="portal-loader">
-        <div class="portal-circle">
-            <div class="portal-center">
-                <div class="portal-glow"></div>
-            </div>
-        </div>
-        <div class="portal-text" id="portal-text">INITIALIZING PORTAL</div>
+    <!-- Video Background -->
+    <div class="video-container">
+        <video autoplay muted loop playsinline>
+            <source src="../assets/videos/hero-video.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
     </div>
-    
-    <!-- Particles Background -->
-    <div id="particles-js"></div>
-    
-    <!-- Holographic navigation -->
-    <nav class="nav-holographic">
-        <div class="nav-logo">
-            <a href="index.html">
-                <img src="../assets/images/logo/logo-main.png" alt="Miss Star International" class="logo-small">
-            </a>
-        </div>
-        <div class="nav-menu">
-            <a href="#" class="menu-item active">Home</a>
-            <a href="#about" class="menu-item">About</a>
-            <a href="#franchises" class="menu-item">Franchises</a>
-            <a href="#competition" class="menu-item">Competition</a>
-            <a href="apply.html" class="menu-item">Apply</a>
-        </div>
-        <div class="language-selector">
-            <div class="current-lang">EN <img src="../assets/images/flags/en.png" alt="English Flag" class="lang-flag"></div>
-            <div class="languages-dropdown">
-                <a href="../es/index.html" class="lang-option"><img src="../assets/images/flags/es.png" alt="Spanish Flag" class="lang-flag"> ES</a>
-                <a href="../pt/index.html" class="lang-option"><img src="../assets/images/flags/pt.png" alt="Portuguese Flag" class="lang-flag"> PT</a>
-                <a href="../vi/index.html" class="lang-option"><img src="../assets/images/flags/vi.png" alt="Vietnamese Flag" class="lang-flag"> VI</a>
-                <a href="../th/index.html" class="lang-option"><img src="../assets/images/flags/th.png" alt="Thai Flag" class="lang-flag"> TH</a>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <div class="logo-container">
+                <img src="../assets/images/logo/logo-main1.png" alt="Miss Star International Logo" loading="lazy">
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="history.html">History</a>
+                <a href="competition.html">Competition</a>
+                <a href="consortium.html">Consortium</a>
+                <a href="news.html">News</a>
+                <a href="contact.html">Contact</a>
             </div>
         </div>
     </nav>
-    
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="../assets/images/logo/logo-main1.png" alt="Miss Star International Logo" class="hero-logo" loading="eager">
+    </section>
+
+    <!-- Current Winner Banner -->
+    <section class="current-winner">
+        <div class="container">
+            <div class="winner-banner">
+                <h2>Miss Star International 2024</h2>
+                <a href="../../queens/2024/">Patricia Payumo - The Reigning Queen</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Main Content -->
-    <main class="main-container">
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <div class="hero-content">
-                <div class="hero-logo floating">
-                    <img src="../assets/images/logo/logo-white.png" alt="Miss Star International" class="logo-large">
-                </div>
-                <h1 class="hero-title glitch-text">THE FUTURE OF BEAUTY</h1>
-                <p class="hero-subtitle">Where elegance meets innovation</p>
-                <div class="hero-buttons">
-                    <a href="#about" class="btn-future"><span>Discover</span></a>
-                    <a href="apply.html" class="btn-future accent"><span>Apply Now</span></a>
-                </div>
-            </div>
-            <div class="hero-background">
-                <div class="hero-globe" id="holographic-globe"></div>
-                <div class="hero-overlay"></div>
-            </div>
-        </section>
-        
-        <!-- About Section -->
-        <section id="about" class="about-section section-future fade-in-scroll">
-            <h2 class="section-title">REDEFINING BEAUTY</h2>
-            <div class="about-grid">
-                <div class="about-content">
-                    <p class="about-text">Miss Star International represents the evolution of beauty pageants for the modern era. We combine tradition with cutting-edge technology to create an immersive experience that celebrates not just external beauty, but intelligence, innovation, and social impact.</p>
-                    <p class="about-text">Our contestants are ambassadors of change, leveraging technology and creativity to address global challenges while embracing diversity and inclusion.</p>
-                    <div class="feature-grid">
-                        <div class="feature-item">
-                            <div class="feature-icon innovation"></div>
-                            <h3>Innovation</h3>
-                            <p>Pioneering new technologies in pageantry</p>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon diversity"></div>
-                            <h3>Diversity</h3>
-                            <p>Celebrating cultures from around the world</p>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon sustainability"></div>
-                            <h3>Sustainability</h3>
-                            <p>Committed to environmental responsibility</p>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon empowerment"></div>
-                            <h3>Empowerment</h3>
-                            <p>Elevating women as leaders of tomorrow</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-hologram">
-                    <div class="hologram-container">
-                        <div class="hologram-crown" id="holographic-crown"></div>
-                        <div class="scan-line"></div>
-                        <div class="hologram-stats">
-                            <div class="stat-item">
-                                <span class="stat-value typing-effect" data-text="50+">50+</span>
-                                <span class="stat-label">Countries</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-value typing-effect" data-text="$100K">$100K</span>
-                                <span class="stat-label">Scholarship</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-value typing-effect" data-text="1M+">1M+</span>
-                                <span class="stat-label">Global Viewers</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Franchises Section -->
-        <section id="franchises" class="franchises-section section-future fade-in-scroll">
-            <h2 class="section-title">GLOBAL FRANCHISES</h2>
-            <div class="franchises-intro">
-                <p>Miss Star International spans across continents, with official franchises in countries around the world. Each franchise embodies our core values while celebrating their unique cultural identity.</p>
-            </div>
-            <div class="franchises-grid">
-                <!-- Franchise Cards -->
-                <div class="franchise-card floating">
-                    <div class="franchise-flag usa"></div>
-                    <h3>USA</h3>
-                    <p>The flagship franchise, pioneering technology integration</p>
-                    <a href="#" class="franchise-link">Learn More</a>
-                </div>
-                
-                <div class="franchise-card floating-slow">
-                    <div class="franchise-flag uk"></div>
-                    <h3>UK</h3>
-                    <p>Blending tradition with futuristic experiences</p>
-                    <a href="#" class="franchise-link">Learn More</a>
-                </div>
-                
-                <div class="franchise-card floating">
-                    <div class="franchise-flag japan"></div>
-                    <h3>Japan</h3>
-                    <p>World-renowned for immersive holographic showcases</p>
-                    <a href="#" class="franchise-link">Learn More</a>
-                </div>
-                
-                <div class="franchise-card floating-fast">
-                    <div class="franchise-flag brazil"></div>
-                    <h3>Brazil</h3>
-                    <p>Leading in environmental sustainability initiatives</p>
-                    <a href="#" class="franchise-link">Learn More</a>
-                </div>
-                
-                <div class="franchise-card floating-slow">
-                    <div class="franchise-flag france"></div>
-                    <h3>France</h3>
-                    <p>Uniting high fashion with technological innovation</p>
-                    <a href="#" class="franchise-link">Learn More</a>
-                </div>
-                
-                <div class="franchise-card floating">
-                    <div class="franchise-flag singapore"></div>
-                    <h3>Singapore</h3>
-                    <p>Host of our upcoming international finals</p>
-                    <a href="#" class="franchise-link">Learn More</a>
-                </div>
-                
-                <div class="franchise-card floating-fast">
-                    <div class="franchise-flag south-africa"></div>
-                    <h3>South Africa</h3>
-                    <p>Championing diversity and inclusion in Africa</p>
-                    <a href="#" class="franchise-link">Learn More</a>
-                </div>
-                
-                <div class="franchise-card floating-slow">
-                    <div class="franchise-flag australia"></div>
-                    <h3>Australia</h3>
-                    <p>Focused on ocean conservation and sustainable fashion</p>
-                    <a href="#" class="franchise-link">Learn More</a>
-                </div>
-            </div>
-            <div class="franchise-cta">
-                <p>Interested in bringing Miss Star International to your country?</p>
-                <a href="franchise.html" class="btn-future"><span>Become a Franchise</span></a>
-            </div>
-        </section>
-        
-        <!-- Competition Section -->
-        <section id="competition" class="competition-section section-future fade-in-scroll">
-            <h2 class="section-title">THE COMPETITION</h2>
-            <div class="competition-intro">
-                <p>Miss Star International is more than a pageant—it's a multidimensional experience that pushes boundaries and embraces the future. Our contestants showcase their talents across innovative challenges designed to identify true global ambassadors.</p>
-            </div>
-            
-            <div class="timeline-container">
-                <div class="timeline">
-                    <div class="timeline-item right">
-                        <div class="timeline-content">
-                            <div class="timeline-date">Phase 1</div>
-                            <h3>National Selections</h3>
-                            <p>Each franchise conducts local competitions to select their national representative, embodying beauty, intelligence, and purpose.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item left">
-                        <div class="timeline-content">
-                            <div class="timeline-date">Phase 2</div>
-                            <h3>Virtual Preliminaries</h3>
-                            <p>Contestants participate in virtual challenges and interviews, demonstrating their adaptability and technological fluency.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item right">
-                        <div class="timeline-content">
-                            <div class="timeline-date">Phase 3</div>
-                            <h3>Regional Competitions</h3>
-                            <p>Continental showdowns featuring immersive performances and technological innovations unique to each region.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item left">
-                        <div class="timeline-content">
-                            <div class="timeline-date">Phase 4</div>
-                            <h3>International Finals</h3>
-                            <p>The ultimate showcase in Singapore where our finalists compete in futuristic challenges and present their social impact platforms.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="categories-grid">
-                <div class="category-card">
-                    <div class="category-icon futuristic-wear"></div>
-                    <h3>Futuristic Wear</h3>
-                    <p>Contestants showcase clothing that blends high fashion with technology and sustainability.</p>
-                </div>
-                
-                <div class="category-card">
-                    <div class="category-icon immersive-talent"></div>
-                    <h3>Immersive Talent</h3>
-                    <p>Performances enhanced with AR/VR technologies creating multi-sensory experiences.</p>
-                </div>
-                
-                <div class="category-card">
-                    <div class="category-icon impact-platform"></div>
-                    <h3>Impact Platform</h3>
-                    <p>Innovative solutions to global challenges presented through interactive displays.</p>
-                </div>
-                
-                <div class="category-card">
-                    <div class="category-icon ai-interview"></div>
-                    <h3>AI Interview</h3>
-                    <p>Dynamic questions generated by AI to test knowledge, adaptability, and critical thinking.</p>
-                </div>
-            </div>
-            
-            <div class="competition-cta">
-                <p>Ready to begin your journey?</p>
-                <a href="apply.html" class="btn-future accent"><span>Apply Now</span></a>
-            </div>
-        </section>
-        
-        <!-- News Section -->
-        <section class="news-section section-future fade-in-scroll">
-            <h2 class="section-title">LATEST NEWS</h2>
-            <div class="news-grid">
-                <div class="news-card">
-                    <div class="news-image news-image-1"></div>
-                    <div class="news-content">
-                        <div class="news-date">MARCH 15, 2025</div>
-                        <h3>Singapore Announced as Host for Grand Finals</h3>
-                        <p>The futuristic city-state will welcome contestants from around the world for our most technologically advanced competition yet.</p>
-                        <a href="news/singapore-finals.html" class="news-link">Read More</a>
-                    </div>
-                </div>
-                
-                <div class="news-card">
-                    <div class="news-image news-image-2"></div>
-                    <div class="news-content">
-                        <div class="news-date">FEBRUARY 28, 2025</div>
-                        <h3>Partnership with Global Tech Leaders Announced</h3>
-                        <p>Leading technology companies join forces with Miss Star International to create immersive experiences for contestants and viewers.</p>
-                        <a href="news/tech-partnership.html" class="news-link">Read More</a>
-                    </div>
-                </div>
-                
-                <div class="news-card">
-                    <div class="news-image news-image-3"></div>
-                    <div class="news-content">
-                        <div class="news-date">JANUARY 20, 2025</div>
-                        <h3>Five New Countries Join the Miss Star Family</h3>
-                        <p>We're thrilled to welcome Vietnam, Thailand, Egypt, Nigeria, and Chile to our growing international network of franchises.</p>
-                        <a href="news/new-franchises.html" class="news-link">Read More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="news-cta">
-                <a href="news.html" class="btn-future"><span>View All News</span></a>
-            </div>
-        </section>
-
-        <!-- Partners Section -->
-        <section class="partners-section section-future fade-in-scroll">
+    <main>
+        <!-- Sections with optimized markup -->
+        <section id="consortium" class="section">
             <div class="container">
-                <div class="section-title">
-                    <h2>Our Partners</h2>
-                    <p>Making Dreams Possible Together</p>
-                </div>
-                
-                <div class="partners-grid">
-                    <!-- Premium Partners -->
-                    <div class="partner-tier">
-                        <h3>Premium Partners</h3>
-                        <div class="partner-row">
-                            <div class="partner-card premium">
-                                <img src="../../assets/images/partners/partner1.png" alt="Partner 1">
-                                <div class="partner-info">
-                                    <h4>Global Beauty Corp</h4>
-                                    <p>Official Beauty & Skincare Partner</p>
-                                </div>
-                            </div>
-                            <div class="partner-card premium">
-                                <img src="../../assets/images/partners/partner2.png" alt="Partner 2">
-                                <div class="partner-info">
-                                    <h4>FashionTech Industries</h4>
-                                    <p>Official Fashion Technology Partner</p>
-                                </div>
-                            </div>
-                            <div class="partner-card premium">
-                                <img src="../../assets/images/partners/partner3.png" alt="Partner 3">
-                                <div class="partner-info">
-                                    <h4>LuxeHotels International</h4>
-                                    <p>Official Hospitality Partner</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <h2><a href="consortium/index.html">International Consortium</a></h2>
+                <p>Global network of leaders in the beauty and entertainment industry</p>
+            </div>
+        </section>
 
-                    <!-- Official Partners -->
-                    <div class="partner-tier">
-                        <h3>Official Partners</h3>
-                        <div class="partner-row">
-                            <div class="partner-card">
-                                <img src="../../assets/images/partners/partner4.png" alt="Partner 4">
-                                <div class="partner-info">
-                                    <h4>EcoGlam Cosmetics</h4>
-                                    <p>Sustainable Beauty Products</p>
-                                </div>
-                            </div>
-                            <div class="partner-card">
-                                <img src="../../assets/images/partners/partner5.png" alt="Partner 5">
-                                <div class="partner-info">
-                                    <h4>Digital Media Pro</h4>
-                                    <p>Digital Broadcasting Partner</p>
-                                </div>
-                            </div>
-                            <div class="partner-card">
-                                <img src="../../assets/images/partners/partner6.png" alt="Partner 6">
-                                <div class="partner-info">
-                                    <h4>TechStyle Solutions</h4>
-                                    <p>Innovation Technology Partner</p>
-                                </div>
-                            </div>
-                            <div class="partner-card">
-                                <img src="../../assets/images/partners/partner7.png" alt="Partner 7">
-                                <div class="partner-info">
-                                    <h4>WellnessPro Group</h4>
-                                    <p>Health & Wellness Partner</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <section id="empower" class="section">
+            <div class="container">
+                <h2><a href="empower/index.html">Empower TransNation Network</a></h2>
+                <p>A platform dedicated to nurturing and empowering the next generation of activists.</p>
+            </div>
+        </section>
 
-                    <!-- Supporting Partners -->
-                    <div class="partner-tier">
-                        <h3>Supporting Partners</h3>
-                        <div class="partner-row">
-                            <div class="partner-card supporting">
-                                <img src="../../assets/images/partners/partner8.png" alt="Partner 8">
-                                <div class="partner-info">
-                                    <h4>TransHealth Foundation</h4>
-                                    <p>Healthcare Support Partner</p>
-                                </div>
-                            </div>
-                            <div class="partner-card supporting">
-                                <img src="../../assets/images/partners/partner9.png" alt="Partner 9">
-                                <div class="partner-info">
-                                    <h4>EduTech Alliance</h4>
-                                    <p>Educational Development Partner</p>
-                                </div>
-                            </div>
-                            <div class="partner-card supporting">
-                                <img src="../../assets/images/partners/partner10.png" alt="Partner 10">
-                                <div class="partner-info">
-                                    <h4>Global Rights Network</h4>
-                                    <p>Human Rights Advocacy Partner</p>
-                                </div>
-                            </div>
-                        </div>
+        <section id="dynasty-portal" class="section">
+            <div class="container">
+                <h2><a href="dynasty-portal/index.html">Dynasty Portal</a></h2>
+                <p>An exclusive platform offering premium resources and networking opportunities.</p>
+            </div>
+        </section>
+
+        <section id="hall-of-fame" class="section">
+            <div class="container">
+                <h2><a href="hall-of-fame/index.html">MSI Hall of Fame</a></h2>
+                <div class="hall-of-fame-grid">
+                    <div class="hall-of-fame-card">
+                        <img src="../assets/images/queens/2023_veso.jpg" alt="Veso Golden" loading="lazy">
+                        <h3>Veso Golden</h3>
+                        <p>Miss Star International 2023</p>
+                        <p>Nigeria</p>
+                    </div>
+                    <div class="hall-of-fame-card">
+                        <img src="../assets/images/queens/2023_ugfisdwgkjewbk.jpg" alt="Ugfisdwgkjewbk" loading="lazy">
+                        <h3>Ugfisdwgkjewbk</h3>
+                        <p>Miss Star International 2023</p>
+                        <p>Nicaragua</p>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <style>
-                .partners-section {
-                    padding: 80px 0;
-                    background: rgba(0, 0, 0, 0.3);
-                }
-
-                .language-selector {
-                    position: relative;
-                    margin-left: 20px;
-                    padding: 8px 15px;
-                    border-radius: 20px;
-                    background: rgba(255, 255, 255, 0.1);
-                    -webkit-backdrop-filter: blur(10px);
-                    backdrop-filter: blur(10px);
-                    /* Fallback para navegadores que no soportan backdrop-filter */
-                    background: rgba(0, 0, 0, 0.6);
-                    border: 1px solid rgba(255, 255, 255, 0.1);
-                }
-
-                .current-lang {
-                    color: var(--text-color);
-                    cursor: pointer;
-                    font-size: 0.9em;
-                }
-
-                .languages-dropdown {
-                    display: none;
-                    position: absolute;
-                    top: 100%;
-                    left: 0;
-                    background: rgba(0, 0, 0, 0.8);
-                    -webkit-backdrop-filter: blur(10px);
-                    backdrop-filter: blur(10px);
-                    border-radius: 10px;
-                    padding: 5px 0;
-                    min-width: 100%;
-                    z-index: 1000;
-                }
-
-                .language-selector:hover .languages-dropdown {
-                    display: block;
-                }
-
-                .lang-option {
-                    display: block;
-                    padding: 5px 15px;
-                    color: var(--text-color);
-                    text-decoration: none;
-                    transition: background-color 0.3s;
-                }
-
-                .lang-option:hover {
-                    background: rgba(255, 255, 255, 0.1);
-                }
-
-                .partners-grid {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 60px;
-                }
-
-                .partner-tier {
-                    text-align: center;
-                }
-
-                .partner-tier h3 {
-                    font-size: 1.8rem;
-                    color: var(--accent-color);
-                    margin-bottom: 30px;
-                    text-transform: uppercase;
-                    letter-spacing: 2px;
-                }
-
-                .partner-row {
-                    display: flex;
-                    flex-wrap: wrap;
-                    justify-content: center;
-                    gap: 30px;
-                }
-
-                .partner-card {
-                    background: rgba(255, 255, 255, 0.05);
-                    border-radius: 15px;
-                    padding: 20px;
-                    width: 250px;
-                    transition: all 0.3s ease;
-                    border: 1px solid rgba(255, 255, 255, 0.1);
-                }
-
-                .partner-card.premium {
-                    background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-                    border: 2px solid var(--accent-color);
-                    width: 300px;
-                }
-
-                .partner-card:hover {
-                    transform: translateY(-10px);
-                    box-shadow: 0 10px 30px rgba(0, 160, 228, 0.2);
-                }
-
-                .partner-card img {
-                    width: 150px;
-                    height: 150px;
-                    object-fit: contain;
-                    margin-bottom: 15px;
-                    filter: brightness(0.9);
-                    transition: all 0.3s ease;
-                }
-
-                .partner-card:hover img {
-                    filter: brightness(1);
-                    transform: scale(1.05);
-                }
-
-                .partner-info h4 {
-                    color: var(--accent-color);
-                    font-size: 1.2rem;
-                    margin-bottom: 5px;
-                }
-
-                .partner-info p {
-                    font-size: 0.9rem;
-                    color: rgba(255, 255, 255, 0.7);
-                }
-
-                .partner-card.premium .partner-info h4 {
-                    font-size: 1.4rem;
-                }
-
-                .partner-card.supporting {
-                    width: 220px;
-                }
-
-                @media (max-width: 768px) {
-                    .partner-card, .partner-card.premium, .partner-card.supporting {
-                        width: 100%;
-                        max-width: 300px;
-                    }
-
-                    .partner-row {
-                        gap: 20px;
-                    }
-
-                    .partners-grid {
-                        gap: 40px;
-                    }
-                }
-            </style>
+        <section id="beyond-the-crown" class="section">
+            <div class="container">
+                <h2><a href="#">Miss Beyond the Crown</a></h2>
+                <p>Celebrating women whose success stories inspire future generations.</p>
+                <h3><a href="#">Miss Beyond the Crown, 2024</a></h3>
+                <p>Erhtuioerhtor, country</p>
+            </div>
         </section>
     </main>
-    
-    <!-- Footer -->
-    <footer class="footer-future">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <img src="../assets/images/logo/logo-main.png" alt="Miss Star International">
-            </div>
-            <div class="footer-links">
-                <div class="footer-column">
-                    <h3>EXPLORE</h3>
-                    <ul>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#franchises">Franchises</a></li>
-                        <li><a href="#competition">Competition</a></li>
-                        <li><a href="news.html">News</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>LEGAL</h3>
-                    <ul>
-                        <li><a href="privacy.html">Privacy</a></li>
-                        <li><a href="terms.html">Terms</a></li>
-                        <li><a href="cookies.html">Cookies</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>CONNECT</h3>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon instagram" title="Instagram" aria-label="Visit our Instagram page"></a>
-                        <a href="#" class="social-icon facebook" title="Facebook" aria-label="Visit our Facebook page"></a>
-                        <a href="#" class="social-icon twitter" title="Twitter" aria-label="Visit our Twitter page"></a>
-                        <a href="#" class="social-icon youtube" title="YouTube" aria-label="Visit our YouTube channel"></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-subscribe">
-                <h3>SUBSCRIBE</h3>
-                <p>Receive the latest news directly to your device</p>
-                <form class="subscribe-form">
-                    <input type="email" placeholder="Your email" name="email" id="subscribe-email" required>
-                    <button type="submit" class="subscribe-button">SEND</button>
-                </form>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; <span id="current-year">2025</span> Miss Star International. All Rights Reserved.</p>
-        </div>
-    </footer>
-    
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
-    <script src="js/particles.js"></script>
-    <script src="js/loader.js"></script>
-    <script src="js/animations.js"></script>
-    <script src="js/hologram.js"></script>
-    <script src="js/experience.js"></script>
-    <script src="js/main.js"></script>
-    <script>
-        // Update year
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-    </script>
+
+    <!-- Optimized script loading -->
+    <script defer src="../assets/js/main.js"></script>
 </body>
 </html>
