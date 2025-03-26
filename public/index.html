@@ -220,6 +220,7 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
@@ -347,11 +348,11 @@
         
         @keyframes shine {
             0% {
-                left: -100%;
+                transform: translateX(-100%);
                 opacity: 0.5;
             }
             100% {
-                left: 100%;
+                transform: translateX(100%);
                 opacity: 0;
             }
         }
