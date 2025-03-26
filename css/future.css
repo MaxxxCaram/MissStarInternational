@@ -239,6 +239,16 @@ img {
   color: var(--primary-color);
 }
 
+.lang-flag {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-left: 5px;
+  margin-right: 5px;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
 .languages-dropdown {
   position: absolute;
   top: 100%;
@@ -259,7 +269,8 @@ img {
 }
 
 .lang-option {
-  display: block;
+  display: flex;
+  align-items: center;
   padding: 5px 15px;
   transition: var(--transition-standard);
 }

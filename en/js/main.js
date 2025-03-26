@@ -21,6 +21,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Si viene del mismo sitio, no mostrar animación completa de carga
     document.body.classList.add('fast-transition');
   }
+
+  // Si las imágenes no cargan, generar placeholders
+  generateTempImages();
+
+  // Detectar errores de carga de imágenes y reemplazar con placeholders
+  document.querySelectorAll('img').forEach(img => {
+    img.addEventListener('error', function() {
+      replaceMissingImage(this);
+    });
+  });
 });
 
 /**
@@ -531,6 +541,154 @@ function showNotification(message, type = 'success', duration = 3000) {
 function validateEmail(email) {
   const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(email.toLowerCase());
+}
+
+// Generador temporal de imágenes para logo y banderas
+function generateTempImages() {
+  // Generar logo temporal si no existe
+  generateTempLogo();
+  // Generar banderas temporales si no existen
+  generateTempFlags();
+}
+
+function generateTempLogo() {
+  // Función para generar un logo temporal con canvas
+  const logos = document.querySelectorAll('.logo-small, .logo-large');
+  logos.forEach(logo => {
+    if (isImageMissing(logo.src)) {
+      createTempLogoImage(logo);
+    }
+  });
+}
+
+function generateTempFlags() {
+  // Función para generar banderas temporales con canvas
+  const flags = document.querySelectorAll('.lang-flag');
+  flags.forEach(flag => {
+    if (isImageMissing(flag.src)) {
+      createTempFlagImage(flag);
+    }
+  });
+}
+
+function isImageMissing(src) {
+  // Comprobar si la imagen está rota o no existe
+  const img = new Image();
+  img.src = src;
+  return !img.complete || img.naturalWidth === 0;
+}
+
+function createTempLogoImage(imgElement) {
+  const canvas = document.createElement('canvas');
+  canvas.width = 100;
+  canvas.height = 100;
+  const ctx = canvas.getContext('2d');
+  
+  // Fondo del logo
+  ctx.fillStyle = '#1a1a3a';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  
+  // Texto del logo
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'bold 14px Arial';
+  ctx.textAlign = 'center';
+  ctx.fillText('MISS STAR', canvas.width / 2, canvas.height / 2 - 10);
+  ctx.fillText('INTL', canvas.width / 2, canvas.height / 2 + 10);
+  
+  // Estrella
+  drawStar(ctx, canvas.width / 2, 25, 5, 10, 5, '#00e5ff');
+  
+  // Reemplazar la imagen original
+  imgElement.src = canvas.toDataURL();
+}
+
+function createTempFlagImage(imgElement) {
+  const canvas = document.createElement('canvas');
+  canvas.width = 32;
+  canvas.height = 32;
+  const ctx = canvas.getContext('2d');
+  
+  // Obtener el código de idioma
+  const langCode = imgElement.alt.split(' ')[0].toLowerCase();
+  
+  // Color base según el idioma
+  let flagColor;
+  switch(langCode) {
+    case 'english':
+      flagColor = '#1a5dc8'; // Azul para inglés
+      break;
+    case 'spanish':
+      flagColor = '#c8341a'; // Rojo para español
+      break;
+    case 'portuguese':
+      flagColor = '#1ac834'; // Verde para portugués
+      break;
+    case 'vietnamese':
+      flagColor = '#c8b91a'; // Amarillo para vietnamita
+      break;
+    case 'thai':
+      flagColor = '#8c1ac8'; // Púrpura para tailandés
+      break;
+    default:
+      flagColor = '#1a5dc8'; // Azul por defecto
+  }
+  
+  // Dibujar bandera circular
+  ctx.beginPath();
+  ctx.arc(16, 16, 15, 0, 2 * Math.PI);
+  ctx.fillStyle = flagColor;
+  ctx.fill();
+  
+  // Iniciales del idioma
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'bold 14px Arial';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(langCode.substring(0, 2).toUpperCase(), 16, 16);
+  
+  // Borde
+  ctx.strokeStyle = '#ffffff';
+  ctx.lineWidth = 2;
+  ctx.stroke();
+  
+  // Reemplazar la imagen original
+  imgElement.src = canvas.toDataURL();
+}
+
+function drawStar(ctx, cx, cy, spikes, outerRadius, innerRadius, color) {
+  let rot = Math.PI / 2 * 3;
+  let x = cx;
+  let y = cy;
+  const step = Math.PI / spikes;
+  
+  ctx.beginPath();
+  ctx.moveTo(cx, cy - outerRadius);
+  
+  for (let i = 0; i < spikes; i++) {
+    x = cx + Math.cos(rot) * outerRadius;
+    y = cy + Math.sin(rot) * outerRadius;
+    ctx.lineTo(x, y);
+    rot += step;
+    
+    x = cx + Math.cos(rot) * innerRadius;
+    y = cy + Math.sin(rot) * innerRadius;
+    ctx.lineTo(x, y);
+    rot += step;
+  }
+  
+  ctx.lineTo(cx, cy - outerRadius);
+  ctx.closePath();
+  ctx.fillStyle = color;
+  ctx.fill();
+}
+
+function replaceMissingImage(imgElement) {
+  // Determinar qué tipo de imagen falta
+  if (imgElement.classList.contains('logo-small') || imgElement.classList.contains('logo-large')) {
+    createTempLogoImage(imgElement);
+  } else if (imgElement.classList.contains('lang-flag')) {
+    createTempFlagImage(imgElement);
+  }
 }
 
 // Exportar funciones para uso en otros scripts
