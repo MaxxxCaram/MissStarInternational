@@ -1,1 +1,296 @@
- 
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" content="max-age=31536000, public">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="description" content="Miss Star International - การประกวดนางงามระดับนานาชาติ">
+    <title>Miss Star International</title>
+    
+    <!-- Preconnect & DNS Prefetch -->
+    <link rel="preconnect" href="https://cdn.missstarinternational.com">
+    <link rel="dns-prefetch" href="https://cdn.missstarinternational.com">
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="/assets/fonts/Orbitron-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/css/future.css" as="style">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/assets/css/future.css">
+    <link rel="stylesheet" href="/assets/css/animations.css">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- External Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.0/dist/vanilla-tilt.min.js" defer></script>
+    
+    <style>
+        :root {
+            --primary-glow: rgba(0, 255, 255, 0.5);
+            --secondary-glow: rgba(255, 0, 255, 0.5);
+            --text-glow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background: radial-gradient(circle at center, #000046 0%, #000013 100%);
+            color: #fff;
+            margin: 0;
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .logo {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 2rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            text-align: center;
+            margin: 0 0 1rem;
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(var(--text-glow));
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .tagline {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            text-align: center;
+            margin: 0 0 2rem;
+            opacity: 0.8;
+        }
+
+        .countdown {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #00ffff;
+            text-shadow: var(--text-glow);
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+
+        .cta-button {
+            padding: 1rem 2rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            color: #fff;
+            background: linear-gradient(45deg, rgba(0, 255, 255, 0.2), rgba(255, 0, 255, 0.2));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            backdrop-filter: blur(5px);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px var(--primary-glow);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            color: #fff;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: #00ffff;
+            transform: scale(1.2);
+        }
+
+        /* Selector de idioma simple */
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .language-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            background: #000;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+            gap: 8px;
+        }
+
+        .language-button img {
+            width: 20px;
+            height: 15px;
+            object-fit: cover;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes glow {
+            0% { filter: drop-shadow(0 0 5px var(--primary-glow)); }
+            100% { filter: drop-shadow(0 0 20px var(--secondary-glow)); }
+        }
+
+        @media (max-width: 768px) {
+            .countdown {
+                gap: 1rem;
+            }
+
+            .countdown-number {
+                font-size: 2rem;
+            }
+
+            .countdown-label {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <video class="video-background" autoplay muted loop playsinline>
+        <source src="/assets/videos/hero-video.mp4" type="video/mp4">
+    </video>
+    
+    <div class="language-selector">
+        <a href="/" class="language-button">
+            <img src="/assets/images/flags/en.png" alt="English">
+            EN
+        </a>
+    </div>
+    
+    <div class="container">
+        <img src="/assets/images/logo.png" alt="Logo Miss Star International" class="logo">
+        <h1>Miss Star International</h1>
+        <p class="tagline">เชิดชูความงาม เฉลิมฉลองความหลากหลาย</p>
+        
+        <div class="countdown">
+            <div class="countdown-item">
+                <span class="countdown-number" id="days">00</span>
+                <span class="countdown-label">วัน</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="hours">00</span>
+                <span class="countdown-label">ชั่วโมง</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="minutes">00</span>
+                <span class="countdown-label">นาที</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="seconds">00</span>
+                <span class="countdown-label">วินาที</span>
+            </div>
+        </div>
+
+        <a href="#notify" class="cta-button">รับการแจ้งเตือน</a>
+
+        <div class="social-links">
+            <a href="#" class="social-link">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-link">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="#" class="social-link">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-link">
+                <i class="fab fa-youtube"></i>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const launchDate = new Date('2025-12-31T00:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Initialize vanilla-tilt
+        VanillaTilt.init(document.querySelector('.cta-button'), {
+            max: 25,
+            speed: 400,
+            glare: true,
+            'max-glare': 0.5
+        });
+    </script>
+    
+    <!-- Font Awesome for social icons -->
+    <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous" defer></script>
+</body>
+</html> 
