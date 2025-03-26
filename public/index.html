@@ -222,6 +222,8 @@
             overflow: hidden;
             -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
+            will-change: transform;
+            transform: translateZ(0);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
         
@@ -257,6 +259,8 @@
             margin-bottom: 15px;
             border: 2px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
+            loading: lazy;
+            decoding: async;
         }
         
         .language-card:hover .language-flag {
@@ -348,11 +352,11 @@
         
         @keyframes shine {
             0% {
-                transform: translateX(-100%);
+                transform: translateX(-100%) rotate(45deg);
                 opacity: 0.5;
             }
             100% {
-                transform: translateX(100%);
+                transform: translateX(100%) rotate(45deg);
                 opacity: 0;
             }
         }
@@ -477,85 +481,80 @@
     </div>
     
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // Portal Loader
-        document.addEventListener('DOMContentLoaded', function() {
-            // Update year
-            document.getElementById('current-year').textContent = new Date().getFullYear();
-            
-            // Simulate loading
-            const portalText = document.getElementById('portal-text');
-            const portalLoader = document.getElementById('portal-loader');
-            
-            const loadingTexts = [
-                "INICIANDO PORTAL",
-                "ESCANEANDO REALIDAD",
-                "AJUSTANDO DIMENSIONES",
-                "SINCRONIZANDO",
-                "PORTAL LISTO"
-            ];
-            
-            let currentTextIndex = 0;
-            
-            const textInterval = setInterval(() => {
-                portalText.textContent = loadingTexts[currentTextIndex];
-                currentTextIndex++;
+        // Preload images
+        const imagesToPreload = [
+            'assets/images/logo/miss-star-logo.png',
+            'assets/images/flags/en.png',
+            'assets/images/flags/es.png',
+            'assets/images/flags/pt.png',
+            'assets/images/flags/vi.png',
+            'assets/images/flags/th.png'
+        ];
+
+        imagesToPreload.forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
+
+        // Portal Loader with performance optimizations
+        document.addEventListener('DOMContentLoaded', () => {
+            requestAnimationFrame(() => {
+                // Update year
+                document.getElementById('current-year').textContent = new Date().getFullYear();
                 
-                if (currentTextIndex >= loadingTexts.length) {
-                    clearInterval(textInterval);
-                    
-                    // Hide loader after last text
-                    setTimeout(() => {
-                        portalLoader.classList.add('hidden');
+                // Optimized portal loader
+                const portalText = document.getElementById('portal-text');
+                const portalLoader = document.getElementById('portal-loader');
+                
+                const loadingTexts = [
+                    "INICIANDO PORTAL",
+                    "ESCANEANDO REALIDAD",
+                    "AJUSTANDO DIMENSIONES",
+                    "SINCRONIZANDO",
+                    "PORTAL LISTO"
+                ];
+                
+                let currentTextIndex = 0;
+                
+                const textInterval = setInterval(() => {
+                    requestAnimationFrame(() => {
+                        portalText.textContent = loadingTexts[currentTextIndex];
+                        currentTextIndex++;
                         
-                        // Remove from DOM after transition
-                        setTimeout(() => {
-                            portalLoader.style.display = 'none';
-                        }, 500);
-                    }, 1000);
-                }
-            }, 700);
-            
-            // Initialize particles
+                        if (currentTextIndex >= loadingTexts.length) {
+                            clearInterval(textInterval);
+                            setTimeout(() => {
+                                portalLoader.classList.add('hidden');
+                                setTimeout(() => {
+                                    portalLoader.remove();
+                                }, 500);
+                            }, 1000);
+                        }
+                    });
+                }, 700);
+            });
+        });
+    </script>
+    
+    <!-- Deferred particles.js -->
+    <script defer src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" onload="initParticles()"></script>
+    <script>
+        function initParticles() {
             particlesJS('particles-js', {
                 "particles": {
-                    "number": {
-                        "value": 80,
-                        "density": {
-                            "enable": true,
-                            "value_area": 800
-                        }
-                    },
-                    "color": {
-                        "value": ["#00e5ff", "#ff00ff", "#ffcc00"]
-                    },
-                    "shape": {
-                        "type": "circle",
-                        "stroke": {
-                            "width": 0,
-                            "color": "#000000"
-                        },
-                    },
+                    "number": { "value": 40, "density": { "enable": true, "value_area": 800 } },
+                    "color": { "value": ["#00e5ff", "#ff00ff", "#ffcc00"] },
+                    "shape": { "type": "circle" },
                     "opacity": {
                         "value": 0.5,
                         "random": true,
-                        "anim": {
-                            "enable": true,
-                            "speed": 1,
-                            "opacity_min": 0.1,
-                            "sync": false
-                        }
+                        "anim": { "enable": true, "speed": 0.5, "opacity_min": 0.1, "sync": false }
                     },
                     "size": {
                         "value": 3,
                         "random": true,
-                        "anim": {
-                            "enable": true,
-                            "speed": 2,
-                            "size_min": 0.1,
-                            "sync": false
-                        }
+                        "anim": { "enable": true, "speed": 1, "size_min": 0.1, "sync": false }
                     },
                     "line_linked": {
                         "enable": true,
@@ -566,42 +565,28 @@
                     },
                     "move": {
                         "enable": true,
-                        "speed": 1,
+                        "speed": 0.5,
                         "direction": "none",
                         "random": true,
                         "straight": false,
-                        "out_mode": "out",
-                        "bounce": false
+                        "out_mode": "out"
                     }
                 },
                 "interactivity": {
                     "detect_on": "canvas",
                     "events": {
-                        "onhover": {
-                            "enable": true,
-                            "mode": "grab"
-                        },
-                        "onclick": {
-                            "enable": true,
-                            "mode": "push"
-                        },
+                        "onhover": { "enable": true, "mode": "grab" },
+                        "onclick": { "enable": true, "mode": "push" },
                         "resize": true
                     },
                     "modes": {
-                        "grab": {
-                            "distance": 140,
-                            "line_linked": {
-                                "opacity": 1
-                            }
-                        },
-                        "push": {
-                            "particles_nb": 4
-                        }
+                        "grab": { "distance": 140, "line_linked": { "opacity": 1 } },
+                        "push": { "particles_nb": 2 }
                     }
                 },
                 "retina_detect": true
             });
-        });
+        }
     </script>
 </body>
 </html>
