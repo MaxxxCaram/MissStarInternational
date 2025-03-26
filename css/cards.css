@@ -1,0 +1,249 @@
+/* Contestant Cards */
+.contestant-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-xl);
+  padding: var(--spacing-xl) 0;
+}
+
+.contestant-card {
+  position: relative;
+  background: var(--glass-bg);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: var(--transition-standard);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.contestant-card:hover {
+  transform: translateY(-10px) rotateX(5deg);
+  box-shadow: 0 20px 40px rgba(0, 229, 255, 0.2);
+}
+
+.card-image-container {
+  position: relative;
+  padding-top: 125%;
+  overflow: hidden;
+}
+
+.card-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-standard);
+}
+
+.contestant-card:hover .card-image {
+  transform: scale(1.05);
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  pointer-events: none;
+}
+
+.card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: var(--spacing-lg);
+  z-index: 1;
+}
+
+.contestant-name {
+  color: var(--light-color);
+  font-family: var(--future-font);
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-xs);
+  text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+}
+
+.contestant-title {
+  color: var(--primary-color);
+  font-family: var(--text-font);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--spacing-sm);
+}
+
+.contestant-stats {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.stat-icon {
+  width: 16px;
+  height: 16px;
+  fill: var(--primary-color);
+}
+
+.stat-value {
+  color: var(--light-color);
+  font-family: var(--text-font);
+  font-size: 0.9rem;
+}
+
+.card-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.card-button {
+  padding: var(--spacing-xs) var(--spacing-md);
+  background: var(--primary-gradient);
+  border: none;
+  border-radius: var(--radius-sm);
+  color: var(--darker-color);
+  font-family: var(--future-font);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: var(--transition-standard);
+}
+
+.card-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 229, 255, 0.3);
+}
+
+.card-button.secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--light-color);
+}
+
+.card-button.secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Hologram Effect */
+.card-hologram {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(0, 229, 255, 0.05), rgba(255, 0, 255, 0.05));
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0;
+  transition: var(--transition-standard);
+}
+
+.contestant-card:hover .card-hologram {
+  opacity: 1;
+}
+
+/* Card Badge */
+.card-badge {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: var(--primary-gradient);
+  border-radius: var(--radius-sm);
+  color: var(--darker-color);
+  font-family: var(--future-font);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  z-index: 2;
+}
+
+/* Card Loading State */
+.card-skeleton {
+  position: relative;
+  background: var(--glass-bg);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  height: 400px;
+}
+
+.skeleton-image,
+.skeleton-text {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1) 25%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.1) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+.skeleton-image {
+  height: 70%;
+  width: 100%;
+}
+
+.skeleton-text {
+  height: 20px;
+  width: 80%;
+  margin: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-sm);
+}
+
+.skeleton-text:last-child {
+  width: 60%;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .contestant-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  .contestant-name {
+    font-size: 1.2rem;
+  }
+
+  .card-content {
+    padding: var(--spacing-md);
+  }
+}
+
+@media (max-width: 576px) {
+  .contestant-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card-actions {
+    flex-direction: column;
+  }
+
+  .card-button {
+    width: 100%;
+  }
+} 

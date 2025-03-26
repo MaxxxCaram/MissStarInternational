@@ -1,0 +1,260 @@
+/* Portal Loader */
+.portal-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--darker-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: var(--z-loader);
+  transition: opacity var(--transition-normal) ease, visibility var(--transition-normal) ease;
+}
+
+.portal-loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.portal-container {
+  position: relative;
+  width: var(--portal-size);
+  height: var(--portal-size);
+  perspective: 1000px;
+}
+
+.portal-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-round);
+  border: var(--portal-border) solid transparent;
+  animation: portal-spin var(--portal-speed) linear infinite;
+}
+
+.portal-ring:nth-child(1) {
+  border-top-color: var(--primary-color);
+  border-bottom-color: var(--accent-color);
+}
+
+.portal-ring:nth-child(2) {
+  width: 80%;
+  height: 80%;
+  top: 10%;
+  left: 10%;
+  border-left-color: var(--secondary-color);
+  border-right-color: var(--primary-color);
+  animation-duration: calc(var(--portal-speed) * 1.5);
+}
+
+.portal-ring:nth-child(3) {
+  width: 60%;
+  height: 60%;
+  top: 20%;
+  left: 20%;
+  border-top-color: var(--accent-color);
+  border-bottom-color: var(--secondary-color);
+  animation-duration: calc(var(--portal-speed) * 0.75);
+}
+
+.portal-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  height: 40%;
+  background: var(--primary-gradient);
+  border-radius: var(--radius-round);
+  animation: portal-pulse var(--portal-speed) ease-in-out infinite alternate;
+}
+
+.portal-text {
+  margin-top: var(--spacing-xl);
+  font-family: var(--future-font);
+  font-size: var(--h4-size);
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-align: center;
+  opacity: 0.8;
+  animation: text-flicker 2s linear infinite;
+}
+
+.portal-progress {
+  margin-top: var(--spacing-lg);
+  width: 200px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.portal-progress-bar {
+  width: 0;
+  height: 100%;
+  background: var(--primary-gradient);
+  transition: width var(--transition-normal) ease;
+  animation: progress-glow 2s ease-in-out infinite;
+}
+
+.portal-year {
+  margin-top: var(--spacing-md);
+  font-family: var(--future-font);
+  font-size: var(--h5-size);
+  color: var(--accent-color);
+  opacity: 0.6;
+}
+
+/* Portal Animations */
+@keyframes portal-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes portal-pulse {
+  from {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.5;
+    box-shadow: 0 0 20px var(--primary-color);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 1;
+    box-shadow: 0 0 40px var(--primary-color), 0 0 60px var(--accent-color);
+  }
+}
+
+@keyframes text-flicker {
+  0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+    opacity: 0.8;
+    text-shadow: none;
+  }
+  20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+    opacity: 0.4;
+    text-shadow: none;
+  }
+}
+
+@keyframes progress-glow {
+  0% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.5);
+  }
+  100% {
+    filter: brightness(1);
+  }
+}
+
+/* Scanline Effect */
+.portal-scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--scanline-height);
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--primary-color),
+    transparent
+  );
+  opacity: var(--scanline-opacity);
+  animation: scanline var(--scanline-speed) linear infinite;
+}
+
+@keyframes scanline {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+/* Hologram Effect */
+.portal-hologram {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--hologram-color);
+  opacity: var(--hologram-opacity);
+  filter: blur(var(--hologram-blur));
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+/* Loading Messages */
+.portal-messages {
+  position: absolute;
+  bottom: var(--spacing-xxl);
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: var(--light-color);
+  font-family: var(--future-font);
+  font-size: var(--h6-size);
+  opacity: 0.6;
+  width: 100%;
+  max-width: 600px;
+  padding: 0 var(--spacing-lg);
+}
+
+.portal-message {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all var(--transition-normal) ease;
+}
+
+.portal-message.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .portal-container {
+    width: calc(var(--portal-size) * 0.8);
+    height: calc(var(--portal-size) * 0.8);
+  }
+
+  .portal-text {
+    font-size: var(--h5-size);
+  }
+
+  .portal-year {
+    font-size: var(--h6-size);
+  }
+
+  .portal-messages {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .portal-container {
+    width: calc(var(--portal-size) * 0.6);
+    height: calc(var(--portal-size) * 0.6);
+  }
+
+  .portal-text {
+    font-size: 1rem;
+  }
+
+  .portal-progress {
+    width: 150px;
+  }
+} 
