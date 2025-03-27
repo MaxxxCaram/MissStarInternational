@@ -242,7 +242,11 @@
             </div>
         </div>
 
-        <a href="#notify" class="cta-button">Get Notified</a>
+        <form id="notifyForm" class="notify-form">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <button type="submit" class="cta-button">Get Notified</button>
+        </form>
 
         <div class="social-links">
             <a href="#" class="social-link">
@@ -287,6 +291,37 @@
             speed: 400,
             glare: true,
             'max-glare': 0.5
+        });
+
+        // Form submission
+        document.getElementById('notifyForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            
+            try {
+                const response = await fetch('http://localhost:3000/api/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name,
+                        email,
+                        language: 'en'
+                    })
+                });
+                
+                if (response.ok) {
+                    alert('Thank you for subscribing!');
+                    e.target.reset();
+                } else {
+                    throw new Error('Subscription failed');
+                }
+            } catch (error) {
+                alert('Sorry, there was an error. Please try again later.');
+                console.error(error);
+            }
         });
     </script>
     
