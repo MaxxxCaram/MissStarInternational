@@ -1,57 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Miss Star International - Select Language</title>
-    
-    <!-- Fonts -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Miss Star International - Select Your Language</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-    
-    <!-- External Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
-    
     <style>
         :root {
-            --primary-color: #00ffff;
-            --secondary-color: #ff00ff;
-            --bg-dark: #000013;
+            --primary-glow: rgba(0, 255, 255, 0.5);
+            --secondary-glow: rgba(255, 0, 255, 0.5);
             --text-glow: 0 0 10px rgba(255, 255, 255, 0.8);
         }
 
-        * {
+        body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Orbitron', sans-serif;
-            background: radial-gradient(circle at center, #000046 0%, var(--bg-dark) 100%);
-            color: #fff;
             min-height: 100vh;
+            background: radial-gradient(circle at center, #000046 0%, #000013 100%);
+            font-family: 'Orbitron', sans-serif;
+            color: #fff;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
         }
 
-        #particles-js {
+        .video-background {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1;
+            z-index: 0;
+            object-fit: cover;
+            opacity: 0.5;
         }
 
-        .content {
+        .container {
             position: relative;
-            z-index: 2;
-            text-align: center;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 2rem;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .logo {
@@ -62,52 +56,58 @@
         }
 
         .title {
-            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-size: 2.5rem;
             margin-bottom: 1rem;
-            color: var(--primary-color);
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(var(--text-glow));
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
             text-shadow: var(--text-glow);
         }
 
         .language-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
+            width: 100%;
             max-width: 800px;
         }
 
         .language-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 15px;
-            padding: 2rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            padding: 1.5rem;
             text-decoration: none;
             color: #fff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            cursor: pointer;
         }
 
         .language-card:hover {
             transform: translateY(-5px);
-            border-color: var(--primary-color);
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+            border-color: var(--primary-glow);
+            box-shadow: 0 0 20px var(--primary-glow);
         }
 
         .language-card img {
-            width: 40px;
-            height: auto;
+            width: 60px;
+            height: 40px;
+            margin-bottom: 1rem;
             border-radius: 5px;
+            object-fit: cover;
         }
 
         .language-name {
             font-size: 1.2rem;
-            font-weight: bold;
-            color: #fff;
+            margin-bottom: 0.5rem;
         }
 
         .language-native {
@@ -117,102 +117,63 @@
 
         @keyframes float {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-20px); }
         }
 
         @media (max-width: 768px) {
             .language-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .language-grid {
                 grid-template-columns: 1fr;
-                gap: 1rem;
-                padding: 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <div id="particles-js"></div>
-    <div class="content">
+    <video class="video-background" autoplay muted loop playsinline>
+        <source src="/assets/videos/hero-video.mp4" type="video/mp4">
+    </video>
+
+    <div class="container">
         <img src="/assets/images/logo.png" alt="Miss Star International Logo" class="logo">
         <h1 class="title">THE FUTURE OF BEAUTY</h1>
-        <h2 class="title">SELECT YOUR LANGUAGE</h2>
-        
+        <h2 class="subtitle">SELECT YOUR LANGUAGE</h2>
+
         <div class="language-grid">
-            <a href="/en/" class="language-card">
-                <img src="/assets/images/flags/en.png" alt="English Flag">
-                <span class="language-name">English</span>
-                <span class="language-native">English</span>
+            <a href="/en" class="language-card">
+                <img src="/assets/images/flags/en.svg" alt="English Flag">
+                <div class="language-name">English</div>
+                <div class="language-native">English</div>
             </a>
-            
-            <a href="/es/" class="language-card">
-                <img src="/assets/images/flags/es.png" alt="Spanish Flag">
-                <span class="language-name">Spanish</span>
-                <span class="language-native">Español</span>
+
+            <a href="/es" class="language-card">
+                <img src="/assets/images/flags/es.svg" alt="Spanish Flag">
+                <div class="language-name">Spanish</div>
+                <div class="language-native">Español</div>
             </a>
-            
-            <a href="/pt/" class="language-card">
-                <img src="/assets/images/flags/pt.png" alt="Portuguese Flag">
-                <span class="language-name">Portuguese</span>
-                <span class="language-native">Português</span>
+
+            <a href="/pt" class="language-card">
+                <img src="/assets/images/flags/pt.svg" alt="Portuguese Flag">
+                <div class="language-name">Portuguese</div>
+                <div class="language-native">Português</div>
             </a>
-            
-            <a href="/vi/" class="language-card">
-                <img src="/assets/images/flags/vi.png" alt="Vietnamese Flag">
-                <span class="language-name">Vietnamese</span>
-                <span class="language-native">Tiếng Việt</span>
+
+            <a href="/vi" class="language-card">
+                <img src="/assets/images/flags/vi.svg" alt="Vietnamese Flag">
+                <div class="language-name">Vietnamese</div>
+                <div class="language-native">Tiếng Việt</div>
             </a>
-            
-            <a href="/th/" class="language-card">
-                <img src="/assets/images/flags/th.png" alt="Thai Flag">
-                <span class="language-name">Thai</span>
-                <span class="language-native">ภาษาไทย</span>
+
+            <a href="/th" class="language-card">
+                <img src="/assets/images/flags/th.svg" alt="Thai Flag">
+                <div class="language-name">Thai</div>
+                <div class="language-native">ภาษาไทย</div>
             </a>
         </div>
     </div>
-
-    <script>
-        particlesJS('particles-js', {
-            particles: {
-                number: {
-                    value: 80,
-                    density: { enable: true, value_area: 800 }
-                },
-                color: { value: '#ffffff' },
-                shape: { type: 'circle' },
-                opacity: {
-                    value: 0.5,
-                    random: true
-                },
-                size: {
-                    value: 3,
-                    random: true
-                },
-                line_linked: {
-                    enable: true,
-                    distance: 150,
-                    color: '#ffffff',
-                    opacity: 0.4,
-                    width: 1
-                },
-                move: {
-                    enable: true,
-                    speed: 2,
-                    direction: 'none',
-                    random: false,
-                    straight: false,
-                    out_mode: 'out',
-                    bounce: false
-                }
-            },
-            interactivity: {
-                detect_on: 'canvas',
-                events: {
-                    onhover: { enable: true, mode: 'repulse' },
-                    onclick: { enable: true, mode: 'push' },
-                    resize: true
-                }
-            },
-            retina_detect: true
-        });
-    </script>
 </body>
 </html> 
