@@ -14,7 +14,7 @@
         // Default to English if language not supported
         var redirectLang = supportedLangs.includes(userLang) ? userLang : 'en';
         
-        // Redirect
+        // Redirect immediately
         window.location.replace('/' + redirectLang + '/');
     </script>
 </head>
@@ -22,6 +22,6 @@
     <noscript>
         <meta http-equiv="refresh" content="0;url=/en/">
     </noscript>
-    Redirecting...
+    If you are not redirected automatically, please <a href="/en/">click here</a>.
 </body>
 </html> 

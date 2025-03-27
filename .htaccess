@@ -1,5 +1,5 @@
-# Configuración básica para verificar funcionamiento
-DirectoryIndex index.html
+# Configuración básica
+DirectoryIndex index.html index.php
 Options +FollowSymLinks
 RewriteEngine On
 
@@ -15,31 +15,37 @@ RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # Language detection and redirection
-RewriteCond %{HTTP:Accept-Language} ^(es) [NC]
-RewriteRule ^$ /es/ [L,R=302]
+RewriteCond %{REQUEST_URI} ^/?$
+RewriteCond %{HTTP:Accept-Language} ^es [NC]
+RewriteRule ^ /es/ [R=302,L]
 
-RewriteCond %{HTTP:Accept-Language} ^(pt) [NC]
-RewriteRule ^$ /pt/ [L,R=302]
+RewriteCond %{REQUEST_URI} ^/?$
+RewriteCond %{HTTP:Accept-Language} ^pt [NC]
+RewriteRule ^ /pt/ [R=302,L]
 
-RewriteCond %{HTTP:Accept-Language} ^(fr) [NC]
-RewriteRule ^$ /fr/ [L,R=302]
+RewriteCond %{REQUEST_URI} ^/?$
+RewriteCond %{HTTP:Accept-Language} ^fr [NC]
+RewriteRule ^ /fr/ [R=302,L]
 
-RewriteCond %{HTTP:Accept-Language} ^(th) [NC]
-RewriteRule ^$ /th/ [L,R=302]
+RewriteCond %{REQUEST_URI} ^/?$
+RewriteCond %{HTTP:Accept-Language} ^th [NC]
+RewriteRule ^ /th/ [R=302,L]
 
-RewriteCond %{HTTP:Accept-Language} ^(vi) [NC]
-RewriteRule ^$ /vi/ [L,R=302]
+RewriteCond %{REQUEST_URI} ^/?$
+RewriteCond %{HTTP:Accept-Language} ^vi [NC]
+RewriteRule ^ /vi/ [R=302,L]
 
 # Default to English if no language match
-RewriteRule ^$ /en/ [L,R=302]
+RewriteCond %{REQUEST_URI} ^/?$
+RewriteRule ^ /en/ [R=302,L]
 
-# Redirecciones de franquicias
-RewriteRule ^brazil/?$ https://brazil.missstarinternational.com [R=301,L]
-RewriteRule ^mexico/?$ https://mexico.missstarinternational.com [R=301,L]
-
-# Rutas de idiomas
+# Handle language directories
 RewriteRule ^en/?$ /en/index.html [L]
 RewriteRule ^es/?$ /es/index.html [L]
+RewriteRule ^pt/?$ /pt/index.html [L]
+RewriteRule ^fr/?$ /fr/index.html [L]
+RewriteRule ^th/?$ /th/index.html [L]
+RewriteRule ^vi/?$ /vi/index.html [L]
 
 # Performance optimizations
 <IfModule mod_expires.c>
@@ -80,6 +86,11 @@ RewriteRule ^es/?$ /es/index.html [L]
     Header set X-Frame-Options "SAMEORIGIN"
     Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
     Header set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Force no-cache temporarily
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires 0
 </IfModule>
 
 # Codificación UTF-8
