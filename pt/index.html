@@ -288,6 +288,28 @@
             glare: true,
             'max-glare': 0.5
         });
+
+        document.getElementById('notifyForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            
+            try {
+                const response = await fetch('https://api.missstarinternational.com/api/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name,
+                        email,
+                        language: 'pt'
+                    })
+                });
+            } catch (error) {
+                console.error('Erro ao enviar o formulário:', error);
+            }
+        });
     </script>
     
     <!-- Font Awesome for social icons -->
