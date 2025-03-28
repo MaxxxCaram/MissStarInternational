@@ -2,26 +2,46 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0;url=/en/">
     <script>
-        // Get browser language
-        var userLang = navigator.language || navigator.userLanguage;
-        userLang = userLang.split('-')[0];
+    (function() {
+        // Forzar redirección inmediata
+        function redirect() {
+            var lang = navigator.language || navigator.userLanguage;
+            lang = lang.split('-')[0];
+            
+            var supportedLangs = ['en', 'es', 'pt', 'fr', 'th', 'vi'];
+            var targetLang = supportedLangs.includes(lang) ? lang : 'en';
+            
+            // Forzar redirección sin caché
+            var timestamp = new Date().getTime();
+            window.location.replace('/' + targetLang + '/?nocache=' + timestamp);
+        }
 
-        // Define supported languages
-        var supportedLangs = ['en', 'es', 'pt', 'fr', 'th', 'vi'];
-        
-        // Default to English if language not supported
-        var redirectLang = supportedLangs.includes(userLang) ? userLang : 'en';
-        
-        // Redirect immediately
-        window.location.replace('/' + redirectLang + '/');
+        // Intentar redirección inmediata
+        redirect();
+
+        // Si no funciona, intentar de nuevo en 100ms
+        setTimeout(redirect, 100);
+    })();
     </script>
-</head>
-<body>
     <noscript>
         <meta http-equiv="refresh" content="0;url=/en/">
     </noscript>
-    If you are not redirected automatically, please <a href="/en/">click here</a>.
+</head>
+<body>
+    <script>
+    // Tercer intento de redirección
+    window.onload = function() {
+        var lang = navigator.language || navigator.userLanguage;
+        lang = lang.split('-')[0];
+        
+        var supportedLangs = ['en', 'es', 'pt', 'fr', 'th', 'vi'];
+        var targetLang = supportedLangs.includes(lang) ? lang : 'en';
+        
+        var timestamp = new Date().getTime();
+        window.location.replace('/' + targetLang + '/?nocache=' + timestamp);
+    };
+    </script>
+    <a href="/en/" style="display:none">Continue to English version</a>
 </body>
 </html> 
