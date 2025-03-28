@@ -1,10 +1,7 @@
 # Configuración básica
-DirectoryIndex default.html index.html index.php
+DirectoryIndex index.html index.php
 Options +FollowSymLinks
 RewriteEngine On
-
-# Redirección simple y directa desde la raíz a /en/
-RewriteRule ^$ /en/ [R=302,L]
 
 # Forzar HTTPS
 RewriteCond %{HTTPS} off
@@ -14,7 +11,10 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
 RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 
-# Redirecciones de idioma
+# Redirección directa a /en/
+RewriteRule ^$ /en/ [R=302,L]
+
+# Rutas de idiomas
 RewriteRule ^en/?$ /en/index.html [L]
 RewriteRule ^es/?$ /es/index.html [L]
 RewriteRule ^pt/?$ /pt/index.html [L]
@@ -22,7 +22,7 @@ RewriteRule ^fr/?$ /fr/index.html [L]
 RewriteRule ^th/?$ /th/index.html [L]
 RewriteRule ^vi/?$ /vi/index.html [L]
 
-# Evitar cache
+# Headers de Seguridad
 <IfModule mod_headers.c>
     Header set Cache-Control "no-cache, no-store, must-revalidate"
     Header set Pragma "no-cache"
@@ -32,7 +32,7 @@ RewriteRule ^vi/?$ /vi/index.html [L]
 # Página 404
 ErrorDocument 404 /en/index.html
 
-# Regla para manejar recursos inexistentes
+# Redirigir todo lo demás a /en/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ /en/ [R=302,L] 
