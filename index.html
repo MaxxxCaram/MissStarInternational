@@ -2,46 +2,13 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="0;url=/en/">
     <script>
-    (function() {
-        // Forzar redirección inmediata
-        function redirect() {
-            var lang = navigator.language || navigator.userLanguage;
-            lang = lang.split('-')[0];
-            
-            var supportedLangs = ['en', 'es', 'pt', 'fr', 'th', 'vi'];
-            var targetLang = supportedLangs.includes(lang) ? lang : 'en';
-            
-            // Forzar redirección sin caché
-            var timestamp = new Date().getTime();
-            window.location.replace('/' + targetLang + '/?nocache=' + timestamp);
-        }
-
-        // Intentar redirección inmediata
-        redirect();
-
-        // Si no funciona, intentar de nuevo en 100ms
-        setTimeout(redirect, 100);
-    })();
+        // Redirección inmediata
+        window.location.replace('/en/');
     </script>
-    <noscript>
-        <meta http-equiv="refresh" content="0;url=/en/">
-    </noscript>
 </head>
 <body>
-    <script>
-    // Tercer intento de redirección
-    window.onload = function() {
-        var lang = navigator.language || navigator.userLanguage;
-        lang = lang.split('-')[0];
-        
-        var supportedLangs = ['en', 'es', 'pt', 'fr', 'th', 'vi'];
-        var targetLang = supportedLangs.includes(lang) ? lang : 'en';
-        
-        var timestamp = new Date().getTime();
-        window.location.replace('/' + targetLang + '/?nocache=' + timestamp);
-    };
-    </script>
-    <a href="/en/" style="display:none">Continue to English version</a>
+    <a href="/en/">Click here if you are not redirected automatically</a>
 </body>
 </html> 
