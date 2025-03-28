@@ -316,7 +316,8 @@
                     alert('Thank you for subscribing!');
                     e.target.reset();
                 } else {
-                    throw new Error('Subscription failed');
+                    alert('Subscription failed');
+                    return;
                 }
             } catch (error) {
                 alert('Sorry, there was an error. Please try again later.');
