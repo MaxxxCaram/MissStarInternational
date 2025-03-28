@@ -1,0 +1,66 @@
+/* Portal Loader */
+.portal-loader {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: var(--cyber-dark);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.portal-ring {
+    width: 200px;
+    height: 200px;
+    border: 4px solid var(--neon-primary);
+    border-radius: 50%;
+    animation: portalSpin 2s linear infinite;
+}
+
+/* Hologram Effect */
+.hologram {
+    position: relative;
+    animation: hologramFloat 3s ease-in-out infinite;
+}
+
+@keyframes hologramFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+/* Particle Effects */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+@keyframes portalSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+.glitch {
+    animation: glitch 0.3s infinite;
+} 

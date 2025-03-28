@@ -1,0 +1,14 @@
+[franchise_name]/
+├── index.html
+├── conference/
+├── consortium/
+│   ├── index.html
+│   ├── assets/
+│   │   ├── css/
+│   │   └── js/
+├── dynasty-benefits/
+├── dynasty-portal/
+├── empower/
+├── hall-of-fame/
+├── history/
+└── reality-show/ 

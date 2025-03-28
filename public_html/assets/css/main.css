@@ -1,0 +1,19 @@
+:root {
+  --neon-gold: #ffd700;
+  --cyber-black: #0a0a0a;
+  --holographic: linear-gradient(45deg, #ffd700, #ff69b4, #4169e1);
+  --glass-effect: backdrop-filter: blur(10px);
+}
+
+.future-card {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 0 80px rgba(255,215,0,0.15);
+}
+
+.neon-text {
+  text-shadow: 0 0 10px var(--neon-gold),
+               0 0 20px var(--neon-gold),
+               0 0 40px var(--neon-gold);
+} 
