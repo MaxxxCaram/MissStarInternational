@@ -1,36 +1,188 @@
-/* Miss Star International - Main Styles */
+/* Estilos Futuristas */
 :root {
     --neon-primary: #0ff;
     --neon-secondary: #f0f;
-    --gold: #D4AF37;
     --bg-dark: #000013;
-    --glass-bg: rgba(0,0,0,0.7);
+    --glass-bg: rgba(255,255,255,0.1);
 }
 
+/* Base Styles */
 body {
-    margin: 0;
-    padding: 0;
-    background: #000;
-    font-family: 'Inter', sans-serif;
-    min-height: 100vh;
+    background: var(--bg-dark);
     color: #fff;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), #000000;
+    font-family: 'Orbitron', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
 }
 
-/* Navbar Styles */
+/* Glassmorphism */
+.glass-effect {
+    background: rgba(255,255,255,0.1);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 10px;
+}
+
+/* Navegación */
 .cyber-nav {
     position: fixed;
     top: 0;
     width: 100%;
     padding: 1rem;
     z-index: 100;
-    background: rgba(0,0,0,0.8);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
 }
 
-/* Portal Loader */
-#portal-loader {
+/* Hero Section */
+.hero-cyber {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.cyber-title {
+    font-size: 4rem;
+    text-transform: uppercase;
+    margin: 0;
+    background: linear-gradient(45deg, var(--neon-primary), var(--neon-secondary));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -ms-background-clip: text;
+    -o-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    text-shadow: 
+        2px 2px 0px #ffd700,
+        -2px -2px 0px #ff69b4;
+    animation: titleFloat 3s ease-in-out infinite;
+}
+
+@keyframes titleFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+/* Franchise Cards */
+.franchise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.franchise-card {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.franchise-card::before {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    background: linear-gradient(
+        45deg,
+        #ffd700 0%,
+        #ff69b4 25%,
+        #4169e1 50%,
+        #ffd700 75%,
+        #ff69b4 100%
+    );
+    background-size: 200% 200%;
+    animation: hologramBorder 5s linear infinite;
+    filter: blur(15px);
+    z-index: -1;
+}
+
+@keyframes hologramBorder {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 200% 200%; }
+}
+
+/* Botones */
+.holo-button, .neon-button {
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.holo-button {
+    background: var(--glass-bg);
+    border: 2px solid rgba(255,255,255,0.5);
+}
+
+.neon-button {
+    background: var(--neon-primary);
+    color: var(--bg-dark);
+    box-shadow: 0 0 20px var(--neon-primary);
+}
+
+/* Timeline */
+.cyber-timeline {
+    position: relative;
+    padding: 4rem 0;
+}
+
+.timeline-track {
+    display: flex;
+    overflow-x: auto;
+    padding: 2rem 0;
+}
+
+/* Animaciones */
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 20px var(--neon-primary); }
+    50% { box-shadow: 0 0 40px var(--neon-primary); }
+    100% { box-shadow: 0 0 20px var(--neon-primary); }
+}
+
+.holo-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px var(--neon-primary);
+}
+
+.franchise-card:hover .holographic-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animaciones y Efectos */
+@keyframes portalSpin {
+    0% { transform: rotate(0deg) scale(1); }
+    100% { transform: rotate(360deg) scale(1.5); }
+}
+
+@keyframes neonPulse {
+    0% { text-shadow: 0 0 10px var(--neon-primary); }
+    50% { text-shadow: 0 0 20px var(--neon-primary), 0 0 30px var(--neon-secondary); }
+    100% { text-shadow: 0 0 10px var(--neon-primary); }
+}
+
+/* Ajustes críticos */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.portal-loader {
     position: fixed;
     inset: 0;
     background: var(--bg-dark);
@@ -40,43 +192,35 @@ body {
     justify-content: center;
 }
 
-/* Glass Effect */
-.glass-effect {
-    background: var(--glass-bg);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 10px;
+.neon-link {
+    color: var(--neon-primary);
+    text-decoration: none;
+    text-shadow: 0 0 5px var(--neon-primary);
+    transition: all 0.3s ease;
 }
 
-/* Gold Accents */
-.gold-text {
-    color: var(--gold);
-    text-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+/* Otros efectos que necesitan prefijos */
+.neon-glow {
+    -webkit-box-shadow: 0 0 10px var(--neon-primary);
+    box-shadow: 0 0 10px var(--neon-primary);
 }
 
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+.transform-3d {
+    -webkit-transform: perspective(1000px);
+    transform: perspective(1000px);
 }
 
-@keyframes glow {
-    from { filter: drop-shadow(0 0 2px var(--gold)); }
-    to { filter: drop-shadow(0 0 10px var(--gold)); }
+.site-logo {
+    max-width: 200px;
+    height: auto;
+    position: relative;
+    z-index: 100;
+    filter: drop-shadow(0 0 10px var(--neon-primary));
 }
 
-.fade-in {
-    animation: fadeIn 1s ease forwards;
-}
-
-.glow-effect {
-    animation: glow 2s infinite alternate;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .container {
-        padding: 10px;
-    }
+.logo-container {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    z-index: 1000;
 } 

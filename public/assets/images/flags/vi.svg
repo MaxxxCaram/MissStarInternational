@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e014c9efed760d54848645357268cb1f5bb0a935f3a52a7766e5de55b07d9241
-size 217
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+    <rect width="900" height="600" fill="#da251d"/>
+    <path d="M450,180 l123.5,380.7 l-323.3-235h399.6l-323.3,235z" fill="#ff0"/>
+</svg> 

@@ -4,589 +4,176 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Miss Star International - The Future of Beauty Pageants">
-    <meta name="keywords" content="miss, beauty pageant, international, future, competition">
-    <title>Miss Star International - Select Language</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="assets/images/logo/favicon.ico">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;600;800&family=Quicksand:wght@300;400;500;700&display=swap" rel="stylesheet">
-    
-    <!-- Styles -->
+    <title>Miss Star International - Select Your Language</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Colors */
-            --primary-color: #00e5ff;
-            --secondary-color: #ff00ff;
-            --accent-color: #ffcc00;
-            --background-dark: #09041a;
-            --background-light: #181339;
-            --text-color: #ffffff;
-            --text-shadow: rgba(0, 229, 255, 0.7);
-            
-            /* Portal Colors */
-            --portal-color-1: rgba(0, 229, 255, 0.8);
-            --portal-color-2: rgba(255, 0, 255, 0.8);
-            --portal-color-3: rgba(255, 204, 0, 0.6);
-            
-            /* Fonts */
-            --font-primary: 'Orbitron', sans-serif;
-            --font-secondary: 'Exo 2', sans-serif;
-            --font-text: 'Quicksand', sans-serif;
+            --primary-glow: rgba(0, 255, 255, 0.5);
+            --secondary-glow: rgba(255, 0, 255, 0.5);
+            --text-glow: 0 0 10px rgba(255, 255, 255, 0.8);
         }
-        
-        * {
+
+        body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: var(--font-text);
-            background-color: var(--background-dark);
-            color: var(--text-color);
-            line-height: 1.6;
-            overflow-x: hidden;
-            position: relative;
             min-height: 100vh;
+            background: radial-gradient(circle at center, #000046 0%, #000013 100%);
+            font-family: 'Orbitron', sans-serif;
+            color: #fff;
+            overflow: hidden;
         }
-        
-        /* Portal Loader Style */
-        .portal-loader {
+
+        .video-background {
             position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: var(--background-dark);
-            z-index: 9999;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            object-fit: cover;
+            opacity: 0.5;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
         }
-        
-        .portal-loader.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-        
-        .portal-circle {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, var(--portal-color-1), var(--portal-color-2), var(--portal-color-3));
-            position: relative;
-            animation: portalSpin 3s infinite linear;
-            box-shadow: 0 0 30px 5px var(--portal-color-1), 
-                        0 0 50px 10px var(--portal-color-2) inset;
-        }
-        
-        .portal-center {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background: var(--background-dark);
-            box-shadow: 0 0 20px 5px rgba(0, 229, 255, 0.5) inset;
-            overflow: hidden;
-        }
-        
-        .portal-glow {
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(0, 229, 255, 0.2), transparent 70%);
-            animation: portalGlow 4s infinite alternate;
-        }
-        
-        .portal-text {
-            font-family: var(--font-primary);
-            font-size: 16px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 30px;
-            text-shadow: 0 0 10px var(--text-shadow);
-            animation: portalTextPulse 2s infinite alternate;
-        }
-        
-        @keyframes portalSpin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        @keyframes portalGlow {
-            0% { opacity: 0.5; }
-            100% { opacity: 1; }
-        }
-        
-        @keyframes portalTextPulse {
-            0% { opacity: 0.7; }
-            100% { opacity: 1; }
-        }
-        
-        /* Particles Background */
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: -1;
-        }
-        
-        /* Main Container Style */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-            z-index: 1;
-        }
-        
-        /* Logo Style */
-        .logo-container {
-            text-align: center;
-            margin-bottom: 50px;
-            transform: translateY(-20px);
-            opacity: 0;
-            animation: fadeInDown 1s ease 1s forwards;
-        }
-        
+
         .logo {
-            max-width: 300px;
-            filter: drop-shadow(0 0 10px var(--primary-color));
+            width: 200px;
+            height: auto;
+            margin-bottom: 2rem;
+            animation: float 3s ease-in-out infinite;
         }
-        
-        .tagline {
-            font-family: var(--font-secondary);
-            font-size: 20px;
-            font-weight: 300;
-            letter-spacing: 2px;
-            margin-top: 10px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+
+        .title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 5px rgba(0, 229, 255, 0.5);
+            filter: drop-shadow(var(--text-glow));
         }
-        
-        /* Language Select Style */
-        .language-selection {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-            transform: translateY(20px);
-            opacity: 0;
-            animation: fadeInUp 1s ease 1.5s forwards;
+
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            text-shadow: var(--text-glow);
         }
-        
-        .language-title {
-            font-family: var(--font-primary);
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            text-shadow: 0 0 10px var(--text-shadow);
-        }
-        
-        .languages-grid {
+
+        .language-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            justify-content: center;
-        }
-        
-        .language-card {
-            background: rgba(24, 19, 57, 0.6);
-            border: 1px solid rgba(0, 229, 255, 0.3);
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
-            will-change: transform;
-            transform: translateZ(0);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-        
-        .language-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary-color);
-            box-shadow: 0 10px 25px rgba(0, 229, 255, 0.3);
-        }
-        
-        .language-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(0, 229, 255, 0.2), transparent);
-            transform: rotate(45deg);
-            transition: all 0.5s ease;
-            opacity: 0;
-        }
-        
-        .language-card:hover::before {
-            animation: shine 1.5s ease infinite;
-            opacity: 1;
-        }
-        
-        .language-flag {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 50%;
-            margin-bottom: 15px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-            loading: lazy;
-            decoding: async;
-        }
-        
-        .language-card:hover .language-flag {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 15px rgba(0, 229, 255, 0.5);
-        }
-        
-        .language-name {
-            font-family: var(--font-secondary);
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 10px;
-            transition: all 0.3s ease;
-        }
-        
-        .language-native {
-            font-family: var(--font-text);
-            font-size: 14px;
-            opacity: 0.8;
-            transition: all 0.3s ease;
-        }
-        
-        .language-card:hover .language-name,
-        .language-card:hover .language-native {
-            color: var(--primary-color);
-            text-shadow: 0 0 5px rgba(0, 229, 255, 0.5);
-        }
-        
-        .language-link {
-            position: absolute;
-            top: 0;
-            left: 0;
+            gap: 2rem;
             width: 100%;
-            height: 100%;
-            z-index: 1;
+            max-width: 800px;
         }
-        
-        /* Footer Style */
-        .footer {
-            text-align: center;
-            margin-top: 50px;
-            padding: 20px;
-            font-family: var(--font-text);
-            font-size: 14px;
-            opacity: 0.7;
-            transform: translateY(20px);
-            opacity: 0;
-            animation: fadeInUp 1s ease 2s forwards;
-        }
-        
-        .footer a {
-            color: var(--primary-color);
+
+        .language-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 1.5rem;
             text-decoration: none;
+            color: #fff;
             transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            cursor: pointer;
         }
-        
-        .footer a:hover {
-            color: var(--secondary-color);
-            text-shadow: 0 0 5px rgba(255, 0, 255, 0.5);
+
+        .language-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-glow);
+            box-shadow: 0 0 20px var(--primary-glow);
         }
-        
-        .copyright {
-            margin-top: 10px;
-            font-size: 12px;
+
+        .language-card img {
+            width: 60px;
+            height: 40px;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            object-fit: cover;
         }
-        
-        /* Animations */
-        @keyframes fadeInDown {
-            from {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+
+        .language-name {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
         }
-        
-        @keyframes fadeInUp {
-            from {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+
+        .language-native {
+            font-size: 0.9rem;
+            opacity: 0.8;
         }
-        
-        @keyframes shine {
-            0% {
-                transform: translateX(-100%) rotate(45deg);
-                opacity: 0.5;
-            }
-            100% {
-                transform: translateX(100%) rotate(45deg);
-                opacity: 0;
-            }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
-        
-        /* Media Queries */
+
         @media (max-width: 768px) {
-            .language-title {
-                font-size: 24px;
-            }
-            
-            .languages-grid {
+            .language-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
-            .portal-circle {
-                width: 150px;
-                height: 150px;
-            }
-            
-            .portal-center {
-                width: 100px;
-                height: 100px;
-            }
-            
-            .logo {
-                max-width: 200px;
-            }
         }
-        
+
         @media (max-width: 480px) {
-            .languages-grid {
+            .language-grid {
                 grid-template-columns: 1fr;
-            }
-            
-            .language-title {
-                font-size: 20px;
-            }
-            
-            .tagline {
-                font-size: 16px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Portal Loader -->
-    <div class="portal-loader" id="portal-loader">
-        <div class="portal-circle">
-            <div class="portal-center">
-                <div class="portal-glow"></div>
-            </div>
-        </div>
-        <div class="portal-text" id="portal-text">INICIANDO PORTAL</div>
-    </div>
-    
-    <!-- Particles Background -->
-    <div id="particles-js"></div>
-    
-    <!-- Main Content -->
+    <video class="video-background" autoplay muted loop playsinline>
+        <source src="/assets/videos/hero-video.mp4" type="video/mp4">
+    </video>
+
     <div class="container">
-        <div class="logo-container">
-            <img src="assets/images/logo/miss-star-logo.png" alt="Miss Star International Logo" class="logo">
-            <div class="tagline">THE FUTURE OF BEAUTY</div>
+        <img src="/assets/images/logo.png" alt="Miss Star International Logo" class="logo">
+        <h1 class="title">THE FUTURE OF BEAUTY</h1>
+        <h2 class="subtitle">SELECT YOUR LANGUAGE</h2>
+
+        <div class="language-grid">
+            <a href="/en" class="language-card">
+                <img src="/assets/images/flags/en.svg" alt="English Flag">
+                <div class="language-name">English</div>
+                <div class="language-native">English</div>
+            </a>
+
+            <a href="/es" class="language-card">
+                <img src="/assets/images/flags/es.svg" alt="Spanish Flag">
+                <div class="language-name">Spanish</div>
+                <div class="language-native">Español</div>
+            </a>
+
+            <a href="/pt" class="language-card">
+                <img src="/assets/images/flags/pt.svg" alt="Portuguese Flag">
+                <div class="language-name">Portuguese</div>
+                <div class="language-native">Português</div>
+            </a>
+
+            <a href="/vi" class="language-card">
+                <img src="/assets/images/flags/vi.svg" alt="Vietnamese Flag">
+                <div class="language-name">Vietnamese</div>
+                <div class="language-native">Tiếng Việt</div>
+            </a>
+
+            <a href="/th" class="language-card">
+                <img src="/assets/images/flags/th.svg" alt="Thai Flag">
+                <div class="language-name">Thai</div>
+                <div class="language-native">ภาษาไทย</div>
+            </a>
         </div>
-        
-        <div class="language-selection">
-            <h1 class="language-title">SELECT YOUR LANGUAGE</h1>
-            
-            <div class="languages-grid">
-                <!-- English -->
-                <div class="language-card">
-                    <img src="assets/images/flags/en.png" alt="English Flag" class="language-flag">
-                    <h2 class="language-name">English</h2>
-                    <p class="language-native">English</p>
-                    <a href="en/index.html" class="language-link" aria-label="English"></a>
-                </div>
-                
-                <!-- Spanish -->
-                <div class="language-card">
-                    <img src="assets/images/flags/es.png" alt="Spanish Flag" class="language-flag">
-                    <h2 class="language-name">Spanish</h2>
-                    <p class="language-native">Español</p>
-                    <a href="es/index.html" class="language-link" aria-label="Spanish"></a>
-                </div>
-                
-                <!-- Portuguese -->
-                <div class="language-card">
-                    <img src="assets/images/flags/pt.png" alt="Portuguese Flag" class="language-flag">
-                    <h2 class="language-name">Portuguese</h2>
-                    <p class="language-native">Português</p>
-                    <a href="pt/index.html" class="language-link" aria-label="Portuguese"></a>
-                </div>
-                
-                <!-- Vietnamese -->
-                <div class="language-card">
-                    <img src="assets/images/flags/vi.png" alt="Vietnamese Flag" class="language-flag">
-                    <h2 class="language-name">Vietnamese</h2>
-                    <p class="language-native">Tiếng Việt</p>
-                    <a href="vi/index.html" class="language-link" aria-label="Vietnamese"></a>
-                </div>
-                
-                <!-- Thai -->
-                <div class="language-card">
-                    <img src="assets/images/flags/th.png" alt="Thai Flag" class="language-flag">
-                    <h2 class="language-name">Thai</h2>
-                    <p class="language-native">ภาษาไทย</p>
-                    <a href="th/index.html" class="language-link" aria-label="Thai"></a>
-                </div>
-            </div>
-        </div>
-        
-        <footer class="footer">
-            <div class="footer-links">
-                <a href="#" class="footer-link">Contact</a> | 
-                <a href="#" class="footer-link">Privacy Policy</a> | 
-                <a href="#" class="footer-link">Terms of Service</a>
-            </div>
-            <div class="copyright">
-                &copy; <span id="current-year">2025</span> Miss Star International. All Rights Reserved.
-            </div>
-        </footer>
     </div>
-    
-    <!-- Scripts -->
-    <script>
-        // Preload images
-        const imagesToPreload = [
-            'assets/images/logo/miss-star-logo.png',
-            'assets/images/flags/en.png',
-            'assets/images/flags/es.png',
-            'assets/images/flags/pt.png',
-            'assets/images/flags/vi.png',
-            'assets/images/flags/th.png'
-        ];
-
-        imagesToPreload.forEach(src => {
-            const img = new Image();
-            img.src = src;
-        });
-
-        // Portal Loader with performance optimizations
-        document.addEventListener('DOMContentLoaded', () => {
-            requestAnimationFrame(() => {
-                // Update year
-                document.getElementById('current-year').textContent = new Date().getFullYear();
-                
-                // Optimized portal loader
-                const portalText = document.getElementById('portal-text');
-                const portalLoader = document.getElementById('portal-loader');
-                
-                const loadingTexts = [
-                    "INICIANDO PORTAL",
-                    "ESCANEANDO REALIDAD",
-                    "AJUSTANDO DIMENSIONES",
-                    "SINCRONIZANDO",
-                    "PORTAL LISTO"
-                ];
-                
-                let currentTextIndex = 0;
-                
-                const textInterval = setInterval(() => {
-                    requestAnimationFrame(() => {
-                        portalText.textContent = loadingTexts[currentTextIndex];
-                        currentTextIndex++;
-                        
-                        if (currentTextIndex >= loadingTexts.length) {
-                            clearInterval(textInterval);
-                            setTimeout(() => {
-                                portalLoader.classList.add('hidden');
-                                setTimeout(() => {
-                                    portalLoader.remove();
-                                }, 500);
-                            }, 1000);
-                        }
-                    });
-                }, 700);
-            });
-        });
-    </script>
-    
-    <!-- Deferred particles.js -->
-    <script defer src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" onload="initParticles()"></script>
-    <script>
-        function initParticles() {
-            particlesJS('particles-js', {
-                "particles": {
-                    "number": { "value": 40, "density": { "enable": true, "value_area": 800 } },
-                    "color": { "value": ["#00e5ff", "#ff00ff", "#ffcc00"] },
-                    "shape": { "type": "circle" },
-                    "opacity": {
-                        "value": 0.5,
-                        "random": true,
-                        "anim": { "enable": true, "speed": 0.5, "opacity_min": 0.1, "sync": false }
-                    },
-                    "size": {
-                        "value": 3,
-                        "random": true,
-                        "anim": { "enable": true, "speed": 1, "size_min": 0.1, "sync": false }
-                    },
-                    "line_linked": {
-                        "enable": true,
-                        "distance": 150,
-                        "color": "#00e5ff",
-                        "opacity": 0.4,
-                        "width": 1
-                    },
-                    "move": {
-                        "enable": true,
-                        "speed": 0.5,
-                        "direction": "none",
-                        "random": true,
-                        "straight": false,
-                        "out_mode": "out"
-                    }
-                },
-                "interactivity": {
-                    "detect_on": "canvas",
-                    "events": {
-                        "onhover": { "enable": true, "mode": "grab" },
-                        "onclick": { "enable": true, "mode": "push" },
-                        "resize": true
-                    },
-                    "modes": {
-                        "grab": { "distance": 140, "line_linked": { "opacity": 1 } },
-                        "push": { "particles_nb": 2 }
-                    }
-                },
-                "retina_detect": true
-            });
-        }
-    </script>
 </body>
-</html>
+</html> 
