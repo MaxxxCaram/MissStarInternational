@@ -11,23 +11,22 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
 RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 
-# Permitir acceso a archivos y directorios existentes
+# Permitir acceso directo a archivos y directorios existentes
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-# Rutas de idiomas específicas
-RewriteRule ^en/?$ /en/index.html [L]
-RewriteRule ^es/?$ /es/index.html [L]
-RewriteRule ^pt/?$ /pt/index.html [L]
-RewriteRule ^vi/?$ /vi/index.html [L]
-RewriteRule ^th/?$ /th/index.html [L]
+# Rutas de idiomas
+RewriteRule ^(en|es|pt|vi|th)/?$ /$1/index.html [L]
 
 # Headers de Seguridad
 <IfModule mod_headers.c>
     Header set Cache-Control "no-cache, no-store, must-revalidate"
     Header set Pragma "no-cache"
     Header set Expires 0
+    
+    # Permitir CORS
+    Header set Access-Control-Allow-Origin "*"
 </IfModule>
 
 # Página 404
