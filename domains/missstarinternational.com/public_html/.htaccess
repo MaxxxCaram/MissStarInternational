@@ -11,16 +11,17 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
 RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 
-# Redirección directa a /en/
-RewriteRule ^$ /en/ [R=302,L]
+# Permitir acceso a archivos y directorios existentes
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
 
-# Rutas de idiomas
+# Rutas de idiomas específicas
 RewriteRule ^en/?$ /en/index.html [L]
 RewriteRule ^es/?$ /es/index.html [L]
 RewriteRule ^pt/?$ /pt/index.html [L]
-RewriteRule ^fr/?$ /fr/index.html [L]
-RewriteRule ^th/?$ /th/index.html [L]
 RewriteRule ^vi/?$ /vi/index.html [L]
+RewriteRule ^th/?$ /th/index.html [L]
 
 # Headers de Seguridad
 <IfModule mod_headers.c>
@@ -30,9 +31,4 @@ RewriteRule ^vi/?$ /vi/index.html [L]
 </IfModule>
 
 # Página 404
-ErrorDocument 404 /en/index.html
-
-# Redirigir todo lo demás a /en/
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ /en/ [R=302,L] 
+ErrorDocument 404 /404.html 
