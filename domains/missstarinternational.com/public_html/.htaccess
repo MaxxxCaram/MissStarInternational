@@ -3,23 +3,18 @@ DirectoryIndex index.html
 Options -Indexes
 RewriteEngine On
 
-# Forzar HTTPS (solo si no está en HTTPS)
-RewriteCond %{HTTPS} !=on
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# Permitir acceso directo a archivos y directorios existentes
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
 
-# Remover www (solo si empieza con www)
-RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+# Reglas de lenguaje
+RewriteRule ^(en|es|pt|vi|th)/?$ /$1/index.html [L]
 
 # Cache para assets
 <FilesMatch "\.(ico|png|jpg|jpeg|gif|svg|css|js)$">
     Header set Cache-Control "max-age=31536000, public"
 </FilesMatch>
-
-# Reglas de lenguaje (simplificadas)
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(en|es|pt|vi|th)/?$ /$1/index.html [L]
 
 # Headers de seguridad
 Header always set X-Content-Type-Options "nosniff"
