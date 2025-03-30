@@ -3,34 +3,28 @@ DirectoryIndex index.html
 Options -Indexes
 RewriteEngine On
 
-# Forzar HTTPS
-RewriteCond %{HTTPS} off
+# Forzar HTTPS (solo si no está en HTTPS)
+RewriteCond %{HTTPS} !=on
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Remover www
+# Remover www (solo si empieza con www)
 RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
 
-# Reglas para favicon y assets
+# Cache para assets
 <FilesMatch "\.(ico|png|jpg|jpeg|gif|svg|css|js)$">
     Header set Cache-Control "max-age=31536000, public"
 </FilesMatch>
 
-# Rate limiting
-<IfModule mod_ratelimit.c>
-    SetOutputFilter RATE_LIMIT
-    SetEnv rate-limit 400
-</IfModule>
-
-# Reglas de lenguaje
-RewriteRule ^(en|es|pt|vi|th)$ /$1/ [R=301,L]
-RewriteRule ^(en|es|pt|vi|th)/$ /$1/index.html [L]
+# Reglas de lenguaje (simplificadas)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(en|es|pt|vi|th)/?$ /$1/index.html [L]
 
 # Headers de seguridad
 Header always set X-Content-Type-Options "nosniff"
-Header always set X-XSS-Protection "1; mode=block"
 Header always set X-Frame-Options "SAMEORIGIN"
 Header always set Referrer-Policy "strict-origin-when-cross-origin"
 
-# Página 404 personalizada
+# Página 404
 ErrorDocument 404 /404.html 
