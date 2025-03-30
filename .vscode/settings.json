@@ -9,5 +9,19 @@
         "missstarinternational"
     ],
     "liveServer.settings.port": 5503,
-    "editor.defaultFormatter": "ms-python.python"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "php.validate.enable": false,
+    "python.linting.enabled": false,
+    "python.formatting.provider": "none",
+    "files.associations": {
+        "*.php": "php",
+        "*.html": "html"
+    },
+    "editor.formatOnSave": true,
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[php]": {
+        "editor.formatOnSave": false
+    }
 }

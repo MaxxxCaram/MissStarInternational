@@ -1,6 +1,6 @@
 # Configuración básica
-DirectoryIndex index.html index.php
-Options +FollowSymLinks
+DirectoryIndex index.html
+Options -Indexes
 RewriteEngine On
 
 # Forzar HTTPS
@@ -8,26 +8,29 @@ RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # Remover www
-RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
 
-# Permitir acceso directo a archivos y directorios existentes
-RewriteCond %{REQUEST_FILENAME} -f [OR]
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^ - [L]
+# Reglas para favicon y assets
+<FilesMatch "\.(ico|png|jpg|jpeg|gif|svg|css|js)$">
+    Header set Cache-Control "max-age=31536000, public"
+</FilesMatch>
 
-# Rutas de idiomas
-RewriteRule ^(en|es|pt|vi|th)/?$ /$1/index.html [L]
-
-# Headers de Seguridad
-<IfModule mod_headers.c>
-    Header set Cache-Control "no-cache, no-store, must-revalidate"
-    Header set Pragma "no-cache"
-    Header set Expires 0
-    
-    # Permitir CORS
-    Header set Access-Control-Allow-Origin "*"
+# Rate limiting
+<IfModule mod_ratelimit.c>
+    SetOutputFilter RATE_LIMIT
+    SetEnv rate-limit 400
 </IfModule>
 
-# Página 404
+# Reglas de lenguaje
+RewriteRule ^(en|es|pt|vi|th)$ /$1/ [R=301,L]
+RewriteRule ^(en|es|pt|vi|th)/$ /$1/index.html [L]
+
+# Headers de seguridad
+Header always set X-Content-Type-Options "nosniff"
+Header always set X-XSS-Protection "1; mode=block"
+Header always set X-Frame-Options "SAMEORIGIN"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+# Página 404 personalizada
 ErrorDocument 404 /404.html 

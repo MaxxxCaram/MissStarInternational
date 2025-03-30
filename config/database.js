@@ -1,7 +1,7 @@
 module.exports = {
     // Configuración para producción
     production: {
-        url: 'mongodb+srv://caramvictoria:<PASSWORD>@missstar.mongodb.net/missstar?retryWrites=true&w=majority',
+        url: 'mongodb+srv://caramvictoria:MissStarInternational2024@missstar.mongodb.net/missstar?retryWrites=true&w=majority',
         options: {
             useNewUrlParser: true,
             useUnifiedTopology: true,

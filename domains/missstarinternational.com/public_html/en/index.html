@@ -1,331 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="Cache-Control" content="max-age=31536000, public">
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta name="description" content="Miss Star International - International Beauty Pageant">
-    <title>Miss Star International</title>
-    
-    <!-- Preconnect & DNS Prefetch -->
-    <link rel="preconnect" href="https://cdn.missstarinternational.com">
-    <link rel="dns-prefetch" href="https://cdn.missstarinternational.com">
-    
-    <!-- Preload critical assets -->
-    <link rel="preload" href="/assets/fonts/Orbitron-Bold.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/assets/css/future.css" as="style">
-    
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="/assets/css/future.css">
-    <link rel="stylesheet" href="/assets/css/animations.css">
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="max-age=31536000, public" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta
+      name="description"
+      content="Miss Star International - International Beauty Pageant"
+    />
+    <title>Miss Star International - English</title>
+
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-    
-    <!-- External Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.0/dist/vanilla-tilt.min.js" defer></script>
-    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
-        :root {
-            --primary-glow: rgba(0, 255, 255, 0.5);
-            --secondary-glow: rgba(255, 0, 255, 0.5);
-            --text-glow: 0 0 10px rgba(255, 255, 255, 0.8);
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: #000;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow-x: hidden;
+        color: #fff;
+      }
+
+      .stars {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        background: radial-gradient(circle at center, #000046 0%, #000013 100%);
+        animation: stars 60s linear infinite;
+      }
+
+      @keyframes stars {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .container {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        max-width: 1200px;
+        padding: 2rem;
+        text-align: center;
+      }
+
+      .logo {
+        width: 200px;
+        margin-bottom: 2rem;
+        filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .title {
+        font-size: 3rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        background: linear-gradient(to right, #fff, #7e57c2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 30px rgba(126, 87, 194, 0.5);
+      }
+
+      .subtitle {
+        font-size: 1.5rem;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 2rem;
+      }
+
+      .content {
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
+
+      .cta-button {
+        display: inline-block;
+        margin-top: 2rem;
+        padding: 1rem 2rem;
+        background: linear-gradient(45deg, #7e57c2, #b085f5);
+        border: none;
+        border-radius: 30px;
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(126, 87, 194, 0.4);
+      }
+
+      .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(126, 87, 194, 0.6);
+      }
+
+      .language-selector {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 100;
+      }
+
+      .language-button {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        padding: 0.5rem 1rem;
+        color: white;
+        text-decoration: none;
+        font-size: 0.9rem;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        transition: all 0.3s ease;
+      }
+
+      .language-button:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      @media (max-width: 768px) {
+        .title {
+          font-size: 2rem;
         }
 
-        body {
-            font-family: 'Orbitron', sans-serif;
-            background: radial-gradient(circle at center, #000046 0%, #000013 100%);
-            color: #fff;
-            margin: 0;
-            min-height: 100vh;
-            overflow: hidden;
-            position: relative;
+        .subtitle {
+          font-size: 1.2rem;
         }
 
-        .video-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            object-fit: cover;
-            opacity: 0.8;
+        .content {
+          padding: 0 1rem;
         }
-
-        .container {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 2rem;
-        }
-
-        .logo {
-            width: 150px;
-            height: 150px;
-            margin-bottom: 2rem;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        h1 {
-            font-size: clamp(2rem, 5vw, 4rem);
-            text-align: center;
-            margin: 0 0 1rem;
-            background: linear-gradient(45deg, #00ffff, #ff00ff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(var(--text-glow));
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-
-        .tagline {
-            font-size: clamp(1rem, 2vw, 1.5rem);
-            text-align: center;
-            margin: 0 0 2rem;
-            opacity: 0.8;
-        }
-
-        .countdown {
-            display: flex;
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .countdown-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .countdown-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #00ffff;
-            text-shadow: var(--text-glow);
-        }
-
-        .countdown-label {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            opacity: 0.8;
-        }
-
-        .cta-button {
-            padding: 1rem 2rem;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.1rem;
-            color: #fff;
-            background: linear-gradient(45deg, rgba(0, 255, 255, 0.2), rgba(255, 0, 255, 0.2));
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            backdrop-filter: blur(5px);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 20px var(--primary-glow);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .social-link {
-            color: #fff;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            color: #00ffff;
-            transform: scale(1.2);
-        }
-
-        /* Selector de idioma simple */
-        .language-selector {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-
-        .language-button {
-            display: inline-flex;
-            align-items: center;
-            padding: 8px 16px;
-            background: #000;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            font-size: 14px;
-            gap: 8px;
-        }
-
-        .language-button img {
-            width: 20px;
-            height: 15px;
-            object-fit: cover;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        @keyframes glow {
-            0% { filter: drop-shadow(0 0 5px var(--primary-glow)); }
-            100% { filter: drop-shadow(0 0 20px var(--secondary-glow)); }
-        }
-
-        @media (max-width: 768px) {
-            .countdown {
-                gap: 1rem;
-            }
-
-            .countdown-number {
-                font-size: 2rem;
-            }
-
-            .countdown-label {
-                font-size: 0.8rem;
-            }
-        }
+      }
     </style>
-</head>
-<body>
-    <video class="video-background" autoplay muted loop playsinline>
-        <source src="/assets/videos/hero-video.mp4" type="video/mp4">
-    </video>
-    
+  </head>
+  <body>
+    <div class="stars"></div>
+
     <div class="language-selector">
-        <a href="/" class="language-button">
-            <img src="/assets/images/flags/en.png" alt="English">
-            EN
-        </a>
+      <a href="/" class="language-button">Change Language</a>
     </div>
-    
+
     <div class="container">
-        <img src="/assets/images/logo.png" alt="Miss Star International Logo" class="logo">
-        <h1>Miss Star International</h1>
-        <p class="tagline">Empowering Beauty, Celebrating Diversity</p>
-        
-        <div class="countdown">
-            <div class="countdown-item">
-                <span class="countdown-number" id="days">00</span>
-                <span class="countdown-label">Days</span>
-            </div>
-            <div class="countdown-item">
-                <span class="countdown-number" id="hours">00</span>
-                <span class="countdown-label">Hours</span>
-            </div>
-            <div class="countdown-item">
-                <span class="countdown-number" id="minutes">00</span>
-                <span class="countdown-label">Minutes</span>
-            </div>
-            <div class="countdown-item">
-                <span class="countdown-number" id="seconds">00</span>
-                <span class="countdown-label">Seconds</span>
-            </div>
-        </div>
+      <img
+        src="/assets/images/logo/logo-white.png"
+        alt="Miss Star International"
+        class="logo"
+      />
+      <h1 class="title">MISS STAR INTERNATIONAL</h1>
+      <p class="subtitle">The Future of Beauty</p>
 
-        <form id="notifyForm" class="notify-form">
-            <input type="text" id="name" placeholder="Your Name" required>
-            <input type="email" id="email" placeholder="Your Email" required>
-            <button type="submit" class="cta-button">Get Notified</button>
-        </form>
-
-        <div class="social-links">
-            <a href="#" class="social-link">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#" class="social-link">
-                <i class="fab fa-facebook"></i>
-            </a>
-            <a href="#" class="social-link">
-                <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" class="social-link">
-                <i class="fab fa-youtube"></i>
-            </a>
-        </div>
+      <div class="content">
+        <p>
+          Welcome to Miss Star International, where beauty meets purpose. Our
+          international pageant celebrates the diversity, talent, and ambition
+          of women from around the world.
+        </p>
+        <p>
+          Join us in our mission to empower women and create positive change
+          through beauty, intelligence, and leadership.
+        </p>
+        <a href="#register" class="cta-button">Register Now</a>
+      </div>
     </div>
-
-    <script>
-        // Countdown Timer
-        function updateCountdown() {
-            const launchDate = new Date('2025-12-31T00:00:00').getTime();
-            const now = new Date().getTime();
-            const distance = launchDate - now;
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById('days').textContent = String(days).padStart(2, '0');
-            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-        }
-
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-
-        // Initialize vanilla-tilt
-        VanillaTilt.init(document.querySelector('.cta-button'), {
-            max: 25,
-            speed: 400,
-            glare: true,
-            'max-glare': 0.5
-        });
-
-        // Form submission
-        document.getElementById('notifyForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            
-            try {
-                const response = await fetch('https://api.missstarinternational.com/api/subscribe', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        name,
-                        email,
-                        language: 'en'
-                    })
-                });
-                
-                if (response.ok) {
-                    alert('Thank you for subscribing!');
-                    e.target.reset();
-                } else {
-                    throw new Error('Subscription failed');
-                }
-            } catch (error) {
-                alert('Sorry, there was an error. Please try again later.');
-                console.error(error);
-            }
-        });
-    </script>
-    
-    <!-- Font Awesome for social icons -->
-    <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous" defer></script>
-</body>
-</html> 
+  </body>
+</html>
