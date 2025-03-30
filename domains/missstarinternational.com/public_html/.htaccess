@@ -3,23 +3,17 @@ DirectoryIndex index.html
 Options -Indexes
 RewriteEngine On
 
-# Permitir acceso directo a archivos y directorios existentes
+# Permitir acceso directo a archivos existentes
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-# Reglas de lenguaje
+# Reglas de lenguaje simples
 RewriteRule ^(en|es|pt|vi|th)/?$ /$1/index.html [L]
 
-# Cache para assets
-<FilesMatch "\.(ico|png|jpg|jpeg|gif|svg|css|js)$">
-    Header set Cache-Control "max-age=31536000, public"
-</FilesMatch>
-
-# Headers de seguridad
+# Headers básicos
+Header set Cache-Control "max-age=31536000, public"
 Header always set X-Content-Type-Options "nosniff"
-Header always set X-Frame-Options "SAMEORIGIN"
-Header always set Referrer-Policy "strict-origin-when-cross-origin"
 
 # Página 404
 ErrorDocument 404 /404.html 
