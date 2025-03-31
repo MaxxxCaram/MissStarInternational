@@ -5,18 +5,64 @@ vendor/
 # Environment
 .env
 .env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
 # System files
 .DS_Store
 Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
 
 # Logs
 *.log
 npm-debug.log*
+yarn-debug.log
+yarn-error.log
+.pnpm-debug.log
+.pnp.*
+.npm
 
 # Build files
 dist/
 build/
+out/
 
 # Local Netlify folder
 .netlify
+
+# Vercel
+.vercel/
+.next/
+
+# Dependency directories
+jspm_packages/
+bower_components/
+
+# Cache directories
+.npm/
+.eslintcache
+.stylelintcache
+.yarn/cache
+.yarn/unplugged
+.yarn/install-state.gz
+
+# Editor directories and files
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Temporary files
+*.tmp
+*.swp
+*.bak
