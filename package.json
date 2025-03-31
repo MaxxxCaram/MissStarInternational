@@ -16,6 +16,7 @@
     "deploy": "vercel --prod"
   },
   "dependencies": {
+    "@vercel/speed-insights": "^1.2.0",
     "aws-sdk": "^2.1.0",
     "axios": "^1.8.4",
     "basic-ftp": "^5.0.5",
