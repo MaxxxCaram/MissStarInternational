@@ -1,331 +1,560 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="Cache-Control" content="max-age=31536000, public">
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta name="description" content="Miss Star International - International Beauty Pageant">
-    <title>Miss Star International</title>
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Cache-Control" content="max-age=31536000, public" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta
+      name="description"
+      content="Miss Star International - A New Dynasty"
+    />
+    <title>Miss Star International - A New Dynasty</title>
+
     <!-- Preconnect & DNS Prefetch -->
-    <link rel="preconnect" href="https://cdn.missstarinternational.com">
-    <link rel="dns-prefetch" href="https://cdn.missstarinternational.com">
-    
+    <link rel="preconnect" href="https://cdn.missstarinternational.com" />
+    <link rel="dns-prefetch" href="https://cdn.missstarinternational.com" />
+
     <!-- Preload critical assets -->
-    <link rel="preload" href="/assets/fonts/Orbitron-Bold.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/assets/css/future.css" as="style">
-    
+    <link
+      rel="preload"
+      href="../assets/fonts/Orbitron-Bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="preload" href="/assets/css/future.css" as="style" />
+
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="/assets/css/future.css">
-    <link rel="stylesheet" href="/assets/css/animations.css">
-    
+    <link rel="stylesheet" href="../assets/css/future.css" />
+    <link rel="stylesheet" href="../assets/css/animations.css" />
+
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Cinzel:wght@400;700&family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- External Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.0/dist/vanilla-tilt.min.js" defer></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"
+      defer
+    ></script>
 
-            <style>
-        :root {
-            --primary-glow: rgba(0, 255, 255, 0.5);
-            --secondary-glow: rgba(255, 0, 255, 0.5);
-            --text-glow: 0 0 10px rgba(255, 255, 255, 0.8);
+    <style>
+      /* Custom styles for this page */
+      .video-container {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: var(--darker-color);
+      }
+
+      .video-container video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        transform: translateX(-50%) translateY(-50%);
+        object-fit: cover;
+        z-index: 1;
+      }
+
+      .video-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
+        z-index: 2;
+      }
+
+      .hero-logo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 300px;
+        opacity: 0.95;
+        z-index: 2;
+        animation: logoGlow 5s infinite alternate;
+        mix-blend-mode: overlay;
+        filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.5));
+      }
+
+      @keyframes logoGlow {
+        0% {
+          opacity: 0.85;
+          filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));
+          transform: translate(-50%, -50%) scale(0.95);
+        }
+        100% {
+          opacity: 1;
+          filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.7));
+          transform: translate(-50%, -50%) scale(1);
+        }
+      }
+
+      .current-winner {
+        background: var(--glass-bg);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        padding: 40px 0;
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .winner-banner h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        background: var(--primary-gradient);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .winner-banner a {
+        display: inline-block;
+        padding: 15px 30px;
+        background: var(--primary-gradient);
+        color: var(--light-color);
+        text-decoration: none;
+        font-size: 1.2rem;
+        border-radius: 5px;
+        transition: var(--transition-standard);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+
+      .winner-banner a:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--hologram-glow);
+      }
+
+      .section {
+        padding: 80px 0;
+        position: relative;
+        overflow: hidden;
+        background: var(--glass-bg);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+        background: var(--primary-gradient);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .section p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: var(--light-color);
+        max-width: 800px;
+        margin: 0 auto 20px;
+      }
+
+      .section a {
+        color: var(--primary-color);
+        transition: var(--transition-standard);
+      }
+
+      .section a:hover {
+        color: var(--accent-color);
+        text-shadow: var(--hologram-glow);
+      }
+
+      .hall-of-fame-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      .hall-of-fame-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+        transition: var(--transition-standard);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .hall-of-fame-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--hologram-glow);
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .hall-of-fame-card img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 20px;
+        border: 3px solid var(--primary-color);
+      }
+
+      @media (max-width: 768px) {
+        .hero-logo {
+          width: 60%;
+          max-width: 250px;
         }
 
-        body {
-            font-family: 'Orbitron', sans-serif;
-            background: radial-gradient(circle at center, #000046 0%, #000013 100%);
-            color: #fff;
-            margin: 0;
-            min-height: 100vh;
-            overflow: hidden;
-                    position: relative;
+        .section h2 {
+          font-size: 2rem;
         }
 
-        .video-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            object-fit: cover;
-            opacity: 0.8;
+        .hall-of-fame-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .reality-show-features {
+        list-style: none;
+        padding: 0;
+        margin: 30px 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+
+      .reality-show-features li {
+        background: rgba(0, 229, 255, 0.1);
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid rgba(0, 229, 255, 0.2);
+        text-align: center;
+        transition: all 0.3s ease;
+        color: var(--light-color);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .reality-show-features li::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          45deg,
+          transparent,
+          rgba(0, 229, 255, 0.1),
+          transparent
+        );
+        transform: translateX(-100%);
+        transition: transform 0.6s ease;
+      }
+
+      .reality-show-features li:hover {
+        transform: translateY(-5px);
+        background: rgba(0, 229, 255, 0.15);
+        border-color: rgba(0, 229, 255, 0.3);
+        box-shadow: 0 5px 15px rgba(0, 229, 255, 0.2);
+      }
+
+      .reality-show-features li:hover::before {
+        transform: translateX(100%);
+      }
+
+      .cta-button {
+        text-align: center;
+        margin-top: 40px;
+      }
+
+      .holographic-button {
+        display: inline-block;
+        padding: 15px 30px;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--light-color);
+        background: linear-gradient(
+          45deg,
+          rgba(0, 229, 255, 0.1),
+          rgba(255, 0, 255, 0.1)
+        );
+        border: 1px solid rgba(0, 229, 255, 0.3);
+        border-radius: 5px;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        transition: all 0.3s ease;
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .holographic-button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          45deg,
+          transparent,
+          rgba(255, 255, 255, 0.1),
+          transparent
+        );
+        transform: translateX(-100%);
+        transition: transform 0.6s ease;
+      }
+
+      .holographic-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 20px rgba(0, 229, 255, 0.3);
+        border-color: rgba(0, 229, 255, 0.5);
+      }
+
+      .holographic-button:hover::before {
+        transform: translateX(100%);
+      }
+
+      @media (max-width: 768px) {
+        .reality-show-features {
+          grid-template-columns: 1fr;
         }
 
-        .container {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 2rem;
+        .reality-show-features li {
+          padding: 15px;
         }
 
-        .logo {
-            width: 150px;
-            height: 150px;
-            margin-bottom: 2rem;
-            animation: float 3s ease-in-out infinite;
+        .holographic-button {
+          width: 100%;
+          text-align: center;
         }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Portal Loader -->
+    <div class="portal-loader" id="portal-loader">
+      <div class="portal-circle">
+        <div class="portal-center">
+          <div class="portal-glow"></div>
+        </div>
+      </div>
+      <div class="portal-text" id="portal-text">INITIALIZING PORTAL</div>
+    </div>
 
-        h1 {
-            font-size: clamp(2rem, 5vw, 4rem);
-            text-align: center;
-            margin: 0 0 1rem;
-            background: linear-gradient(45deg, #00ffff, #ff00ff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(var(--text-glow));
-            animation: glow 2s ease-in-out infinite alternate;
-        }
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
 
-        .tagline {
-            font-size: clamp(1rem, 2vw, 1.5rem);
-            text-align: center;
-            margin: 0 0 2rem;
-            opacity: 0.8;
-        }
+    <!-- Video Background -->
+    <div class="video-container">
+      <video autoplay muted loop playsinline>
+        <source src="../assets/videos/hero-video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div class="video-overlay"></div>
+      <img
+        src="../assets/images/logo-white.png"
+        alt="Miss Star International Logo"
+        class="hero-logo animate-on-scroll"
+      />
+    </div>
 
-        .countdown {
-            display: flex;
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .countdown-item {
-                    display: flex;
-                    flex-direction: column;
-            align-items: center;
-        }
-
-        .countdown-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #00ffff;
-            text-shadow: var(--text-glow);
-        }
-
-        .countdown-label {
-            font-size: 0.9rem;
-                    text-transform: uppercase;
-            opacity: 0.8;
-        }
-
-        .cta-button {
-            padding: 1rem 2rem;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.1rem;
-            color: #fff;
-            background: linear-gradient(45deg, rgba(0, 255, 255, 0.2), rgba(255, 0, 255, 0.2));
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 30px;
-            cursor: pointer;
-                    transition: all 0.3s ease;
-            text-decoration: none;
-            backdrop-filter: blur(5px);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 20px var(--primary-glow);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .social-link {
-            color: #fff;
-            font-size: 1.5rem;
-                    transition: all 0.3s ease;
-                }
-
-        .social-link:hover {
-            color: #00ffff;
-            transform: scale(1.2);
-        }
-
-        /* Selector de idioma simple */
-        .language-selector {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-
-        .language-button {
-            display: inline-flex;
-            align-items: center;
-            padding: 8px 16px;
-            background: #000;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            font-size: 14px;
-            gap: 8px;
-        }
-
-        .language-button img {
-            width: 20px;
-            height: 15px;
-            object-fit: cover;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        @keyframes glow {
-            0% { filter: drop-shadow(0 0 5px var(--primary-glow)); }
-            100% { filter: drop-shadow(0 0 20px var(--secondary-glow)); }
-                }
-
-                @media (max-width: 768px) {
-            .countdown {
-                gap: 1rem;
-                    }
-
-            .countdown-number {
-                font-size: 2rem;
-                    }
-
-            .countdown-label {
-                font-size: 0.8rem;
-                    }
-                }
-            </style>
-</head>
-<body>
-    <video class="video-background" autoplay muted loop playsinline>
-        <source src="/assets/videos/hero-video.mp4" type="video/mp4">
-    </video>
-    
-    <div class="language-selector">
-        <a href="/" class="language-button">
-            <img src="/assets/images/flags/en.png" alt="English">
-            EN
+    <!-- Navigation -->
+    <nav class="nav-holographic">
+      <div class="nav-logo">
+        <a href="index.html">
+          <img
+            src="../assets/images/logo/logo-main.png"
+            alt="Miss Star International"
+            class="logo-small"
+          />
         </a>
-    </div>
-    
-    <div class="container">
-        <img src="/assets/images/logo.png" alt="Miss Star International Logo" class="logo">
-        <h1>Miss Star International</h1>
-        <p class="tagline">Empowering Beauty, Celebrating Diversity</p>
-        
-        <div class="countdown">
-            <div class="countdown-item">
-                <span class="countdown-number" id="days">00</span>
-                <span class="countdown-label">Days</span>
-            </div>
-            <div class="countdown-item">
-                <span class="countdown-number" id="hours">00</span>
-                <span class="countdown-label">Hours</span>
-                </div>
-            <div class="countdown-item">
-                <span class="countdown-number" id="minutes">00</span>
-                <span class="countdown-label">Minutes</span>
-            </div>
-            <div class="countdown-item">
-                <span class="countdown-number" id="seconds">00</span>
-                <span class="countdown-label">Seconds</span>
-            </div>
+      </div>
+      <div class="nav-menu">
+        <a href="index.html" class="menu-item active">Home</a>
+        <a href="history.html" class="menu-item">History</a>
+        <a href="competition.html" class="menu-item">Competition</a>
+        <a href="consortium.html" class="menu-item">Consortium</a>
+        <a href="news.html" class="menu-item">News</a>
+        <a href="contact.html" class="menu-item">Contact</a>
+      </div>
+      <div class="language-selector">
+        <div class="current-lang">EN</div>
+        <div class="languages-dropdown">
+          <a href="../es/index.html" class="lang-option">ES</a>
+          <a href="../pt/index.html" class="lang-option">PT</a>
+          <a href="../vi/index.html" class="lang-option">VI</a>
+          <a href="../th/index.html" class="lang-option">TH</a>
         </div>
+      </div>
+    </nav>
 
-        <form id="notifyForm" class="notify-form">
-            <input type="text" id="name" placeholder="Your Name" required>
-            <input type="email" id="email" placeholder="Your Email" required>
-            <button type="submit" class="cta-button">Get Notified</button>
-        </form>
-
-        <div class="social-links">
-            <a href="#" class="social-link">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#" class="social-link">
-                <i class="fab fa-facebook"></i>
-            </a>
-            <a href="#" class="social-link">
-                <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" class="social-link">
-                <i class="fab fa-youtube"></i>
-            </a>
+    <!-- Current Winner Banner -->
+    <section class="current-winner">
+      <div class="container">
+        <div class="winner-banner">
+          <h2>Miss Star International 2024</h2>
+          <a href="queens/2024/">Patricia Payumo - The Reigning Queen</a>
         </div>
-    </div>
+      </div>
+    </section>
 
-    <script>
-        // Countdown Timer
-        function updateCountdown() {
-            const launchDate = new Date('2025-12-31T00:00:00').getTime();
-            const now = new Date().getTime();
-            const distance = launchDate - now;
+    <!-- Main Content -->
+    <main>
+      <section id="consortium" class="section">
+        <div class="container">
+          <h2><a href="consortium/index.html">International Consortium</a></h2>
+          <p>
+            <a href="consortium/index.html"
+              >Our Franchises and National Directors</a
+            >
+          </p>
+          <p>
+            Global network of leaders in the beauty and entertainment industry
+          </p>
+          <ul>
+            <li>Exclusive National License</li>
+            <li>International Development Platform</li>
+            <li>Access to Global Events</li>
+          </ul>
+        </div>
+      </section>
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      <section id="empower" class="section">
+        <div class="container">
+          <h2><a href="empower/index.html">Empower TransNation Network</a></h2>
+          <p>
+            Empower TransNation Network is the vibrant heart and driving force
+            behind Miss Star International. It's a platform dedicated to
+            nurturing and empowering the next generation of activists, providing
+            a comprehensive education and a space for inter-generational
+            exchange to foster leadership and global inclusivity.
+          </p>
+        </div>
+      </section>
 
-            document.getElementById('days').textContent = String(days).padStart(2, '0');
-            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-        }
+      <section id="dynasty-portal" class="section">
+        <div class="container">
+          <h2><a href="dynasty-portal/index.html">Dynasty Portal</a></h2>
+          <p>
+            The Dynasty Portal is an exclusive platform designed for Miss Star
+            International members, offering premium resources, networking
+            opportunities, and special benefits. Our portal serves as a gateway
+            to a world of possibilities, connecting you with industry
+            professionals, educational resources, and unique opportunities to
+            advance your career and personal growth.
+          </p>
+        </div>
+      </section>
 
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
+      <section id="dynasty-benefits" class="section">
+        <div class="container">
+          <h2><a href="dynasty-benefits/index.html">Dynasty Benefits</a></h2>
+          <p>
+            As a member of the Miss Star International community, you gain
+            access to a wide range of exclusive benefits designed to enhance
+            your experience, support your growth, and provide valuable
+            opportunities. Our Dynasty Benefits program is carefully crafted to
+            offer meaningful advantages to all our members, from contestants to
+            directors and partners.
+          </p>
+        </div>
+      </section>
 
-        // Initialize vanilla-tilt
-        VanillaTilt.init(document.querySelector('.cta-button'), {
-            max: 25,
-            speed: 400,
-            glare: true,
-            'max-glare': 0.5
-        });
+      <section id="reality-show" class="section">
+        <div class="container">
+          <h2><a href="reality-show/index.html">Reality Show Project</a></h2>
+          <p>
+            Miss Star International is evolving. As part of our core strategy to
+            combat global transphobia and respond to the escalating aggression
+            from worldwide right-wing movements, we are progressively
+            transforming our traditional pageant format into an innovative
+            reality show. This transformation represents more than just a change
+            in format - it's a powerful platform for visibility, education, and
+            social change.
+          </p>
+          <p>
+            The Reality Show takes you behind the scenes, revealing the
+            authentic journeys, challenges, and triumphs of our contestants. By
+            sharing their personal stories, dreams, and daily experiences, we
+            aim to break down prejudices, challenge misconceptions, and showcase
+            the incredible strength, talent, and humanity of our trans
+            community.
+          </p>
+          <p>This groundbreaking project will:</p>
+          <ul class="reality-show-features">
+            <li>Showcase authentic trans narratives and experiences</li>
+            <li>Challenge stereotypes through personal storytelling</li>
+            <li>Document the transformative journey of contestants</li>
+            <li>Create meaningful dialogue about trans rights and inclusion</li>
+            <li>Build bridges of understanding across communities</li>
+            <li>Empower trans voices in mainstream media</li>
+          </ul>
+          <div class="cta-button">
+            <a href="reality-show/index.html" class="holographic-button"
+              >Learn More About Our Vision</a
+            >
+          </div>
+        </div>
+      </section>
 
-        // Form submission
-        document.getElementById('notifyForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            
-        
-                const response = await fetch('https://api.missstarinternational.com/api/subscribe', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        name,
-                        email,
-                        language: 'en'
-                    })
-                });
-                
-                if (response.ok) {
-                    alert('Thank you for subscribing!');
-                    e.target.reset();
-                } else {
-                    throw new Error('Subscription failed');
-                }
-            } catch (error) {
-                alert('Sorry, there was an error. Please try again later.');
-                console.error(error);
-            }
-        });
-    </script>
-    
-    <!-- Font Awesome for social icons -->
-    <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous" defer></script>
-</body>
+      <section id="hall-of-fame" class="section">
+        <div class="container">
+          <h2><a href="hall-of-fame/index.html">MSI Hall of Fame</a></h2>
+          <p>Celebrating the Legacy of Our Queens</p>
+          <div class="hall-of-fame-grid">
+            <div class="hall-of-fame-card">
+              <img
+                src="../assets/images/queens/2023-veso.jpg"
+                alt="Miss Star International 2023"
+              />
+              <h3>Veso Golden</h3>
+              <p>Miss Star International 2023</p>
+              <p>Nigeria</p>
+            </div>
+            <div class="hall-of-fame-card">
+              <img
+                src="../assets/images/queens/2022-tifanny.jpg"
+                alt="Miss Star International 2022"
+              />
+              <h3>Tifany Colemann</h3>
+              <p>Miss Star International 2023</p>
+              <p>Nicaragua</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="beyond-the-crown" class="section">
+        <div class="container">
+          <h2><a href="#">Miss Beyond the Crown</a></h2>
+          <p>
+            Miss Beyond the Crown is the other crown that we give to the woman
+            whose story of success and triumph over obstacles can serve as a
+            role model for upcoming generations.
+          </p>
+          <h3><a href="#">Miss Beyond the Crown, 2024</a></h3>
+          <p>Erhtuioerhtor, country</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="../assets/js/particles.min.js"></script>
+    <script src="../assets/js/vanilla-tilt.js"></script>
+    <script src="../assets/js/main.js" defer></script>
+  </body>
 </html>
