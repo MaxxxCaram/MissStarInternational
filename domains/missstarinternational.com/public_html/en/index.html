@@ -1,192 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Cache-Control" content="max-age=31536000, public" />
-    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-    <meta
-      name="description"
-      content="Miss Star International - International Beauty Pageant"
-    />
     <title>Miss Star International - English</title>
-
-    <!-- Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
-      rel="stylesheet"
-    />
-
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
       body {
-        font-family: "Poppins", sans-serif;
-        background: #000;
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow-x: hidden;
-        color: #fff;
-      }
-
-      .stars {
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        z-index: 0;
-        background: radial-gradient(circle at center, #000046 0%, #000013 100%);
-        animation: stars 60s linear infinite;
-      }
-
-      @keyframes stars {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(360deg);
-        }
-      }
-
-      .container {
-        position: relative;
-        z-index: 1;
-        width: 100%;
-        max-width: 1200px;
-        padding: 2rem;
-        text-align: center;
-      }
-
-      .logo {
-        width: 200px;
-        margin-bottom: 2rem;
-        filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
-        animation: float 6s ease-in-out infinite;
-      }
-
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-20px);
-        }
-      }
-
-      .title {
-        font-size: 3rem;
-        font-weight: 600;
-        margin-bottom: 1rem;
-        background: linear-gradient(to right, #fff, #7e57c2);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-shadow: 0 0 30px rgba(126, 87, 194, 0.5);
-      }
-
-      .subtitle {
-        font-size: 1.5rem;
-        color: rgba(255, 255, 255, 0.8);
-        margin-bottom: 2rem;
-      }
-
-      .content {
+        font-family: Arial, sans-serif;
         max-width: 800px;
         margin: 0 auto;
+        padding: 20px;
         line-height: 1.6;
       }
-
-      .cta-button {
-        display: inline-block;
-        margin-top: 2rem;
-        padding: 1rem 2rem;
-        background: linear-gradient(45deg, #7e57c2, #b085f5);
-        border: none;
-        border-radius: 30px;
-        color: white;
-        text-decoration: none;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        box-shadow: 0 5px 15px rgba(126, 87, 194, 0.4);
-      }
-
-      .cta-button:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 20px rgba(126, 87, 194, 0.6);
-      }
-
-      .language-selector {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 100;
-      }
-
-      .language-button {
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 20px;
-        padding: 0.5rem 1rem;
-        color: white;
-        text-decoration: none;
-        font-size: 0.9rem;
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
-        transition: all 0.3s ease;
-      }
-
-      .language-button:hover {
-        background: rgba(255, 255, 255, 0.2);
-      }
-
-      @media (max-width: 768px) {
-        .title {
-          font-size: 2rem;
-        }
-
-        .subtitle {
-          font-size: 1.2rem;
-        }
-
-        .content {
-          padding: 0 1rem;
-        }
+      a {
+        display: block;
+        margin: 10px 0;
       }
     </style>
   </head>
   <body>
-    <div class="stars"></div>
+    <h1>Miss Star International</h1>
+    <h2>English Version</h2>
 
-    <div class="language-selector">
-      <a href="/" class="language-button">Change Language</a>
-    </div>
+    <p>Welcome to Miss Star International, where beauty meets purpose.</p>
 
-    <div class="container">
-      <img
-        src="/assets/images/logo/logo-white.png"
-        alt="Miss Star International"
-        class="logo"
-      />
-      <h1 class="title">MISS STAR INTERNATIONAL</h1>
-      <p class="subtitle">The Future of Beauty</p>
+    <p>
+      Our international pageant celebrates the diversity, talent, and ambition
+      of women from around the world.
+    </p>
 
-      <div class="content">
-        <p>
-          Welcome to Miss Star International, where beauty meets purpose. Our
-          international pageant celebrates the diversity, talent, and ambition
-          of women from around the world.
-        </p>
-        <p>
-          Join us in our mission to empower women and create positive change
-          through beauty, intelligence, and leadership.
-        </p>
-        <a href="#register" class="cta-button">Register Now</a>
-      </div>
-    </div>
+    <a href="../index.html">Return to Language Selection</a>
   </body>
 </html>

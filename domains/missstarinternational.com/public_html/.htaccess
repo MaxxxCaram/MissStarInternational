@@ -1,21 +1,15 @@
-# Configuración básica
+# Configuración mínima
 DirectoryIndex index.html
 Options -Indexes
+
+# Desactivar todas las redirecciones
+RewriteEngine Off
 
 # Permitir acceso directo a archivos
 <Files *>
     Order Allow,Deny
     Allow from all
 </Files>
-
-# Reglas de lenguaje directas
-RewriteEngine On
-RewriteBase /
-
-# Solo servir archivos que existen
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(en|es|pt|vi|th)/?$ $1/index.html [L]
 
 # Headers básicos
 Header set Cache-Control "public, max-age=31536000"
