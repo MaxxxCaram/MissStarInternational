@@ -1,14 +1,324 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0;url=/en/">
-    <script>
-        // Redirección inmediata
-        window.location.replace('/en/');
-    </script>
-</head>
-<body>
-    <a href="/en/">Click here if you are not redirected automatically</a>
-</body>
-</html> 
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Miss Star International - Empowering Trans Beauty & Talent Worldwide"
+    />
+    <title>Miss Star International</title>
+
+    <!-- Preload critical assets -->
+    <link
+      rel="preload"
+      href="assets/fonts/Orbitron-Bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+      fetchpriority="high"
+    />
+    <link rel="preload" href="assets/css/future.css" as="style" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/future.css" />
+    <link rel="stylesheet" href="assets/css/animations.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  </head>
+  <body>
+    <!-- Portal Loader -->
+    <div class="portal-loader" role="progressbar" aria-label="Loading website">
+      <div class="portal-circle"></div>
+      <div class="portal-text">Initializing...</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav-holographic" role="navigation" aria-label="Main navigation">
+      <div class="container">
+        <div class="nav-content">
+          <a href="/" class="logo" aria-label="Home">
+            <img
+              src="assets/images/logo-white.png"
+              alt="Miss Star International Logo"
+              class="nav-logo"
+            />
+          </a>
+          <div class="nav-links" role="menubar">
+            <a href="#about" class="menu-item" role="menuitem">About</a>
+            <a href="#contestants" class="menu-item" role="menuitem"
+              >Contestants</a
+            >
+            <a href="#reality-show" class="menu-item" role="menuitem"
+              >Reality Show</a
+            >
+            <a href="#news" class="menu-item" role="menuitem">News</a>
+            <a href="#contact" class="menu-item" role="menuitem">Contact</a>
+          </div>
+          <div class="language-selector">
+            <button class="lang-btn" aria-haspopup="true" aria-expanded="false">
+              Language
+            </button>
+            <div
+              class="lang-dropdown"
+              role="menu"
+              aria-label="Language selection"
+            >
+              <a href="/en" class="lang-option" role="menuitem" hreflang="en"
+                >English</a
+              >
+              <a href="/es" class="lang-option" role="menuitem" hreflang="es"
+                >Español</a
+              >
+              <a href="/pt" class="lang-option" role="menuitem" hreflang="pt"
+                >Português</a
+              >
+              <a href="/vi" class="lang-option" role="menuitem" hreflang="vi"
+                >Tiếng Việt</a
+              >
+              <a href="/th" class="lang-option" role="menuitem" hreflang="th"
+                >ภาษาไทย</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="video-container">
+        <video autoplay muted loop playsinline id="heroVideo">
+          <source src="assets/videos/hero-background.mp4" type="video/mp4" />
+        </video>
+        <div class="video-overlay"></div>
+      </div>
+      <div class="hero-content">
+        <h1 class="cyber-title">Miss Star International</h1>
+        <p class="hero-subtitle">Empowering Trans Beauty & Talent Worldwide</p>
+        <div class="cta-buttons">
+          <a href="#register" class="btn-holographic">Register Now</a>
+          <a href="#learn-more" class="btn-outline">Learn More</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-dark">
+      <div class="container">
+        <h2 class="section-title">About Miss Star International</h2>
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              Miss Star International is more than just a beauty pageant. It's a
+              platform that celebrates trans beauty, talent, and advocacy while
+              creating meaningful change in society.
+            </p>
+            <p>
+              Our mission is to provide visibility and opportunities for the
+              trans community while challenging stereotypes and promoting
+              inclusivity.
+            </p>
+          </div>
+          <div class="about-image">
+            <img
+              src="assets/images/about-collage.jpg"
+              alt="Miss Star International Moments"
+              class="tilt-card"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hall of Fame Section -->
+    <section id="hall-of-fame" class="section-dark">
+      <div class="container">
+        <h2 class="section-title">MSI Hall of Fame</h2>
+        <p class="section-subtitle text-gradient">
+          Celebrating the Legacy of Our Queens
+        </p>
+
+        <div class="winners-grid">
+          <div class="winner-card holographic">
+            <div class="winner-year">Miss Star International 2023</div>
+            <div class="winner-image">
+              <img
+                src="queens/2023-veso.jpg"
+                alt="Veso Golden - Miss Star International 2023"
+                class="tilt-card"
+              />
+            </div>
+            <h3 class="winner-name text-gradient">VESO GOLDEN</h3>
+            <p class="winner-title">Miss Star International 2023</p>
+            <p class="winner-country">Nigeria</p>
+          </div>
+
+          <div class="winner-card holographic">
+            <div class="winner-year">Miss Star International 2022</div>
+            <div class="winner-image">
+              <img
+                src="queens/2022-tiffany.jpg"
+                alt="Tifany Colemann - Miss Star International 2022"
+                class="tilt-card"
+              />
+            </div>
+            <h3 class="winner-name text-gradient">TIFANY COLEMANN</h3>
+            <p class="winner-title">Miss Star International 2022</p>
+            <p class="winner-country">Nicaragua</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reality Show Section -->
+    <section id="reality-show" class="section-gradient">
+      <div class="container">
+        <h2 class="section-title">Reality Show Project</h2>
+        <div class="reality-show-content">
+          <p class="lead-text">
+            A groundbreaking initiative transforming traditional pageantry into
+            an immersive reality show experience, combating transphobia and
+            creating meaningful social change.
+          </p>
+          <div class="reality-show-features">
+            <div class="feature-card holographic">
+              <h3>Authentic Stories</h3>
+              <p>
+                Real narratives from contestants sharing their journeys,
+                struggles, and triumphs.
+              </p>
+            </div>
+            <div class="feature-card holographic">
+              <h3>Global Platform</h3>
+              <p>
+                Reaching audiences worldwide to promote understanding and
+                acceptance.
+              </p>
+            </div>
+            <div class="feature-card holographic">
+              <h3>Social Impact</h3>
+              <p>
+                Creating meaningful dialogue about trans rights and inclusion.
+              </p>
+            </div>
+          </div>
+          <a href="#learn-more" class="btn-holographic">Discover Our Vision</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contestants Section -->
+    <section id="contestants" class="section-dark">
+      <div class="container">
+        <h2 class="section-title">Meet Our Contestants</h2>
+        <div class="contestants-grid">
+          <!-- Contestant cards will be dynamically loaded -->
+        </div>
+      </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="section-light">
+      <div class="container">
+        <h2 class="section-title">Latest News</h2>
+        <div class="news-grid">
+          <!-- News cards will be dynamically loaded -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-gradient">
+      <div class="container">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-content">
+          <form id="contact-form" class="contact-form holographic">
+            <div class="form-group">
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                placeholder="Your Name"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="Your Email"
+              />
+            </div>
+            <div class="form-group">
+              <textarea
+                id="message"
+                name="message"
+                required
+                placeholder="Your Message"
+              ></textarea>
+            </div>
+            <button type="submit" class="btn-holographic">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-holographic">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <img
+              src="assets/images/logo-white.png"
+              alt="Miss Star International"
+              class="footer-logo-img"
+            />
+          </div>
+          <div class="footer-links">
+            <div class="footer-column">
+              <h3>Quick Links</h3>
+              <a href="#about">About</a>
+              <a href="#contestants">Contestants</a>
+              <a href="#reality-show">Reality Show</a>
+              <a href="#news">News</a>
+              <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-column">
+              <h3>Follow Us</h3>
+              <div class="social-links">
+                <a href="#" target="_blank" rel="noopener" class="social-link"
+                  >Instagram</a
+                >
+                <a href="#" target="_blank" rel="noopener" class="social-link"
+                  >Facebook</a
+                >
+                <a href="#" target="_blank" rel="noopener" class="social-link"
+                  >Twitter</a
+                >
+                <a href="#" target="_blank" rel="noopener" class="social-link"
+                  >YouTube</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Miss Star International. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="assets/js/vanilla-tilt.js"></script>
+    <script src="assets/js/main.js" defer></script>
+  </body>
+</html>

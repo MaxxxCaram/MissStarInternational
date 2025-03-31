@@ -1,12 +1,359 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MSI Consortium</title>
-    <link rel="stylesheet" href="../css/styles.css">
-</head>
-<body>
-    <!-- English version -->
-</body>
-</html> 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Miss Star International Consortium - Global Network of Leaders"
+    />
+    <title>International Consortium - Miss Star International</title>
+
+    <!-- Preload critical assets -->
+    <link
+      rel="preload"
+      href="../assets/fonts/Orbitron-Bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+      fetchpriority="high"
+    />
+    <link rel="preload" href="../assets/css/future.css" as="style" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../assets/css/future.css" />
+    <link rel="stylesheet" href="../assets/css/animations.css" />
+  </head>
+  <body>
+    <!-- Portal Loader -->
+    <div class="portal-loader" role="progressbar" aria-label="Loading website">
+      <div class="portal-circle"></div>
+      <div class="portal-text">Initializing Consortium Data...</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav-holographic" role="navigation" aria-label="Main navigation">
+      <div class="container">
+        <div class="nav-content">
+          <a href="/" class="logo" aria-label="Home">
+            <img
+              src="../assets/images/logo-white.png"
+              alt="Miss Star International Logo"
+              class="nav-logo"
+            />
+          </a>
+          <div class="nav-links" role="menubar">
+            <a href="index.html" class="menu-item" role="menuitem">Home</a>
+            <a href="history.html" class="menu-item" role="menuitem">History</a>
+            <a href="competition.html" class="menu-item" role="menuitem"
+              >Competition</a
+            >
+            <a href="consortium.html" class="menu-item active" role="menuitem"
+              >Consortium</a
+            >
+            <a href="news.html" class="menu-item" role="menuitem">News</a>
+            <a href="contact.html" class="menu-item" role="menuitem">Contact</a>
+          </div>
+          <div class="language-selector">
+            <button class="lang-btn" aria-haspopup="true" aria-expanded="false">
+              Language
+            </button>
+            <div
+              class="lang-dropdown"
+              role="menu"
+              aria-label="Language selection"
+            >
+              <a href="/en" class="lang-option" role="menuitem" hreflang="en"
+                >English</a
+              >
+              <a href="/es" class="lang-option" role="menuitem" hreflang="es"
+                >Español</a
+              >
+              <a href="/pt" class="lang-option" role="menuitem" hreflang="pt"
+                >Português</a
+              >
+              <a href="/vi" class="lang-option" role="menuitem" hreflang="vi"
+                >Tiếng Việt</a
+              >
+              <a href="/th" class="lang-option" role="menuitem" hreflang="th"
+                >ภาษาไทย</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero consortium-hero">
+      <div class="video-container">
+        <video autoplay muted loop playsinline id="heroVideo">
+          <source src="../assets/videos/consortium-bg.mp4" type="video/mp4" />
+        </video>
+        <div class="video-overlay"></div>
+      </div>
+      <div class="hero-content">
+        <h1 class="cyber-title">International Consortium</h1>
+        <p class="hero-subtitle text-gradient">
+          Global Network of Leaders in Trans Beauty & Entertainment
+        </p>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Network Overview -->
+      <section class="section-dark">
+        <div class="container">
+          <div class="content-block holographic">
+            <h2 class="section-title">Global Network of Leaders</h2>
+            <p class="lead-text">
+              The Miss Star International Consortium represents excellence in
+              trans pageantry worldwide. Our franchise holders and national
+              directors are carefully selected visionaries who share our
+              commitment to diversity, empowerment, and excellence.
+            </p>
+
+            <div class="benefits-grid">
+              <div class="benefit-card tilt-card">
+                <h3>Exclusive License</h3>
+                <p>Sole rights for national competitions</p>
+              </div>
+              <div class="benefit-card tilt-card">
+                <h3>Global Platform</h3>
+                <p>Access to international resources</p>
+              </div>
+              <div class="benefit-card tilt-card">
+                <h3>Brand Power</h3>
+                <p>Association with a prestigious brand</p>
+              </div>
+              <div class="benefit-card tilt-card">
+                <h3>Business Growth</h3>
+                <p>Partnerships and media opportunities</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Franchise Network -->
+      <section class="section-gradient">
+        <div class="container">
+          <h2 class="section-title">Our Franchise Network</h2>
+          <div class="franchise-grid">
+            <!-- Peru -->
+            <div class="franchise-card holographic">
+              <div class="franchise-image">
+                <img
+                  src="../assets/images/franchises/peru.jpg"
+                  alt="Peru Franchise"
+                />
+              </div>
+              <div class="franchise-info">
+                <h3 class="text-gradient">Peru</h3>
+                <p>Flagship franchise known for spectacular productions</p>
+                <p class="director">Director: Kayra Flores</p>
+                <a
+                  href="mailto:peru@missstarinternational.com"
+                  class="btn-holographic"
+                  >Contact</a
+                >
+              </div>
+            </div>
+
+            <!-- Mexico -->
+            <div class="franchise-card holographic">
+              <div class="franchise-image">
+                <img
+                  src="../assets/images/franchises/mexico.jpg"
+                  alt="Mexico Franchise"
+                />
+              </div>
+              <div class="franchise-info">
+                <h3 class="text-gradient">Mexico</h3>
+                <p>Powerhouse in international pageantry</p>
+                <p class="director">Director: Polo Hernandez</p>
+                <a
+                  href="mailto:mexico@missstarinternational.com"
+                  class="btn-holographic"
+                  >Contact</a
+                >
+              </div>
+            </div>
+
+            <!-- Brazil -->
+            <div class="franchise-card holographic">
+              <div class="franchise-image">
+                <img
+                  src="../assets/images/franchises/brazil.jpg"
+                  alt="Brazil Franchise"
+                />
+              </div>
+              <div class="franchise-info">
+                <h3 class="text-gradient">Brazil</h3>
+                <p>Led by Miss Star International 2019</p>
+                <p class="director">Director: Ava Simoes</p>
+                <a
+                  href="mailto:brazil@missstarinternational.com"
+                  class="btn-holographic"
+                  >Contact</a
+                >
+              </div>
+            </div>
+
+            <!-- Thailand -->
+            <div class="franchise-card holographic">
+              <div class="franchise-image">
+                <img
+                  src="../assets/images/franchises/thailand.jpg"
+                  alt="Thailand Franchise"
+                />
+              </div>
+              <div class="franchise-info">
+                <h3 class="text-gradient">Thailand</h3>
+                <p>Elegant productions with cultural heritage</p>
+                <p class="director">Director: Som Chai Sammy</p>
+                <a
+                  href="mailto:thailand@missstarinternational.com"
+                  class="btn-holographic"
+                  >Contact</a
+                >
+              </div>
+            </div>
+
+            <!-- Vietnam -->
+            <div class="franchise-card holographic">
+              <div class="franchise-image">
+                <img
+                  src="../assets/images/franchises/vietnam.jpg"
+                  alt="Vietnam Franchise"
+                />
+              </div>
+              <div class="franchise-info">
+                <h3 class="text-gradient">Vietnam</h3>
+                <p>Rising star in Southeast Asian pageantry</p>
+                <p class="director">Director: Kim Kim</p>
+                <a
+                  href="mailto:vietnam@missstarinternational.com"
+                  class="btn-holographic"
+                  >Contact</a
+                >
+              </div>
+            </div>
+
+            <!-- Netherlands -->
+            <div class="franchise-card holographic">
+              <div class="franchise-image">
+                <img
+                  src="../assets/images/franchises/netherlands.jpg"
+                  alt="Netherlands Franchise"
+                />
+              </div>
+              <div class="franchise-info">
+                <h3 class="text-gradient">Netherlands</h3>
+                <p>Progressive approach to beauty pageants</p>
+                <p class="director">Director: Rubi Validor</p>
+                <a
+                  href="mailto:netherlands@missstarinternational.com"
+                  class="btn-holographic"
+                  >Contact</a
+                >
+              </div>
+            </div>
+
+            <!-- Spain -->
+            <div class="franchise-card holographic">
+              <div class="franchise-image">
+                <img
+                  src="../assets/images/franchises/spain.jpg"
+                  alt="Spain Franchise"
+                />
+              </div>
+              <div class="franchise-info">
+                <h3 class="text-gradient">Spain</h3>
+                <p>Elegance and sophistication in pageantry</p>
+                <p class="director">Director: Michelle Rellayze</p>
+                <a
+                  href="mailto:spain@missstarinternational.com"
+                  class="btn-holographic"
+                  >Contact</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Call to Action -->
+      <section class="cta-section section-dark">
+        <div class="container">
+          <div class="cta-content holographic">
+            <h2 class="section-title">Join Our Global Network</h2>
+            <p class="lead-text">
+              Become part of the world's most prestigious trans beauty pageant
+              network
+            </p>
+            <a href="contact.html" class="btn-holographic"
+              >Apply for Franchise</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-holographic">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <img
+              src="../assets/images/logo-white.png"
+              alt="Miss Star International"
+              class="footer-logo-img"
+            />
+          </div>
+          <div class="footer-links">
+            <div class="footer-column">
+              <h3>Quick Links</h3>
+              <a href="index.html">Home</a>
+              <a href="history.html">History</a>
+              <a href="competition.html">Competition</a>
+              <a href="consortium.html">Consortium</a>
+              <a href="news.html">News</a>
+              <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-column">
+              <h3>Follow Us</h3>
+              <div class="social-links">
+                <a href="#" target="_blank" rel="noopener" class="social-link"
+                  >Instagram</a
+                >
+                <a href="#" target="_blank" rel="noopener" class="social-link"
+                  >Facebook</a
+                >
+                <a href="#" target="_blank" rel="noopener" class="social-link"
+                  >Twitter</a
+                >
+                <a href="#" target="_blank" rel="noopener" class="social-link"
+                  >YouTube</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Miss Star International. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="../assets/js/vanilla-tilt.js"></script>
+    <script src="../assets/js/main.js" defer></script>
+  </body>
+</html>

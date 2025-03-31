@@ -1,263 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Dynasty Portal - Miss Star International">
-    <meta name="keywords" content="miss, beauty pageant, dynasty, portal, international">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="Dynasty Portal - Miss Star International"
+    />
+    <meta
+      name="keywords"
+      content="miss, beauty pageant, dynasty, portal, international"
+    />
     <title>Dynasty Portal - Miss Star International</title>
-    
+
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../../assets/images/logo/favicon.ico">
-    
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="../../assets/images/logo/favicon.ico"
+    />
+
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;600;800&family=Quicksand:wght@300;400;500;700&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Styles -->
-    <link rel="stylesheet" href="../../css/future.css">
-    <link rel="stylesheet" href="../../css/animations.css">
-    <link rel="stylesheet" href="../../css/dynasty.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../../assets/css/future.css" />
+    <link rel="stylesheet" href="../../css/animations.css" />
+    <link rel="stylesheet" href="../../css/dynasty.css" />
+  </head>
+  <body>
     <!-- Portal Loader -->
-    <div class="portal-loader" id="portal-loader">
-        <div class="portal-circle">
-            <div class="portal-center">
-                <div class="portal-glow"></div>
-            </div>
-        </div>
-        <div class="portal-text" id="portal-text">INITIALIZING PORTAL</div>
+    <div class="portal-loader">
+      <div class="portal-circle"></div>
+      <div class="portal-text">INITIALIZING PORTAL</div>
     </div>
-    
+
     <!-- Particles Background -->
     <div id="particles-js"></div>
-    
+
     <!-- Holographic navigation -->
     <nav class="nav-holographic">
-        <div class="nav-logo">
-            <a href="../index.html">
-                <img src="../../assets/images/logo/logo-main.png" alt="Miss Star International" class="logo-small">
-            </a>
+      <div class="logo-container">
+        <a href="../index.html">
+          <img
+            src="../../assets/images/logo-white.png"
+            alt="MSI Logo"
+            class="site-logo"
+          />
+        </a>
+      </div>
+      <ul class="nav-menu">
+        <li>
+          <a href="../dynasty-portal/index.html" class="nav-link active"
+            >Dynasty Portal</a
+          >
+        </li>
+        <li>
+          <a href="../dynasty-benefits/index.html" class="nav-link"
+            >Dynasty Benefits</a
+          >
+        </li>
+        <li><a href="../empower/index.html" class="nav-link">Empower</a></li>
+        <li>
+          <a href="../hall-of-fame/index.html" class="nav-link">Hall of Fame</a>
+        </li>
+        <li>
+          <a href="../reality-show/index.html" class="nav-link">Reality Show</a>
+        </li>
+        <li>
+          <a href="../consortium/index.html" class="nav-link">Consortium</a>
+        </li>
+        <li>
+          <a href="../competition/index.html" class="nav-link">Competition</a>
+        </li>
+        <li><a href="../contact/index.html" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="language-selector">
+        <button class="lang-btn" aria-expanded="false">EN</button>
+        <div class="lang-dropdown">
+          <a href="../../es/dynasty-portal/index.html" class="lang-option"
+            >ES</a
+          >
+          <a href="../../pt/dynasty-portal/index.html" class="lang-option"
+            >PT</a
+          >
+          <a href="../../fr/dynasty-portal/index.html" class="lang-option"
+            >FR</a
+          >
+          <a href="../../th/dynasty-portal/index.html" class="lang-option"
+            >TH</a
+          >
+          <a href="../../vi/dynasty-portal/index.html" class="lang-option"
+            >VI</a
+          >
         </div>
-        <div class="nav-menu">
-            <a href="../index.html" class="menu-item">Home</a>
-            <a href="../index.html#about" class="menu-item">About</a>
-            <a href="../index.html#franchises" class="menu-item">Franchises</a>
-            <a href="../index.html#competition" class="menu-item">Competition</a>
-            <a href="../apply.html" class="menu-item">Apply</a>
-        </div>
-        <div class="language-selector">
-            <div class="current-lang">EN</div>
-            <div class="languages-dropdown">
-                <a href="../../es/dynasty-portal/index.html" class="lang-option">ES</a>
-                <a href="../../pt/dynasty-portal/index.html" class="lang-option">PT</a>
-                <a href="../../vi/dynasty-portal/index.html" class="lang-option">VI</a>
-                <a href="../../th/dynasty-portal/index.html" class="lang-option">TH</a>
-            </div>
-        </div>
+      </div>
     </nav>
 
     <!-- Main Content -->
-    <main class="main-container">
-        <!-- Page Header -->
-        <section class="page-header section-future fade-in-scroll">
-            <h1 class="page-title glitch-text">DYNASTY PORTAL</h1>
-            <p class="page-subtitle">Your Gateway to Excellence</p>
-            <div class="hero-flourish">
-                <div class="decor-line"></div>
-                <div class="decor-circle"></div>
-                <div class="decor-line"></div>
-        </div>
-    </section>
-
-        <!-- Features Section -->
-        <section class="features-section section-future fade-in-scroll">
+    <main>
+      <section class="hero-cyber">
         <div class="container">
-            <div class="section-title">
-                    <h2>Portal Features</h2>
-                    <p>Access exclusive tools and resources designed for our dynasty members</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="icon-profile"></i>
-                        </div>
-                        <h3>Member Dashboard</h3>
-                        <p>Personalized dashboard with activity tracking and updates</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="icon-calendar"></i>
-                </div>
-                        <h3>Event Management</h3>
-                        <p>Schedule and manage your pageant events efficiently</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="icon-resources"></i>
-                </div>
-                        <h3>Resource Library</h3>
-                        <p>Access training materials and exclusive content</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="icon-communication"></i>
-                </div>
-                        <h3>Communication Hub</h3>
-                        <p>Connect with other members and administrators</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="icon-analytics"></i>
-                </div>
-                        <h3>Analytics</h3>
-                        <p>Track performance and engagement metrics</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="icon-support"></i>
-                </div>
-                        <h3>24/7 Support</h3>
-                        <p>Get help whenever you need it</p>
-                </div>
-            </div>
+          <h1 class="cyber-title">Dynasty Portal</h1>
+          <p class="hero-text">
+            Enter the future of pageantry through our revolutionary Dynasty
+            Portal
+          </p>
         </div>
-    </section>
+        <div id="particles-js"></div>
+      </section>
 
-        <!-- Membership Tiers -->
-        <section class="tiers-section section-future fade-in-scroll">
+      <section class="portal-features">
         <div class="container">
-            <div class="section-title">
-                <h2>Membership Tiers</h2>
-                    <p>Choose the level that best suits your needs</p>
+          <h2 class="section-title text-gradient">Portal Features</h2>
+          <div class="features-grid">
+            <div class="feature-card holographic">
+              <h3>Digital Identity</h3>
+              <p>
+                Create and manage your unique digital identity in the MSI
+                ecosystem
+              </p>
             </div>
-            <div class="tiers-container">
-                <div class="tier-card">
-                    <div class="tier-header">
-                            <h3>Standard</h3>
-                            <div class="tier-price">$99/month</div>
-                    </div>
-                    <div class="tier-content">
-                        <ul class="tier-features">
-                                <li>Basic Dashboard Access</li>
-                                <li>Event Calendar</li>
-                                <li>Resource Library</li>
-                                <li>Community Forum</li>
-                                <li>Email Support</li>
-                        </ul>
-                            <a href="../apply.html" class="btn-future"><span>Get Started</span></a>
-                        </div>
-                    </div>
-                    <div class="tier-card featured">
-                    <div class="tier-header">
-                            <h3>Premium</h3>
-                            <div class="tier-price">$199/month</div>
-                    </div>
-                    <div class="tier-content">
-                        <ul class="tier-features">
-                                <li>Advanced Dashboard</li>
-                                <li>Priority Event Booking</li>
-                                <li>Premium Resources</li>
-                                <li>Direct Messaging</li>
-                                <li>24/7 Priority Support</li>
-                                <li>Analytics Tools</li>
-                        </ul>
-                            <a href="../apply.html" class="btn-future accent"><span>Get Started</span></a>
-                        </div>
-                    </div>
-                <div class="tier-card">
-                    <div class="tier-header">
-                            <h3>Enterprise</h3>
-                            <div class="tier-price">Custom</div>
-                    </div>
-                    <div class="tier-content">
-                        <ul class="tier-features">
-                                <li>Custom Dashboard</li>
-                                <li>VIP Event Access</li>
-                                <li>Exclusive Resources</li>
-                                <li>Team Management</li>
-                                <li>Dedicated Support</li>
-                                <li>Custom Analytics</li>
-                                <li>API Access</li>
-                        </ul>
-                            <a href="../contact.html" class="btn-future"><span>Contact Us</span></a>
-                        </div>
-                </div>
+            <div class="feature-card holographic">
+              <h3>Secure Access</h3>
+              <p>
+                Advanced encryption and blockchain technology protecting your
+                data
+              </p>
             </div>
+            <div class="feature-card holographic">
+              <h3>Virtual Events</h3>
+              <p>
+                Participate in exclusive virtual events and training sessions
+              </p>
+            </div>
+            <div class="feature-card holographic">
+              <h3>Global Network</h3>
+              <p>Connect with contestants and organizers worldwide</p>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-        <!-- Call to Action -->
-        <section class="cta-section section-future fade-in-scroll">
+      <section class="portal-access">
         <div class="container">
-                <h2>Ready to Join?</h2>
-                <p>Start your journey with Miss Star International today</p>
-                <a href="../apply.html" class="btn-future accent"><span>Apply Now</span></a>
+          <h2 class="section-title">Access Levels</h2>
+          <div class="access-grid">
+            <div class="access-card tilt-card">
+              <div class="access-header">
+                <h3>Contestant</h3>
+                <div class="access-icon">👑</div>
+              </div>
+              <ul class="access-features">
+                <li>Personal profile management</li>
+                <li>Training resources access</li>
+                <li>Event participation</li>
+                <li>Community interaction</li>
+              </ul>
+              <a href="#" class="holo-button">Apply Now</a>
+            </div>
+            <div class="access-card tilt-card">
+              <div class="access-header">
+                <h3>Director</h3>
+                <div class="access-icon">🌟</div>
+              </div>
+              <ul class="access-features">
+                <li>Franchise management</li>
+                <li>Contestant oversight</li>
+                <li>Event organization</li>
+                <li>Resource distribution</li>
+              </ul>
+              <a href="#" class="holo-button">Learn More</a>
+            </div>
+            <div class="access-card tilt-card">
+              <div class="access-header">
+                <h3>Partner</h3>
+                <div class="access-icon">🤝</div>
+              </div>
+              <ul class="access-features">
+                <li>Sponsorship opportunities</li>
+                <li>Brand integration</li>
+                <li>Event collaboration</li>
+                <li>Network expansion</li>
+              </ul>
+              <a href="#" class="holo-button">Partner With Us</a>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
+
+      <section class="portal-cta">
+        <div class="container">
+          <div class="cta-content">
+            <h2>Ready to Enter the Future?</h2>
+            <p class="lead-text">
+              Join the MSI Dynasty Portal and be part of the next evolution in
+              pageantry
+            </p>
+            <a href="#" class="neon-button">Access Portal</a>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- Footer -->
-    <footer class="footer-future">
-            <div class="footer-content">
-            <div class="footer-logo">
-                <img src="../../assets/images/logo/logo-main.png" alt="Miss Star International">
+    <footer class="cyber-footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <img
+              src="../../assets/images/logo-white.png"
+              alt="MSI Logo"
+              class="footer-logo-img"
+            />
+          </div>
+          <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="../competition/index.html">Competition</a></li>
+              <li><a href="../contact/index.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-social">
+            <h3>Connect With Us</h3>
+            <div class="social-icons">
+              <a href="#" class="social-icon">FB</a>
+              <a href="#" class="social-icon">IG</a>
+              <a href="#" class="social-icon">TW</a>
+              <a href="#" class="social-icon">YT</a>
             </div>
-            <div class="footer-links">
-                <div class="footer-column">
-                    <h3>EXPLORE</h3>
-                    <ul>
-                        <li><a href="../index.html#about">About</a></li>
-                        <li><a href="../index.html#franchises">Franchises</a></li>
-                        <li><a href="../index.html#competition">Competition</a></li>
-                        <li><a href="../news.html">News</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>LEGAL</h3>
-                    <ul>
-                        <li><a href="../privacy.html">Privacy</a></li>
-                        <li><a href="../terms.html">Terms</a></li>
-                        <li><a href="../cookies.html">Cookies</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>CONNECT</h3>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon instagram"></a>
-                        <a href="#" class="social-icon facebook"></a>
-                        <a href="#" class="social-icon twitter"></a>
-                        <a href="#" class="social-icon youtube"></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-subscribe">
-                <h3>SUBSCRIBE</h3>
-                <p>Receive the latest news directly to your device</p>
-                <form class="subscribe-form">
-                    <input type="email" placeholder="Your email" required>
-                    <button type="submit" class="subscribe-button">SEND</button>
-                </form>
-            </div>
+          </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; <span id="current-year">2025</span> Miss Star International. All Rights Reserved.</p>
+          <p>&copy; 2024 Miss Star International. All rights reserved.</p>
         </div>
+      </div>
     </footer>
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="../../js/particles.js"></script>
-    <script src="../../js/loader.js"></script>
-    <script src="../../js/animations.js"></script>
-    <script src="../../js/main.js"></script>
-    <script src="../../js/dynasty.js"></script>
-    <script>
-        // Update year
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-    </script>
-</body>
-</html> 
+    <script src="../../assets/js/particles.min.js"></script>
+    <script src="../../assets/js/vanilla-tilt.min.js"></script>
+    <script src="../../assets/js/main.js"></script>
+  </body>
+</html>

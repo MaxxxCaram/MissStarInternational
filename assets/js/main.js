@@ -2,40 +2,36 @@
  * Main JavaScript for Miss Star International
  * Dependencies:
  * - Three.js: 3D elements
- * - GSAP: Fluid animations
- * - WebGL: Visual effects
- * - Intersection Observer: Scroll animations
+ * - Particles.js: Background effects
+ * - VanillaTilt: Card tilt effects
  * - Web Audio API: Sound effects
  */
 
-// Inicialización
+// Initialize on DOM Load
 document.addEventListener("DOMContentLoaded", () => {
   let audioContext;
 
-  // Inicializar AudioContext solo después de interacción del usuario
+  // Initialize AudioContext only after user interaction
   document.addEventListener("click", initAudio, { once: true });
 
   function initAudio() {
     if (!audioContext) {
       audioContext = new (window.AudioContext || window.webkitAudioContext)();
-      // Aquí puedes agregar tu lógica de audio
     }
   }
 
-  // Verificar recursos críticos
-  const requiredScripts = ["THREE", "gsap", "particlesJS", "VanillaTilt"];
-
-  // Verificar si faltan scripts
+  // Check for required scripts
+  const requiredScripts = ["THREE", "particlesJS", "VanillaTilt"];
   const missingScripts = requiredScripts.filter((script) => {
     return typeof window[script] === "undefined";
   });
 
   if (missingScripts.length > 0) {
-    console.error("Scripts faltantes:", missingScripts);
+    console.error("Missing scripts:", missingScripts);
     return;
   }
 
-  // Inicializar componentes
+  // Initialize components
   try {
     initPortalLoader();
     initParticlesSystem();
@@ -44,15 +40,21 @@ document.addEventListener("DOMContentLoaded", () => {
     initScrollAnimations();
     initMobileMenu();
     initLanguageSelector();
+    if (document.querySelector(".consortium-page")) {
+      initConsortiumPage();
+    }
+    if (document.querySelector(".dynasty-portal")) {
+      initDynastyPortal();
+    }
   } catch (error) {
-    console.error("Error inicializando componentes:", error);
+    console.error("Error initializing components:", error);
   }
 });
 
-// Inicializar Portal Loader
+// Portal Loader
 function initPortalLoader() {
-  const loader = document.getElementById("portal-loader");
-  const text = document.getElementById("portal-text");
+  const loader = document.querySelector(".portal-loader");
+  const text = document.querySelector(".portal-text");
   if (!loader || !text) return;
 
   const loadingTexts = [
@@ -80,25 +82,87 @@ function initPortalLoader() {
   }, 1000);
 }
 
-// Inicializar Sistema de Partículas
+// Particles System
 function initParticlesSystem() {
   const particlesContainer = document.getElementById("particles-js");
   if (!particlesContainer) return;
 
-  const particles = new ParticlesSystem("#particles-js", {
-    particleCount: 80,
-    particleColor: "#00e5ff",
-    lineColor: "#00e5ff",
-    particleRadius: 3,
-    lineWidth: 1,
-    lineDistance: 150,
-    speed: 1,
-    density: 10000,
-    interactive: true,
+  particlesJS("particles-js", {
+    particles: {
+      number: {
+        value: 80,
+        density: {
+          enable: true,
+          value_area: 800,
+        },
+      },
+      color: {
+        value: "#00e5ff",
+      },
+      shape: {
+        type: "circle",
+      },
+      opacity: {
+        value: 0.5,
+        random: false,
+        anim: {
+          enable: false,
+        },
+      },
+      size: {
+        value: 3,
+        random: true,
+        anim: {
+          enable: false,
+        },
+      },
+      line_linked: {
+        enable: true,
+        distance: 150,
+        color: "#00e5ff",
+        opacity: 0.4,
+        width: 1,
+      },
+      move: {
+        enable: true,
+        speed: 2,
+        direction: "none",
+        random: false,
+        straight: false,
+        out_mode: "out",
+        bounce: false,
+      },
+    },
+    interactivity: {
+      detect_on: "canvas",
+      events: {
+        onhover: {
+          enable: true,
+          mode: "grab",
+        },
+        onclick: {
+          enable: true,
+          mode: "push",
+        },
+        resize: true,
+      },
+      modes: {
+        grab: {
+          distance: 140,
+          line_linked: {
+            opacity: 1,
+          },
+        },
+        push: {
+          particles_nb: 4,
+        },
+      },
+    },
+    retina_detect: true,
   });
 }
 
-// Inicializar Efectos Holográficos
+// Holographic Effects
 function initHolographicEffects() {
   const holographicElements = document.querySelectorAll(".holographic");
 
@@ -125,12 +189,12 @@ function initHolographicEffects() {
   });
 }
 
-// Inicializar Tilt en Cards
+// Tilt Cards
 function initTiltCards() {
   const tiltElements = document.querySelectorAll(".tilt-card");
 
   tiltElements.forEach((element) => {
-    new VanillaTilt(element, {
+    VanillaTilt.init(element, {
       max: 25,
       speed: 400,
       glare: true,
@@ -152,9 +216,7 @@ function initScrollAnimations() {
         }
       });
     },
-    {
-      threshold: 0.1,
-    }
+    { threshold: 0.1 }
   );
 
   animatedElements.forEach((element) => {
@@ -165,16 +227,20 @@ function initScrollAnimations() {
 // Language Selector
 function initLanguageSelector() {
   const selector = document.querySelector(".language-selector");
-  const current = selector.querySelector(".current-lang");
-  const dropdown = selector.querySelector(".languages-dropdown");
+  if (!selector) return;
 
-  current.addEventListener("click", () => {
-    dropdown.style.display =
-      dropdown.style.display === "flex" ? "none" : "flex";
+  const button = selector.querySelector(".lang-btn");
+  const dropdown = selector.querySelector(".lang-dropdown");
+
+  button?.addEventListener("click", () => {
+    const isExpanded = button.getAttribute("aria-expanded") === "true";
+    button.setAttribute("aria-expanded", !isExpanded);
+    dropdown.style.display = isExpanded ? "none" : "flex";
   });
 
   document.addEventListener("click", (e) => {
     if (!selector.contains(e.target)) {
+      button?.setAttribute("aria-expanded", "false");
       dropdown.style.display = "none";
     }
   });
@@ -190,5 +256,129 @@ function initMobileMenu() {
   menuToggle.addEventListener("click", () => {
     navMenu.classList.toggle("active");
     menuToggle.classList.toggle("active");
+  });
+}
+
+// Consortium Page
+function initConsortiumPage() {
+  // Initialize franchise cards
+  const franchiseCards = document.querySelectorAll(".franchise-card");
+
+  franchiseCards.forEach((card) => {
+    // Initialize tilt effect
+    VanillaTilt.init(card, {
+      max: 10,
+      speed: 400,
+      glare: true,
+      "max-glare": 0.3,
+      scale: 1.02,
+    });
+
+    // Add click transition
+    card.addEventListener("click", function (e) {
+      e.preventDefault();
+      const href = this.getAttribute("href");
+
+      // Add transition effect
+      document.body.style.opacity = "0";
+      document.body.style.transition = "opacity 0.5s ease";
+
+      // Navigate after transition
+      setTimeout(() => {
+        window.location.href = href;
+      }, 500);
+    });
+  });
+
+  // Initialize scroll animations
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = "1";
+          entry.target.style.transform = "translateY(0)";
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  franchiseCards.forEach((card) => {
+    card.style.opacity = "0";
+    card.style.transform = "translateY(50px)";
+    card.style.transition = "all 0.6s ease-out";
+    observer.observe(card);
+  });
+
+  // Initialize CTA parallax
+  const ctaSection = document.querySelector(".cta-section");
+  if (ctaSection) {
+    window.addEventListener("scroll", () => {
+      const scrolled = window.pageYOffset;
+      const rate = scrolled * 0.15;
+      ctaSection.style.backgroundPositionY = `${rate}px`;
+    });
+  }
+}
+
+// Dynasty Portal Initialization
+function initDynastyPortal() {
+  const featureCards = document.querySelectorAll(".feature-card");
+  const accessCards = document.querySelectorAll(".access-card");
+  const portalCta = document.querySelector(".portal-cta");
+
+  // Initialize tilt effect on feature cards
+  if (featureCards.length) {
+    featureCards.forEach((card) => {
+      VanillaTilt.init(card, {
+        max: 10,
+        speed: 400,
+        glare: true,
+        "max-glare": 0.3,
+        scale: 1.05,
+      });
+    });
+  }
+
+  // Initialize parallax effect on access cards
+  if (accessCards.length) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.transform = "translateY(0)";
+            entry.target.style.opacity = "1";
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    accessCards.forEach((card) => {
+      card.style.transform = "translateY(50px)";
+      card.style.opacity = "0";
+      card.style.transition = "transform 0.6s ease, opacity 0.6s ease";
+      observer.observe(card);
+    });
+  }
+
+  // Initialize portal CTA parallax effect
+  if (portalCta) {
+    window.addEventListener("scroll", () => {
+      const scrolled = window.pageYOffset;
+      const rate = scrolled * 0.15;
+      portalCta.style.backgroundPositionY = `${rate}px`;
+    });
+  }
+
+  // Initialize hover effects
+  document.querySelectorAll(".access-icon").forEach((icon) => {
+    icon.addEventListener("mouseover", function () {
+      this.style.transform = "translateZ(30px) scale(1.1)";
+    });
+
+    icon.addEventListener("mouseout", function () {
+      this.style.transform = "translateZ(20px)";
+    });
   });
 }
