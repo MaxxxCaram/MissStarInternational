@@ -1,0 +1,63 @@
+// Página 404 personalizada para Vercel
+export const dynamic = "force-dynamic";
+
+export default function NotFound() {
+  return (
+    <html>
+      <head>
+        <title>Página no encontrada - Miss Star International</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <style>
+          body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #000046, #000013);
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+          }
+          .container {
+            max-width: 600px;
+            padding: 2rem;
+          }
+          h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+          p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+          }
+          a {
+            color: #00ffff;
+            text-decoration: none;
+            border: 1px solid #00ffff;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            transition: all 0.3s;
+          }
+          a:hover {
+            background-color: rgba(0, 255, 255, 0.1);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+          }
+        </style>
+      </head>
+      <body>
+        <div className="container">
+          <h1>404 - Página no encontrada</h1>
+          <p>Lo sentimos, la página que estás buscando no existe.</p>
+          <a href="/">Volver a la página principal</a>
+        </div>
+      </body>
+    </html>
+  );
+} 

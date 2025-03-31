@@ -9,9 +9,19 @@
       "permanent": false
     },
     {
-      "source": "/:lang(es|en|pt|th|vi)/:path*",
-      "destination": "/:lang/:path*",
+      "source": "/api/language-detect",
+      "destination": "/api/redirects",
       "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/:lang(es|en|pt|th|vi)/:path*",
+      "destination": "/:lang/:path*"
+    },
+    {
+      "source": "/404",
+      "destination": "/not-found"
     }
   ],
   "headers": [
@@ -40,6 +50,21 @@
           "value": "public, max-age=31536000, immutable"
         }
       ]
+    },
+    {
+      "source": "/(.*)\\.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
     }
-  ]
+  ],
+  "functions": {
+    "api/**/*.js": {
+      "memory": 1024,
+      "maxDuration": 10
+    }
+  }
 }
