@@ -1,0 +1,118 @@
+{
+  "entities": {
+    "organization": {
+      "MissStarInternational": {
+        "type": "Organization",
+        "properties": {
+          "name": "Miss Star International",
+          "domain": "missstarinternational.com",
+          "description": "Organización principal del concurso de belleza"
+        }
+      }
+    },
+    "franchises": {
+      "MissStarPeru": {
+        "type": "Franchise",
+        "properties": {
+          "name": "Miss Star Peru",
+          "subdomain": "peru.missstarinternational.com",
+          "director": "Jessica Salas",
+          "description": "Empowering trans visibility in the Andean region"
+        }
+      },
+      "MissStarColombia": {
+        "type": "Franchise",
+        "properties": {
+          "name": "Miss Star Colombia",
+          "subdomain": "colombia.missstarinternational.com",
+          "director": "Maria González",
+          "description": "Leading trans representation in South America"
+        }
+      },
+      "MissStarThailand": {
+        "type": "Franchise",
+        "properties": {
+          "name": "Miss Star Thailand",
+          "subdomain": "thailand.missstarinternational.com",
+          "director": "Somchai Wang",
+          "description": "Thailand's premier trans beauty pageant"
+        }
+      },
+      "MissStarBrazil": {
+        "type": "Franchise",
+        "properties": {
+          "name": "Miss Star Brazil",
+          "subdomain": "brazil.missstarinternational.com",
+          "director": "Ana Silva",
+          "description": "Brazil's leading trans representation platform"
+        }
+      }
+    },
+    "technical": {
+      "SubdomainSystem": {
+        "type": "System",
+        "properties": {
+          "name": "Subdomain Management System",
+          "pattern": "[country].missstarinternational.com",
+          "features": [
+            "DNS configuration",
+            "Distributed hosting",
+            "SSL certificates",
+            "Custom domain mapping"
+          ]
+        }
+      },
+      "FranchisePortal": {
+        "type": "WebApp",
+        "properties": {
+          "name": "Franchise Management Portal",
+          "features": [
+            "Director authentication",
+            "Content management",
+            "Event scheduling",
+            "Contestant registration"
+          ]
+        }
+      }
+    }
+  },
+  "relations": [
+    {
+      "from": "MissStarInternational",
+      "to": "MissStarPeru",
+      "type": "manages",
+      "properties": {
+        "since": "2023"
+      }
+    },
+    {
+      "from": "MissStarInternational",
+      "to": "MissStarColombia",
+      "type": "manages",
+      "properties": {
+        "since": "2023"
+      }
+    },
+    {
+      "from": "SubdomainSystem",
+      "to": "MissStarPeru",
+      "type": "hosts",
+      "properties": {
+        "url": "peru.missstarinternational.com"
+      }
+    },
+    {
+      "from": "SubdomainSystem",
+      "to": "MissStarColombia",
+      "type": "hosts",
+      "properties": {
+        "url": "colombia.missstarinternational.com"
+      }
+    }
+  ],
+  "metadata": {
+    "lastUpdated": "2024-03-20",
+    "version": "1.0",
+    "description": "Graph structure for Miss Star International franchise system"
+  }
+}
