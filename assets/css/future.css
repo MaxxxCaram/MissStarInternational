@@ -51,12 +51,8 @@ body {
     var(--neon-primary),
     var(--neon-secondary)
   );
-  background-clip: text;
   -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -ms-background-clip: text;
-  -o-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background-clip: text;
   color: transparent;
   text-shadow: 2px 2px 0px #ffd700, -2px -2px 0px #ff69b4;
   animation: titleFloat 3s ease-in-out infinite;
@@ -329,8 +325,8 @@ h6 {
   font-family: var(--font-primary);
   margin: 0 0 1rem;
   background: var(--primary-gradient);
-  background-clip: text;
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
   text-transform: uppercase;
 }
@@ -658,7 +654,7 @@ a:hover {
 /* New utility class */
 .text-gradient {
   background: var(--primary-gradient);
-  background-clip: text;
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
 }
