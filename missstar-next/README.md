@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Miss Star International - Next.js Website
 
-## Getting Started
+Sitio web oficial de Miss Star International, construido con Next.js 14, TypeScript y Tailwind CSS.
 
-First, run the development server:
+## 🌟 Características
+
+- ⚡️ Next.js 14 con App Router
+- 🎨 Tailwind CSS para estilos modernos
+- 🌍 Soporte multilingüe (EN, ES, PT, TH, VI)
+- 📱 Diseño responsive
+- 🔍 SEO optimizado
+- 📊 Analytics integrado
+- 🚀 Desplegado en Vercel
+
+## 🚀 Inicio Rápido
 
 ```bash
+# Instalar dependencias
+npm install
+
+# Iniciar servidor de desarrollo
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Construir para producción
+npm run build
+
+# Iniciar servidor de producción
+npm run start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📁 Estructura del Proyecto
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+missstar-next/
+├── src/
+│   ├── app/
+│   │   ├── (languages)/
+│   │   │   ├── en/     # Contenido en inglés
+│   │   │   ├── es/     # Contenido en español
+│   │   │   ├── pt/     # Contenido en portugués
+│   │   │   ├── th/     # Contenido en tailandés
+│   │   │   └── vi/     # Contenido en vietnamita
+│   │   ├── layout.tsx  # Layout principal
+│   │   └── globals.css # Estilos globales
+│   └── middleware.ts   # Middleware para routing y idiomas
+├── public/            # Archivos estáticos
+└── package.json      # Dependencias y scripts
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🌍 Soporte de Idiomas
 
-## Learn More
+El sitio detecta automáticamente el idioma preferido del usuario y redirige a la versión correspondiente:
 
-To learn more about Next.js, take a look at the following resources:
+- 🇺🇸 Inglés (default)
+- 🇪🇸 Español
+- 🇵🇹 Portugués
+- 🇹🇭 Tailandés
+- 🇻🇳 Vietnamita
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠 Tecnologías Utilizadas
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Next.js 14
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- Three.js
+- GSAP
+- Vercel Analytics
+- Vercel Speed Insights
 
-## Deploy on Vercel
+## 📦 Despliegue
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+El sitio está configurado para despliegue automático en Vercel:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Conectar con el repositorio de GitHub
+2. Vercel detectará automáticamente la configuración de Next.js
+3. El despliegue se realizará automáticamente en cada push a main
+
+## 🤝 Contribución
+
+1. Fork el repositorio
+2. Crea una rama para tu feature (`git checkout -b feature/amazing-feature`)
+3. Commit tus cambios (`git commit -m 'Add amazing feature'`)
+4. Push a la rama (`git push origin feature/amazing-feature`)
+5. Abre un Pull Request
+
+## 📝 Licencia
+
+Copyright © 2024 Miss Star International. Todos los derechos reservados.
