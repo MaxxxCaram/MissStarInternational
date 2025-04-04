@@ -1,0 +1,34 @@
+{
+  "navigation": {
+    "home": "Início",
+    "about": "Sobre",
+    "contestants": "Candidatas",
+    "news": "Notícias",
+    "contact": "Contato"
+  },
+  "hero": {
+    "title": "Miss Star International",
+    "subtitle": "Celebrando a Beleza, a Graça e a Inteligência",
+    "cta": "Inscreva-se Agora"
+  },
+  "footer": {
+    "contact": {
+      "title": "Contate-nos",
+      "email": "Email: info@missstarinternational.com",
+      "phone": "Telefone: +1 (555) 123-4567"
+    },
+    "social": {
+      "title": "Siga-nos",
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "twitter": "Twitter"
+    },
+    "links": {
+      "title": "Links Rápidos",
+      "privacy": "Política de Privacidade",
+      "terms": "Termos de Serviço",
+      "faq": "Perguntas Frequentes"
+    },
+    "copyright": "© {year} Miss Star International. Todos os direitos reservados."
+  }
+}

@@ -1,43 +1,34 @@
-/* Portal Loader */
-.portal-loader {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    background: var(--cyber-dark);
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/**
+ * Animations.css - Animaciones y efectos visuales para Miss Star International
+ */
+
+/* Animaciones básicas */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-.portal-ring {
-    width: 200px;
-    height: 200px;
-    border: 4px solid var(--neon-primary);
-    border-radius: 50%;
-    animation: portalSpin 2s linear infinite;
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
 }
 
-/* Hologram Effect */
-.hologram {
-    position: relative;
-    animation: hologramFloat 3s ease-in-out infinite;
+@keyframes glow {
+    0% { 
+        filter: drop-shadow(0 0 2px rgba(212, 175, 55, 0.5)); 
+    }
+    100% { 
+        filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.8));
+    }
 }
 
-@keyframes hologramFloat {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-10px) rotate(5deg); }
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
 }
 
-/* Particle Effects */
-#particles-js {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-}
-
-@keyframes portalSpin {
+@keyframes rotate {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
@@ -48,19 +39,215 @@
     100% { transform: scale(1); }
 }
 
-@keyframes glitch {
-    0% { transform: translate(0); }
-    20% { transform: translate(-2px, 2px); }
-    40% { transform: translate(-2px, -2px); }
-    60% { transform: translate(2px, 2px); }
-    80% { transform: translate(2px, -2px); }
-    100% { transform: translate(0); }
+/* Efecto de portal */
+#portal-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease;
 }
 
-.pulse {
-    animation: pulse 2s infinite;
+#portal-loader:before {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 2px solid #D4AF37;
+    animation: rotate 4s linear infinite;
 }
 
-.glitch {
-    animation: glitch 0.3s infinite;
+#portal-loader:after {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px solid #D4AF37;
+    animation: rotate 3s linear infinite reverse;
+}
+
+#portal-loader.active {
+    opacity: 1;
+}
+
+#portal-loader.fade-out {
+    opacity: 0;
+}
+
+/* Animaciones de elementos al hacer scroll */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-animate.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Efectos de hover */
+.hover-glow {
+    text-shadow: 0 0 10px #D4AF37, 0 0 20px #D4AF37;
+    transition: text-shadow 0.3s ease;
+}
+
+.card-hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+/* Animación de tarjetas de franquicia */
+.franchise-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.franchise-card:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
+}
+
+/* Animación del timeline */
+.timeline-item {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.timeline-item.animate {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Animación de títulos */
+.title-animate {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.title-animate:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #D4AF37;
+    transition: width 0.8s ease;
+}
+
+.title-animate.animate:after {
+    width: 100%;
+}
+
+/* Animaciones de entrada */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Clases de animación */
+.animate-in {
+    animation: fadeInUp 1s ease forwards;
+}
+
+.section {
+    opacity: 0;
+}
+
+.consortium-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.consortium-card.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Efectos hover mejorados */
+.nav-links a {
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gold);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Efecto de brillo en cards */
+.consortium-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.consortium-card:hover::before {
+    left: 100%;
+}
+
+/* Animación del título */
+.hero h1 {
+    background: linear-gradient(to right, var(--gold), #FFF8DC);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer 2s infinite linear;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
 } 

@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+  --font-inter: var(--font-inter);
+  --font-playfair: var(--font-playfair);
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  @apply font-sans;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-serif;
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+}
+
+.hover-scale {
+  @apply transition-transform duration-300 hover:scale-105;
+}
+
+.button-primary {
+  @apply bg-primary hover:bg-secondary text-white font-bold py-3 px-8 rounded-full transition-colors;
+}
+
+.button-secondary {
+  @apply bg-secondary hover:bg-primary text-white font-bold py-3 px-8 rounded-full transition-colors;
+}
+
+.nav-link {
+  @apply hover:text-secondary transition-colors;
+}
+
+.footer-link {
+  @apply hover:text-secondary transition-colors;
+}
+
+.section-padding {
+  @apply py-16 md:py-24;
+}
+
+.container-padding {
+  @apply px-4 md:px-6 lg:px-8;
+}

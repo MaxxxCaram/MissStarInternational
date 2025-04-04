@@ -1,0 +1,34 @@
+{
+  "navigation": {
+    "home": "หน้าแรก",
+    "about": "เกี่ยวกับ",
+    "contestants": "ผู้เข้าประกวด",
+    "news": "ข่าวสาร",
+    "contact": "ติดต่อ"
+  },
+  "hero": {
+    "title": "Miss Star International",
+    "subtitle": "เฉลิมฉลองความงาม ความสง่างาม และสติปัญญา",
+    "cta": "ลงทะเบียนตอนนี้"
+  },
+  "footer": {
+    "contact": {
+      "title": "ติดต่อเรา",
+      "email": "อีเมล: info@missstarinternational.com",
+      "phone": "โทรศัพท์: +1 (555) 123-4567"
+    },
+    "social": {
+      "title": "ติดตามเรา",
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "twitter": "Twitter"
+    },
+    "links": {
+      "title": "ลิงก์ด่วน",
+      "privacy": "นโยบายความเป็นส่วนตัว",
+      "terms": "เงื่อนไขการให้บริการ",
+      "faq": "คำถามที่พบบ่อย"
+    },
+    "copyright": "© {year} Miss Star International สงวนลิขสิทธิ์"
+  }
+}
