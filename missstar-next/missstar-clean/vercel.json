@@ -1,0 +1,30 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "next build",
+  "devCommand": "next dev",
+  "installCommand": "npm install",
+  "outputDirectory": ".next",
+  "regions": ["cdg1"],
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/en"
+    },
+    {
+      "source": "/es",
+      "destination": "/es"
+    },
+    {
+      "source": "/pt",
+      "destination": "/pt"
+    },
+    {
+      "source": "/th",
+      "destination": "/th"
+    },
+    {
+      "source": "/vi",
+      "destination": "/vi"
+    }
+  ]
+}
