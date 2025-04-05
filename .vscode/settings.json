@@ -8,7 +8,7 @@
         "Grisales",
         "missstarinternational"
     ],
-    "liveServer.settings.port": 5503,
+    "liveServer.settings.port": 5504,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "php.validate.enable": false,
     "python.linting.enabled": false,
