@@ -88,7 +88,7 @@ Si deseas contribuir a este proyecto:
 
 ## Créditos
 
-Desarrollado por [Tu Nombre] para Miss Star International.
+Desarrollado por MaxxxC para Miss Star International.
 
 ## Licencia
 
